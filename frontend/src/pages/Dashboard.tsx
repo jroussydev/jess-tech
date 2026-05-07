@@ -34,6 +34,16 @@ useEffect(() => {
     })
     .catch(err => console.log("ERREUR FETCH:", err))
 }, [])
+
+//Bouton DELETE
+const handleDeleteProject = (id: number) => {
+  fetch(`http://localhost:3001/projects/${id}`, {
+    method: "DELETE",
+  }).then(() => {
+    setProjects(projects.filter((project) => project.id !== id))
+  })
+  }
+
   // 6. AFFICHAGE
   return (
     <div>
@@ -44,6 +54,9 @@ useEffect(() => {
           <h3>{project.name}</h3>
           <p>{project.github_url}</p>
           <p>{project.live_url}</p>
+          <button onClick={() => handleDeleteProject(project.id)}>
+  Delete
+</button>
         </div>
       ))}
     </div>
