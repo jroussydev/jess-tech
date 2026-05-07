@@ -41,7 +41,7 @@ useEffect(() => {
     .catch(err => console.log("ERREUR FETCH:", err))
 }, [])
 
-//Bouton DELETE
+//DELETE BOUTON
 const handleDeleteProject = (id: number) => {
   fetch(`http://localhost:3001/projects/${id}`, {
     method: "DELETE",
@@ -50,7 +50,7 @@ const handleDeleteProject = (id: number) => {
   })
   }
 
-  //form CREATE
+  //CREATE FORM
   const handleCreateProject = (event: React.FormEvent<HTMLFormElement>) => {
   event.preventDefault()
 
@@ -63,7 +63,7 @@ const handleDeleteProject = (id: number) => {
       name,
       github_url: githubUrl,
       live_url: liveUrl,
-      stack: [],
+      stack: stack.split(",").map((item) => item.trim()),
     }),
   })
     .then((res) => res.json())
@@ -114,6 +114,7 @@ const handleDeleteProject = (id: number) => {
           <h3>{project.name}</h3>
           <p>{project.github_url}</p>
           <p>{project.live_url}</p>
+          <p>{project.stack}</p>
           <button onClick={() => handleDeleteProject(project.id)}>
   Delete
 </button>
