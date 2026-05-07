@@ -16,6 +16,12 @@ export default function Dashboard() {
   // 4. STATE
   const [projects, setProjects] = useState<Project[]>([])
 
+  //STATES
+const [name, setName] = useState("")
+const [githubUrl, setGithubUrl] = useState("")
+const [liveUrl, setLiveUrl] = useState("")
+const [stack, setStack] = useState("")
+
   // 5. CHARGEMENT API
   //useEffect(() => {
    // fetch("http://localhost:3001/projects")
@@ -44,11 +50,65 @@ const handleDeleteProject = (id: number) => {
   })
   }
 
+  //form CREATE
+  const handleCreateProject = (event: React.FormEvent<HTMLFormElement>) => {
+  event.preventDefault()
+
+  fetch("http://localhost:3001/projects", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      name,
+      github_url: githubUrl,
+      live_url: liveUrl,
+      stack: [],
+    }),
+  })
+    .then((res) => res.json())
+    .then((newProject) => {
+      setProjects([...projects, newProject])
+      setName("")
+      setGithubUrl("")
+      setLiveUrl("")
+      setStack("")
+    })
+}
   // 6. AFFICHAGE
   return (
     <div>
       <h1>Dashboard</h1>
+      <form onSubmit={handleCreateProject}>
+        <input
+          type="text"
+          placeholder="Project name"
+          value={name}
+          onChange={(event) => setName(event.target.value)}
+        />
 
+        <input
+          type="text"
+          placeholder="GitHub URL"
+          value={githubUrl}
+          onChange={(event) => setGithubUrl(event.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Live URL"
+          value={liveUrl}
+          onChange={(event) => setLiveUrl(event.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Stack"
+          value={stack}
+          onChange={(event) => setStack(event.target.value)}
+        />
+
+        <button type="submit">Create project</button>
+      </form>
       {projects.map((project) => (
         <div key={project.id}>
           <h3>{project.name}</h3>
