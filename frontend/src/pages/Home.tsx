@@ -2,7 +2,7 @@ export default function Home() {
     return (
         <main>
             <section>
-                <img src="/logo.png" alt="Logo Jess Tech" />
+                <img src="/public/logo.png" alt="Logo Jess Tech" />
                 <h1>Jess Tech</h1>
                 <h2>Création de sites web et assistance numérique</h2>
                 <p>
@@ -59,6 +59,7 @@ export default function Home() {
                 <p>
                     Vous pouvez me contacter pour une demande d'information, de devis, une refonte ou un besoin d'accompagnement numérique et technique.
                 </p>
+                <a href="mailto:contact@jesstech.fr">contact@jesstech.fr</a>
             </section>
         </main>
     )
