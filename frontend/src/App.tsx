@@ -1,5 +1,5 @@
-import Home from "./pages/Home.tsx"
-import Dashboard from "./pages/Dashboard.tsx"
+import Home from "./pages/public/Home.tsx"
+import Dashboard from "./pages/admin/Dashboard.tsx"
 
 function App() {
 
