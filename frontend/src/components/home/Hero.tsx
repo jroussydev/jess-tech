@@ -5,7 +5,9 @@ export default function Hero() {
     <section className="hero">
       <div className="hero-content">
         <h1>Jess Tech</h1>
-
+<div className="bg-blue-600 text-white p-8 rounded-xl">
+  Test Tailwind
+</div>
         <h2>Création de sites web & assistance technique</h2>
 
         <p>
