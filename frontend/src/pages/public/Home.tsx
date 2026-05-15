@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function Home() {
     return (
         <main>
@@ -10,8 +12,8 @@ export default function Home() {
                     la refonte et la maintenance de leur site internet.
                 </p>
                 <div>
-                    <a href="#contact">Demander un Devis</a>
-                    <a href="#services">Voir les services</a>
+                    <Link to="/contact">Me contacter</Link>
+                    <Link to="/services">Voir les services</Link>
                 </div>
             </section>
 
