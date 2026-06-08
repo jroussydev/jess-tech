@@ -114,20 +114,34 @@ export default function Hero() {
   </div>
 
   <div className="space-y-3">
-    <p>✓ Design responsive</p>
-    <p>✓ Formulaire de contact</p>
-    <p>✓ Optimisation SEO</p>
-    <p>✓ Maintenance incluse</p>
+<div className="flex flex-wrap gap-2">
+  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20">
+    Responsive
+  </span>
+
+  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20">
+    SEO
+  </span>
+
+  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20">
+    Contact
+  </span>
+
+  <span className="rounded-full bg-blue-500/10 px-3 py-1 text-sm text-blue-400 border border-blue-500/20">
+    Maintenance
+  </span>
+</div>
   </div>
 
   <div>
-    <p className="text-sm text-slate-400">
-      Statut
-    </p>
+    <div className="border-t border-blue-500/20 pt-4"></div>
+<p className="text-sm text-slate-400">
+  Statut
+</p>
 
-    <span className="inline-block rounded-full bg-green-500/20 px-4 py-2 text-green-400">
-      Prêt à construire
-    </span>
+<span className="inline-block mt-2 rounded-full bg-green-500/20 px-4 py-2 text-green-400">
+  Prêt à construire
+</span>
   </div>
 
 </div>
