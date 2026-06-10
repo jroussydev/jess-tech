@@ -21,23 +21,23 @@ export default function PortfolioPreview() {
         de différents secteurs.
       </p>
 
-      <button
-        className="
-          mt-8
-          rounded-xl
-          border
-          border-[#0D5BFF]
-          px-6
-          py-3
-          font-semibold
-          text-[#0D5BFF]
-          transition
-          hover:bg-[#0D5BFF]
-          hover:text-white
-        "
-      >
-        Voir les réalisations →
-      </button>
+<Link
+  to="/realisations"
+  className="
+    mt-8
+    inline-flex
+    rounded-xl
+    bg-[#0D5BFF]
+    px-6
+    py-3
+    font-semibold
+    text-white
+    transition
+    hover:bg-blue-700
+  "
+>
+  Voir les réalisations →
+</Link>
     </div>
 {/* Bloc de droite */}
     <div
