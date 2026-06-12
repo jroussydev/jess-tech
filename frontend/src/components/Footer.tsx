@@ -19,7 +19,7 @@ export default function Footer() {
           </div>
           {/* Bloc navigation */}
           <div className="grid grid-cols-1 gap-4">
-            <h1>Navigation</h1>
+            <h1 className="font-bold">Navigation</h1>
             <div className="flex flex-col space-y-1">
             <span>Accueil</span>
             <span>Services</span>
@@ -30,7 +30,7 @@ export default function Footer() {
           </div>
           {/* Bloc services */}
           <div className="grid grid-cols-1 gap-4">
-            <h1>Services</h1>
+            <h1 className="font-bold">Services</h1>
             <div className="flex flex-col space-y-1 -mt-8">
               <span></span>Sites vitrines
               <span></span>Refonte de site
@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
           {/* Bloc contact */}
           <div className="grid grid-cols-1 gap-4">
-            <h1>Contact</h1>
+            <h1 className="font-bold">Contact</h1>
             <div className="flex flex-col space-y-1 -mt-10">
               <div className="flex items-center gap-2">
                 <img src="/svg/envelope.svg" alt="Enveloppe décoratif" className="w-7 h-7"/>
