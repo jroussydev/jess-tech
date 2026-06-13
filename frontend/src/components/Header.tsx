@@ -7,7 +7,7 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-4">
           <div className="text-3xl font-black text-white">
-            <Logo />
+            <Logo className="h-16"/>
           </div>
 
           <div>

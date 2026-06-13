@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="">
         <div className="flex items-center gap-8">
           <div className="text-3xl font-black text-white">
-            <Logo />
+            <Logo className="h-25"/>
           </div>
 
           <div>
