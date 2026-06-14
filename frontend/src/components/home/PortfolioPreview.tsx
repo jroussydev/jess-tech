@@ -2,8 +2,9 @@ import { Link } from "react-router-dom"
 
 export default function PortfolioPreview() {
   return (
-    <section className="bg-white px-6 py-20">
-  <div className="mx-auto grid max-w-7xl gap-10 lg:grid-cols-[30%_70%]">
+<section className="bg-white py-16 md:py-20 lg:py-24">
+  <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+    <div className="grid gap-10 lg:grid-cols-[30%_70%] lg:items-center">
 {/* Bloc de gauche */}
     <div className="self-center">
       <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#0D5BFF]">
@@ -104,6 +105,7 @@ export default function PortfolioPreview() {
 
 </div>
         </div>
+      </div>
       </div>
       </div>
     </section>
