@@ -3,7 +3,7 @@ import Logo from "./Logo"
 
 export default function Header() {
   return (
-    <header className="bg-[#020817]/95 border-b border-blue-500/20">
+    <header className="relative z-50 bg-[#020817]/95 border-b border-blue-500/20">
       <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
         <div className="flex min-w-0 items-center gap-3">
           <Logo className="h-12 lg:h-16" />
@@ -18,10 +18,7 @@ export default function Header() {
             </p>
           </div>
         </div>
-
-        <div className="hidden md:block">
           <Navbar />
-        </div>
       </div>
     </header>
   )
