@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function PortfolioPreview() {
   return (
-<section className="bg-white py-16 md:py-20 lg:py-24">
+<section className="bg-slate-50 py-16 md:py-20 lg:py-24">
   <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
     <div className="grid gap-10 lg:grid-cols-[30%_70%] lg:items-center">
 {/* Bloc de gauche */}
