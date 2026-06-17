@@ -38,6 +38,10 @@ export default function Navbar() {
           Réalisations
         </Link>
 
+        <Link to="/about" className="text-slate-200 hover:text-[#0D5BFF] transition">
+          A propos
+        </Link>
+
         <Link to="/contact" className="text-slate-200 hover:text-[#0D5BFF] transition">
           Contact
         </Link>
@@ -71,6 +75,11 @@ export default function Navbar() {
               <Link to="/realisations" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
                 Réalisations
+              </Link>
+
+              <Link to="/about" onClick={() => setIsOpen(false)}
+ className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
+                A propos
               </Link>
 
               <Link to="/contact" onClick={() => setIsOpen(false)}

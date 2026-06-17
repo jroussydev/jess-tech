@@ -7,6 +7,7 @@ import Home from "./pages/public/Home.tsx"
 import Services from "./pages/public/Services.tsx"
 import Realisations from "./pages/public/Realisations.tsx"
 import Contact from "./pages/public/Contact.tsx"
+import About from "./pages/public/About.tsx"
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
@@ -20,6 +21,7 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/About" element={<About />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
       </Routes>
 
