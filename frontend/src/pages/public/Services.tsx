@@ -1,20 +1,62 @@
 export default function Services() {
+  const services = [
+    {
+      title: "Création de site internet",
+      description:
+        "Création de sites vitrines clairs, modernes et adaptés à votre activité.",
+    },
+    {
+      title: "Développement web sur mesure",
+      description:
+        "Développement de fonctionnalités spécifiques selon les besoins de votre projet.",
+    },
+    {
+      title: "Maintenance de site web",
+      description:
+        "Mises à jour, corrections, petites évolutions et suivi technique de votre site.",
+    },
+    {
+      title: "Assistance technique",
+      description:
+        "Aide ponctuelle pour comprendre, débloquer ou améliorer vos outils numériques.",
+    },
+  ]
+
   return (
-    <main className="px-6 py-20">
-      <div className="max-w-7xl mx-auto">
-        <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-[#0D5BFF]">
-          Services
-        </p>
+    <main className="relative overflow-hidden">
+      <section className="bg-slate-50 py-16 md:py-20 lg:py-24">
+        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-500">
+            Services
+          </p>
 
-        <h1 className="text-4xl font-bold text-[#001A5A]">
-          Mes services
-        </h1>
+          <h1 className="max-w-4xl text-4xl font-black leading-tight text-slate-900 sm:text-5xl">
+            Des solutions web adaptées à vos besoins.
+          </h1>
 
-        <p className="mt-6 max-w-3xl text-lg text-slate-600 leading-8">
-          Création de sites web, refonte, maintenance et assistance technique
-          selon vos besoins.
-        </p>
-      </div>
+          <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
+            Jess Tech vous accompagne dans la création, l’évolution, la maintenance
+            et la compréhension de vos projets web.
+          </p>
+
+          <div className="mt-12 grid gap-6 md:grid-cols-2">
+            {services.map((service) => (
+              <article
+                key={service.title}
+                className="rounded-3xl border border-blue-500/15 bg-white p-8 shadow-sm"
+              >
+                <h2 className="text-2xl font-bold text-slate-900">
+                  {service.title}
+                </h2>
+
+                <p className="mt-4 leading-7 text-slate-600">
+                  {service.description}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }
