@@ -1,24 +1,30 @@
+import { Link } from "react-router-dom"
+
 export default function Services() {
   const services = [
     {
       title: "Création de site internet",
       description:
         "Création de sites vitrines clairs, modernes et adaptés à votre activité.",
+            link: "/CreationSiteInternet",
     },
     {
       title: "Développement web sur mesure",
       description:
         "Développement de fonctionnalités spécifiques selon les besoins de votre projet.",
+        link: "/DeveloppementSurMesure",
     },
     {
       title: "Maintenance de site web",
       description:
         "Mises à jour, corrections, petites évolutions et suivi technique de votre site.",
+        link: "/Maintenance",
     },
     {
       title: "Assistance technique",
       description:
         "Aide ponctuelle pour comprendre, débloquer ou améliorer vos outils numériques.",
+        link: "/AssistanceTechnique",
     },
   ]
 
@@ -41,18 +47,40 @@ export default function Services() {
 
           <div className="mt-12 grid gap-6 md:grid-cols-2">
             {services.map((service) => (
-              <article
-                key={service.title}
-                className="rounded-3xl border border-blue-500/15 bg-white p-8 shadow-sm"
-              >
-                <h2 className="text-2xl font-bold text-slate-900">
-                  {service.title}
-                </h2>
+    <Link
+      key={service.title}
+      to={service.link}
+      className="group"
+    >
+      <article
+        className="
+          h-full
+          rounded-3xl
+          border
+          border-blue-500/15
+          bg-white
+          p-8
+          shadow-sm
+          transition
+          duration-300
+          hover:-translate-y-1
+          hover:border-blue-500/40
+          hover:shadow-lg
+        "
+      >
+        <h2 className="text-2xl font-bold text-slate-900">
+          {service.title}
+        </h2>
 
-                <p className="mt-4 leading-7 text-slate-600">
-                  {service.description}
-                </p>
-              </article>
+        <p className="mt-4 leading-7 text-slate-600">
+          {service.description}
+        </p>
+
+        <div className="mt-6 text-blue-500 font-semibold">
+          En savoir plus →
+        </div>
+      </article>
+    </Link>
             ))}
           </div>
         </div>

@@ -9,6 +9,8 @@ import Realisations from "./pages/public/Realisations.tsx"
 import Contact from "./pages/public/Contact.tsx"
 import About from "./pages/public/About.tsx"
 
+import CreationSiteInternet from "./pages/services/CreationSiteInternet"
+
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
 function App() {
@@ -23,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
+        <Route path="/CreationSiteInternet" element={<CreationSiteInternet />} />
       </Routes>
 
       <Footer />
