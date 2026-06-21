@@ -48,7 +48,7 @@ export default function MaintenanceSiteWeb() {
       {/* Section Differente intervention */}
 
 
-    <div className="grid gap-6 md:grid-cols-2">
+    <div className="grid gap-6 md:grid-cols-2 text-center">
       <article className="rounded-3xl border border-blue-500/15 bg-[#081120] p-8">
         <h2 className="text-2xl font-bold text-white">
           Intervention ponctuelle
@@ -172,8 +172,8 @@ export default function MaintenanceSiteWeb() {
           <div className="relative z-10 mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-blue-500/50 bg-[#081120] text-xl font-black text-white shadow-[0_0_20px_rgba(13,91,255,0.35)]">
             {number}
           </div>
-
-          <div className="mx-auto mt-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/10 text-2xl">
+<div className="mx-auto hidden h-10 w-px bg-blue-500/40 lg:block" />
+          <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/10 text-2xl">
             {icon}
           </div>
 
