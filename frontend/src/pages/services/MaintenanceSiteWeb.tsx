@@ -1,4 +1,11 @@
 import { Link } from "react-router-dom"
+import {
+  MessageCircle,
+  Search,
+  Lightbulb,
+  Code2,
+  ShieldCheck,
+} from "../../icons";
 
 export default function MaintenanceSiteWeb() {
   return (
