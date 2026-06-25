@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import Logo from "./Logo";
 
 export default function Footer() {
@@ -84,7 +85,9 @@ export default function Footer() {
             <div className="flex gap-2">
               <a href="">Mentions légales</a>
               <span>|</span>
-              <a href="">Politique de confidentialité</a>
+              <Link
+                to="/PolitiqueDeConfidentialite"
+                className="">Politique de confidentialité</Link>
             </div>
           </div>
         </div>

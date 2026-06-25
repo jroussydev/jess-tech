@@ -13,6 +13,8 @@ import CreationSiteInternet from "./pages/services/CreationSiteInternet"
 import MaintenanceSiteWeb from "./pages/services/MaintenanceSiteWeb.tsx"
 import DeveloppementWebSurMesure from "./pages/services/DeveloppementWebSurMesure.tsx"
 import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
+
+import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite.tsx"
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
 function App() {
@@ -31,6 +33,8 @@ function App() {
         <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
         <Route path="/DeveloppementWebSurMesure" element={<DeveloppementWebSurMesure />} />
         <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />
+
+        <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
       </Routes>
 
       <Footer />
