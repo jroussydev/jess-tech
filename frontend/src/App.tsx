@@ -15,6 +15,8 @@ import DeveloppementWebSurMesure from "./pages/services/DeveloppementWebSurMesur
 import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
 
 import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite.tsx"
+import MentionLegal from "./pages/legal/MentionLegal.tsx"
+
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
 function App() {
@@ -35,6 +37,7 @@ function App() {
         <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />
 
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
+        <Route path="/MentionLegal" element={<MentionLegal />} />
       </Routes>
 
       <Footer />

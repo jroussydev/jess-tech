@@ -83,7 +83,9 @@ export default function Footer() {
             <p>© 2026 Jess Tech - Tous droits réservés</p>
 
             <div className="flex gap-2">
-              <a href="">Mentions légales</a>
+              <Link
+                to="/MentionLegal"
+                className="">Mentions légales</Link>
               <span>|</span>
               <Link
                 to="/PolitiqueDeConfidentialite"

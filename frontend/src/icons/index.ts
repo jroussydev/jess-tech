@@ -1,17 +1,64 @@
 export {
-  MessageCircle,
-  Search,
-  Lightbulb,
-  Code2,
-  ShieldCheck,
+  // Navigation
+  Menu,
+  X,
+  ArrowRight,
+  ChevronRight,
+  ChevronDown,
 
+  // Contact
   Mail,
   Phone,
   MapPin,
 
-  ArrowRight,
-  ArrowLeft,
+  // Services
+  Globe,
+  Monitor,
+  Laptop,
+  Wrench,
+  Settings,
+  Code2,
+  Server,
+  ShieldCheck,
+  MessageCircle,
 
-  Menu,
-  X,
+
+  // Développement
+  Search,
+  Lightbulb,
+  PenTool,
+  CheckCircle2,
+
+  // Légal
+  User,
+  Database,
+  Shield,
+  Scale,
+  Cookie,
+  Pencil,
+  Link,
+
+  // Général
+  Calendar,
+  Clock,
+  Users,
+  Star,
+  FolderOpen,
+  FileText,
+  CircleHelp,
+  ExternalLink,
+
+
+
+  // Divers
+  Download,
+  Upload,
+  Image,
 } from "lucide-react";
+
+{/* import {
+  FaFacebook,
+  FaInstagram,
+  FaLinkedin,
+  FaGithub,
+} from "react-icons/fa6"; */}
