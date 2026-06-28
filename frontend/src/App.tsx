@@ -16,6 +16,8 @@ import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
 
 import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite.tsx"
 import MentionLegal from "./pages/legal/MentionLegal.tsx"
+import Cgv from "./pages/legal/Cgv.tsx"
+
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
@@ -38,6 +40,7 @@ function App() {
 
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
         <Route path="/MentionLegal" element={<MentionLegal />} />
+        <Route path="/Cgv" element={<Cgv />} />
       </Routes>
 
       <Footer />
