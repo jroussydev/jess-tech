@@ -71,6 +71,32 @@ const sections = [
     ),
   },
 
+    {
+    icon: Pencil,
+    title: "4. Droit de rétractation",
+    content: (
+      <>
+        <p>
+            Conformément aux dispositions du Code de la consommation, le client consommateur dispose d'un délai de quatorze (14) jours à compter de 
+            la conclusion du contrat pour exercer son droit de rétractation, lorsque celui-ci est applicable.        
+        </p>
+        <p>
+            Toutefois, si le client demande expressément le début de l'exécution de la prestation avant la fin de ce délai, il reconnaît que Jess Tech 
+            pourra commencer les travaux à sa demande.        
+        </p>
+
+        <p className="mt-4">
+            Lorsque la prestation est entièrement réalisée avant l'expiration du délai de rétractation, avec l'accord exprès du client, celui-ci ne pourra
+            plus exercer son droit de rétractation.        
+        </p>
+        <p>
+            Si le client exerce son droit de rétractation après le début de l'exécution de la prestation, il restera redevable du montant correspondant
+            aux travaux déjà réalisés, conformément aux dispositions légales en vigueur.
+        </p>
+      </>
+    ),
+  },
+
   {
     icon: Database,
     title: "4. Tarifs et paiement",
