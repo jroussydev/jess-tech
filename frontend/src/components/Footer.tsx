@@ -88,6 +88,10 @@ export default function Footer() {
                 className="">Mentions légales</Link>
               <span>|</span>
               <Link
+                to="/Cgv"
+                className="">Conditions Générales de Vente</Link>
+              <span>|</span>
+              <Link
                 to="/PolitiqueDeConfidentialite"
                 className="">Politique de confidentialité</Link>
             </div>
