@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom"
 
 import Header from "./components/Header.tsx"
 import Footer from "./components/Footer.tsx"
+import ScrollToTop from "./components/ScrollToTop";
 
 import Home from "./pages/public/Home.tsx"
 import Services from "./pages/public/Services.tsx"
@@ -26,7 +27,7 @@ function App() {
   return (
     <div className="min-h-screen bg-[#020817] text-white">
       <Header />
-
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
