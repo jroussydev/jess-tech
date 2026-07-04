@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom"
+
 export default function ProjectsPreview() {
   const projects = [
     {
@@ -35,9 +37,10 @@ export default function ProjectsPreview() {
             Outils internes, expérimentations et développements qui illustrent
             mon travail quotidien de développeuse.
           </p>
+          <Link to="/DansLesCoulisses">
           <button className="mt-10 rounded-xl bg-[#0D5BFF] px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
-            Voir tous les projets →
-          </button>
+             Voir tous les projets →
+          </button></Link>
         </div>
 
 {/* Design ligne bleu 

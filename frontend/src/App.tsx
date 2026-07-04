@@ -8,6 +8,7 @@ import Services from "./pages/public/Services.tsx"
 import Realisations from "./pages/public/Realisations.tsx"
 import Contact from "./pages/public/Contact.tsx"
 import About from "./pages/public/About.tsx"
+import DansLesCoulisses from "./pages/public/DansLesCoulisses.tsx"
 
 import CreationSiteInternet from "./pages/services/CreationSiteInternet"
 import MaintenanceSiteWeb from "./pages/services/MaintenanceSiteWeb.tsx"
@@ -32,6 +33,7 @@ function App() {
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/About" element={<About />} />
+        <Route path="/DansLesCoulisses" element={<DansLesCoulisses />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/CreationSiteInternet" element={<CreationSiteInternet />} />
         <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
