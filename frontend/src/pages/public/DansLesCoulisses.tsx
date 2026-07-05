@@ -92,7 +92,7 @@ export default function DansLesCoulisses() {
             </h2>
           </div>
 
-<div className="grid gap-8 lg:grid-cols-[40%_60%]">
+<div className="grid gap-8 lg:grid-cols-[35%_65%]">
           <div className="grid gap-6 lg:grid-cols-1">
             {projects.map((project) => (
               <article
