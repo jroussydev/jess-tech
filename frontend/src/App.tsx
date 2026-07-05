@@ -44,6 +44,7 @@ function App() {
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
         <Route path="/MentionLegal" element={<MentionLegal />} />
         <Route path="/Cgv" element={<Cgv />} />
+
       </Routes>
 
       <Footer />
