@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import { internalProjects } from "../../data/internalProjects";
 import { ProjectList } from "../../components/projects";
+import {ProjectDetails} from "../../components/projects";
 
 export default function DansLesCoulisses() {
 
@@ -89,19 +90,7 @@ const [selectedProject, setSelectedProject] = useState(internalProjects[0]);
   onSelectProject={setSelectedProject}
 />
 
-            <div className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-  <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-500">
-    Projet sélectionné
-  </p>
-
-  <h3 className="text-3xl font-black text-slate-900">
-    {selectedProject.title}
-  </h3>
-
-  <p className="mt-4 text-base leading-8 text-slate-600 text-justify">
-    {selectedProject.description}
-  </p>
-</div>
+<ProjectDetails project={selectedProject} />
           </div>
         </div>
       </section>

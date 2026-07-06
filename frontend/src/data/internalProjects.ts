@@ -19,6 +19,18 @@ export const internalProjects: InternalProject[] = [
       "Trouver le bon équilibre entre apprentissage et avancement.",
       "Organiser les données sans rendre les composants trop lourds.",
     ],
+    summary:
+  "Le site vitrine officiel de Jess Tech, développé pour présenter mes services et mes réalisations.",
+
+github:
+  "https://github.com/ton-compte/jess-tech",
+
+demo:
+  "https://jesstech.fr",
+
+startedAt:
+  "2026-06",
+  completedAt: undefined,
 
   },
   {
@@ -39,5 +51,13 @@ export const internalProjects: InternalProject[] = [
       "Organiser les sections pour que le site reste lisible.",
       "Adapter le rendu aux différents formats d'écran.",
     ],
+    summary:
+  "Exercice de création d'un site vitrine pour un artisan.",
+
+startedAt:
+  "2026-05",
+
+completedAt:
+  "2026-06",
   },
 ];
