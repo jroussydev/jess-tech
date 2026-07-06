@@ -5,4 +5,10 @@ export type InternalProject = {
   description: string;
   tags: string[];
   status: string;
+
+  gallery: string[];
+  video?: string;
+
+  learnings: string[];
+  challenges: string[];
 };

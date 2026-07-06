@@ -2,21 +2,42 @@ import type { InternalProject } from "../types/project";
 
 export const internalProjects: InternalProject[] = [
   {
+        id: "jess-tech",
+    title: "Jess Tech",
+    category: "Projet interne",
+    description:
+      "Le site vitrine de Jess Tech, construit pour présenter les services, la méthode de travail, les projets internes et les réalisations.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "React Router"],
+    status: "En cours",
+    gallery: [],
+    learnings: [
+      "Créer une architecture React plus propre.",
+      "Découper une interface en composants réutilisables.",
+      "Gérer la sélection d'un projet avec useState.",
+    ],
+    challenges: [
+      "Trouver le bon équilibre entre apprentissage et avancement.",
+      "Organiser les données sans rendre les composants trop lourds.",
+    ],
+
+  },
+  {
     id: "dupont-plomberie",
     title: "Dupont Plomberie",
-    category: "Exercice de site vitrine",
+    category: "Exercice",
     description:
       "Un projet d'entraînement autour d'un site vitrine pour un artisan plombier, avec présentation des services, formulaire de contact et mise en page responsive.",
     tags: ["WordPress", "CSS", "Gutenberg", "Kadence", "Responsive"],
     status: "Terminé",
-  },
-  {
-    id: "sunbanks-tool",
-    title: "Sunbanks Tool",
-    category: "Projet interne",
-    description:
-      "Un outil web développé pour travailler la gestion de projets, les interfaces d'administration et la communication entre frontend et backend.",
-    tags: ["React", "Node.js", "Express", "PostgreSQL"],
-    status: "En cours",
+    gallery: [],
+    learnings: [
+      "Structurer une page de site vitrine.",
+      "Travailler le responsive sur mobile et ordinateur.",
+      "Présenter clairement les services d'un artisan.",
+    ],
+    challenges: [
+      "Organiser les sections pour que le site reste lisible.",
+      "Adapter le rendu aux différents formats d'écran.",
+    ],
   },
 ];
