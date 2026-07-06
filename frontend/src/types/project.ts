@@ -1,7 +1,7 @@
 export type InternalProject = {
   id: string;
   title: string;
-  type: string;
+  category: string;
   description: string;
   tags: string[];
   status: string;
