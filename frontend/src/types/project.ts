@@ -10,6 +10,7 @@ export type InternalProject = {
 
   tags: string[];
 
+  featuredImage?: string;
   gallery: string[];
   video?: string;
 

@@ -7,17 +7,19 @@ type ProjectDetailsProps = {
   project: InternalProject;
 };
 
-export default function ProjectDetails({
-  project,
-}: ProjectDetailsProps) {
+export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
     <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-
-      {/* En-tête */}
       <div className="mb-6 flex items-start justify-between gap-4">
-        <h3 className="text-3xl font-black text-slate-900">
-          {project.title}
-        </h3>
+        <div>
+          <h3 className="text-3xl font-black text-slate-900">
+            {project.title}
+          </h3>
+
+          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
+            {project.summary}
+          </p>
+        </div>
 
         <StatusBadge status={project.status} />
       </div>
@@ -26,12 +28,10 @@ export default function ProjectDetails({
         <CategoryBadge category={project.category} />
       </div>
 
-      {/* Description */}
       <p className="mb-8 text-base leading-8 text-slate-600 text-justify">
         {project.description}
       </p>
 
-      {/* Technologies */}
       <section className="mb-8">
         <h4 className="mb-3 text-lg font-bold text-slate-900">
           Technologies
@@ -40,7 +40,54 @@ export default function ProjectDetails({
         <ProjectTags tags={project.tags} />
       </section>
 
-      {/* Ce que j'ai appris */}
+      <div className="mb-8 grid gap-4 sm:grid-cols-2">
+        {project.demo && (
+          <a
+            href={project.demo}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-2xl border border-slate-200 p-4 text-sm font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-600"
+          >
+            🌐 Voir la démo
+          </a>
+        )}
+
+        {project.github && (
+          <a
+            href={project.github}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-2xl border border-slate-200 p-4 text-sm font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-600"
+          >
+            💻 Voir le code GitHub
+          </a>
+        )}
+      </div>
+
+      <div className="mb-8 grid gap-4 sm:grid-cols-2">
+        {project.startedAt && (
+          <div className="rounded-2xl bg-slate-50 p-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Début
+            </p>
+            <p className="mt-1 font-semibold text-slate-700">
+              {project.startedAt}
+            </p>
+          </div>
+        )}
+
+        {project.completedAt && (
+          <div className="rounded-2xl bg-slate-50 p-4">
+            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
+              Fin
+            </p>
+            <p className="mt-1 font-semibold text-slate-700">
+              {project.completedAt}
+            </p>
+          </div>
+        )}
+      </div>
+
       <section className="mb-8">
         <h4 className="mb-3 text-lg font-bold text-slate-900">
           Ce que j'ai appris
@@ -55,8 +102,7 @@ export default function ProjectDetails({
         </ul>
       </section>
 
-      {/* Difficultés */}
-      <section>
+      <section className="mb-8">
         <h4 className="mb-3 text-lg font-bold text-slate-900">
           Difficultés rencontrées
         </h4>
@@ -70,6 +116,15 @@ export default function ProjectDetails({
         </ul>
       </section>
 
+      <section>
+        <h4 className="mb-3 text-lg font-bold text-slate-900">
+          Galerie
+        </h4>
+
+        <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-500">
+          Galerie à venir.
+        </div>
+      </section>
     </article>
   );
 }
