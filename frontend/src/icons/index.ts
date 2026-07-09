@@ -5,11 +5,14 @@ export {
   ArrowRight,
   ChevronRight,
   ChevronDown,
+  BookOpen,
 
   // Contact
   Mail,
   Phone,
   MapPin,
+  Headset,
+  
 
   // Services
   Globe,
@@ -21,6 +24,7 @@ export {
   Server,
   ShieldCheck,
   MessageCircle,
+  
 
 
   // Développement

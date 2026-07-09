@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 
 export default function ContactCTA() {
   return (
-    <section className="bg-slate-50 pb-16 md:pb-20 lg:pb-24">
+    <section className="bg-slate-50 pb-16 md:pb-20 lg:pb-24 rounded-br-2xl rounded-bl-2xl">
       <div className="mx-auto max-w-[1200px] px-4 sm:px-6 lg:px-8">
         <div className="relative overflow-hidden rounded-3xl border border-blue-500/15 bg-gradient-to-r from-[#081120] to-[#0b1d35] p-6 sm:p-8">
           

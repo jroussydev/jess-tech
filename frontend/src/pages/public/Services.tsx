@@ -55,24 +55,25 @@ export default function Services() {
       <article
         className="
           h-full
-          rounded-3xl
-          border
-          border-blue-500/15
-          bg-white
-          p-8
-          shadow-sm
-          transition
-          duration-300
-          hover:-translate-y-1
-          hover:border-blue-500/40
-          hover:shadow-lg
+rounded-2xl
+              border
+              border-blue-500/15
+              bg-gradient-to-br
+              from-[#081120]
+              to-[#0b1d35]
+              p-6
+              transition
+              duration-300
+              hover:border-blue-400/50
+              hover:-translate-y-1
+              hover:shadow-lg hover:shadow-blue-500/10
         "
       >
-        <h2 className="text-2xl font-bold text-slate-900">
+        <h2 className="text-2xl font-bold text-slate-200">
           {service.title}
         </h2>
 
-        <p className="mt-4 leading-7 text-slate-600">
+        <p className="mt-4 leading-7 text-slate-400">
           {service.description}
         </p>
 

@@ -1,5 +1,10 @@
 import { Link } from "react-router-dom"
 
+import {
+    Headset,
+    Shield,
+    MessageCircle,
+} from "lucide-react";
 
 export default function Hero() {
   return (
@@ -54,7 +59,7 @@ export default function Hero() {
             <div className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-3">
               <div>
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/30 text-[#0D5BFF]">
-                  ○
+                  <Headset/>
                 </div>
 
                 <h3 className="font-semibold text-white">
@@ -68,7 +73,7 @@ export default function Hero() {
 
               <div>
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/30 text-[#0D5BFF]">
-                  ✓
+                  <Shield/>
                 </div>
 
                 <h3 className="font-semibold text-white">
@@ -82,7 +87,7 @@ export default function Hero() {
 
               <div>
                 <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl border border-blue-500/30 text-[#0D5BFF]">
-                  ◇
+                  <MessageCircle/>
                 </div>
 
                 <h3 className="font-semibold text-white">

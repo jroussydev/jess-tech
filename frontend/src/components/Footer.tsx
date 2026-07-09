@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import Logo from "./Logo";
+import { PenTool, Monitor, Wrench, LifeBuoy, BookOpen, Handshake, StarCheck, UserRound, Mail, PhoneCall, MapPinned } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -31,46 +32,46 @@ export default function Footer() {
 
           {/* Bloc navigation */}
           <div>
-            <h3 className="font-bold text-white">Navigation</h3>
+            <h3 className="font-bold text-xl text-blue-500">Navigation</h3>
 
             <div className="mt-5 flex flex-col gap-2">
-              <span>Accueil</span>
-              <span>Services</span>
-              <span>Réalisations</span>
-              <span>À propos</span>
-              <span>Contact</span>
+              <div className="flex gap-2"><BookOpen/><span>Accueil</span></div>
+              <div className="flex gap-2"><Handshake /><span>Services</span></div>
+              <div className="flex gap-2"><StarCheck /><span>Réalisations</span></div>
+              <div className="flex gap-2"><UserRound /><span>À propos</span></div>
+              <div className="flex gap-2"><Mail /><span>Contact</span></div>
             </div>
           </div>
 
           {/* Bloc services */}
           <div>
-            <h3 className="font-bold text-white">Services</h3>
+            <h3 className="font-bold text-xl text-blue-500">Services</h3>
 
             <div className="mt-5 flex flex-col gap-2">
-              <span>Sites vitrines</span>
-              <span>Refonte de site</span>
-              <span>Maintenance</span>
-              <span>Assistance technique</span>
+              <div className="flex gap-2"><PenTool/><span>Sites vitrines</span></div>
+              <div className="flex gap-2"><Monitor/><span>Refonte de site</span></div>
+              <div className="flex gap-2"><Wrench/><span>Maintenance</span></div>
+              <div className="flex gap-2"><LifeBuoy/><span>Assistance technique</span></div>
             </div>
           </div>
 
           {/* Bloc contact */}
           <div>
-            <h3 className="font-bold text-white">Contact</h3>
+            <h3 className="font-bold text-xl text-blue-500">Contact</h3>
 
             <div className="mt-5 flex flex-col gap-3">
               <div className="flex items-center gap-3">
-                <img src="/svg/envelope.svg" alt="" className="h-7 w-7" />
+                <Mail />
                 <a href="mailto:contact@jesstech.fr">contact@jesstech.fr</a>
               </div>
 
               <div className="flex items-center gap-3">
-                <img src="/svg/phone-call.svg" alt="" className="h-7 w-7" />
+                <PhoneCall />
                 <a href="tel:0767876316">07 67 87 63 16</a>
               </div>
 
               <div className="flex items-center gap-3">
-                <img src="/svg/land-layer-location.svg" alt="" className="h-8 w-8" />
+                <MapPinned />
                 <span>Basée en France</span>
               </div>
             </div>

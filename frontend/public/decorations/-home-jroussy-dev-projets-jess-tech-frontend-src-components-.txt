@@ -1,0 +1,1 @@
+/home/jroussy/dev/projets/jess-tech/frontend/src/components/decorations/IconDevCircuit.png

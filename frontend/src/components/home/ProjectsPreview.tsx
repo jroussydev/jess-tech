@@ -3,11 +3,11 @@ import { Link } from "react-router-dom"
 export default function ProjectsPreview() {
   const projects = [
     {
-      title: "Sunbanks Tool",
-      description: "Dashboard fullstack React / Node.js / PostgreSQL.",
+      title: "Jess Tech",
+      description: "Site fullstack React / Node.js / PostgreSQL.",
     },
     {
-      title: "Projet en préparation",
+      title: "Jess-Tech Edu Studio",
       description: "Nouvelle expérimentation technique en cours de conception.",
     },
     {
@@ -73,7 +73,7 @@ export default function ProjectsPreview() {
   />
 
 {/* Bloc droite */}
-        <div className="grid gap-8 lg:grid-cols-[70%_30%]">
+        <div className="relative grid gap-8 lg:grid-cols-[65%_35%]">
 
 {/* Bloc secondaire Projets */}
         <div className="space-y-4">
@@ -120,26 +120,26 @@ sm:justify-between
 
         </div>
 {/* Design image */}
-        <div
-        className="
-        hidden
+
+          <img
+  src="/decorations/IconDevCircuit.png"
+  alt=""
+  aria-hidden="true"
+  className="
+    hidden
     lg:block
-          flex
-          h-full
-          items-center
-          justify-center
-          rounded-3xl
-          border
-          border-blue-500/15
-          bg-gradient-to-br
-          from-[#081120]
-          to-[#0b1d35]
-        "
-        >
-          <span className="text-6xl text-blue-400">
-            {"</>"}
-          </span>
-          </div>
+    absolute
+    right-[-80px]
+    top-1/2
+    -translate-y-1/2
+    w-[260px]
+    xl:w-[340px]
+    2xl:w-[420px]
+    opacity-90
+    pointer-events-none
+  "
+/>
+          
         </div>    
       </div>
       </div>
