@@ -54,7 +54,7 @@ Le site évolue régulièrement avec l'ajout de nouvelles fonctionnalités, l'am
 
 ## Auteur
 
-Développé par Jessica pour **Jess Tech**.
+Développé par Jessica Roussy pour **Jess Tech**.
 
 ## Copyright
 
