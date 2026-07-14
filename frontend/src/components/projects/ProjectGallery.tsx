@@ -31,7 +31,32 @@ export default function ProjectGallery({
   const [selectedMedia, setSelectedMedia] =
     useState<SelectedMedia | null>(firstMedia);
 
+const currentIndex =
+  selectedMedia?.type === "image"
+    ? gallery.indexOf(selectedMedia.src)
+    : -1;
 
+    function previousImage() {
+  if (gallery.length <= 1 || currentIndex <= 0) return;
+
+  setSelectedMedia({
+    type: "image",
+    src: gallery[currentIndex - 1],
+  });
+}
+
+function nextImage() {
+  if (
+    gallery.length <= 1 ||
+    currentIndex >= gallery.length - 1
+  )
+    return;
+
+  setSelectedMedia({
+    type: "image",
+    src: gallery[currentIndex + 1],
+  });
+}
 
   if (!selectedMedia) {
     return (
@@ -43,24 +68,49 @@ export default function ProjectGallery({
 
   return (
     <div>
-      {/* Média principal */}
-      <div className="aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950">
-        {selectedMedia.type === "image" ? (
-          <img
-            src={selectedMedia.src}
-            alt={`Capture du projet ${title}`}
-            className="h-full w-full object-cover"
-          />
-        ) : (
-          <video
-            src={selectedMedia.src}
-            controls
-            className="h-full w-full object-contain"
-          >
-            Votre navigateur ne prend pas en charge la lecture de vidéos.
-          </video>
-        )}
-      </div>
+{/* Média principal */}
+<div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950">
+  {selectedMedia.type === "image" ? (
+    <img
+      src={selectedMedia.src}
+      alt={`Capture du projet ${title}`}
+      className="h-full w-full object-cover"
+    />
+  ) : (
+    <video
+      src={selectedMedia.src}
+      controls
+      className="h-full w-full object-contain"
+    >
+      Votre navigateur ne prend pas en charge la lecture de vidéos.
+    </video>
+  )}
+
+  {/* Flèche précédente */}
+  {selectedMedia.type === "image" && currentIndex > 0 && (
+    <button
+      type="button"
+      onClick={previousImage}
+      className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/80 px-4 py-3 text-white transition hover:bg-slate-800"
+      aria-label="Afficher l’image précédente"
+    >
+      ←
+    </button>
+  )}
+
+  {/* Flèche suivante */}
+  {selectedMedia.type === "image" &&
+    currentIndex < gallery.length - 1 && (
+      <button
+        type="button"
+        onClick={nextImage}
+        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/80 px-4 py-3 text-white transition hover:bg-slate-800"
+        aria-label="Afficher l’image suivante"
+      >
+        →
+      </button>
+    )}
+</div>
 
       {/* Miniatures */}
       <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
