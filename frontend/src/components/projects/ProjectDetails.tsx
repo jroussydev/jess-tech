@@ -2,6 +2,7 @@ import type { InternalProject } from "../../types/project";
 import CategoryBadge from "./CategoryBadge";
 import ProjectTags from "./ProjectTags";
 import StatusBadge from "./StatusBadge";
+import ProjectGallery from "./ProjectGallery";
 
 type ProjectDetailsProps = {
   project: InternalProject;
@@ -9,121 +10,133 @@ type ProjectDetailsProps = {
 
 export default function ProjectDetails({ project }: ProjectDetailsProps) {
   return (
-    <article className="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm">
-      <div className="mb-6 flex items-start justify-between gap-4">
-        <div>
-          <h3 className="text-3xl font-black text-slate-900">
-            {project.title}
-          </h3>
-
-          <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-500">
-            {project.summary}
-          </p>
-        </div>
-
+    <article className="rounded-3xl border border-slate-700/60 bg-slate-900/70 p-6 shadow-lg shadow-black/20 lg:p-8">
+      {/* Statut seul en haut à droite */}
+      <div className="flex justify-end">
         <StatusBadge status={project.status} />
       </div>
 
-      <div className="mb-6">
-        <CategoryBadge category={project.category} />
-      </div>
+      {/* Début réel des détails */}
+      <header className="mt-3 border-b border-slate-700/60 pb-6">
+        {/* Titre + catégorie */}
+<div className="mt-3 flex items-center justify-left gap-4">
+  <h3 className="text-3xl font-black text-slate-50">
+    {project.title}
+  </h3>
 
-      <p className="mb-8 text-base leading-8 text-slate-600 text-justify">
-        {project.description}
-      </p>
+  <CategoryBadge category={project.category} />
+</div>
 
-      <section className="mb-8">
-        <h4 className="mb-3 text-lg font-bold text-slate-900">
-          Technologies
+        <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
+          {project.startedAt && (
+            <span>
+              Début :{" "}
+              <strong className="font-semibold text-slate-200">
+                {project.startedAt}
+              </strong>
+            </span>
+          )}
+
+          {project.completedAt && (
+            <span>
+              Fin :{" "}
+              <strong className="font-semibold text-slate-200">
+                {project.completedAt}
+              </strong>
+            </span>
+          )}
+
+          {project.demo && (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-blue-400 transition hover:text-blue-300"
+            >
+              Voir la démo
+            </a>
+          )}
+
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noreferrer"
+              className="font-semibold text-blue-400 transition hover:text-blue-300"
+            >
+              GitHub
+            </a>
+          )}
+        </div>
+      </header>
+
+      <section className="border-b border-slate-700/60 py-7">
+        <h4 className="mb-3 text-lg font-bold text-slate-50">
+          Présentation
+        </h4>
+
+        <p className="text-base leading-8 text-slate-300">
+          {project.description}
+        </p>
+      </section>
+
+      <section className="border-b border-slate-700/60 py-7">
+        <h4 className="mb-4 text-lg font-bold text-slate-50">
+          Technologies utilisées
         </h4>
 
         <ProjectTags tags={project.tags} />
       </section>
 
-      <div className="mb-8 grid gap-4 sm:grid-cols-2">
-        {project.demo && (
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-2xl border border-slate-200 p-4 text-sm font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-600"
-          >
-            🌐 Voir la démo
-          </a>
-        )}
+      <div className="grid gap-8 border-b border-slate-700/60 py-7 md:grid-cols-2">
+        <section>
+          <h4 className="mb-4 text-lg font-bold text-slate-50">
+            Ce que j’ai appris
+          </h4>
 
-        {project.github && (
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noreferrer"
-            className="rounded-2xl border border-slate-200 p-4 text-sm font-semibold text-slate-700 transition hover:border-blue-400 hover:text-blue-600"
-          >
-            💻 Voir le code GitHub
-          </a>
-        )}
+          <ul className="space-y-3">
+            {project.learnings.map((learning) => (
+              <li
+                key={learning}
+                className="flex gap-3 text-sm leading-6 text-slate-300"
+              >
+                <span className="text-emerald-400">✓</span>
+                <span>{learning}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+
+        <section>
+          <h4 className="mb-4 text-lg font-bold text-slate-50">
+            Difficultés rencontrées
+          </h4>
+
+          <ul className="space-y-3">
+            {project.challenges.map((challenge) => (
+              <li
+                key={challenge}
+                className="flex gap-3 text-sm leading-6 text-slate-300"
+              >
+                <span className="text-amber-400">!</span>
+                <span>{challenge}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
       </div>
 
-      <div className="mb-8 grid gap-4 sm:grid-cols-2">
-        {project.startedAt && (
-          <div className="rounded-2xl bg-slate-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Début
-            </p>
-            <p className="mt-1 font-semibold text-slate-700">
-              {project.startedAt}
-            </p>
-          </div>
-        )}
-
-        {project.completedAt && (
-          <div className="rounded-2xl bg-slate-50 p-4">
-            <p className="text-xs font-semibold uppercase tracking-widest text-slate-400">
-              Fin
-            </p>
-            <p className="mt-1 font-semibold text-slate-700">
-              {project.completedAt}
-            </p>
-          </div>
-        )}
-      </div>
-
-      <section className="mb-8">
-        <h4 className="mb-3 text-lg font-bold text-slate-900">
-          Ce que j'ai appris
+      <section className="pt-7">
+        <h4 className="mb-4 text-lg font-bold text-slate-50">
+          Galerie du projet
         </h4>
 
-        <ul className="space-y-2">
-          {project.learnings.map((learning) => (
-            <li key={learning} className="text-slate-600">
-              ✅ {learning}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section className="mb-8">
-        <h4 className="mb-3 text-lg font-bold text-slate-900">
-          Difficultés rencontrées
-        </h4>
-
-        <ul className="space-y-2">
-          {project.challenges.map((challenge) => (
-            <li key={challenge} className="text-slate-600">
-              ⚠️ {challenge}
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h4 className="mb-3 text-lg font-bold text-slate-900">
-          Galerie
-        </h4>
-
-        <div className="rounded-2xl border border-dashed border-slate-300 bg-slate-50 p-6 text-sm text-slate-500">
-          Galerie à venir.
-        </div>
+<ProjectGallery
+  key={project.id}
+  title={project.title}
+  gallery={project.gallery}
+  video={project.video}
+/>
       </section>
     </article>
   );

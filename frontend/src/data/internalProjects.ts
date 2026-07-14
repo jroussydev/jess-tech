@@ -10,8 +10,13 @@ export const internalProjects: InternalProject[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "React Router"],
     status: "En cours",
 
-    featuredImage: "/chemin de limage",
-    gallery: [],
+    featuredImage: "/portfolio/jess-tech/hero.png",
+    gallery: [
+  "/portfolio/jess-tech/home.png",
+  "/portfolio/jess-tech/services.png",
+  "/portfolio/jess-tech/about.png",
+  "/portfolio/jess-tech/contact.png",
+],
 
     learnings: [
       "Créer une architecture React plus propre.",
