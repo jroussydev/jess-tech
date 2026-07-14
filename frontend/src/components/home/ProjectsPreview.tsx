@@ -23,17 +23,17 @@ export default function ProjectsPreview() {
 
 {/* Bloc de section en 3 parties */}
   <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
-    <div className="grid gap-28 lg:grid-cols-[25%_75%]">
+    <div className="grid gap-28 lg:grid-cols-[35%_65%]">
 
 {/* Bloc gauche */}
-        <div className="self-start pt-6">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-blue-400">
+        <div className="self-start pt-6 pr-24">
+          <p className="mb-3 text-m font-semibold uppercase tracking-widest text-blue-400">
             Dans les coulisses
           </p>
-          <h2 className="text-4xl font-black text-white">
+          <h2 className="text-4xl font-black text-slate-200">
             Les projets techniques en cours
           </h2>
-          <p className="mt-4 text-slate-400 leading-7">
+          <p className="mt-4 text-slate-400 leading-7 text-justify">
             Outils internes, expérimentations et développements qui illustrent
             mon travail quotidien de développeuse.
           </p>
@@ -61,7 +61,7 @@ export default function ProjectsPreview() {
     hidden
     lg:block
     absolute
-    left-[13%]
+    left-[18%]
     top-1/2
     -translate-y-1/2
     h-[900px]
@@ -81,7 +81,8 @@ export default function ProjectsPreview() {
             <article
             key={project.title}
             className="
-              group
+            relative z-10  
+            group
 flex
 flex-col
 gap-4

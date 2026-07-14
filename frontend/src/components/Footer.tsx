@@ -35,11 +35,11 @@ export default function Footer() {
             <h3 className="font-bold text-xl text-blue-500">Navigation</h3>
 
             <div className="mt-5 flex flex-col gap-2">
-              <div className="flex gap-2"><BookOpen/><span>Accueil</span></div>
-              <div className="flex gap-2"><Handshake /><span>Services</span></div>
-              <div className="flex gap-2"><StarCheck /><span>Réalisations</span></div>
-              <div className="flex gap-2"><UserRound /><span>À propos</span></div>
-              <div className="flex gap-2"><Mail /><span>Contact</span></div>
+              <div className="flex gap-2"><BookOpen/><Link to="/">Accueil</Link></div>
+              <div className="flex gap-2"><Handshake /><Link to="/Services">Services</Link></div>
+              <div className="flex gap-2"><StarCheck /><Link to="/DansLesCoulisses">Réalisations</Link></div>
+              <div className="flex gap-2"><UserRound /><Link to="/About">À propos</Link></div>
+              <div className="flex gap-2"><Mail /><Link to="/Contact">Contact</Link></div>
             </div>
           </div>
 
@@ -48,10 +48,10 @@ export default function Footer() {
             <h3 className="font-bold text-xl text-blue-500">Services</h3>
 
             <div className="mt-5 flex flex-col gap-2">
-              <div className="flex gap-2"><PenTool/><span>Sites vitrines</span></div>
+              <div className="flex gap-2"><PenTool/><Link to="/CreationSiteInternet">Sites vitrines</Link></div>
               <div className="flex gap-2"><Monitor/><span>Refonte de site</span></div>
-              <div className="flex gap-2"><Wrench/><span>Maintenance</span></div>
-              <div className="flex gap-2"><LifeBuoy/><span>Assistance technique</span></div>
+              <div className="flex gap-2"><Wrench/><Link to="/MaintenanceSiteWeb">Maintenance</Link></div>
+              <div className="flex gap-2"><LifeBuoy/><Link to="/AssistanceTechnique">Assistance technique</Link></div>
             </div>
           </div>
 
