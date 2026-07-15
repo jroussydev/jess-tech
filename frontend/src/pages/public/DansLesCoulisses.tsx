@@ -2,12 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import { internalProjects } from "../../data/internalProjects";
-import { ProjectList } from "../../components/projects";
-import {ProjectDetails} from "../../components/projects";
+import {
+  ProjectDetails,
+  ProjectList,
+} from "../../components/projects";
 
 export default function DansLesCoulisses() {
-
-const [selectedProject, setSelectedProject] = useState(internalProjects[0]);
+  const [selectedProject, setSelectedProject] = useState(
+    internalProjects[0],
+  );
 
   return (
     <main className="relative overflow-hidden">
@@ -84,7 +87,7 @@ const [selectedProject, setSelectedProject] = useState(internalProjects[0]);
             </h2>
           </div>
 
-          <div className="grid gap-8 lg:grid-cols-[35%_65%]">
+          <div className="grid items-start gap-8 lg:grid-cols-[35%_65%]">
             <ProjectList
   projects={internalProjects}
   onSelectProject={setSelectedProject}

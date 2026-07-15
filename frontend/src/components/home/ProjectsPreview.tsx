@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 export default function ProjectsPreview() {
   const projects = [
@@ -8,142 +8,123 @@ export default function ProjectsPreview() {
     },
     {
       title: "Jess-Tech Edu Studio",
-      description: "Nouvelle expérimentation technique en cours de conception.",
+      description:
+        "Nouvelle expérimentation technique en cours de conception.",
     },
     {
       title: "Outils internes",
-      description: "Développements techniques et solutions en cours de construction.",
+      description:
+        "Développements techniques et solutions en cours de construction.",
     },
-  ]
+  ];
 
   return (
-<section className="relative overflow-hidden py-16 md:py-20 lg:py-24">
+    <section className="section-dark section-spacing relative overflow-hidden">
+      <div className="site-container relative z-10">
+        <div className="grid gap-28 lg:grid-cols-[35%_65%]">
+          {/* Bloc gauche */}
+          <div className="section-intro self-start pt-6 lg:pr-24">
+            <p className="section-label">
+              Dans les coulisses
+            </p>
 
+            <h2>
+              Les projets techniques en cours
+            </h2>
 
+            <p className="text-justified">
+              Outils internes, expérimentations et développements qui illustrent
+              mon travail quotidien de développeuse.
+            </p>
 
-{/* Bloc de section en 3 parties */}
-  <div className="relative z-10 mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
-    <div className="grid gap-28 lg:grid-cols-[35%_65%]">
-
-{/* Bloc gauche */}
-        <div className="self-start pt-6 pr-24">
-          <p className="mb-3 text-m font-semibold uppercase tracking-widest text-blue-400">
-            Dans les coulisses
-          </p>
-          <h2 className="text-4xl font-black text-slate-200">
-            Les projets techniques en cours
-          </h2>
-          <p className="mt-4 text-slate-400 leading-7 text-justify">
-            Outils internes, expérimentations et développements qui illustrent
-            mon travail quotidien de développeuse.
-          </p>
-          <Link to="/DansLesCoulisses">
-          <button className="mt-10 rounded-xl bg-[#0D5BFF] px-6 py-3 font-semibold text-white transition hover:bg-blue-700">
-             Voir tous les projets →
-          </button></Link>
-        </div>
-
-{/* Design ligne bleu 
-        <div className="hidden lg:flex flex-col items-center py-8">
-          <div className="h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_16px_#0D5BFF]" />
-          <div className="w-px flex-1 bg-blue-500/40" />
-          <div className="h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_16px_#0D5BFF]" />
-          <div className="w-px flex-1 bg-blue-500/40" />
-          <div className="h-3 w-3 rounded-full bg-blue-500 shadow-[0_0_16px_#0D5BFF]" />
-        </div>*/}
-{/* Vague bleu */}
-{/* Design ligne bleu */}
-  <img
-    src="/decorations/vagueLumineuse2.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    hidden
-    lg:block
-    absolute
-    left-[18%]
-    top-1/2
-    -translate-y-1/2
-    h-[900px]
-    w-auto
-    opacity-80
-    -z-10
-    pointer-events-none
-  "
-  />
-
-{/* Bloc droite */}
-        <div className="relative grid gap-8 lg:grid-cols-[65%_35%]">
-
-{/* Bloc secondaire Projets */}
-        <div className="space-y-4">
-          {projects.map((project) => (
-            <article
-            key={project.title}
-            className="
-            relative z-10  
-            group
-flex
-flex-col
-gap-4
-sm:flex-row
-sm:items-center
-sm:justify-between
-              rounded-2xl
-              border
-              border-blue-500/15
-              bg-gradient-to-br
-              from-[#081120]
-              to-[#0b1d35]
-              p-6
-              transition
-              duration-300
-              hover:border-blue-400/50
-              hover:-translate-y-1
-              hover:shadow-lg hover:shadow-blue-500/10
-            "
+            <Link
+              to="/DansLesCoulisses"
+              className="btn-primary mt-10"
             >
-        <div>
-          <h3 className="text-xl font-bold text-white">
-            {project.title}
-          </h3>
-          <p className="mt-2 text-slate-400">
-            {project.description}
-          </p>
-        </div>
+              Voir tous les projets →
+            </Link>
+          </div>
 
-        <div className="text-2xl text-blue-400">
-          →
-        </div>
-            </article>
-            
-          ))}
-
-        </div>
-{/* Design image */}
-
+          {/* Vague lumineuse */}
           <img
-  src="/decorations/IconDevCircuit.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    hidden
-    lg:block
-    absolute
-    right-[-80px]
-    top-1/2
-    -translate-y-1/2
-    w-[260px]
-    xl:w-[340px]
-    2xl:w-[420px]
-    opacity-90
-    pointer-events-none
-  "
-/>
-          
-        </div>    
-      </div>
+            src="/decorations/vagueLumineuse2.png"
+            alt=""
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              left-[18%]
+              top-1/2
+              -z-10
+              hidden
+              h-[900px]
+              w-auto
+              -translate-y-1/2
+              opacity-80
+              lg:block
+            "
+          />
+
+          {/* Bloc droit */}
+          <div className="relative grid gap-8 lg:grid-cols-[65%_35%]">
+            {/* Liste des projets */}
+            <div className="relative z-10 space-y-4">
+              {projects.map((project) => (
+                <article
+                  key={project.title}
+                  className="
+                    card-dark
+                    group
+                    flex
+                    flex-col
+                    gap-4
+                    sm:flex-row
+                    sm:items-center
+                    sm:justify-between
+                  "
+                >
+                  <div>
+                    <h3>
+                      {project.title}
+                    </h3>
+
+                    <p className="mt-2">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div
+                    className="text-2xl text-blue-400"
+                    aria-hidden="true"
+                  >
+                    →
+                  </div>
+                </article>
+              ))}
+            </div>
+
+            {/* Illustration */}
+            <img
+              src="/decorations/IconDevCircuit.png"
+              alt=""
+              aria-hidden="true"
+              className="
+                pointer-events-none
+                absolute
+                right-[-80px]
+                top-1/2
+                hidden
+                w-[260px]
+                -translate-y-1/2
+                opacity-90
+                lg:block
+                xl:w-[340px]
+                2xl:w-[420px]
+              "
+            />
+          </div>
+        </div>
       </div>
     </section>
-  )
+  );
 }

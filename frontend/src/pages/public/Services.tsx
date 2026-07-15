@@ -30,15 +30,15 @@ export default function Services() {
 
   return (
     <main className="relative overflow-hidden">
-      <section className="bg-slate-50 py-16 md:py-20 lg:py-24">
-        <div className="mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
-          <p className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-500">
+      <section className="bg-[#F5F7FA] py-16 md:py-20 lg:py-24">
+        <div className="section-light mx-auto max-w-[1500px] px-4 sm:px-6 lg:px-8">
+          <h3 className="mb-4 text-sm font-semibold uppercase tracking-widest text-blue-500">
             Services
-          </p>
+          </h3>
 
-          <h1 className="max-w-4xl text-4xl font-black leading-tight text-slate-900 sm:text-5xl">
+          <h2 className="max-w-4xl text-4xl font-black leading-tight text-slate-900 sm:text-5xl">
             Des solutions web adaptées à vos besoins.
-          </h1>
+          </h2>
 
           <p className="mt-6 max-w-3xl text-base leading-8 text-slate-600 sm:text-lg">
             Jess Tech vous accompagne dans la création, l’évolution, la maintenance
