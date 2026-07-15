@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type ProjectGalleryProps = {
   title: string;
@@ -91,10 +92,14 @@ function nextImage() {
     <button
       type="button"
       onClick={previousImage}
-      className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/80 px-4 py-3 text-white transition hover:bg-slate-800"
+      className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-blue-400/40 bg-blue-600/70 p-3 text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm transition hover:border-blue-300/70 hover:bg-blue-500/90 focus-visible:outline-none
+focus-visible:ring-2
+focus-visible:ring-blue-400
+focus-visible:ring-offset-2
+focus-visible:ring-offset-slate-950"
       aria-label="Afficher l’image précédente"
     >
-      ←
+      <ChevronLeft size={22} />
     </button>
   )}
 
@@ -104,16 +109,20 @@ function nextImage() {
       <button
         type="button"
         onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full bg-slate-900/80 px-4 py-3 text-white transition hover:bg-slate-800"
+        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-blue-400/40 bg-blue-600/70 p-3 text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm transition hover:border-blue-300/70 hover:bg-blue-500/90 focus-visible:outline-none
+focus-visible:ring-2
+focus-visible:ring-blue-400
+focus-visible:ring-offset-2
+focus-visible:ring-offset-slate-950"
         aria-label="Afficher l’image suivante"
       >
-        →
+        <ChevronRight size={22} />
       </button>
     )}
 </div>
 
       {/* Miniatures */}
-      <div className="mt-4 flex gap-3 overflow-x-auto pb-2">
+      <div className="mt-4 flex justify-center gap-3 overflow-x-auto pb-2">
         {gallery.map((image, index) => {
           const isSelected =
             selectedMedia.type === "image" &&
@@ -129,17 +138,17 @@ function nextImage() {
                   src: image,
                 })
               }
-              className={`h-20 w-32 shrink-0 overflow-hidden rounded-xl border transition ${
-                isSelected
-                  ? "border-blue-500"
-                  : "border-slate-700 hover:border-slate-500"
-              }`}
+              className={`group relative h-20 w-32 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 ${
+  isSelected
+    ? "border-blue-500 ring-2 ring-blue-500/20"
+    : "border-slate-700 hover:border-slate-500"
+}`}
               aria-label={`Afficher la capture ${index + 1} du projet ${title}`}
             >
               <img
                 src={image}
                 alt=""
-                className="h-full w-full object-cover"
+                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
               />
             </button>
           );

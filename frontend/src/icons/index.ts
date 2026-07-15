@@ -4,6 +4,7 @@ export {
   X,
   ArrowRight,
   ChevronRight,
+  ChevronLeft,
   ChevronDown,
   BookOpen,
 
