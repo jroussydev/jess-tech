@@ -10,14 +10,14 @@ export default function Hero() {
     <section className="section-dark section-spacing relative overflow-hidden">
       {/* Décoration */}
       <img
-        src="/decorations/vagueLumineuse.png"
+        src="/decorations/profil2.png"
         alt=""
         aria-hidden="true"
         className="
           pointer-events-none
           absolute
-          -top-5
-          left-[30%]
+          -top-21
+          left-[36%]
           hidden
           h-[1080px]
           w-auto
@@ -111,69 +111,6 @@ export default function Hero() {
                 <p className="text-sm leading-6 text-slate-400">
                   Une communication simple, sans jargon inutile.
                 </p>
-              </div>
-            </div>
-          </div>
-
-          {/* Carte de droite */}
-          <div
-            className="
-              rounded-3xl
-              border
-              border-blue-500/20
-              bg-slate-950/80
-              p-6
-              shadow-[0_0_50px_rgba(13,91,255,0.18)]
-              backdrop-blur
-              sm:p-8
-              lg:w-full
-              lg:max-w-xl
-              lg:justify-self-end
-            "
-          >
-            <div className="space-y-6">
-              <div>
-                <p className="text-sm uppercase tracking-wider text-blue-400">
-                  Nouveau projet
-                </p>
-
-                <h3 className="mt-2 text-2xl font-bold sm:text-3xl">
-                  Site vitrine
-                </h3>
-
-                <p className="text-slate-400">
-                  Client local
-                </p>
-              </div>
-
-              <div className="flex flex-wrap gap-2">
-                <span className="badge badge-primary">
-                  Responsive
-                </span>
-
-                <span className="badge badge-primary">
-                  SEO
-                </span>
-
-                <span className="badge badge-primary">
-                  Contact
-                </span>
-
-                <span className="badge badge-primary">
-                  Maintenance
-                </span>
-              </div>
-
-              <div>
-                <div className="border-t border-blue-500/20 pt-4" />
-
-                <p className="text-sm text-slate-400">
-                  Statut
-                </p>
-
-                <span className="badge badge-success mt-2 px-4 py-2">
-                  Prêt à construire
-                </span>
               </div>
             </div>
           </div>

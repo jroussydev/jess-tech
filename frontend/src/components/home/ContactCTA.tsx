@@ -7,14 +7,14 @@ export default function ContactCTA() {
         <div className="relative overflow-hidden rounded-3xl border border-blue-500/15 bg-gradient-to-r from-[#081120] to-[#0b1d35] p-6 sm:p-8">
           {/* Décoration */}
           <img
-            src="/decorations/vagueLumineuse.png"
+            src="/decorations/vagueLumineuse2.png"
             alt=""
             aria-hidden="true"
             className="
               pointer-events-none
               absolute
-              left-[13%]
-              top-1/2
+              left-[10%]
+              top-100
               hidden
               h-[900px]
               w-auto

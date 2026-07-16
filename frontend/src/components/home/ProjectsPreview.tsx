@@ -54,7 +54,7 @@ export default function ProjectsPreview() {
               pointer-events-none
               absolute
               left-[18%]
-              top-1/2
+              top-26
               -z-10
               hidden
               h-[900px]
