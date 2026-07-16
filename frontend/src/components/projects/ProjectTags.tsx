@@ -8,7 +8,7 @@ export default function ProjectTags({ tags }: ProjectTagsProps) {
       {tags.map((tag) => (
         <span
           key={tag}
-          className="rounded-full bg-slate-800 px-3 py-1 text-sm text-slate-300"
+          className="rounded-full bg-blue-800 px-3 py-1 text-sm text-slate-300"
         >
           {tag}
         </span>

@@ -171,28 +171,22 @@ export default function Contact() {
               </div>
             </div>
 
-            <div className="relative hidden min-h-[430px] lg:block">
-              <div className="absolute inset-12 rounded-full bg-blue-600/10 blur-3xl" />
+<div className="relative mx-auto w-full max-w-[680px] lg:mx-0">
+  <div
+    className="pointer-events-none absolute inset-8 rounded-full bg-blue-600/20 blur-[90px]"
+    aria-hidden="true"
+  />
 
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative flex h-80 w-80 items-center justify-center rounded-full border border-blue-400/20 bg-blue-500/[0.04]">
-                  <div className="absolute h-60 w-60 rounded-full border border-dashed border-blue-400/30" />
-
-                  <div className="absolute h-40 w-40 rounded-full border border-blue-400/20" />
-
-                  <MapPin
-                    className="relative z-10 h-20 w-20 text-blue-400 drop-shadow-[0_0_25px_rgba(167,139,250,0.8)]"
-                    aria-hidden="true"
-                  />
-
-                  <span className="absolute left-8 top-16 h-3 w-3 rounded-full bg-white shadow-[0_0_15px_white]" />
-                  <span className="absolute right-10 top-28 h-3 w-3 rounded-full bg-white shadow-[0_0_15px_white]" />
-                  <span className="absolute bottom-14 left-20 h-3 w-3 rounded-full bg-white shadow-[0_0_15px_white]" />
-                  <span className="absolute bottom-10 right-24 h-3 w-3 rounded-full bg-white shadow-[0_0_15px_white]" />
-                </div>
-              </div>
-            </div>
-          </div>
+  <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-blue-500/20 shadow-2xl shadow-blue-950/40">
+    <img
+      src="/decorations/jessica-contact.png"
+      alt="Jessica, développeuse web et assistante technique chez Jess Tech"
+      className="h-full w-full object-cover"
+    />
+  </div>
+</div>
+</div>
+            
         </div>
       </section>
 

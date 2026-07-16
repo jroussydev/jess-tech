@@ -11,8 +11,8 @@ export default function ProjectPreview({ project }: ProjectPreviewProps) {
   const hasVideo = Boolean(project.video);
 
   return (
-    <article className="grid grid-cols-[110px_1fr] gap-5 rounded-3xl border border-slate-700/60 bg-slate-900/70 p-5 shadow-lg shadow-black/20 transition hover:border-blue-500/40">
-      <div className="aspect-[3/4] overflow-hidden rounded-2xl bg-slate-800">
+    <article className="grid grid-cols-[180px_1fr] gap-5 rounded-3xl border border-slate-700/60 bg-slate-900/70 p-5 shadow-lg shadow-black/20 transition hover:border-blue-500/40">
+      <div className="aspect-video overflow-hidden rounded-2xl border border-blue-500/15 bg-slate-800">
         {project.featuredImage ? (
           <img
             src={project.featuredImage}
@@ -39,16 +39,16 @@ export default function ProjectPreview({ project }: ProjectPreviewProps) {
           <CategoryBadge category={project.category} />
         </div>
 
-        <p className="mt-4 text-sm leading-6 text-slate-400">
+        <p className="mt-4 text-sm leading-6 text-slate-400 text-justify">
           {project.summary}
         </p>
 
         <div className="mt-5 flex items-center gap-5 text-sm">
-          <span className={hasImages ? "text-slate-300" : "text-slate-600"}>
+          <span className={hasImages ? "font-semibold text-blue-400 transition hover:text-blue-300" : "font-semibold text-slate-600 transition hover:text-slate-600"}>
             Images
           </span>
 
-          <span className={hasVideo ? "text-slate-300" : "text-slate-600"}>
+          <span className={hasVideo ? "font-semibold text-blue-400 transition hover:text-blue-300" : "font-semibold text-slate-600 transition hover:text-slate-600"}>
             Vidéo
           </span>
         </div>
