@@ -34,7 +34,7 @@ export default function Navbar() {
           Services
         </Link>
 
-        <Link to="/realisations" className="text-slate-200 hover:text-[#0D5BFF] transition">
+        <Link to="/DansLesCoulisses" className="text-slate-200 hover:text-[#0D5BFF] transition">
           Réalisations
         </Link>
 
