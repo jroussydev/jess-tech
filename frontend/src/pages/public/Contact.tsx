@@ -21,6 +21,36 @@ import {
 } from "react-icons/fa6";
 
 export default function Contact() {
+
+  async function handleSubmit(
+    event: React.FormEvent<HTMLFormElement>
+  ) {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+    const body = Object.fromEntries(form);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
+
+      if (!response.ok) {
+        throw new Error();
+      }
+
+      alert("Votre demande a bien été envoyée.");
+
+      event.currentTarget.reset();
+    } catch {
+      alert("Une erreur est survenue.");
+    }
+  }
+
   const contactMethods = [
     {
       title: "E-mail",
@@ -247,7 +277,7 @@ export default function Contact() {
                       <h3>Zone d’intervention locale</h3>
 
                       <p className="text-sm">
-                        Environ 10 km autour de Beaurieux, selon le type
+                        Environ 30 km autour de Beaurieux, selon le type
                         d’intervention.
                       </p>
                     </div>
@@ -281,7 +311,10 @@ export default function Contact() {
                 <h2>Envoyez-moi votre demande</h2>
               </div>
 
-              <form className="mt-8 space-y-5">
+              <form
+              onSubmit={handleSubmit}
+              className="mt-8 space-y-5"
+            >
                 <div className="grid gap-5 sm:grid-cols-2">
                   <div>
                     <label
