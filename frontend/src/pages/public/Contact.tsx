@@ -48,7 +48,7 @@ export default function Contact() {
       description: "Mon profil professionnel",
       infos: "Retrouvez Jess Tech sur LinkedIn",
       icon: FaLinkedin,
-      href: "#",
+      href: "https://www.linkedin.com/in/jessica-roussy-jesstech",
     },
     {
       title: "Page Facebook",
@@ -94,101 +94,117 @@ export default function Contact() {
 
   return (
     <main>
-      {/* Section 1 — Hero */}
-      <section className="section-dark section-spacing relative overflow-hidden">
-        <div
-          className="pointer-events-none absolute left-1/4 top-0 h-96 w-96 rounded-full bg-violet-600/10 blur-[130px]"
-          aria-hidden="true"
-        />
-
-        <div
-          className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-blue-600/10 blur-[140px]"
-          aria-hidden="true"
-        />
-
-        <div className="site-container relative z-10">
-          <div className="grid gap-14 lg:grid-cols-[1.10fr_0.90fr] lg:items-center">
-            <div>
-              <div className="section-intro">
-                <p className="section-label">Contact</p>
-
-                <h1>
-                  Parlons de{" "}
-                  <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-                    votre projet
-                  </span>
-                </h1>
-
-                <p className="max-w-xl">
-                  Vous avez un projet de site internet, une question technique
-                  ou simplement besoin d’aide pour y voir plus clair ?
-                  <br />
-                  Présentez-moi votre besoin, même s’il n’est pas encore
-                  complètement défini.
-                </p>
-              </div>
-
-              <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-                {quickContacts.map((method) => {
-                  const Icon = method.icon;
-
-                  return (
-                    <a
-                      key={method.title}
-                      href={method.href}
-                      target={
-                        method.href.startsWith("http") ? "_blank" : undefined
-                      }
-                      rel={
-                        method.href.startsWith("http")
-                          ? "noreferrer"
-                          : undefined
-                      }
-                      className="card-dark group text-center"
-                    >
-                      <Icon
-                        className="mx-auto h-8 w-8 text-blue-400 transition duration-300 group-hover:scale-110"
-                        aria-hidden="true"
-                      />
-
-                      <h3 className="mt-4">{method.title}</h3>
-
-                      <p className="text-sm">{method.description}</p>
-                    </a>
-                  );
-                })}
-
-                <article className="card-dark text-center">
-                  <Clock3
-                    className="mx-auto h-8 w-8 text-blue-400"
-                    aria-hidden="true"
-                  />
-
-                  <h3 className="mt-4">Réponse</h3>
-
-                  <p className="text-sm">Rapide</p>
-                </article>
-              </div>
-            </div>
-
-<div className="relative mx-auto w-full max-w-[680px] lg:mx-0">
+{/* Section 1 — Hero */}
+<section className="section-dark relative overflow-hidden">
+  {/* Halos décoratifs */}
   <div
-    className="pointer-events-none absolute inset-8 rounded-full bg-blue-600/20 blur-[90px]"
+    className="pointer-events-none absolute left-1/4 top-0 h-96 w-96 rounded-full bg-blue-600/10 blur-[130px]"
     aria-hidden="true"
   />
 
-  <div className="relative aspect-[3/2] overflow-hidden rounded-3xl border border-blue-500/20 shadow-2xl shadow-blue-950/40">
+  <div
+    className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-blue-600/10 blur-[140px]"
+    aria-hidden="true"
+  />
+
+  {/* Contenu */}
+  <div className="site-container relative z-20">
+    <div className="py-16 md:py-20 lg:min-h-[680px] lg:w-[52%] lg:py-24">
+      <div className="section-intro">
+        <p className="section-label">Contact</p>
+
+        <h1>
+          Parlons de{" "}
+          <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
+            votre projet
+          </span>
+        </h1>
+
+        <p className="max-w-xl">
+          Vous avez un projet de site internet, une question technique ou
+          simplement besoin d’aide pour y voir plus clair ?
+          <br />
+          Présentez-moi votre besoin, même s’il n’est pas encore complètement
+          défini.
+        </p>
+      </div>
+
+      {/* Contacts rapides */}
+      <div className="mt-10 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+        {quickContacts.map((method) => {
+          const Icon = method.icon;
+
+          return (
+            <a
+              key={method.title}
+              href={method.href}
+              target={method.href.startsWith("http") ? "_blank" : undefined}
+              rel={method.href.startsWith("http") ? "noreferrer" : undefined}
+              className="card-dark group text-center"
+            >
+              <Icon
+                className="mx-auto h-8 w-8 text-blue-400 transition duration-300 group-hover:scale-110"
+                aria-hidden="true"
+              />
+
+              <h3 className="mt-4">{method.title}</h3>
+
+              <p className="text-sm">{method.description}</p>
+            </a>
+          );
+        })}
+
+        <article className="card-dark text-center">
+          <Clock3
+            className="mx-auto h-8 w-8 text-blue-400"
+            aria-hidden="true"
+          />
+
+          <h3 className="mt-4">Réponse</h3>
+
+          <p className="text-sm">Rapide</p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  {/* Photo — mobile */}
+  <div className="relative z-10 px-4 sm:px-6 lg:hidden">
     <img
-      src="/decorations/jessica-contact.png"
+      src="/decorations/jessica-roussy-contact.png"
       alt="Jessica, développeuse web et assistante technique chez Jess Tech"
-      className="h-full w-full object-cover"
+      className="h-auto w-full"
     />
   </div>
-</div>
-</div>
-            
-        </div>
-      </section>
+
+  {/* Photo — ordinateur */}
+  <div
+    className="
+      pointer-events-none
+      absolute
+      inset-y-0
+      right-0
+      z-10
+      hidden
+      w-[58%]
+      lg:block
+    "
+  >
+    <img
+      src="/decorations/jessica-roussy-contact.png"
+      alt=""
+      aria-hidden="true"
+      className="
+        absolute
+        bottom-0
+        right-0
+        h-full
+        w-auto
+        max-w-none
+      "
+    />
+  </div>
+</section>
 
       {/* Section 2 — Localisation et formulaire */}
       <section className="section-light section-spacing">
