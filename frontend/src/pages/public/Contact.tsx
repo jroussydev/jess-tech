@@ -23,33 +23,34 @@ import {
 export default function Contact() {
 
   async function handleSubmit(
-    event: React.FormEvent<HTMLFormElement>
-  ) {
-    event.preventDefault();
+  event: React.FormEvent<HTMLFormElement>,
+) {
+  event.preventDefault();
 
-    const form = new FormData(event.currentTarget);
-    const body = Object.fromEntries(form);
+  const formElement = event.currentTarget;
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(body),
-      });
+  const form = new FormData(formElement);
+  const body = Object.fromEntries(form);
 
-      if (!response.ok) {
-        throw new Error();
-      }
+  try {
+    const response = await fetch("/api/contact", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(body),
+    });
 
-      alert("Votre demande a bien été envoyée.");
-
-      event.currentTarget.reset();
-    } catch {
-      alert("Une erreur est survenue.");
+    if (!response.ok) {
+      throw new Error("L’envoi a échoué.");
     }
+
+    alert("Votre demande a bien été envoyée.");
+    formElement.reset();
+  } catch {
+    alert("Une erreur est survenue.");
   }
+}
 
   const contactMethods = [
     {
