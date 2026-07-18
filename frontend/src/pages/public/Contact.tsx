@@ -1,5 +1,11 @@
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useRef } from "react";
+import {
+  Turnstile,
+  type TurnstileInstance,
+} from "@marsidev/react-turnstile";
 import {
   Car,
   Clock3,
@@ -24,74 +30,123 @@ import {
 } from "react-icons/fa6";
 
 export default function Contact() {
-
   type FormStatus = "idle" | "success" | "error";
 
-const [isSubmitting, setIsSubmitting] = useState(false);
-const [formStatus, setFormStatus] = useState<FormStatus>("idle");
-const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [feedbackMessage, setFeedbackMessage] = useState("");
+  const [isFeedbackVisible, setIsFeedbackVisible] = useState(false);
+
+  const [turnstileToken, setTurnstileToken] = useState("");
+
+const turnstileRef = useRef<TurnstileInstance | null>(null);
+
+  useEffect(() => {
+    if (formStatus === "idle") return;
+
+    // Le message commence à disparaître après 4,7 secondes.
+    const hideTimer = window.setTimeout(() => {
+      setIsFeedbackVisible(false);
+    }, 4700);
+
+    // Le message est ensuite retiré du HTML après son animation.
+    const clearTimer = window.setTimeout(() => {
+      setFormStatus("idle");
+      setFeedbackMessage("");
+    }, 5000);
+
+    return () => {
+      window.clearTimeout(hideTimer);
+      window.clearTimeout(clearTimer);
+    };
+  }, [formStatus]);
 
 async function handleSubmit(
   event: React.FormEvent<HTMLFormElement>,
 ) {
   event.preventDefault();
 
+  if (!turnstileToken) {
+    setFormStatus("error");
+    setFeedbackMessage(
+      "La vérification de sécurité n’est pas encore terminée. Veuillez patienter quelques secondes.",
+    );
+    setIsFeedbackVisible(true);
+    return;
+  }
+
   const formElement = event.currentTarget;
 
   setIsSubmitting(true);
   setFormStatus("idle");
   setFeedbackMessage("");
+  setIsFeedbackVisible(false);
 
   const form = new FormData(formElement);
-  const body = Object.fromEntries(form);
 
-  try {
-    const response = await fetch("/api/contact", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(body),
-    });
+  const body = {
+    ...Object.fromEntries(form),
+    turnstileToken,
+  };
 
-const responseText = await response.text();
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(body),
+      });
 
-let result: { message?: string } = {};
+      const responseText = await response.text();
 
-if (responseText) {
-  try {
-    result = JSON.parse(responseText) as {
-      message?: string;
-    };
-  } catch {
-    result = {};
-  }
-}
+      let result: { message?: string } = {};
 
-    if (!response.ok) {
-      throw new Error(
-        result.message || "L’envoi de votre demande a échoué.",
+      if (responseText) {
+        try {
+          result = JSON.parse(responseText) as {
+            message?: string;
+          };
+        } catch {
+          result = {};
+        }
+      }
+
+      if (!response.ok) {
+        throw new Error(
+          result.message || "L’envoi de votre demande a échoué.",
+        );
+      }
+
+      formElement.reset();
+      turnstileRef.current?.reset();
+setTurnstileToken("");
+
+      setFormStatus("success");
+      setFeedbackMessage(
+        "Votre message a bien été envoyé ! Je vous répondrai dans les meilleurs délais.",
       );
+
+      requestAnimationFrame(() => {
+        setIsFeedbackVisible(true);
+      });
+    } catch (error) {
+      setFormStatus("error");
+      setFeedbackMessage(
+        error instanceof Error
+          ? error.message
+          : "Une erreur est survenue. Veuillez réessayer dans quelques instants.",
+      );
+
+      requestAnimationFrame(() => {
+        setIsFeedbackVisible(true);
+      });
+    } finally {
+        setIsSubmitting(false);
+        turnstileRef.current?.reset();
+        setTurnstileToken("");
     }
-
-    formElement.reset();
-
-    setFormStatus("success");
-    setFeedbackMessage(
-      "Votre demande a bien été envoyée. Je vous répondrai dans les meilleurs délais.",
-    );
-  } catch (error) {
-    setFormStatus("error");
-
-    setFeedbackMessage(
-      error instanceof Error
-        ? error.message
-        : "Une erreur est survenue. Veuillez réessayer dans quelques instants.",
-    );
-  } finally {
-    setIsSubmitting(false);
   }
-}
 
   const contactMethods = [
     {
@@ -499,60 +554,121 @@ if (responseText) {
                   </label>
                 </div>
 
+<div className="hidden" aria-hidden="true">
+  <label htmlFor="website">
+    Ne pas remplir ce champ
+  </label>
+
+  <input
+    id="website"
+    name="website"
+    type="text"
+    tabIndex={-1}
+    autoComplete="off"
+  />
+</div>
+
+<Turnstile
+  ref={turnstileRef}
+  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+  options={{
+    theme: "dark",
+    size: "flexible",
+  }}
+  onSuccess={(token) => {
+    setTurnstileToken(token);
+  }}
+  onExpire={() => {
+    setTurnstileToken("");
+  }}
+  onError={() => {
+    setTurnstileToken("");
+  }}
+/>
+
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="btn-primary w-full gap-3 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="btn-primary inline-flex w-full items-center justify-center gap-3 transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {isSubmitting ? (
                     <>
-                      Envoi en cours...
+                      Envoi en cours…
                       <LoaderCircle
-                        className="h-5 w-5 animate-spin"
+                        className="h-4 w-4 animate-spin"
+                        strokeWidth={2.5}
                         aria-hidden="true"
                       />
                     </>
                   ) : (
                     <>
-                      Envoyer ma demande
+                      Envoyer mon message
                       <Send className="h-5 w-5" aria-hidden="true" />
                     </>
                   )}
                 </button>
 
-                <div aria-live="polite" aria-atomic="true">
-                  {formStatus === "success" && (
-                    <div
-                      className="flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800"
-                      role="status"
-                    >
-                      <CheckCircle2
-                        className="mt-0.5 h-5 w-5 shrink-0"
-                        aria-hidden="true"
-                      />
+<div
+  aria-live="polite"
+  aria-atomic="true"
+  className="min-h-[74px]"
+>
+  {formStatus === "success" && (
+    <div
+      className={`
+        flex items-start gap-3 rounded-xl border border-emerald-200
+        bg-emerald-50 p-4 text-emerald-800
+        transition-all duration-300 ease-out
+        ${
+          isFeedbackVisible
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-2 opacity-0"
+        }
+      `}
+      role="status"
+    >
+      <CheckCircle2
+        className="mt-0.5 h-5 w-5 shrink-0"
+        aria-hidden="true"
+      />
 
-                      <p className="m-0 text-sm font-medium">
-                        {feedbackMessage}
-                      </p>
-                    </div>
-                  )}
+      <div>
+        <p className="m-0 text-sm font-semibold">
+          Votre message a bien été envoyé !
+        </p>
 
-                  {formStatus === "error" && (
-                    <div
-                      className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-red-800"
-                      role="alert"
-                    >
-                      <CircleAlert
-                        className="mt-0.5 h-5 w-5 shrink-0"
-                        aria-hidden="true"
-                      />
+        <p className="mt-1 text-sm">
+          Je vous répondrai dans les meilleurs délais.
+        </p>
+      </div>
+    </div>
+  )}
 
-                      <p className="m-0 text-sm font-medium">
-                        {feedbackMessage}
-                      </p>
-                    </div>
-                  )}
-                </div>
+  {formStatus === "error" && (
+    <div
+      className={`
+        flex items-start gap-3 rounded-xl border border-red-200
+        bg-red-50 p-4 text-red-800
+        transition-all duration-300 ease-out
+        ${
+          isFeedbackVisible
+            ? "translate-y-0 opacity-100"
+            : "-translate-y-2 opacity-0"
+        }
+      `}
+      role="alert"
+    >
+      <CircleAlert
+        className="mt-0.5 h-5 w-5 shrink-0"
+        aria-hidden="true"
+      />
+
+      <p className="m-0 text-sm font-medium">
+        {feedbackMessage}
+      </p>
+    </div>
+  )}
+</div>
 
               </form>
             </article>
