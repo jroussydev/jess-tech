@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
 import {
   Car,
   Clock3,
@@ -11,6 +11,9 @@ import {
   Phone,
   Send,
   UserRound,
+  CheckCircle2,
+CircleAlert,
+LoaderCircle,
 } from "lucide-react";
 
 import {
@@ -22,12 +25,22 @@ import {
 
 export default function Contact() {
 
-  async function handleSubmit(
+  type FormStatus = "idle" | "success" | "error";
+
+const [isSubmitting, setIsSubmitting] = useState(false);
+const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+const [feedbackMessage, setFeedbackMessage] = useState("");
+
+async function handleSubmit(
   event: React.FormEvent<HTMLFormElement>,
 ) {
   event.preventDefault();
 
   const formElement = event.currentTarget;
+
+  setIsSubmitting(true);
+  setFormStatus("idle");
+  setFeedbackMessage("");
 
   const form = new FormData(formElement);
   const body = Object.fromEntries(form);
@@ -41,14 +54,42 @@ export default function Contact() {
       body: JSON.stringify(body),
     });
 
+const responseText = await response.text();
+
+let result: { message?: string } = {};
+
+if (responseText) {
+  try {
+    result = JSON.parse(responseText) as {
+      message?: string;
+    };
+  } catch {
+    result = {};
+  }
+}
+
     if (!response.ok) {
-      throw new Error("L’envoi a échoué.");
+      throw new Error(
+        result.message || "L’envoi de votre demande a échoué.",
+      );
     }
 
-    alert("Votre demande a bien été envoyée.");
     formElement.reset();
-  } catch {
-    alert("Une erreur est survenue.");
+
+    setFormStatus("success");
+    setFeedbackMessage(
+      "Votre demande a bien été envoyée. Je vous répondrai dans les meilleurs délais.",
+    );
+  } catch (error) {
+    setFormStatus("error");
+
+    setFeedbackMessage(
+      error instanceof Error
+        ? error.message
+        : "Une erreur est survenue. Veuillez réessayer dans quelques instants.",
+    );
+  } finally {
+    setIsSubmitting(false);
   }
 }
 
@@ -458,10 +499,61 @@ export default function Contact() {
                   </label>
                 </div>
 
-                <button type="submit" className="btn-primary w-full gap-3">
-                  Envoyer ma demande
-                  <Send className="h-5 w-5" aria-hidden="true" />
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-primary w-full gap-3 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  {isSubmitting ? (
+                    <>
+                      Envoi en cours...
+                      <LoaderCircle
+                        className="h-5 w-5 animate-spin"
+                        aria-hidden="true"
+                      />
+                    </>
+                  ) : (
+                    <>
+                      Envoyer ma demande
+                      <Send className="h-5 w-5" aria-hidden="true" />
+                    </>
+                  )}
                 </button>
+
+                <div aria-live="polite" aria-atomic="true">
+                  {formStatus === "success" && (
+                    <div
+                      className="flex items-start gap-3 rounded-xl border border-emerald-200 bg-emerald-50 p-4 text-emerald-800"
+                      role="status"
+                    >
+                      <CheckCircle2
+                        className="mt-0.5 h-5 w-5 shrink-0"
+                        aria-hidden="true"
+                      />
+
+                      <p className="m-0 text-sm font-medium">
+                        {feedbackMessage}
+                      </p>
+                    </div>
+                  )}
+
+                  {formStatus === "error" && (
+                    <div
+                      className="flex items-start gap-3 rounded-xl border border-red-200 bg-red-50 p-4 text-red-800"
+                      role="alert"
+                    >
+                      <CircleAlert
+                        className="mt-0.5 h-5 w-5 shrink-0"
+                        aria-hidden="true"
+                      />
+
+                      <p className="m-0 text-sm font-medium">
+                        {feedbackMessage}
+                      </p>
+                    </div>
+                  )}
+                </div>
+
               </form>
             </article>
           </div>

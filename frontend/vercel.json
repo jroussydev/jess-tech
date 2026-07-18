@@ -2,7 +2,27 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/contact",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/services",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/realisations",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/a-propos",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/dans-les-coulisses",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/politique-de-confidentialite",
       "destination": "/index.html"
     }
   ]
