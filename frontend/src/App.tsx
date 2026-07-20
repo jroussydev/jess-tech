@@ -20,6 +20,7 @@ import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite
 import MentionLegal from "./pages/legal/MentionLegal.tsx"
 import Cgv from "./pages/legal/Cgv.tsx"
 
+import Localisation from "./pages/public/Localisation.tsx"
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
@@ -44,6 +45,8 @@ function App() {
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
         <Route path="/MentionLegal" element={<MentionLegal />} />
         <Route path="/Cgv" element={<Cgv />} />
+
+        <Route path="/Localisation" element={<Localisation />} />
 
       </Routes>
 
