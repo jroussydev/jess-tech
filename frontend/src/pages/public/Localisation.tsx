@@ -1,9 +1,21 @@
-import { HeroLocalisation } from "../../components/localisation";
+import {
+  CarteZoneLocale,
+  EtapeProjet,
+  FaqLocalisation,
+  HeroLocalisation,
+  ModesIntervention,
+  ZonesDesservies,
+} from "../../components/localisation";
 
 const Localisation = () => {
   return (
     <main>
       <HeroLocalisation />
+      <CarteZoneLocale />
+      <ModesIntervention />
+      <ZonesDesservies />
+      <EtapeProjet />
+      <FaqLocalisation />
     </main>
   );
 };
