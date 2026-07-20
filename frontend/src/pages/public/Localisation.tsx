@@ -1,6 +1,6 @@
 import {
   CarteZoneLocale,
-  EtapesProjet,
+
   FaqLocalisation,
   HeroLocalisation,
   ModesIntervention,
@@ -14,7 +14,7 @@ const Localisation = () => {
       <CarteZoneLocale />
       <ModesIntervention />
       <ZonesDesservies />
-      <EtapesProjet />
+
       <FaqLocalisation />
     </main>
   );
