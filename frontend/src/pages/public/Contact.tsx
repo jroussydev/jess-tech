@@ -182,7 +182,7 @@ setTurnstileToken("");
       description: "Retrouvez Jess Tech",
       infos: "Actualités et informations",
       icon: FaFacebook,
-      href: "#",
+      href: "https://www.facebook.com/share/1EAwbZ98WK/",
     },
     {
       title: "GitHub",

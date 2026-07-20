@@ -75,7 +75,7 @@ function nextImage() {
     <img
       src={selectedMedia.src}
       alt={`Capture du projet ${title}`}
-      className="h-full w-full object-cover"
+      className="h-full w-full object-contain"
     />
   ) : (
     <video
@@ -148,7 +148,7 @@ focus-visible:ring-offset-slate-950"
               <img
                 src={image}
                 alt=""
-                className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </button>
           );
