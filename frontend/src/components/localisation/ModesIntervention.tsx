@@ -24,7 +24,7 @@ const ModesIntervention = () => {
     <section className="section-dark">
       <div className="site-container section-spacing">
         {/* Introduction */}
-        <div className="section-intro mx-auto max-w-3xl text-center">
+        <div className="section-intro">
           <p className="section-label">Organisation</p>
 
           <h2>Deux façons de vous accompagner</h2>
