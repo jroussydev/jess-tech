@@ -21,7 +21,7 @@ const ModesIntervention = () => {
   ];
 
   return (
-    <section className="section-dark">
+    <section className="section-light">
       <div className="site-container section-spacing">
         {/* Introduction */}
         <div className="section-intro">

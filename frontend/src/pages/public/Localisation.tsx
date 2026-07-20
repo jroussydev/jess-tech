@@ -10,12 +10,11 @@ import {
 const Localisation = () => {
   return (
     <main>
-      <HeroLocalisation />
-      <CarteZoneLocale />
-      <ModesIntervention />
-      <ZonesDesservies />
-
-      <FaqLocalisation />
+        <HeroLocalisation />
+        <CarteZoneLocale />
+        <ZonesDesservies />
+        <ModesIntervention />
+        <FaqLocalisation />
     </main>
   );
 };

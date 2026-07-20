@@ -1,8 +1,7 @@
 import {
   Building2,
   Castle,
-  Church,
-  Landmark,
+  House,
   MapPin,
   Trees,
 } from "lucide-react";
@@ -10,42 +9,62 @@ import { Link } from "react-router-dom";
 
 const ZonesDesservies = () => {
   const communes = [
-    {
-      nom: "Beaurieux",
-      icon: Church,
-    },
-    {
-      nom: "Laon",
-      icon: Landmark,
-    },
-    {
-      nom: "Soissons",
-      icon: Building2,
-    },
-    {
-      nom: "Reims",
-      icon: Church,
-    },
-    {
-      nom: "Château-Thierry",
-      icon: Castle,
-    },
-    {
-      nom: "Fismes",
-      icon: Trees,
-    },
-    {
-      nom: "Braine",
-      icon: Church,
-    },
-    {
-      nom: "Guignicourt",
-      icon: Trees,
-    },
-  ];
+  {
+    id: "berry-au-bac",
+    nom: (
+      <>
+        Berry-au-
+        <br />
+        Bac
+      </>
+    ),
+    icon: Trees,
+  },
+  {
+    id: "corbeny",
+    nom: "Corbeny",
+    icon: Trees,
+  },
+  {
+    id: "villeneuve-sur-aisne",
+    nom: (
+      <>
+        Villeneuve-
+        <br />
+        sur-Aisne
+      </>
+    ),
+    icon: House,
+  },
+  {
+    id: "braine",
+    nom: "Braine",
+    icon: House,
+  },
+  {
+    id: "fismes",
+    nom: "Fismes",
+    icon: Building2,
+  },
+  {
+    id: "laon",
+    nom: "Laon",
+    icon: Castle,
+  },
+  {
+    id: "cormontreuil",
+    nom: "Cormontreuil",
+    icon: Building2,
+  },
+  {
+    id: "reims",
+    nom: "Reims",
+    icon: Building2,
+  },
+];
 
   return (
-    <section className="section-light">
+    <section className="section-dark">
       <div className="site-container section-spacing">
         {/* Introduction */}
         <div className="section-intro">
@@ -62,40 +81,40 @@ const ZonesDesservies = () => {
 
         {/* Cartes des communes */}
         <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-          {communes.map(({ nom, icon: Icon }) => (
-            <article
-              key={nom}
-              className="group flex min-h-[220px] flex-col items-center justify-center rounded-2xl border border-slate-200 bg-white px-4 py-7 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-lg"
-            >
-              <div className="flex h-20 w-20 items-center justify-center text-slate-900 transition duration-300 group-hover:text-blue-600">
-                <Icon
-                  className="h-14 w-14 stroke-[1.4]"
-                  aria-hidden="true"
-                />
-              </div>
+          {communes.map(({ id, nom, icon: Icon }) => (
+  <article
+    key={id}
+    className="card-dark text-center"
+  >
+    <div className="mt-2 flex justify-center">
+      <Icon
+        className="h-14 w-14 stroke-[1.4] text-blue-400"
+        aria-hidden="true"
+      />
+    </div>
 
-              <h3 className="mt-5 text-base font-bold text-slate-900">
-                {nom}
-              </h3>
+    <h3 className="mt-3 min-h-14 leading-tight">
+      {nom}
+    </h3>
 
-              <p className="mt-1 text-sm text-slate-500">
-                et ses alentours
-              </p>
-            </article>
-          ))}
+    <p className="mt-2">
+      et ses alentours
+    </p>
+  </article>
+))}
         </div>
 
         {/* Commune absente */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 rounded-2xl border border-blue-100 bg-blue-50/70 px-6 py-5 text-center sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-center gap-4 rounded-2xl border border-slate-700 bg-slate-800 px-6 py-5 text-center sm:flex-row mx-auto max-w-4xl">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
             <MapPin className="h-5 w-5" aria-hidden="true" />
           </div>
 
-          <p className="m-0 text-slate-700">
-            Votre commune n’apparaît pas&nbsp;? N’hésitez pas à{" "}
+          <p className="m-0 text-slate-300">
+            Votre commune n’apparaît pas ? N’hésitez pas à{" "}
             <Link
               to="/contact"
-              className="font-semibold text-blue-600 transition hover:text-blue-700"
+              className="font-semibold text-blue-500 transition hover:text-blue-700"
             >
               me contacter
             </Link>
