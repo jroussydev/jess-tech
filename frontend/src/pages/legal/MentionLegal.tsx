@@ -121,6 +121,19 @@ export default function MentionLegal() {
         </>
       ),
     },
+
+// -----------------------------------------------------------------------------
+// TODO - Google Analytics
+//
+// Charger Google Analytics uniquement après le consentement explicite
+// de l'utilisateur.
+//
+// Prévoir une intégration avec le gestionnaire de cookies afin de respecter
+// les recommandations de la CNIL.
+//
+// À activer uniquement lorsque la bannière de consentement sera en place.
+// -----------------------------------------------------------------------------
+
     {
       icon: Scale,
       title: "7. Droit applicable",

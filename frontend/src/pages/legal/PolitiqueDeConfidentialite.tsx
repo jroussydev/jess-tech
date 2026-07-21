@@ -120,16 +120,28 @@ export default function PolitiqueConfidentialite() {
       title: "8. Sécurité des données",
       content: (
         <p>
-          Des mesures raisonnables sont mises en œuvre afin de protéger les
-          données personnelles contre tout accès non autorisé, perte ou
-          divulgation.
+          Des mesures techniques et organisationnelles raisonnables sont mises en œuvre afin de protéger les données personnelles contre tout accès non autorisé, 
+          toute perte, altération ou divulgation.<br/>Le formulaire de contact intègre également des dispositifs destinés à limiter les envois automatisés et les 
+          usages abusifs, afin de préserver la sécurité du service.
+        </p>
+      ),
+    },
+
+    {
+      icon: Users,
+      title: "9. Transfert des données",
+      content: (
+        <p>
+          Les données personnelles sont hébergées par des prestataires techniques sélectionnés par Jess Tech.<br/>
+          Certains de ces prestataires peuvent être situés en dehors de l'Union européenne. Dans ce cas, ils 
+          mettent en œuvre des garanties appropriées afin d'assurer un niveau de protection conforme à la réglementation applicable.
         </p>
       ),
     },
 
     {
       icon: UserCheck,
-      title: "9. Vos droits",
+      title: "10. Vos droits",
       content: (
         <>
           <ul className="ml-6 list-disc space-y-2">
@@ -149,19 +161,20 @@ export default function PolitiqueConfidentialite() {
 
     {
       icon: Cookie,
-      title: "10. Cookies",
+      title: "11. Cookies",
       content: (
         <p>
-          Le site n'utilise actuellement aucun cookie publicitaire ou de mesure
-          d'audience. Seuls des cookies techniques peuvent être nécessaires à
-          son bon fonctionnement.
+          À ce jour, le site n'utilise aucun cookie publicitaire ni aucun outil de mesure d'audience.<br/>
+          Seuls les cookies strictement nécessaires au fonctionnement technique du site peuvent être utilisés.<br/>
+          Si des services de mesure d'audience ou d'autres cookies nécessitant le consentement de l'utilisateur sont 
+          ajoutés à l'avenir, la présente politique sera mise à jour et un mécanisme de recueil du consentement sera mis en place.
         </p>
       ),
     },
 
     {
       icon: Pencil,
-      title: "11. Modification de la politique",
+      title: "12. Modification de la politique",
       content: (
         <>
           <p>
@@ -178,7 +191,7 @@ export default function PolitiqueConfidentialite() {
 
     {
       icon: Mail,
-      title: "12. Contact",
+      title: "13. Contact",
       content: (
         <>
           <p>Jess Tech</p>
