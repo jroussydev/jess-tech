@@ -72,7 +72,7 @@ export default function Footer() {
 
               <div className="flex items-center gap-3">
                 <MapPinned />
-                <span>Basée en France</span>
+                <Link to="/localisation">Basée en France</Link>
               </div>
             </div>
           </div>
