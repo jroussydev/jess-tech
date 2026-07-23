@@ -40,7 +40,7 @@ const aboutValeurs = [
     <h1 className="text-4xl font-bold leading-tight text-white sm:text-5xl lg:text-6xl">
       Bonjour, <br/>
       moi c’est{" "}
-      <span className="text-blue-400">Jessica</span>
+      <span className="text-[#0D5BFF]">Jessica</span>
     </h1>
 
     <p className="max-w-2xl text-base leading-8 text-slate-300 sm:text-lg mt-5">
