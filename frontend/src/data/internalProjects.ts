@@ -10,12 +10,15 @@ export const internalProjects: InternalProject[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "React Router"],
     status: "En cours",
 
-    featuredImage: "/portfolio/jess-tech/hero.png",
+    featuredImage: "/portfolio/jess-tech/jesstech-page-home.png",
     gallery: [
-  "/portfolio/jess-tech/home.png",
-  "/portfolio/jess-tech/services.png",
-  "/portfolio/jess-tech/about.png",
-  "/portfolio/jess-tech/contact.png",
+  "/portfolio/jess-tech/jesstech-hero-page-home.png",
+  "/portfolio/jess-tech/jesstech-page-home.png",
+  "/portfolio/jess-tech/jesstech-page-services.png",
+  "/portfolio/jess-tech/jesstech-projets-page-danslescoulisses.png",
+  "/portfolio/jess-tech/jesstech-page-danslescoulisses.png",
+  "/portfolio/jess-tech/jesstech-hero-page-contact.png",
+  "/portfolio/jess-tech/jesstech-page-contact.png",
 ],
 
     learnings: [
@@ -50,8 +53,15 @@ export const internalProjects: InternalProject[] = [
     tags: ["WordPress", "CSS", "Gutenberg", "Kadence", "Responsive"],
     status: "Terminé",
 
-    featuredImage: "/chemin de limage",
-    gallery: [],
+    featuredImage: "/portfolio/dupont-plomberie/dupont-plomberie-site-wordpress.png",
+    gallery: [
+      "/portfolio/dupont-plomberie/dupont-plomberie-hero.png",
+      "/portfolio/dupont-plomberie/dupont-plomberie-section-services.png",
+      "/portfolio/dupont-plomberie/dupont-plomberie-section-pourquoi-nous.png",
+      "/portfolio/dupont-plomberie/dupont-plomberie-avis.png",
+      "/portfolio/dupont-plomberie/dupont-plomberie-contact.png",
+      "/portfolio/dupont-plomberie/dupont-plomberie-bas-de-page.png"
+    ],
 
     learnings: [
       "Structurer une page de site vitrine.",

@@ -318,7 +318,7 @@ setTurnstileToken("");
     "
   >
     <img
-      src="/decorations/jessica-roussy-contact.png"
+      src="/contact/jessica-roussy-contact.png"
       alt=""
       aria-hidden="true"
       className="

@@ -10,7 +10,7 @@ export default function Hero() {
     <section className="section-dark section-spacing relative overflow-hidden">
       {/* Décoration */}
       <img
-        src="/decorations/profil2.png"
+        src="/home/profil2.png"
         alt=""
         aria-hidden="true"
         className="

@@ -275,10 +275,93 @@
     border
     border-red-500/20;
 }
-
 /* ==========================================================
-   Scrollbar
+   About
 ========================================================== */
+.about-hero {
+  position: relative;
+  min-height: calc(100svh - 5rem);
+  overflow: hidden;
+  background: #020817;
+}
+
+.about-hero__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 150%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Fondu progressif uniquement sur la zone utile */
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: 75%;
+
+  background: linear-gradient(
+    90deg,
+    #020817 0%,
+    #020817 22%,
+    rgba(2, 8, 23, 0.99) 58%,
+    rgba(2, 8, 23, 0.94) 62%,
+    rgba(2, 8, 23, 0.8) 72%,
+    rgba(2, 8, 23, 0.55) 80%,
+    rgba(2, 8, 23, 0.24) 91%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+}
+/* ==========================================================
+   About sur mobile
+========================================================== */
+
+@media (max-width: 767px) {
+  .about-hero {
+    min-height: auto;
+  }
+
+  .about-hero__image {
+    object-position: 62% center;
+  }
+
+  .about-hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 23, 0.28) 0%,
+        rgba(2, 8, 23, 0.62) 38%,
+        rgba(2, 8, 23, 0.96) 72%,
+        rgba(2, 8, 23, 1) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(2, 8, 23, 0.58) 0%,
+        rgba(2, 8, 23, 0.15) 100%
+      );
+  }
+
+  .about-hero__container {
+    min-height: 46rem;
+    align-items: flex-end;
+    padding-top: 16rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .about-hero__content h1 {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+
+  .about-hero__description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
 
 /* ==========================================================
    Animations globales

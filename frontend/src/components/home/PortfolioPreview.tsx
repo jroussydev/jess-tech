@@ -50,19 +50,20 @@ export default function PortfolioPreview() {
                 </div>
 
                 <div className="rounded-xl border border-blue-300/20 bg-blue-500/20 p-5">
-                  <div className="h-20 rounded-lg bg-blue-400/25" />
-
-                  <div className="mt-5 space-y-2">
-                    <div className="h-3 w-5/6 rounded bg-blue-100/60" />
-                    <div className="h-3 w-full rounded bg-blue-100/30" />
-                    <div className="h-3 w-2/3 rounded bg-blue-100/30" />
-                  </div>
-
-                  <div className="mt-5 grid grid-cols-3 gap-3">
-                    <div className="h-10 rounded-lg bg-blue-300/20" />
-                    <div className="h-10 rounded-lg bg-blue-300/20" />
-                    <div className="h-10 rounded-lg bg-blue-300/20" />
-                  </div>
+                  <img src="/decorations/home/profil2.png"
+        alt=""
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -top-21
+          left-[36%]
+          hidden
+          h-[1080px]
+          w-auto
+          lg:block
+        "
+      />
                 </div>
               </div>
 
