@@ -43,29 +43,29 @@ export default function PortfolioPreview() {
             <div className="grid items-center gap-10 lg:grid-cols-2">
               {/* Maquette */}
               <div className="rounded-2xl border border-blue-400/30 bg-gradient-to-br from-[#0b1730] to-[#123c8a]/60 p-4 shadow-[0_0_35px_rgba(13,91,255,0.25)]">
-                <div className="mb-4 flex gap-2">
-                  <div className="h-3 w-3 rounded-full bg-slate-300" />
-                  <div className="h-3 w-3 rounded-full bg-slate-300" />
-                  <div className="h-3 w-3 rounded-full bg-slate-300" />
-                </div>
+  <div className="mb-4 flex gap-2">
+    <div className="h-3 w-3 rounded-full bg-slate-300" />
+    <div className="h-3 w-3 rounded-full bg-slate-300" />
+    <div className="h-3 w-3 rounded-full bg-slate-300" />
+  </div>
 
-                <div className="rounded-xl border border-blue-300/20 bg-blue-500/20 p-5">
-                  <img src="/decorations/home/profil2.png"
-        alt=""
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -top-21
-          left-[36%]
-          hidden
-          h-[1080px]
-          w-auto
-          lg:block
-        "
-      />
-                </div>
-              </div>
+  <div className="relative h-64 overflow-hidden rounded-xl border border-blue-300/20 bg-blue-500/20">
+    <img
+      src="/portfolio/dupont-plomberie/dupont-plomberie-hero.png"
+      alt=""
+  aria-hidden="true"
+  className="
+    absolute
+    
+    left-1/2
+    h-[100%]
+    max-w-none
+    -translate-x-[52%]
+    object-contain
+  "
+/>
+  </div>
+</div>
 
               {/* Texte */}
               <div>
