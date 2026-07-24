@@ -10,15 +10,15 @@ export const internalProjects: InternalProject[] = [
     tags: ["React", "TypeScript", "Tailwind CSS", "React Router"],
     status: "En cours",
 
-    featuredImage: "/portfolio/jess-tech/jesstech-page-home.png",
+    featuredImage: "/portfolio/jess-tech/jesstech-page-home.webp",
     gallery: [
-  "/portfolio/jess-tech/jesstech-hero-page-home.png",
-  "/portfolio/jess-tech/jesstech-page-home.png",
-  "/portfolio/jess-tech/jesstech-page-services.png",
-  "/portfolio/jess-tech/jesstech-projets-page-danslescoulisses.png",
-  "/portfolio/jess-tech/jesstech-page-danslescoulisses.png",
-  "/portfolio/jess-tech/jesstech-hero-page-contact.png",
-  "/portfolio/jess-tech/jesstech-page-contact.png",
+  "/portfolio/jess-tech/jesstech-hero-page-home.webp",
+  "/portfolio/jess-tech/jesstech-page-home.webp",
+  "/portfolio/jess-tech/jesstech-page-services.webp",
+  "/portfolio/jess-tech/jesstech-projets-page-danslescoulisses.webp",
+  "/portfolio/jess-tech/jesstech-page-danslescoulisses.webp",
+  "/portfolio/jess-tech/jesstech-hero-page-contact.webp",
+  "/portfolio/jess-tech/jesstech-page-contact.webp",
 ],
 
     learnings: [
@@ -55,12 +55,12 @@ export const internalProjects: InternalProject[] = [
 
     featuredImage: "/portfolio/dupont-plomberie/dupont-plomberie-site-wordpress.png",
     gallery: [
-      "/portfolio/dupont-plomberie/dupont-plomberie-hero.png",
-      "/portfolio/dupont-plomberie/dupont-plomberie-section-services.png",
-      "/portfolio/dupont-plomberie/dupont-plomberie-section-pourquoi-nous.png",
-      "/portfolio/dupont-plomberie/dupont-plomberie-avis.png",
-      "/portfolio/dupont-plomberie/dupont-plomberie-contact.png",
-      "/portfolio/dupont-plomberie/dupont-plomberie-bas-de-page.png"
+      "/portfolio/dupont-plomberie/dupont-plomberie-hero.webp",
+      "/portfolio/dupont-plomberie/dupont-plomberie-section-services.webp",
+      "/portfolio/dupont-plomberie/dupont-plomberie-section-pourquoi-nous.webp",
+      "/portfolio/dupont-plomberie/dupont-plomberie-avis.webp",
+      "/portfolio/dupont-plomberie/dupont-plomberie-contact.webp",
+      "/portfolio/dupont-plomberie/dupont-plomberie-bas-de-page.webp"
     ],
 
     learnings: [

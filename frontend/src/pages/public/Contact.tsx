@@ -298,7 +298,7 @@ setTurnstileToken("");
   {/* Photo — mobile */}
   <div className="relative z-10 px-4 sm:px-6 lg:hidden">
     <img
-      src="/decorations/jessica-roussy-contact.png"
+      src="/decorations/jessica-roussy-contact.webp"
       alt="Jessica, développeuse web et assistante technique chez Jess Tech"
       className="h-auto w-full"
     />

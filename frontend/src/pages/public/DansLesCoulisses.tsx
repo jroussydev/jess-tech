@@ -17,7 +17,7 @@ export default function DansLesCoulisses() {
       {/* Hero */}
       <section className="section-dark section-spacing relative isolate overflow-hidden">
   <img
-    src="/decorations/vagueLumineuse2.png"
+    src="/decorations/vagueLumineuse2.webp"
     alt=""
     aria-hidden="true"
     className="

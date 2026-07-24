@@ -23,7 +23,7 @@ const aboutValeurs = [
   return (
     <section className="about-hero">
       <img
-        src="/about/jesstech-mon-profil-hero-page-about.png"
+        src="/about/jesstech-mon-profil-hero-page-about.webp"
         alt="Jessica, développeuse web chez Jess Tech, présentant son site internet"
         className="about-hero__image"
       />

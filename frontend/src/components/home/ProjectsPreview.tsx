@@ -47,7 +47,7 @@ export default function ProjectsPreview() {
 
           {/* Vague lumineuse */}
           <img
-            src="/decorations/vagueLumineuse2.png"
+            src="/decorations/vagueLumineuse2.webp"
             alt=""
             aria-hidden="true"
             className="
@@ -105,7 +105,7 @@ export default function ProjectsPreview() {
 
             {/* Illustration */}
             <img
-              src="/decorations/IconDevCircuit.png"
+              src="/decorations/IconDevCircuit.webp"
               alt=""
               aria-hidden="true"
               className="

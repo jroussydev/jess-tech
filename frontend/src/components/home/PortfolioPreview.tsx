@@ -51,7 +51,7 @@ export default function PortfolioPreview() {
 
   <div className="relative h-64 overflow-hidden rounded-xl border border-blue-300/20 bg-blue-500/20">
     <img
-      src="/portfolio/dupont-plomberie/dupont-plomberie-hero.png"
+      src="/portfolio/dupont-plomberie/dupont-plomberie-hero.webp"
       alt=""
   aria-hidden="true"
   className="
