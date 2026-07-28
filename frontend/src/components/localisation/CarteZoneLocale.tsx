@@ -1,4 +1,41 @@
 import { MapPin, Navigation } from "lucide-react";
+import {
+  Circle,
+  MapContainer,
+  Marker,
+  Popup,
+  TileLayer,
+} from "react-leaflet";
+import L from "leaflet";
+
+const beaurieuxPosition: [number, number] = [49.394, 3.734];
+
+const jessTechMarker = L.divIcon({
+  className: "jess-tech-leaflet-marker",
+  html: `
+    <div class="jess-tech-leaflet-marker__pulse"></div>
+
+    <div class="jess-tech-leaflet-marker__pin">
+      <svg
+        width="22"
+        height="22"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"></path>
+        <circle cx="12" cy="10" r="3"></circle>
+      </svg>
+    </div>
+  `,
+  iconSize: [52, 52],
+  iconAnchor: [26, 26],
+  popupAnchor: [0, -24],
+});
 
 const CarteZoneLocale = () => {
   return (
@@ -58,55 +95,54 @@ const CarteZoneLocale = () => {
             </div>
           </div>
 
-          {/* Emplacement de la future carte */}
+          {/* Carte interactive */}
           <div className="relative">
             <div className="card-light relative min-h-[400px] overflow-hidden p-0 md:min-h-[480px]">
-              {/* Fond décoratif provisoire */}
-              <div
-                className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(13,91,255,0.12),_transparent_65%)]"
-                aria-hidden="true"
-              />
+              <MapContainer
+                center={beaurieuxPosition}
+                zoom={9}
+                scrollWheelZoom={false}
+                className="h-[400px] w-full md:h-[480px]"
+              >
+                <TileLayer
+                  attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                  url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
+                />
 
-              <div
-                className="absolute inset-8 rounded-full border border-blue-500/10"
-                aria-hidden="true"
-              />
+                <Circle
+                  center={beaurieuxPosition}
+                  radius={30000}
+                  pathOptions={{
+                    color: "#0D5BFF",
+                    fillColor: "#0D5BFF",
+                    fillOpacity: 0.1,
+                    opacity: 0.7,
+                    weight: 2,
+                  }}
+                />
 
-              <div
-                className="absolute inset-20 rounded-full border border-blue-500/15"
-                aria-hidden="true"
-              />
+                <Marker
+                  position={beaurieuxPosition}
+                  icon={jessTechMarker}
+                >
+                  <Popup>
+                    <div className="min-w-[190px]">
+                      <p className="m-0 font-bold text-slate-900">
+                        Jess Tech
+                      </p>
 
-              <div
-                className="absolute inset-32 rounded-full border border-blue-500/20"
-                aria-hidden="true"
-              />
+                      <p className="mt-1 text-sm text-slate-600">
+                        Beaurieux · Aisne
+                      </p>
 
-              {/* Marqueur central */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="flex flex-col items-center text-center">
-                  <div className="relative flex h-16 w-16 items-center justify-center rounded-full bg-blue-600 text-white shadow-xl shadow-blue-500/30">
-                    <MapPin className="h-7 w-7" aria-hidden="true" />
-
-                    <span
-                      className="absolute inset-0 -z-10 animate-ping rounded-full bg-blue-500/20"
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <div className="mt-4 rounded-xl border border-slate-200 bg-white px-5 py-3 shadow-lg">
-                    <p className="m-0 font-bold text-slate-900">Beaurieux</p>
-
-                    <p className="m-0 mt-1 text-sm text-slate-500">
-                      Aisne · Hauts-de-France
-                    </p>
-                  </div>
-                </div>
-              </div>
-
-              <p className="absolute bottom-5 left-0 right-0 m-0 text-center text-sm text-slate-500">
-                La carte interactive sera ajoutée ultérieurement
-              </p>
+                      <p className="mb-0 mt-3 text-sm leading-6 text-slate-600">
+                        Interventions locales selon la demande et projets web
+                        réalisables partout en France.
+                      </p>
+                    </div>
+                  </Popup>
+                </Marker>
+              </MapContainer>
             </div>
           </div>
         </div>

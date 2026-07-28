@@ -52,32 +52,22 @@ const HeroLocalisation = () => {
 
           {/* Emplacement de la future carte */}
           <div className="relative">
-            <div className="card-dark relative flex min-h-[380px] items-center justify-center overflow-hidden md:min-h-[450px] lg:min-h-[520px]">
-              <div
-                className="absolute inset-12 rounded-full border border-blue-500/10"
-                aria-hidden="true"
-              />
+            
+<img src="/decorations/image-Hero-CarteDeFrance.png"
+        alt="carte de France représentant le travail à Beaurieux et à distance"
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -top-75
+          left-[10%]
+          hidden
+          
+          w-xl
+          lg:block
+        "
+      />
 
-              <div
-                className="absolute inset-24 rounded-full border border-blue-500/10"
-                aria-hidden="true"
-              />
-
-              <div className="relative z-10 max-w-xs text-center">
-                <MapPin
-                  className="mx-auto h-10 w-10 text-blue-400"
-                  aria-hidden="true"
-                />
-
-                <p className="mt-4 text-lg font-semibold text-slate-200">
-                  Beaurieux
-                </p>
-
-                <p className="mt-2 text-sm text-slate-400">
-                  Intervention locale et accompagnement à distance
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>

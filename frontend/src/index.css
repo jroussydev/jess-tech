@@ -362,6 +362,64 @@
     line-height: 1.7;
   }
 }
+/* ==========================================================
+   Map CarteZoneLocal
+========================================================== */
+.jess-tech-leaflet-marker {
+  position: relative;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+}
+
+.jess-tech-leaflet-marker__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(13, 91, 255, 0.25);
+  animation: jess-tech-map-pulse 2s ease-out infinite;
+}
+
+.jess-tech-leaflet-marker__pin {
+  position: relative;
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 9999px;
+  background: #0d5bff;
+  color: white;
+  box-shadow:
+    0 8px 24px rgba(13, 91, 255, 0.35),
+    0 0 20px rgba(13, 91, 255, 0.4);
+}
+
+@keyframes jess-tech-map-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* Harmonisation du popup Leaflet */
+.leaflet-popup-content-wrapper {
+  border-radius: 16px;
+}
+
+.leaflet-popup-content {
+  margin: 16px 18px;
+}
+
 
 /* ==========================================================
    Animations globales
