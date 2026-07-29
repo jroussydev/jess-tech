@@ -11,6 +11,7 @@ const ZonesDesservies = () => {
   const communes = [
   {
     id: "berry-au-bac",
+    label: "Berry-au-Bac",
     nom: (
       <>
         Berry-au-
@@ -22,11 +23,13 @@ const ZonesDesservies = () => {
   },
   {
     id: "corbeny",
+    label: "Corbeny",
     nom: "Corbeny",
     icon: Trees,
   },
   {
     id: "villeneuve-sur-aisne",
+    label: "Villeneuve-sur-Aisne",
     nom: (
       <>
         Villeneuve-
@@ -38,26 +41,31 @@ const ZonesDesservies = () => {
   },
   {
     id: "braine",
+    label: "Braine",
     nom: "Braine",
     icon: House,
   },
   {
     id: "fismes",
+    label: "Fismes",
     nom: "Fismes",
     icon: Building2,
   },
   {
     id: "laon",
+    label: "Laon",
     nom: "Laon",
     icon: Castle,
   },
   {
     id: "cormontreuil",
+    label: "Cormontreuil",
     nom: "Cormontreuil",
     icon: Building2,
   },
   {
     id: "reims",
+    label: "Reims",
     nom: "Reims",
     icon: Building2,
   },
@@ -80,29 +88,31 @@ const ZonesDesservies = () => {
         </div>
 
         {/* Cartes des communes */}
-        <div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-          {communes.map(({ id, nom, icon: Icon }) => (
-  <article
+<div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
+  {communes.map(({ id, label, nom, icon: Icon }) => (
+  <Link
     key={id}
-    className="card-dark text-center"
+    to={`/localisation/${id}`}
+    className="group block"
+    aria-label={`Découvrir les services de Jess Tech à ${label}`}
   >
-    <div className="mt-2 flex justify-center">
-      <Icon
-        className="h-14 w-14 stroke-[1.4] text-blue-400"
-        aria-hidden="true"
-      />
-    </div>
-
-    <h3 className="mt-3 min-h-14 leading-tight">
-      {nom}
-    </h3>
-
-    <p className="mt-2">
-      et ses alentours
-    </p>
-  </article>
-))}
+      <article className="card-dark h-full text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-500/40 group-hover:shadow-lg group-hover:shadow-blue-500/10">
+        <div className="mt-2 flex justify-center">
+          <Icon
+            className="h-14 w-14 stroke-[1.4] text-blue-400"
+            aria-hidden="true"
+          />
         </div>
+
+        <h3 className="mt-3 min-h-14 leading-tight">
+          {nom}
+        </h3>
+
+        <p className="mt-2">et ses alentours</p>
+      </article>
+    </Link>
+  ))}
+</div>
 
         {/* Commune absente */}
         <div className="mt-8 flex flex-col items-center justify-center gap-4 rounded-2xl border border-slate-700 bg-slate-800 px-6 py-5 text-center sm:flex-row mx-auto max-w-4xl">
