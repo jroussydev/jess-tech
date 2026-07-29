@@ -21,6 +21,7 @@ import MentionLegal from "./pages/legal/MentionLegal.tsx"
 import Cgv from "./pages/legal/Cgv.tsx"
 
 import Localisation from "./pages/public/Localisation.tsx"
+import CityPage from "./pages/public/CityPage.tsx";
 import TarifsTransparents from "./pages/public/TarifsTransparents.tsx"
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
@@ -48,6 +49,7 @@ function App() {
         <Route path="/Cgv" element={<Cgv />} />
 
         <Route path="/Localisation" element={<Localisation />} />
+        <Route path="/localisation/:ville" element={<CityPage />} />
         <Route path="/TarifsTransparents" element={<TarifsTransparents />} />
 
       </Routes>

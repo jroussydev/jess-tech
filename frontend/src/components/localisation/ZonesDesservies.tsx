@@ -94,7 +94,7 @@ const ZonesDesservies = () => {
     key={id}
     to={`/localisation/${id}`}
     className="group block"
-    aria-label={`Découvrir les services de Jess Tech à ${label}`}
+    aria-label={`Voir les services de création de site internet de Jess Tech à ${label}`}
   >
       <article className="card-dark h-full text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-500/40 group-hover:shadow-lg group-hover:shadow-blue-500/10">
         <div className="mt-2 flex justify-center">
