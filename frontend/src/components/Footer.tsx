@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom"
 import Logo from "./Logo";
 import { PenTool, Monitor, Wrench, LifeBuoy, BookOpen, Handshake, StarCheck, UserRound, Mail, PhoneCall, MapPinned } from "lucide-react";
+import {
+  FaFacebook,
+  FaGithub,
+  FaLinkedin,
+  FaGoogle,
+} from "react-icons/fa6";
 
 export default function Footer() {
   return (
@@ -11,23 +17,67 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Bloc Jess Tech */}
           <div>
+            <Link to="/" aria-label="Retour à l'accueil">
             <div className="flex items-center gap-5">
               <Logo className="h-20" />
-
               <div>
                 <h2 className="text-xl font-bold text-white">
                   JESS <span className="text-[#0D5BFF]">TECH</span>
                 </h2>
-
                 <p className="text-xs text-slate-300">
                   Développement web & assistante technique
                 </p>
               </div>
             </div>
-
+            </Link>
             <p className="mt-6 max-w-sm leading-7">
               Des solutions web claires, humaines et bien construites.
             </p>
+            <div className="mt-4 flex items-center gap-4">
+      <a
+        href="https://share.google/qAEJEu5MNsabtgnNO"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Voir la fiche Google Business de Jess Tech"
+        title="Google Business"
+        className="text-xl text-slate-400 transition duration-200 hover:scale-110 hover:text-blue-500"
+      >
+        <FaGoogle />
+      </a>
+
+      <a
+        href="https://www.linkedin.com/in/jessica-roussy-jesstech"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Voir le profil LinkedIn de Jess Tech"
+        title="LinkedIn"
+        className="text-xl text-slate-400 transition duration-200 hover:scale-110 hover:text-blue-500"
+      >
+        <FaLinkedin />
+      </a>
+
+      <a
+        href="https://www.facebook.com/share/1EAwbZ98WK/"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Voir la page Facebook de Jess Tech"
+        title="Facebook"
+        className="text-xl text-slate-400 transition duration-200 hover:scale-110 hover:text-blue-500"
+      >
+        <FaFacebook />
+      </a>
+
+      <a
+        href="https://github.com/jroussydev"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Voir le profil GitHub de Jess Tech"
+        title="GitHub"
+        className="text-xl text-slate-400 transition duration-200 hover:scale-110 hover:text-blue-500"
+      >
+        <FaGithub />
+      </a>
+    </div>
           </div>
 
           {/* Bloc navigation */}

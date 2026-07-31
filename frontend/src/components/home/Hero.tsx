@@ -48,7 +48,10 @@ export default function Hero() {
             <p className="mt-6 max-w-xl text-base leading-7 text-slate-300 sm:mt-8 sm:text-lg sm:leading-8">
               Développeuse freelance, j&apos;accompagne particuliers,
               artisans, associations et petites entreprises dans la
-              création de sites web et leurs besoins techniques.
+              <Link
+              to="/CreationSiteInternet"
+              className="font-semibold text-blue-400 transition hover:text-blue-300"
+              > création de sites web</Link> et leurs besoins techniques.
             </p>
 
             {/* Boutons */}
