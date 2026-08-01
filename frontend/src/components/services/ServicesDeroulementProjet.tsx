@@ -92,14 +92,12 @@ export default function ServicesDeroulementProjet() {
 <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-5 xl:gap-14">
   {etapes.map(({ numero, titre, description, icon: Icon }, index) => (
     <div key={numero} className="relative">
-      <article className="card-light relative z-10 flex h-full flex-col">
+      <article className="card-dark relative z-10 flex h-full flex-col text-center items-center">
         <div className="flex items-center justify-between gap-4">
-          <span className="text-3xl font-black text-blue-500">
-            {numero}
-          </span>
+
 
           <Icon
-            className="h-7 w-7 text-blue-500"
+            className="h-8 w-8 text-blue-500 "
             aria-hidden="true"
           />
         </div>
@@ -232,9 +230,9 @@ export default function ServicesDeroulementProjet() {
   ))}
 </div>
 
-<p className="mt-8 max-w-4xl leading-7 text-slate-600">
+<p className="mt-8 max-w-8xl leading-7 text-slate-600 text-center">
   Selon la prestation choisie, certaines étapes peuvent être plus
-  rapides ou adaptées. Une assistance ponctuelle ne suit naturellement
+  rapides ou adaptées. <br/>Une assistance ponctuelle ne suit naturellement
   pas le même rythme qu’une création complète de site internet.
 </p>
       </div>
