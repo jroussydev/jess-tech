@@ -202,6 +202,11 @@
   @apply font-text mt-4 text-lg leading-8 text-slate-600;
 }
 
+/* Carte plus compacte pour les contenus courts */
+
+.card-compact {
+  @apply p-5;
+}
 /* ==========================================================
    5. BOUTONS GLOBAUX
    Variantes principales utilisées sur l’ensemble du site

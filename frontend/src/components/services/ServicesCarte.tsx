@@ -21,26 +21,34 @@ export default function ServicesCarte({
 }: ServicesCarteProps) {
   return (
     <article className="card-dark flex h-full flex-col">
-      <div className="flex items-start justify-between gap-4">
-        <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10">
-          <Icon className="h-7 w-7 text-blue-400" aria-hidden="true" />
-        </div>
+      {/* En-tête : icône et titre */}
+<div className="flex items-center gap-4">
+  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10">
+    <Icon
+      className="h-7 w-7 text-blue-400"
+      aria-hidden="true"
+    />
+  </div>
 
-        <span className="badge badge-primary">{prix}</span>
-      </div>
+  <h3 className="min-w-0">
+    {title}
+  </h3>
+</div>
 
-      <h3 className="mt-6">{title}</h3>
+{/* Description sous toute la ligne */}
+<p className="mt-4">
+  {description}
+</p>
 
-      <p>{description}</p>
-
-      <ul className="mt-6 space-y-3">
+      {/* Prestations incluses */}
+      <ul className="mt-5 space-y-2.5">
         {prestations.map((prestation) => (
           <li
             key={prestation}
-            className="flex items-start gap-3 text-sm leading-6 text-slate-300"
+            className="flex items-start gap-3 text-base leading-7 text-slate-300"
           >
             <Check
-              className="mt-1 h-4 w-4 shrink-0 text-blue-400"
+              className="mt-1.5 h-4 w-4 shrink-0 text-blue-400"
               aria-hidden="true"
             />
 
@@ -49,10 +57,15 @@ export default function ServicesCarte({
         ))}
       </ul>
 
-      <div className="mt-auto pt-8">
+      {/* Prix et lien */}
+      <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <span className="badge badge-primary self-start">
+          {prix}
+        </span>
+
         <Link
           to={link}
-          className="group inline-flex items-center gap-2 font-semibold text-blue-400 transition hover:text-blue-300"
+          className="group inline-flex items-center gap-2 font-semibold text-blue-400 transition-colors duration-300 hover:text-blue-300"
         >
           Découvrir ce service
 

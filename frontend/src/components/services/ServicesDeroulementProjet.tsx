@@ -7,47 +7,55 @@ import {
   Search,
 } from "lucide-react";
 
+const etapes = [
+  {
+    numero: "01",
+    titre: "Premier échange",
+    description:
+      "Vous m’expliquez votre besoin, votre situation et les objectifs de votre projet.",
+    icon: MessageSquareText,
+  },
+  {
+    numero: "02",
+    titre: "Analyse du besoin",
+    description:
+      "J’étudie les informations reçues afin d’identifier la solution la plus adaptée.",
+    icon: Search,
+  },
+  {
+    numero: "03",
+    titre: "Proposition et devis",
+    description:
+      "Vous recevez une proposition claire avec les prestations prévues, le tarif et les délais.",
+    icon: FileText,
+  },
+  {
+    numero: "04",
+    titre: "Réalisation",
+    description:
+      "Le projet est réalisé selon les éléments définis, avec des échanges aux étapes importantes.",
+    icon: Rocket,
+  },
+  {
+    numero: "05",
+    titre: "Validation et suivi",
+    description:
+      "Le résultat est vérifié avec vous avant la livraison, puis je reste disponible si nécessaire.",
+    icon: CheckCircle2,
+  },
+];
+
+const positionsEtapes = [
+  "xl:col-start-1 xl:row-start-1",
+  "xl:col-start-2 xl:row-start-1",
+  "xl:col-start-3 xl:row-start-1",
+  "xl:col-start-3 xl:row-start-2",
+  "xl:col-start-2 xl:row-start-2",
+];
+
 export default function ServicesDeroulementProjet() {
   const sectionRef = useRef<HTMLElement | null>(null);
   const [animationVisible, setAnimationVisible] = useState(false);
-
-  const etapes = [
-    {
-      numero: "01",
-      titre: "Premier échange",
-      description:
-        "Vous m’expliquez votre besoin, votre situation et les objectifs de votre projet.",
-      icon: MessageSquareText,
-    },
-    {
-      numero: "02",
-      titre: "Analyse du besoin",
-      description:
-        "J’étudie les informations reçues afin d’identifier la solution la plus adaptée.",
-      icon: Search,
-    },
-    {
-      numero: "03",
-      titre: "Proposition et devis",
-      description:
-        "Vous recevez une proposition claire avec les prestations prévues, le tarif et les délais.",
-      icon: FileText,
-    },
-    {
-      numero: "04",
-      titre: "Réalisation",
-      description:
-        "Le projet est réalisé selon les éléments définis, avec des échanges aux étapes importantes.",
-      icon: Rocket,
-    },
-    {
-      numero: "05",
-      titre: "Validation et suivi",
-      description:
-        "Le résultat est vérifié avec vous avant la livraison, puis je reste disponible si nécessaire.",
-      icon: CheckCircle2,
-    },
-  ];
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -77,6 +85,7 @@ export default function ServicesDeroulementProjet() {
       className="section-light section-spacing"
     >
       <div className="site-container">
+        {/* Introduction */}
         <div className="section-intro max-w-3xl">
           <p className="section-label">Un accompagnement clair</p>
 
@@ -89,152 +98,305 @@ export default function ServicesDeroulementProjet() {
           </p>
         </div>
 
-<div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-5 xl:gap-14">
-  {etapes.map(({ numero, titre, description, icon: Icon }, index) => (
-    <div key={numero} className="relative">
-      <article className="card-dark relative z-10 flex h-full flex-col text-center items-center">
-        <div className="flex items-center justify-between gap-4">
+        {/* Parcours du projet */}
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-10 xl:gap-y-10">
+          {etapes.map(
+            ({ numero, titre, description, icon: Icon }, index) => (
+              <div
+                key={numero}
+                className={`relative ${positionsEtapes[index]}`}
+              >
+                {/* Carte */}
+                <article className="card-dark relative z-10 flex h-full flex-col p-5 text-left">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center">
+                      <Icon
+                        className="h-10 w-10 text-blue-500"
+                        aria-hidden="true"
+                      />
+                    </div>
 
+                    <h3 className="text-lg leading-snug">
+                      {titre}
+                    </h3>
+                  </div>
 
-          <Icon
-            className="h-8 w-8 text-blue-500 "
-            aria-hidden="true"
-          />
-        </div>
+                  <p className="mt-3 text-base leading-7">
+                    {description}
+                  </p>
 
-        <h3 className="mt-6">{titre}</h3>
+                  <div className="mt-auto pt-4" aria-hidden="true">
+                    <div className="h-px rounded-full bg-gradient-to-r from-blue-500/50 to-transparent" />
+                  </div>
+                </article>
 
-        <p>{description}</p>
-      </article>
+                {/* Flèches horizontales : étapes 01 vers 02 et 02 vers 03 */}
+                {index < 2 && (
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-full
+                      top-1/2
+                      z-20
+                      hidden
+                      h-8
+                      w-10
+                      -translate-y-1/2
+                      xl:flex
+                      xl:items-center
+                    "
+                    aria-hidden="true"
+                  >
+                    <div
+                      className={`
+                        relative
+                        h-[7px]
+                        w-[calc(100%_-_10px)]
+                        origin-left
+                        rounded-full
+                        bg-gradient-to-r
+                        from-[#0D5BFF]
+                        via-blue-500
+                        to-blue-300
+                        shadow-[0_0_10px_rgba(13,91,255,0.55)]
+                        transition-transform
+                        duration-700
+                        ease-out
+                        ${
+                          animationVisible
+                            ? "scale-x-100"
+                            : "scale-x-0"
+                        }
+                      `}
+                      style={{
+                        transitionDelay: `${index * 550 + 300}ms`,
+                      }}
+                    >
+                      {/* Pointe */}
+                      <span
+                        className={`
+                          absolute
+                          left-full
+                          top-1/2
+                          h-5
+                          w-5
+                          -translate-x-1
+                          -translate-y-1/2
+                          bg-blue-300
+                          drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                          transition-all
+                          duration-300
+                          ${
+                            animationVisible
+                              ? "scale-100 opacity-100"
+                              : "scale-0 opacity-0"
+                          }
+                        `}
+                        style={{
+                          clipPath: "polygon(0 0, 100% 50%, 0 100%)",
+                          transitionDelay: `${index * 550 + 850}ms`,
+                        }}
+                      />
 
-{index < etapes.length - 1 && (
+                      {/* Impulsion lumineuse */}
+                      {animationVisible && (
+                        <span
+                          className="
+                            services-project-pulse
+                            absolute
+                            left-0
+                            top-1/2
+                            h-3
+                            w-3
+                            -translate-y-1/2
+                            rounded-full
+                            bg-white
+                            shadow-[0_0_12px_#ffffff,0_0_20px_#60a5fa]
+                          "
+                          style={{
+                            animationDelay: `${index * 350 + 450}ms`,
+                          }}
+                        />
+                      )}
+                    </div>
+                  </div>
+                )}
+
+                {/* Flèche descendante : étape 03 vers étape 04 */}
+                {index === 2 && (
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-1/2
+                      top-full
+                      z-20
+                      hidden
+                      h-10
+                      w-8
+                      -translate-x-1/2
+                      xl:flex
+                      xl:justify-center
+                    "
+                    aria-hidden="true"
+                  >
+                    <div
+                      className={`
+                        relative
+                        h-[calc(100%_-_10px)]
+                        w-[7px]
+                        origin-top
+                        rounded-full
+                        bg-gradient-to-b
+                        from-[#0D5BFF]
+                        via-blue-500
+                        to-blue-300
+                        shadow-[0_0_10px_rgba(13,91,255,0.55)]
+                        transition-transform
+                        duration-700
+                        ease-out
+                        ${
+                          animationVisible
+                            ? "scale-y-100"
+                            : "scale-y-0"
+                        }
+                      `}
+                      style={{
+                        transitionDelay: "1450ms",
+                      }}
+                    >
+                      {/* Pointe */}
+                      <span
+                        className={`
+                          absolute
+                          left-1/2
+                          top-full
+                          h-5
+                          w-5
+                          -translate-x-1/2
+                          -translate-y-1
+                          bg-blue-300
+                          drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                          transition-all
+                          duration-300
+                          ${
+                            animationVisible
+                              ? "scale-100 opacity-100"
+                              : "scale-0 opacity-0"
+                          }
+                        `}
+                        style={{
+                          clipPath: "polygon(0 0, 100% 0, 50% 100%)",
+                          transitionDelay: "2050ms",
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+
+                {/* Flèche inversée : étape 04 vers étape 05 */}
+                {index === 3 && (
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      right-full
+                      top-1/2
+                      z-20
+                      hidden
+                      h-8
+                      w-10
+                      -translate-y-1/2
+                      rotate-180
+                      xl:flex
+                      xl:items-center
+                    "
+                    aria-hidden="true"
+                  >
+                    <div
+                      className={`
+                        relative
+                        h-[7px]
+                        w-[calc(100%_-_10px)]
+                        origin-left
+                        rounded-full
+                        bg-gradient-to-r
+                        from-[#0D5BFF]
+                        via-blue-500
+                        to-blue-300
+                        shadow-[0_0_10px_rgba(13,91,255,0.55)]
+                        transition-transform
+                        duration-700
+                        ease-out
+                        ${
+                          animationVisible
+                            ? "scale-x-100"
+                            : "scale-x-0"
+                        }
+                      `}
+                      style={{
+                        transitionDelay: "2300ms",
+                      }}
+                    >
+                      {/* Pointe */}
+                      <span
+                        className={`
+                          absolute
+                          left-full
+                          top-1/2
+                          h-5
+                          w-5
+                          -translate-x-1
+                          -translate-y-1/2
+                          bg-blue-300
+                          drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                          transition-all
+                          duration-300
+                          ${
+                            animationVisible
+                              ? "scale-100 opacity-100"
+                              : "scale-0 opacity-0"
+                          }
+                        `}
+                        style={{
+                          clipPath: "polygon(0 0, 100% 50%, 0 100%)",
+                          transitionDelay: "2900ms",
+                        }}
+                      />
+                    </div>
+                  </div>
+                )}
+              </div>
+            ),
+          )}
+          {/* Note de fin */}
+<div
+  className="
+    hidden
+    xl:col-start-1
+    xl:row-start-2
+    xl:flex
+    xl:items-center
+  "
+>
   <div
     className="
-      pointer-events-none
-      absolute
-      left-full
-      top-1/2
-      z-20
-      hidden
-      h-8
-      w-14
-      -translate-y-1/2
-      xl:flex
-      xl:items-center
+      max-w-sm
+      
+      p-5
     "
-    aria-hidden="true"
   >
-    {/* Point de départ */}
-    <span
-      className={`
-        absolute
-        left-0
-        top-1/2
-        z-20
-        h-3
-        w-3
-        -translate-x-1/2
-        -translate-y-1/2
-        rounded-full
-        bg-[#0D5BFF]
-        shadow-[0_0_12px_rgba(13,91,255,0.8)]
-        transition-all
-        duration-300
-        ${
-          animationVisible
-            ? "scale-100 opacity-100"
-            : "scale-0 opacity-0"
-        }
-      `}
-      style={{
-        transitionDelay: `${index * 550 + 250}ms`,
-      }}
-    />
-
-    {/* Corps de la flèche */}
-    <div
-      className={`
-        relative
-        h-[6px]
-        w-[calc(100%-12px)]
-        origin-left
-        rounded-l-full
-        bg-gradient-to-r
-        from-[#0D5BFF]
-        via-blue-500
-        to-blue-300
-        shadow-[0_0_10px_rgba(13,91,255,0.55)]
-        transition-transform
-        duration-700
-        ease-out
-        ${
-          animationVisible
-            ? "scale-x-100"
-            : "scale-x-0"
-        }
-      `}
-      style={{
-        transitionDelay: `${index * 550 + 300}ms`,
-      }}
-    >
-      {/* Pointe pleine */}
-      <span
-        className={`
-          absolute
-          left-full
-          top-1/2
-          h-6
-          w-6
-          -translate-x-1
-          -translate-y-1/2
-          bg-blue-300
-          drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]
-          transition-all
-          duration-300
-          ${
-            animationVisible
-              ? "scale-100 opacity-100"
-              : "scale-0 opacity-0"
-          }
-        `}
-        style={{
-          clipPath: "polygon(0 0, 100% 50%, 0 100%)",
-          transitionDelay: `${index * 550 + 850}ms`,
-        }}
-      />
-
-      {/* Impulsion lumineuse */}
-      {animationVisible && (
-        <span
-          className="
-            services-project-pulse
-            absolute
-            left-0
-            top-1/2
-            h-3
-            w-3
-            -translate-y-1/2
-            rounded-full
-            bg-white
-            shadow-[0_0_12px_#ffffff,0_0_20px_#60a5fa]
-          "
-          style={{
-            animationDelay: `${index * 350 + 450}ms`,
-          }}
-        />
-      )}
-    </div>
+    <p className="text-sm leading-7 text-slate-500">
+      Selon la prestation choisie, certaines étapes peuvent être plus
+      rapides ou adaptées. Une assistance ponctuelle ne suit naturellement
+      pas le même rythme qu’une création complète de site internet.
+    </p>
   </div>
-)}
-    </div>
-  ))}
 </div>
+        </div>
 
-<p className="mt-8 max-w-8xl leading-7 text-slate-600 text-center">
-  Selon la prestation choisie, certaines étapes peuvent être plus
-  rapides ou adaptées. <br/>Une assistance ponctuelle ne suit naturellement
-  pas le même rythme qu’une création complète de site internet.
-</p>
+
       </div>
     </section>
   );
