@@ -21,7 +21,7 @@ export default function Footer() {
             <div className="flex items-center gap-5">
               <Logo className="h-20" />
               <div>
-                <h2 className="text-xl font-bold text-white">
+                <h2 className="font-semibold tracking-[0.04em] font-logo text-slate-100 sm:text-xl">
                   JESS <span className="text-[#0D5BFF]">TECH</span>
                 </h2>
                 <p className="text-xs text-slate-300">

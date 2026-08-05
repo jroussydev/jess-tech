@@ -6,6 +6,7 @@ import "leaflet/dist/leaflet.css";
 import "./index.css";
 import "@fontsource-variable/lemonada/wght.css";
 import "@fontsource-variable/josefin-sans/wght.css";
+import "@fontsource-variable/orbitron/wght.css";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
