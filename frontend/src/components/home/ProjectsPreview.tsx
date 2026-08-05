@@ -1,29 +1,29 @@
 import { Link } from "react-router-dom";
 
-export default function ProjectsPreview() {
-  const projects = [
-    {
-      title: "Jess Tech",
-      description: "Site fullstack React / Node.js / PostgreSQL.",
-    },
-    {
-      title: "Jess-Tech Edu Studio",
-      description:
-        "Nouvelle expérimentation technique en cours de conception.",
-    },
-    {
-      title: "Outils internes",
-      description:
-        "Développements techniques et solutions en cours de construction.",
-    },
-  ];
+const projects = [
+  {
+    title: "Jess Tech",
+    description: "Site fullstack React / Node.js / PostgreSQL.",
+  },
+  {
+    title: "Jess-Tech Edu Studio",
+    description:
+      "Nouvelle expérimentation technique en cours de conception.",
+  },
+  {
+    title: "Outils internes",
+    description:
+      "Développements techniques et solutions en cours de construction.",
+  },
+];
 
+export default function ProjectsPreview() {
   return (
-    <section className="section-dark section-spacing relative overflow-hidden">
+    <section className="home-projects section-dark section-spacing">
       <div className="site-container relative z-10">
-        <div className="grid gap-28 lg:grid-cols-[35%_65%]">
+        <div className="home-projects__layout">
           {/* Bloc gauche */}
-          <div className="section-intro self-start pt-6 lg:pr-24">
+          <div className="section-intro home-projects__intro">
             <p className="section-label">
               Dans les coulisses
             </p>
@@ -39,7 +39,7 @@ export default function ProjectsPreview() {
 
             <Link
               to="/DansLesCoulisses"
-              className="btn-primary mt-10"
+              className="btn-primary home-projects__link"
             >
               Voir tous les projets →
             </Link>
@@ -50,51 +50,27 @@ export default function ProjectsPreview() {
             src="/decorations/vagueLumineuse2.webp"
             alt=""
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute
-              left-[18%]
-              top-26
-              -z-10
-              hidden
-              h-[900px]
-              w-auto
-              -translate-y-1/2
-              opacity-80
-              lg:block
-            "
+            className="home-projects__wave"
           />
 
           {/* Bloc droit */}
-          <div className="relative grid gap-8 lg:grid-cols-[65%_35%]">
-            {/* Liste des projets */}
-            <div className="relative z-10 space-y-4">
-              {projects.map((project) => (
+          <div className="home-projects__content">
+            <div className="home-projects__list">
+              {projects.map(({ title, description }) => (
                 <article
-                  key={project.title}
-                  className="
-                    card-dark
-                    group
-                    flex
-                    flex-col
-                    gap-4
-                    sm:flex-row
-                    sm:items-center
-                    sm:justify-between
-                  "
+                  key={title}
+                  className="card-dark home-projects__card"
                 >
                   <div>
-                    <h3>
-                      {project.title}
-                    </h3>
+                    <h3>{title}</h3>
 
-                    <p className="mt-2">
-                      {project.description}
+                    <p className="home-projects__card-description">
+                      {description}
                     </p>
                   </div>
 
                   <div
-                    className="text-2xl text-blue-400"
+                    className="home-projects__arrow"
                     aria-hidden="true"
                   >
                     →
@@ -108,19 +84,7 @@ export default function ProjectsPreview() {
               src="/decorations/IconDevCircuit.webp"
               alt=""
               aria-hidden="true"
-              className="
-                pointer-events-none
-                absolute
-                right-[-80px]
-                top-1/2
-                hidden
-                w-[260px]
-                -translate-y-1/2
-                opacity-90
-                lg:block
-                xl:w-[340px]
-                2xl:w-[420px]
-              "
+              className="home-projects__illustration"
             />
           </div>
         </div>

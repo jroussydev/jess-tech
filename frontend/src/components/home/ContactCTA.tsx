@@ -2,40 +2,29 @@ import { Link } from "react-router-dom";
 
 export default function ContactCTA() {
   return (
-    <section className="section-light pb-16 md:pb-20 lg:pb-24 rounded-b-2xl pt-20">
-      <div className="site-container max-w-[1200px]">
-        <div className="relative overflow-hidden rounded-3xl border border-blue-500/15 bg-gradient-to-r from-[#081120] to-[#0b1d35] p-6 sm:p-8">
+    <section className="section-light home-contact">
+      <div className="site-container home-contact__container">
+        <div className="home-contact__card">
           {/* Décoration */}
           <img
             src="/decorations/vagueLumineuse2.png"
             alt=""
             aria-hidden="true"
-            className="
-              pointer-events-none
-              absolute
-              left-[10%]
-              top-100
-              hidden
-              h-[900px]
-              w-auto
-              -translate-y-1/2
-              opacity-80
-              lg:block
-            "
+            className="home-contact__wave"
           />
 
-          <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-blue-500/20 text-2xl text-blue-400 sm:h-16 sm:w-16 sm:text-3xl">
+          <div className="home-contact__content">
+            <div className="home-contact__info">
+              <div className="home-contact__icon">
                 💬
               </div>
 
               <div>
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                <h2 className="home-contact__title">
                   Un projet en tête ?
                 </h2>
 
-                <p className="mt-1 text-slate-300">
+                <p className="home-contact__description">
                   Discutons-en simplement.
                 </p>
               </div>
@@ -43,7 +32,7 @@ export default function ContactCTA() {
 
             <Link
               to="/contact"
-              className="btn-primary px-8 py-4 md:min-w-[180px]"
+              className="btn-primary home-contact__button"
             >
               Me contacter →
             </Link>

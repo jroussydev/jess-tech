@@ -1,18 +1,23 @@
 import { Link } from "react-router-dom";
 
+const features = [
+  "Design soigné",
+  "Code propre",
+  "Optimisé",
+];
+
 export default function PortfolioPreview() {
   return (
     <section className="section-light section-spacing rounded-t-2xl">
       <div className="site-container">
-        <div className="grid gap-10 lg:grid-cols-[30%_70%] lg:items-center">
-          {/* Bloc gauche */}
-          <div className="section-intro self-center">
-            <p className="section-label">
-              Réalisations
-            </p>
+        <div className="home-portfolio__layout">
+          {/* Introduction */}
+          <div className="section-intro home-portfolio__intro">
+            <p className="section-label">Réalisations</p>
 
             <h2>
               Des projets concrets,
+              <br />
               des résultats utiles
             </h2>
 
@@ -23,65 +28,50 @@ export default function PortfolioPreview() {
 
             <Link
               to="/realisations"
-              className="btn-primary mt-8"
+              className="btn-primary home-portfolio__link"
             >
               Voir les réalisations →
             </Link>
           </div>
 
-          {/* Bloc droit */}
-          <div
-            className="
-              rounded-3xl
-              bg-gradient-to-r
-              from-[#081120]
-              to-[#0b1d35]
-              p-10
-              text-white
-            "
-          >
-            <div className="grid items-center gap-10 lg:grid-cols-2">
-              {/* Maquette */}
-              <div className="rounded-2xl border border-blue-400/30 bg-gradient-to-br from-[#0b1730] to-[#123c8a]/60 p-4 shadow-[0_0_35px_rgba(13,91,255,0.25)]">
-  <div className="mb-4 flex gap-2">
-    <div className="h-3 w-3 rounded-full bg-slate-300" />
-    <div className="h-3 w-3 rounded-full bg-slate-300" />
-    <div className="h-3 w-3 rounded-full bg-slate-300" />
-  </div>
+          {/* Aperçu d’une réalisation */}
+          <div className="home-portfolio__preview">
+            <div className="home-portfolio__content">
+              {/* Maquette du projet */}
+              <div className="home-portfolio__browser">
+                <div
+                  className="home-portfolio__browser-bar"
+                  aria-hidden="true"
+                >
+                  <span className="home-portfolio__browser-dot" />
+                  <span className="home-portfolio__browser-dot" />
+                  <span className="home-portfolio__browser-dot" />
+                </div>
 
-  <div className="relative h-64 overflow-hidden rounded-xl border border-blue-300/20 bg-blue-500/20">
-    <img
-      src="/portfolio/dupont-plomberie/dupont-plomberie-hero.webp"
-      alt=""
-  aria-hidden="true"
-  className="
-    absolute
-    
-    left-1/2
-    h-[100%]
-    max-w-none
-    -translate-x-[52%]
-    object-contain
-  "
-/>
-  </div>
-</div>
+                <div className="home-portfolio__image-wrapper">
+                  <img
+                    src="/portfolio/dupont-plomberie/dupont-plomberie-hero.webp"
+                    alt="Aperçu du site vitrine Dupont Plomberie"
+                    className="home-portfolio__image"
+                  />
+                </div>
+              </div>
 
-              {/* Texte */}
-              <div>
-                <h2 className="text-4xl font-bold text-slate-200">
+              {/* Présentation */}
+              <div className="home-portfolio__text">
+                <h3 className="home-portfolio__title">
                   Les premières réalisations arrivent bientôt.
-                </h2>
+                </h3>
 
-                <p className="mt-4 text-slate-400">
+                <p className="home-portfolio__description">
                   Chaque projet est unique et pensé sur mesure selon vos
                   objectifs.
                 </p>
 
-                <div className="mt-8 flex flex-wrap gap-8 text-sm">
-                  <span>✓ Design soigné</span>
-                  <span>✓ Code propre</span>
-                  <span>✓ Optimisé</span>
+                <div className="home-portfolio__features">
+                  {features.map((feature) => (
+                    <span key={feature}>✓ {feature}</span>
+                  ))}
                 </div>
               </div>
             </div>
