@@ -42,11 +42,11 @@ const services: Service[] = [
 
 export default function ServicesPreview() {
   return (
-    <section className="section-light section-spacing rounded-2xl">
+    <section className="section-light section-spacing">
       <div className="site-container">
-        <div className="home-services__layout">
+        <div className="grid gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-center xl:gap-12">
           {/* Introduction */}
-          <div className="section-intro home-services__intro">
+          <div className="section-intro max-w-xl">
             <p className="section-label">Services</p>
 
             <h2>Comment je peux vous aider</h2>
@@ -59,35 +59,34 @@ export default function ServicesPreview() {
 
             <Link
               to="/services"
-              className="btn-primary home-services__link"
+              className="btn-primary mt-6 w-full sm:w-auto"
             >
               Voir tous les services →
             </Link>
           </div>
 
           {/* Cartes des services */}
-          <div className="home-services__grid">
+          <div className="grid gap-5  sm:grid-cols-2 2xl:grid-cols-2">
             {services.map(({ title, description, icon: Icon }) => (
               <article
-                key={title}
-                className="card-dark home-services__card"
-              >
-                <Icon
-                  className="home-services__icon"
-                  aria-hidden="true"
-                />
+  key={title}
+  className="card-dark flex min-h-[190px] flex-col"
+>
+  <div className="flex items-center gap-4">
+    <Icon
+      className="h-8 w-8 shrink-0 text-blue-500"
+      aria-hidden="true"
+    />
 
-                <h3 className="home-services__title">{title}</h3>
+    <h3>{title}</h3>
+  </div>
 
-                <p className="home-services__description">
-                  {description}
-                </p>
+  <p>{description}</p>
 
-                <div
-                  className="home-services__separator"
-                  aria-hidden="true"
-                />
-              </article>
+  <div className="mt-auto pt-5">
+    <div className="h-px rounded-full bg-gradient-to-r from-blue-500/50 to-transparent" />
+  </div>
+</article>
             ))}
           </div>
         </div>
