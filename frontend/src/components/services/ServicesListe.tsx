@@ -98,7 +98,25 @@ export default function ServicesListe() {
   ];
 
   return (
-    <section className="section-dark section-spacing">
+    <section className="section-dark section-spacing relative isolate overflow-hidden">
+<img
+    src="/decorations/vagueLumineuse.png"
+    alt=""
+    aria-hidden="true"
+    className="
+      pointer-events-none
+      absolute
+      left-[55%]
+      top-140
+      z-0
+      hidden
+      h-[1700px]
+      w-auto
+      -translate-y-1/2
+      opacity-100
+      lg:block
+    "
+  />
       <div className="site-container">
         <div className="section-intro max-w-3xl">
           <p className="section-label">Les prestations Jess Tech</p>

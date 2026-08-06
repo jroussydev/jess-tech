@@ -42,13 +42,13 @@ export default function Hero() {
       />
 
       <div className="site-container relative z-10">
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-center">
+        <div className="grid gap-12 lg:grid-cols-2 xl:items-center">
           <div>
             <span className="badge badge-primary px-4 py-2 text-xs uppercase tracking-wide sm:text-sm">
               Jess Tech
             </span>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight text-slate-100 sm:text-5xl lg:text-6xl">
+            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight text-slate-100 sm:text-5xl xl:text-6xl">
               Des solutions web
               <br />
               propres,
@@ -90,17 +90,7 @@ export default function Hero() {
             </div>
 
 {/* Qualités mises en avant */}
-            <div
-  className="
-    mt-10
-    grid
-    gap-x-6
-    gap-y-6
-    sm:mt-12
-    md:grid-cols-3
-    lg:grid-cols-[0.9fr_1.2fr_0.9fr]
-  "
->
+            <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-2 xl:grid-cols-3">
               {qualities.map(({ title, description, icon: Icon }) => (
                 <article key={title} className="min-w-0">
                   <div className="mb-3 flex items-center gap-3">

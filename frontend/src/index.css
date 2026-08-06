@@ -145,6 +145,12 @@
     duration-300;
 }
 
+.card-dark-opaque {
+  background: #081120;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
 .card-dark:hover {
   @apply
     -translate-y-1

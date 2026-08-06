@@ -20,7 +20,7 @@ export default function ServicesCarte({
   icon: Icon,
 }: ServicesCarteProps) {
   return (
-    <article className="card-dark flex h-full flex-col">
+    <article className="card-dark card-dark-opaque flex h-full flex-col relative z-10">
       {/* En-tête : icône et titre */}
 <div className="flex items-center gap-4">
   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10">

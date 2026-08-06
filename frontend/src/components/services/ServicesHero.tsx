@@ -3,7 +3,25 @@ import { Link } from "react-router-dom";
 
 export default function ServicesHero() {
   return (
-    <section className="section-dark section-spacing">
+    <section className="section-dark section-spacing relative isolate overflow-hidden">
+      <img
+    src="/decorations/vagueLumineuse2.webp"
+    alt=""
+    aria-hidden="true"
+    className="
+      pointer-events-none
+      absolute
+      left-[48%]
+      top-114
+      z-0
+      hidden
+      h-[1000px]
+      w-auto
+      -translate-y-1/2
+      opacity-100
+      lg:block
+    "
+  />
       <div className="site-container">
         <div className="section-intro max-w-5xl">
           <p className="section-label">Services</p>
