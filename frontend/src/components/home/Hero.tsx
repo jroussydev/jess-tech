@@ -21,46 +21,55 @@ const qualities = [
 
 export default function Hero() {
   return (
-    <section className="section-dark section-spacing relative overflow-hidden">
-      {/* Image décorative visible uniquement sur ordinateur */}
-      <img
-        src="/home/profil2.webp"
-        alt=""
-        aria-hidden="true"
-        className="
-          pointer-events-none
-          absolute
-          -top-21
-          left-[38%]
-          hidden
-          h-[1080px]
-          w-auto
-          max-w-none
-          select-none
-          lg:block
-        "
-      />
+    <section className="hero section-dark">
+      {/* Visuel du Hero */}
+{/* Visuel mobile / tablette */}
+<div className="hero__visual-mobile">
+  <div className="hero__visual-mobile-mask">
+    <img
+      src="/home/gerante-de-jess-tech-de-dos.png"
+      alt=""
+      aria-hidden="true"
+      className="hero__visual-mobile-image"
+    />
+  </div>
+</div>
 
-      <div className="site-container relative z-10">
-        <div className="grid gap-12 lg:grid-cols-2 xl:items-center">
-          <div>
-            <span className="badge badge-primary px-4 py-2 text-xs uppercase tracking-wide sm:text-sm">
+{/* Visuel desktop */}
+<div className="hero__visual">
+  <div className="hero__visual-mask">
+    <img
+      src="/home/gerante-de-jess-tech-de-dos.png"
+      alt=""
+      aria-hidden="true"
+      className="hero__visual-image"
+    />
+  </div>
+</div>
+
+      <div className="hero__container">
+        <div className="hero__layout">
+          <div className="hero__content">
+            {/* Badge */}
+            <span className="badge badge-primary uppercase tracking-wide">
               Jess Tech
             </span>
 
-            <h1 className="mt-6 max-w-3xl text-4xl font-black leading-tight text-slate-100 sm:text-5xl xl:text-6xl">
+            {/* Titre */}
+            <h1 className="hero__title mt-6">
               Des solutions web
               <br />
               propres,
-              <span className="text-[#0D5BFF]"> utiles </span>
+              <span className="text-blue-500"> utiles </span>
               et
-              <span className="text-[#0D5BFF]">
+              <span className="text-blue-500">
                 {" "}
-                bien construites.
+                bien construites
               </span>
             </h1>
 
-            <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300 sm:mt-8">
+            {/* Description */}
+            <p className="hero__description text-slate-300">
               Développeuse freelance, j&apos;accompagne particuliers, artisans,
               associations et petites entreprises dans la{" "}
               <Link
@@ -72,38 +81,53 @@ export default function Hero() {
               et leurs besoins techniques.
             </p>
 
-            {/* Actions principales */}
-            <div className="mt-8 flex flex-col gap-4 sm:mt-10 sm:flex-row">
-              <Link
-                to="/contact"
-                className="btn-primary w-full sm:w-auto"
-              >
+            {/* Actions */}
+            <div className="hero__actions">
+              <Link to="/contact" className="btn-primary">
                 Demander un devis
               </Link>
 
-              <Link
-                to="/services"
-                className="btn-secondary w-full sm:w-auto"
-              >
+              <Link to="/services" className="btn-secondary">
                 Découvrir mes services
               </Link>
             </div>
 
-{/* Qualités mises en avant */}
-            <div className="mt-10 grid gap-8 sm:mt-12 md:grid-cols-2 xl:grid-cols-3">
+            {/* Qualités */}
+            <div className="hero__cards grid-cols-3">
               {qualities.map(({ title, description, icon: Icon }) => (
-                <article key={title} className="min-w-0">
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-blue-500/30 text-[#0D5BFF]">
-                      <Icon className="h-6 w-6" aria-hidden="true" />
+                <article key={title} className="hero__card">
+                  <div className="flex items-center gap-2 lg:gap-3">
+                    <div
+                      className="
+                        flex
+                        h-8
+                        w-8
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-lg
+                        border
+                        border-blue-500/30
+                        text-blue-500
+                        md:h-9
+                        md:w-9
+                        lg:h-10
+                        lg:w-10
+                        lg:rounded-xl
+                      "
+                    >
+                      <Icon
+                        className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
+                        aria-hidden="true"
+                      />
                     </div>
 
-                    <h2 className="whitespace-nowrap text-base font-semibold leading-snug text-white lg:text-lg">
+                    <h2 className="text-sm font-semibold md:text-base lg:text-lg">
                       {title}
                     </h2>
                   </div>
 
-                  <p className="text-base leading-7 text-slate-400">
+                  <p className="mt-2 text-xs leading-snug text-slate-400 md:text-sm lg:text-base">
                     {description}
                   </p>
                 </article>
@@ -111,6 +135,14 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Vague basse */}
+        <img
+          src="/decorations/vagues/09.png"
+          alt=""
+          aria-hidden="true"
+          className="hero__wave"
+        />
       </div>
     </section>
   );

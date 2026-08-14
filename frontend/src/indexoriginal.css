@@ -1,0 +1,822 @@
+@import "tailwindcss";
+
+/* ==========================================================
+   1. CONFIGURATION GLOBALE
+   Polices, comportement général et styles du navigateur
+========================================================== */
+@theme {
+  --font-title: "Lemonada Variable", cursive;
+  --font-text: "Josefin Sans Variable", sans-serif;
+  --font-logo: "Orbitron Variable", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title;
+  }
+
+  h1 {
+    @apply text-lg md:text-2xl lg:text-4xl font-black leading-tight;
+  }
+
+  h2 {
+    @apply text-base md:text-xl lg:text-2xl font-black leading-tight;;
+  }
+
+  h3 {
+    @apply text-sm md:text-lg lg:text-xl;
+  }
+
+  p {
+    @apply font-text text-xs md:text-sm lg:text-lg;
+  }
+
+  a {
+    @apply font-text text-xs md:text-sm lg:text-lg;
+  }
+
+  body {
+    overflow-x: hidden;
+    @apply font-text text-lg bg-slate-50 text-slate-900 antialiased;
+  }
+
+  button:focus-visible,
+  a:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    @apply outline-none ring-2 ring-blue-400;
+  }
+
+  ::selection {
+    @apply bg-blue-600 text-white;
+  }
+}
+
+/* ==========================================================
+   2. STRUCTURE GÉNÉRALE DU SITE
+   Fonds, conteneurs, espacements et introductions de sections
+========================================================== */
+
+@layer components {
+  /* Thèmes de fond des sections */
+
+  .section-dark {
+    @apply bg-[#020817] text-slate-100;
+  }
+
+  .section-light {
+    @apply bg-[#F5F7FC] text-slate-900;
+  }
+
+  /* Largeur maximale et marges latérales communes */
+
+  .site-container {
+    @apply mx-auto w-full max-w-[1500px] px-4 sm:px-6 lg:px-8;
+  }
+
+  /* Espacement vertical standard entre les sections */
+
+  .section-spacing {
+    @apply py-16 md:py-20 lg:py-24;
+  }
+
+  /* Libellé placé au-dessus du titre principal */
+
+  .section-label {
+    @apply mb-3 font-text text-base font-semibold uppercase tracking-widest text-blue-400;
+  }
+
+  /* Titre principal d’une page */
+
+  .section-dark h1 {
+    @apply text-slate-100;
+  }
+
+  .section-light h1 {
+    @apply text-slate-900;
+  }
+
+  /* Titre principal d’une section */
+
+  .section-dark h2 {
+    @apply text-slate-200;
+  }
+
+  .section-light h2 {
+    @apply text-slate-900;
+  }
+
+  /* Paragraphe d’introduction situé sous un titre */
+
+  .section-intro > p:not(.section-label) {
+    @apply mt-4 font-text text-lg leading-8;
+  }
+
+  .section-dark .section-intro > p:not(.section-label) {
+    @apply text-slate-400;
+  }
+
+  .section-light .section-intro > p:not(.section-label) {
+    @apply text-slate-600;
+  }
+
+  /* À réserver aux textes longs nécessitant une justification */
+
+  .text-justified {
+    @apply text-justify;
+  }
+}
+
+/* ==========================================================
+   3. CARTES SOMBRES
+   Cartes destinées aux sections sur fond sombre
+========================================================== */
+
+.card-dark {
+  @apply
+    rounded-2xl
+    border
+    border-blue-500/15
+    bg-gradient-to-br
+    from-[#081120]
+    to-[#0b1d35]
+    p-6
+    transition
+    duration-300;
+}
+
+.card-dark-opaque {
+  background: #081120;
+  opacity: 1;
+  mix-blend-mode: normal;
+}
+
+.card-dark:hover {
+  @apply
+    -translate-y-1
+    border-blue-400/60
+    shadow-lg
+    shadow-blue-500/10;
+}
+
+/* Typographie interne des cartes sombres */
+
+.card-dark h2 {
+  @apply font-title text-2xl font-bold text-slate-200;
+}
+
+.card-dark h3 {
+  @apply font-title text-xl font-bold text-slate-100;
+}
+
+.card-dark p {
+  @apply font-text mt-4 text-lg leading-8 text-slate-400;
+}
+
+/* ==========================================================
+   4. CARTES CLAIRES
+   Cartes destinées aux sections sur fond clair
+========================================================== */
+
+.card-light {
+  @apply
+    rounded-2xl
+    border
+    border-slate-200
+    bg-white
+    p-6
+    transition
+    duration-300;
+}
+
+.card-light:hover {
+  @apply
+    -translate-y-1
+    border-blue-500/30
+    shadow-lg
+    shadow-slate-900/5;
+}
+
+.card-light h2 {
+  @apply font-title text-2xl font-bold text-slate-900;
+}
+
+.card-light h3 {
+  @apply font-title text-xl font-bold text-slate-900;
+}
+
+.card-light p {
+  @apply font-text mt-4 text-lg leading-8 text-slate-600;
+}
+
+/* Carte plus compacte pour les contenus courts */
+
+.card-compact {
+  @apply p-5;
+}
+/* ==========================================================
+   5. BOUTONS GLOBAUX
+   Variantes principales utilisées sur l’ensemble du site
+========================================================== */
+
+.btn-primary {
+  @apply
+    inline-flex
+    font-text
+    items-center
+    justify-center
+    rounded-xl
+    bg-[#0D5BFF]
+    px-6
+    py-3
+    font-text
+    text-lg
+    font-semibold
+    text-white
+    transition
+    duration-300
+    hover:bg-blue-700
+    focus-visible:ring-2
+    focus-visible:ring-blue-400;
+}
+
+.btn-secondary {
+  @apply
+    inline-flex
+    items-center
+    justify-center
+    rounded-xl
+    border
+    border-blue-500/30
+    px-6
+    py-3
+    font-text
+    text-lg
+    font-semibold
+    transition
+    duration-300
+    hover:border-blue-500;
+}
+
+.section-dark .btn-secondary {
+  @apply text-white;
+}
+
+.section-light .btn-secondary {
+  @apply text-slate-900;
+}
+
+/* ==========================================================
+   6. BADGES
+   Étiquettes d’état ou de catégorie
+========================================================== */
+
+.badge {
+  @apply
+    inline-flex
+    items-center
+    rounded-full
+    px-3
+    py-1
+    text-sm
+    font-medium;
+}
+
+.badge-primary {
+  @apply
+    bg-blue-500/10
+    text-blue-400
+    border
+    border-blue-500/20;
+}
+
+.badge-success {
+  @apply
+    bg-green-500/15
+    text-green-400
+    border
+    border-green-500/20;
+}
+
+.badge-warning {
+  @apply
+    bg-orange-500/15
+    text-orange-400
+    border
+    border-orange-500/20;
+}
+
+.badge-danger {
+  @apply
+    bg-red-500/15
+    text-red-400
+    border
+    border-red-500/20;
+}
+
+/* ==========================================================
+   5. HERO GLOBAUX
+   Variantes principales utilisées sur l’ensemble du site
+========================================================== */
+
+.hero {
+  position: relative;
+  min-height: auto;
+  overflow: hidden;
+  background: #020817;
+
+  @apply py-6 md:py-8 lg:py-10;
+}
+
+.hero__container {
+  @apply w-full px-4 sm:px-10 md:px-15 lg:px-20;
+}
+
+.hero__layout {
+  @apply grid gap-12 lg:grid-cols-[30%] lg:gap-28;
+}
+
+.hero__intro {
+  @apply self-start pt-6 lg:pr-24;
+}
+
+.hero__link {
+  @apply mt-0 w-full sm:w-auto;
+}
+
+.hero__content {
+  @apply relative grid gap-8 lg:grid-cols-[70%_30%];
+}
+
+.hero__list {
+  @apply relative z-10 space-y-4;
+}
+
+.hero__card {
+  @apply
+    flex
+    flex-col
+    gap-4
+    sm:flex-row
+    sm:items-center
+    sm:justify-between;
+            background-image: url("/decorations/vagues/08.png");
+    background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+background-size: 100%;
+background-position-y: 50%;
+}
+
+.hero__card-description {
+  @apply mt-2;
+}
+
+.hero__arrow {
+  @apply text-2xl text-blue-400;
+}
+
+
+
+.hero__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 150%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Fondu horizontal entre le texte et l’image */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: 75%;
+
+  background: linear-gradient(
+    90deg,
+    #020817 0%,
+    #020817 22%,
+    rgba(2, 8, 23, 0.99) 58%,
+    rgba(2, 8, 23, 0.94) 62%,
+    rgba(2, 8, 23, 0.8) 72%,
+    rgba(2, 8, 23, 0.55) 80%,
+    rgba(2, 8, 23, 0.24) 91%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+}
+
+/* Vague lumineuse :
+   valeurs conservées pour préserver le rendu actuel.
+*/
+
+.hero__wave {
+  @apply
+    pointer-events-none
+    absolute
+    left-[13%]
+    top-40
+    -z-10
+    hidden
+    h-[900px]
+    w-auto
+    -translate-y-1/2
+    opacity-80
+    lg:block;
+}
+
+/* ==========================================================
+   Page d’accueil — Projets dans les coulisses
+========================================================== */
+
+.home-projects {
+  @apply relative overflow-hidden;
+}
+
+.home-projects__layout {
+  @apply grid gap-12 lg:grid-cols-[30%_70%] lg:gap-28;
+}
+
+.home-projects__intro {
+  @apply self-start pt-6 lg:pr-24;
+}
+
+.home-projects__link {
+  @apply mt-10 w-full sm:w-auto;
+}
+
+.home-projects__content {
+  @apply relative grid gap-8 lg:grid-cols-[70%_30%];
+}
+
+.home-projects__list {
+  @apply relative z-10 space-y-4;
+}
+
+.home-projects__card {
+  @apply
+    flex
+    flex-col
+    gap-4
+    sm:flex-row
+    sm:items-center
+    sm:justify-between;
+}
+
+.home-projects__card-description {
+  @apply mt-2;
+}
+
+.home-projects__arrow {
+  @apply text-2xl text-blue-400;
+}
+
+/* Vague lumineuse :
+   valeurs conservées pour préserver le rendu actuel.
+*/
+
+.home-projects__wave {
+  @apply
+    pointer-events-none
+    absolute
+    left-[13%]
+    top-40
+    -z-10
+    hidden
+    h-[900px]
+    w-auto
+    -translate-y-1/2
+    opacity-80
+    lg:block;
+}
+
+/* Illustration circuit :
+   valeurs conservées pour préserver le rendu actuel.
+*/
+
+.home-projects__illustration {
+  @apply
+    pointer-events-none
+    absolute
+    right-[-80px]
+    top-1/2
+    hidden
+    w-[260px]
+    -translate-y-1/2
+    opacity-90
+    lg:block
+    xl:w-[340px]
+    2xl:w-[420px];
+}
+
+
+/* ==========================================================
+   7. PAGE À PROPOS — HERO
+   Image, hauteur et fondu principal sur ordinateur
+========================================================== */
+.about-hero {
+  position: relative;
+  min-height: calc(100svh - 5rem);
+  overflow: hidden;
+  background: #020817;
+}
+
+.about-hero__image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 150%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Fondu horizontal entre le texte et l’image */
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  z-index: 1;
+  width: 75%;
+
+  background: linear-gradient(
+    90deg,
+    #020817 0%,
+    #020817 22%,
+    rgba(2, 8, 23, 0.99) 58%,
+    rgba(2, 8, 23, 0.94) 62%,
+    rgba(2, 8, 23, 0.8) 72%,
+    rgba(2, 8, 23, 0.55) 80%,
+    rgba(2, 8, 23, 0.24) 91%,
+    transparent 100%
+  );
+
+  pointer-events: none;
+}
+
+/* ==========================================================
+   PAGE À PROPOS — ADAPTATION MOBILE
+========================================================== */
+
+@media (max-width: 767px) {
+  .about-hero {
+    min-height: auto;
+  }
+
+  .about-hero__image {
+    object-position: 62% center;
+  }
+
+  .about-hero__overlay {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(2, 8, 23, 0.28) 0%,
+        rgba(2, 8, 23, 0.62) 38%,
+        rgba(2, 8, 23, 0.96) 72%,
+        rgba(2, 8, 23, 1) 100%
+      ),
+      linear-gradient(
+        90deg,
+        rgba(2, 8, 23, 0.58) 0%,
+        rgba(2, 8, 23, 0.15) 100%
+      );
+  }
+
+  .about-hero__container {
+    min-height: 46rem;
+    align-items: flex-end;
+    padding-top: 16rem;
+    padding-bottom: 3.5rem;
+  }
+
+  .about-hero__content h1 {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+
+  .about-hero__description {
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+}
+
+/* ==========================================================
+   8. CARTE DE LA ZONE D’INTERVENTION
+   Marqueur principal, fond et effets visuels Leaflet
+========================================================== */
+.jess-tech-leaflet-marker {
+  position: relative;
+  display: flex;
+  width: 52px;
+  height: 52px;
+  align-items: center;
+  justify-content: center;
+}
+
+.jess-tech-leaflet-marker__pulse {
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  background: rgba(13, 91, 255, 0.25);
+  animation: jess-tech-map-pulse 2s ease-out infinite;
+}
+
+.jess-tech-leaflet-marker__pin {
+  position: relative;
+  display: flex;
+  width: 42px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid white;
+  border-radius: 9999px;
+  background: #0d5bff;
+  color: white;
+  box-shadow:
+    0 8px 24px rgba(13, 91, 255, 0.35),
+    0 0 20px rgba(13, 91, 255, 0.4);
+}
+
+@keyframes jess-tech-map-pulse {
+  0% {
+    transform: scale(0.6);
+    opacity: 1;
+  }
+
+  75%,
+  100% {
+    transform: scale(1.45);
+    opacity: 0;
+  }
+}
+
+/* Fenêtre d’information affichée au clic sur un marqueur */
+.leaflet-popup-content-wrapper {
+  border-radius: 16px;
+}
+
+.leaflet-popup-content {
+  margin: 16px 18px;
+}
+
+.leaflet-container {
+  background: #020817;
+}
+
+.leaflet-container::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+
+  border-radius: inherit;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(96, 165, 250, 0.18),
+    inset 0 0 30px rgba(13, 91, 255, 0.08);
+}
+/* Éclaircissement des tuiles pour améliorer leur lisibilité */
+.leaflet-tile {
+  filter: brightness(1.75) contrast(1.1) saturate(0.9) !important;
+}
+
+/* ==========================================================
+   CONTRÔLES LEAFLET
+   Zoom et attribution de la carte sombre
+========================================================== */
+
+.jess-tech-dark-map .leaflet-control-zoom {
+  overflow: hidden;
+  border: 1px solid rgba(96, 165, 250, 0.3);
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(2, 8, 23, 0.35);
+}
+
+.jess-tech-dark-map .leaflet-control-zoom a {
+  display: flex;
+  width: 34px;
+  height: 34px;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: rgba(2, 8, 23, 0.92);
+  color: #f8fafc;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.jess-tech-dark-map .leaflet-control-zoom a:first-child {
+  border-bottom: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.jess-tech-dark-map .leaflet-control-zoom a:hover {
+  background: #0d5bff;
+  color: white;
+}
+
+.jess-tech-dark-map .leaflet-control-zoom a.leaflet-disabled {
+  background: rgba(2, 8, 23, 0.75);
+  color: #64748b;
+}
+
+.jess-tech-dark-map .leaflet-control-attribution {
+  border-radius: 8px 0 0 0;
+  background: rgba(2, 8, 23, 0.82);
+  color: #94a3b8;
+  font-size: 9px;
+  backdrop-filter: blur(6px);
+}
+
+.jess-tech-dark-map .leaflet-control-attribution a {
+  color: #60a5fa;
+}
+
+/* ==========================================================
+   MARQUEURS DES VILLES
+   Point lumineux et nom des communes affichées
+========================================================== */
+
+.jess-tech-city-marker {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.jess-tech-city-marker__dot {
+  width: 7px;
+  height: 7px;
+  flex-shrink: 0;
+  border: 1px solid white;
+  border-radius: 9999px;
+  background: #0d5bff;
+  box-shadow: 0 0 10px rgba(13, 91, 255, 0.9);
+}
+
+.jess-tech-city-marker__label {
+  color: #e2e8f0;
+  font-size: 11px;
+  font-weight: 600;
+  text-shadow:
+    0 1px 3px #020817,
+    0 0 6px #020817;
+}
+
+.jess-tech-city-icon {
+  border: 0 !important;
+  background: transparent !important;
+}
+
+/* ==========================================================
+   9. PAGE SERVICES — DÉROULEMENT DU PROJET
+   Animation du point lumineux sur la ligne des étapes
+========================================================== */
+
+@keyframes services-project-pulse {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  100% {
+    left: calc(100% - 0.75rem);
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+}
+
+.services-project-pulse {
+  animation: services-project-pulse 700ms ease-in-out forwards;
+  opacity: 0;
+}
+
+/* ==========================================================
+   10. ANIMATIONS GLOBALES
+   Espace réservé aux animations réutilisées sur plusieurs pages
+========================================================== */
