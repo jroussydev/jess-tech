@@ -190,6 +190,17 @@
     ),
     #020817;
 }
+.section-fade-light-soft {
+  background:
+    linear-gradient(
+      to bottom,
+      #020817 0px,
+      rgba(2, 8, 23, 0.45) 10px,
+      rgba(2, 8, 23, 0.15) 22px,
+      rgba(2, 8, 23, 0) 40px
+    ),
+    #F5F7FC;
+}
 
   /*
    * Léger fondu sombre en haut des sections claires.
@@ -341,6 +352,11 @@
     @apply text-slate-400;
   }
 
+  .card-dark h2,
+.card-dark h3,
+.card-dark h4 {
+  color: var(--color-slate-200);
+}
 
   /* =========================
      CARTE CLAIRE
