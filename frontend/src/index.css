@@ -209,15 +209,19 @@
   }
 
   .section-label {
-    @apply
-      mb-3
-      text-sm
-      font-semibold
-      uppercase
-      tracking-widest
-      text-blue-400
-      md:text-base;
-  }
+  @apply
+    mt-10
+    mb-3
+    text-sm
+    font-semibold
+    uppercase
+    tracking-widest
+    text-sky-500
+    md:text-base;
+
+}
+
+
 
   .section-intro > p:not(.section-label) {
     @apply mt-4;
@@ -245,13 +249,13 @@
      COULEURS DES PARAGRAPHES
   ========================== */
 
-  .section-dark p {
-    @apply text-slate-400;
-  }
+  .section-dark p:not(.section-label) {
+  @apply text-slate-400;
+}
 
-  .section-light p {
-    @apply text-slate-600;
-  }
+  .section-light p:not(.section-label) {
+  @apply text-slate-600;
+}
 
 
   /* =========================
@@ -318,6 +322,83 @@
     @apply text-slate-600;
   }
 
+
+  /* =========================
+     FONCTIONNALITEE BORD CARTE
+  ========================== */
+
+  .service-card-border {
+  position: relative;
+  isolation: isolate;
+}
+
+/* Ligne lumineuse */
+.service-card-border::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: inherit;
+
+  background: conic-gradient(
+    from 0deg,
+    transparent 0deg,
+    transparent 300deg,
+    #0d5bff 325deg,
+    #38bdf8 345deg,
+    #ffffff 355deg,
+    transparent 360deg
+  );
+
+  /* On ne conserve que la bordure */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Au survol */
+.service-card-border:hover::before {
+  opacity: 1;
+  animation: service-border-run 1.4s linear infinite;
+}
+
+@keyframes service-border-run {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.service-card-stroke {
+  fill: none;
+  stroke: #0883d4;
+  stroke-width: 2;
+
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+
+  stroke-linecap: round;
+
+  filter:
+    drop-shadow(0 0 4px rgba(13, 178, 255, 0.8))
+    drop-shadow(0 0 8px rgba(17, 92, 252, 0.5));
+
+  transition: stroke-dashoffset 1s ease;
+}
+
+.group:hover .service-card-stroke {
+  stroke-dashoffset: 0;
+}
 
   /* =========================
      INTERACTION OPTIONNELLE
@@ -632,7 +713,7 @@ height: calc(100% + 20px);
       justify-center
       gap-2
       rounded-xl
-      bg-[#0D5BFF]
+      bg-[#083daf]
       px-4
       py-2.5
       text-sm
@@ -640,7 +721,7 @@ height: calc(100% + 20px);
       text-white
       transition
       duration-300
-      hover:bg-blue-700
+      hover:bg-sky-600
       focus-visible:ring-2
       focus-visible:ring-blue-400
       md:px-5
@@ -737,4 +818,19 @@ height: calc(100% + 20px);
       bg-red-500/15
       text-red-400;
   }
+}
+
+/* ==========================================================
+   UTILITAIRES VISUELS
+========================================================== */
+
+/* Dégradé bleu Jess Tech pour les mots mis en valeur */
+.text-gradient-blue {
+  @apply
+    bg-gradient-to-r
+    from-[#083daf]
+    via-[#0D5BFF]
+    to-sky-500
+    bg-clip-text
+    text-transparent;
 }

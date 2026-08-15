@@ -57,12 +57,12 @@ export default function Hero() {
 
             {/* Titre */}
             <h1 className="hero__title mt-6">
-              Des solutions web
+              Des <span className="text-gradient-blue">solutions</span> web
               <br />
               propres,
-              <span className="text-blue-500"> utiles </span>
+              <span className="text-gradient-blue"> utiles </span>
               et
-              <span className="text-blue-500">
+              <span className="text-gradient-blue">
                 {" "}
                 bien construites
               </span>
