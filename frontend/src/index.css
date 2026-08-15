@@ -129,12 +129,25 @@
       text-slate-100;
   }
 
-  .section-light {
+/* =========================
+   SECTION CLAIRE DE BASE
+========================== */
+
+.section-light {
   @apply
     relative
     z-0
+    bg-[#F5F7FC]
     text-slate-900;
+}
 
+
+/* =========================
+   FONDU APRÈS HERO
+   Plus long et plus marqué
+========================== */
+
+.section-fade-hero {
   background:
     linear-gradient(
       to bottom,
@@ -146,6 +159,36 @@
       rgba(2, 8, 23, 0) 160px
     ),
     #F5F7FC;
+}
+
+
+/* =========================
+   FONDU ENTRE SECTIONS
+   Plus court et plus discret
+========================== */
+
+.section-fade-soft {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(2, 8, 23, 0.55) 0px,
+      rgba(2, 8, 23, 0.28) 20px,
+      rgba(2, 8, 23, 0.12) 45px,
+      rgba(2, 8, 23, 0.04) 65px,
+      rgba(2, 8, 23, 0) 90px
+    ),
+    #F5F7FC;
+}
+.section-fade-dark-soft {
+  background:
+    linear-gradient(
+      to bottom,
+      #F5F7FC 0px,
+      rgba(245, 247, 252, 0.45) 10px,
+      rgba(245, 247, 252, 0.15) 22px,
+      rgba(245, 247, 252, 0) 40px
+    ),
+    #020817;
 }
 
   /*
@@ -327,79 +370,7 @@
      FONCTIONNALITEE BORD CARTE
   ========================== */
 
-  .service-card-border {
-  position: relative;
-  isolation: isolate;
-}
-
-/* Ligne lumineuse */
-.service-card-border::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  padding: 2px;
-  border-radius: inherit;
-
-  background: conic-gradient(
-    from 0deg,
-    transparent 0deg,
-    transparent 300deg,
-    #0d5bff 325deg,
-    #38bdf8 345deg,
-    #ffffff 355deg,
-    transparent 360deg
-  );
-
-  /* On ne conserve que la bordure */
-  -webkit-mask:
-    linear-gradient(#fff 0 0) content-box,
-    linear-gradient(#fff 0 0);
-
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  opacity: 0;
-  pointer-events: none;
-  z-index: 10;
-}
-
-/* Au survol */
-.service-card-border:hover::before {
-  opacity: 1;
-  animation: service-border-run 1.4s linear infinite;
-}
-
-@keyframes service-border-run {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.service-card-stroke {
-  fill: none;
-  stroke: #0883d4;
-  stroke-width: 2;
-
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-
-  stroke-linecap: round;
-
-  filter:
-    drop-shadow(0 0 4px rgba(13, 178, 255, 0.8))
-    drop-shadow(0 0 8px rgba(17, 92, 252, 0.5));
-
-  transition: stroke-dashoffset 1s ease;
-}
-
-.group:hover .service-card-stroke {
-  stroke-dashoffset: 0;
-}
-
+ 
   /* =========================
      INTERACTION OPTIONNELLE
   ========================== */
@@ -824,7 +795,7 @@ height: calc(100% + 20px);
    UTILITAIRES VISUELS
 ========================================================== */
 
-/* Dégradé bleu Jess Tech pour les mots mis en valeur */
+/* == Dégradé bleu Jess Tech pour les mots mis en valeur */
 .text-gradient-blue {
   @apply
     bg-gradient-to-r
@@ -833,4 +804,36 @@ height: calc(100% + 20px);
     to-sky-500
     bg-clip-text
     text-transparent;
+}
+
+/* == HALO BLEU AUTOUR DES CARTES == */
+
+.card-glow {
+  border: 1px solid rgba(8, 131, 212, 0.45);
+
+  box-shadow:
+    0 0 6px rgba(13, 178, 255, 0.35),
+    0 0 14px rgba(17, 92, 252, 0.22);
+}
+
+/* == BORDURE LUMINEUSE ANIMÉE == */
+
+.card-animated-stroke {
+  fill: none;
+  stroke: #0883d4;
+  stroke-width: 2;
+
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  stroke-linecap: round;
+
+  filter:
+    drop-shadow(0 0 4px rgba(13, 178, 255, 0.8))
+    drop-shadow(0 0 8px rgba(17, 92, 252, 0.5));
+
+  transition: stroke-dashoffset 1s ease;
+}
+
+.group:hover .card-animated-stroke {
+  stroke-dashoffset: 0;
 }

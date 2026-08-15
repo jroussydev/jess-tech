@@ -6,6 +6,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { Link } from "react-router-dom";
+import AnimatedCardBorder from "../decorations/AnimatedCardBorder";
 
 type Service = {
   title: string;
@@ -15,7 +16,7 @@ type Service = {
 };
 
 const services: Service[] = [
-   {
+  {
     title: "Sites vitrines",
     description:
       "Des sites clairs, responsive et bien structurés pour présenter votre activité.",
@@ -47,10 +48,9 @@ const services: Service[] = [
 
 export default function ServicesPreview() {
   return (
-    <section className="section-light section-spacing">
+    <section className="section-light section-fade-hero section-spacing">
       <div className="site-container">
         <div className="grid gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-center xl:gap-12">
-
           {/* Introduction */}
           <div className="section-intro max-w-xl">
             <p className="section-label">Services</p>
@@ -63,20 +63,29 @@ export default function ServicesPreview() {
               utile et maintenable dans le temps.
             </p>
 
-            <Link
-              to="/services"
-              className="btn-primary mt-6"
-            >
+            <Link to="/services" className="btn-primary mt-6">
               Voir tous les services →
             </Link>
           </div>
 
           {/* Cartes */}
-          <div className="grid grid-cols-2 gap-3 md:gap-4 lg:gap-5 mt-8">
-  {services.map(({ title, description, icon: Icon, image }) => (
-    <article
+          {/* Cartes */}
+<div
+  className="
+    grid
+    grid-cols-2
+    gap-3
+    md:gap-4
+    lg:translate-y-6
+    lg:gap-5
+    xl:translate-y-7
+  "
+>
+            {services.map(({ title, description, icon: Icon, image }) => (
+              <article
   key={title}
   className="
+    card-glow
     group
     relative
     min-h-45
@@ -84,84 +93,57 @@ export default function ServicesPreview() {
     rounded-2xl
   "
 >
-  {/* Bordure animée */}
-  <svg
-  className="
-    pointer-events-none
-    absolute
-    inset-0
-    z-20
-    h-full
-    w-full
-    opacity-0
-    transition-opacity
-    duration-150
-    group-hover:opacity-100
-  "
-  aria-hidden="true"
->
-  <rect
-    x="1"
-    y="1"
-    width="calc(100% - 2px)"
-    height="calc(100% - 2px)"
-    rx="16"
-    ry="16"
-    pathLength="1"
-    className="service-card-stroke"
-  />
-</svg>
-      {/* Image */}
-      <img
-  src={image}
-  alt=""
-  aria-hidden="true"
-  className="
-    absolute
-    inset-0
-    h-full
-    w-full
-    object-cover
-    transition-transform
-    duration-500
-    group-hover:scale-120
-  "
-/>
+  <AnimatedCardBorder />
 
-      {/* Fondu */}
-      <div
-        className="
-          absolute
-          inset-0
-          bg-gradient-to-b
-          from-[#020817]/20
-          via-[#020817]/65
-          to-[#020817]
-        "
+  {/* Image */}
+  <img
+    src={image}
+    alt=""
+    aria-hidden="true"
+    className="
+      absolute
+      inset-0
+      h-full
+      w-full
+      object-cover
+      transition-transform
+      duration-500
+      group-hover:scale-110
+    "
+  />
+
+  {/* Fondu */}
+  <div
+    className="
+      pointer-events-none
+      absolute
+      inset-0
+      bg-gradient-to-b
+      from-[#020817]/20
+      via-[#020817]/65
+      to-[#020817]
+    "
+    aria-hidden="true"
+  />
+
+  {/* Contenu */}
+  <div className="relative z-10 flex h-full flex-col justify-end p-4 lg:p-5">
+    <div className="flex items-center gap-3">
+      <Icon
+        className="h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7"
         aria-hidden="true"
       />
 
-      {/* Contenu */}
-      <div className="relative z-10 flex h-full flex-col justify-end p-4 lg:p-5">
-        <div className="flex items-center gap-3">
-          <Icon
-            className="h-6 w-6 shrink-0 text-blue-400 lg:h-7 lg:w-7"
-            aria-hidden="true"
-          />
+      <h3 className="text-white">{title}</h3>
+    </div>
 
-          <h3 className="text-white">
-            {title}
-          </h3>
-        </div>
-
-        <p className="mt-2 text-slate-300">
-          {description}
-        </p>
-      </div>
-    </article>
-  ))}
-</div>
-
+    <p className="mt-2 text-slate-300">
+      {description}
+    </p>
+  </div>
+</article>
+            ))}
+          </div>
         </div>
       </div>
     </section>
