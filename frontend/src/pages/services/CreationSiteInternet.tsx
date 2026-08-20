@@ -1,4 +1,4 @@
-import ContactCTA from "../../components/home/ContactCTA"
+import GlobalCTA from "../../components/GlobalCTA";
 
 
 export default function CreationSiteInternet() {
@@ -238,7 +238,7 @@ export default function CreationSiteInternet() {
   </div>
 </section>
 {/* Section 6 - CTA */}
-<ContactCTA />
+<GlobalCTA variant="services" />
     </main>
   )
 }

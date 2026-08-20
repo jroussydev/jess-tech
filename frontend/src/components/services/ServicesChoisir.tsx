@@ -1,6 +1,5 @@
 import {
   Activity,
-  ArrowRight,
   CodeXml,
   LifeBuoy,
   Monitor,
@@ -8,7 +7,9 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
+import AnimatedCardBorder from "../decorations/AnimatedCardBorder";
 
 type Besoin = {
   title: string;
@@ -80,14 +81,22 @@ export default function ServicesChoisir() {
   return (
     <section
       id="choisir-service"
-      className="section-light section-spacing scroll-mt-20"
+      className="section-light section-fade-hero section-spacing scroll-mt-20"
     >
       <div className="site-container">
         {/* Introduction */}
         <div className="section-intro max-w-3xl">
-          <p className="section-label">Trouver la bonne solution</p>
+          <p className="section-label">
+            Trouver la bonne solution
+          </p>
 
-          <h2>Quel est votre besoin ?</h2>
+          <h2>
+            Quel est votre{" "}
+            <span className="text-gradient-blue">
+              besoin
+            </span>{" "}
+            ?
+          </h2>
 
           <p>
             Vous n’avez pas besoin de connaître le nom exact de la prestation.
@@ -97,7 +106,7 @@ export default function ServicesChoisir() {
         </div>
 
         {/* Services */}
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 grid gap-5 md:grid-cols-2 2xl:grid-cols-3">
           {besoins.map(
             ({
               title,
@@ -108,107 +117,126 @@ export default function ServicesChoisir() {
               icon: Icon,
             }) => (
               <Link
-                key={service}
-                to={link}
-                className="
-                  card-dark
-                  card-compact
-                  group
-                  relative
-                  block
-                  h-full
-                  min-h-[210px]
-                  min-w-0
-                  overflow-visible
-                  hover:z-50
-                "
-              >
-                {/* Image décorative au survol */}
+  key={service}
+  to={link}
+  className="
+    card-glow
+    group
+    relative
+    block
+    h-[230px]
+    min-w-0
+    overflow-hidden
+    rounded-2xl
+    md:h-[250px]
+    lg:h-[260px]
+  "
+>
+                <AnimatedCardBorder />
+
+                {/* Image de fond */}
                 <img
                   src={image}
                   alt=""
                   aria-hidden="true"
                   className="
-                    pointer-events-none
                     absolute
-                    right-[4%]
-                    top-1/2
-                    z-50
-                    hidden
-                    h-[105%]
-                    w-[52%]
-                    -translate-y-1/2
-                    rounded-xl
+                    inset-0
+                    h-full
+                    w-full
                     object-cover
-                    opacity-0
-                    shadow-2xl
-                    shadow-blue-950/50
-                    transition-all
-                    duration-700
-                    ease-out
-                    group-hover:right-[-12%]
-                    group-hover:translate-x-4
-                    group-hover:opacity-100
-                    xl:block
+                    transition-transform
+                    duration-500
+                    group-hover:scale-110
                   "
-                  style={{
-                    maskImage:
-                      "linear-gradient(to right, transparent 0%, black 32%, black 100%)",
-                    WebkitMaskImage:
-                      "linear-gradient(to right, transparent 0%, black 32%, black 100%)",
-                  }}
                 />
 
-                <div className="relative z-30 flex h-full flex-col">
-                  {/* Nom de la prestation */}
-                  <span className="text-lg font-semibold leading-6 text-blue-500">
+                {/* Fondu sombre */}
+                <div
+                  className="
+                    pointer-events-none
+                    absolute
+                    inset-0
+                    bg-gradient-to-b
+                    from-[#020817]/20
+                    via-[#020817]/55
+                    to-[#020817]
+                  "
+                  aria-hidden="true"
+                />
+
+                {/* Contenu */}
+                <div className="absolute inset-0 z-10 p-4 lg:p-5">
+                  {/* Nom de la prestation en haut */}
+                  <span
+                    className="
+                      block
+                      rounded-full
+                      bg-sky-600/60
+                      backdrop-blur-sm
+                      px-3
+                      py-1
+                      text-lg
+                      font-semibold
+                      text-slate-200
+                    "
+                  >
                     {service}
                   </span>
 
-                  {/* Icône et besoin */}
-                  <div className="mt-3 flex items-start gap-4">
-                    <Icon
-                      className="
-                        mt-1
-                        h-8
-                        w-8
-                        shrink-0
-                        text-blue-500
-                        transition-transform
-                        duration-300
-                        group-hover:scale-110
-                      "
-                      aria-hidden="true"
-                    />
+                  {/* Bloc ancré en bas */}
+                  <div
+                    className="
+                      absolute
+                      bottom-3
+                      left-4
+                      right-4
+                      lg:left-5
+                      lg:right-5
+                    "
+                  >
+                    {/* Icône + titre */}
+                    <div className="flex items-start gap-3">
+                      <Icon
+                        className="
+                          mt-1
+                          h-7
+                          w-7
+                          shrink-0
+                          text-sky-500
+                          transition-transform
+                          duration-300
+                          group-hover:scale-110
+                        "
+                        aria-hidden="true"
+                      />
 
-                    <h3 className="text-xl leading-snug">{title}</h3>
-                  </div>
+                      <h3 className="text-slate-200">
+                        {title}
+                      </h3>
+                    </div>
 
-                  {/* Description */}
-                  <p className="mt-3 max-w-[88%] text-base leading-7">
-                    {description}
-                  </p>
+                    {/* Description + flèche */}
+                    <div className="mt-2 flex items-end gap-3">
+                      <p className="min-w-0 flex-1 text-slate-300">
+                        {description}
+                      </p>
 
-                  {/* Séparateur et flèche */}
-                  <div className="mt-auto flex items-end justify-between pt-4">
-                    <div
-                      className="h-px flex-1 bg-gradient-to-r from-blue-500/40 to-transparent"
-                      aria-hidden="true"
-                    />
-
-                    <ArrowRight
-                      className="
-                        ml-4
-                        h-5
-                        w-5
-                        shrink-0
-                        text-blue-500
-                        transition-transform
-                        duration-300
-                        group-hover:translate-x-1
-                      "
-                      aria-hidden="true"
-                    />
+                      <img
+                        src="/decorations/fleche.png"
+                        alt=""
+                        aria-hidden="true"
+                        className="
+                          h-9
+                          w-20
+                          shrink-0
+                          object-contain
+                          transition-transform
+                          duration-300
+                          group-hover:translate-x-2
+                        "
+                      />
+                    </div>
                   </div>
                 </div>
               </Link>

@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { Link, Navigate, useParams } from "react-router-dom";
+import GlobalCTA from "../../components/GlobalCTA";
 import {
   ArrowRight,
   Check,
@@ -457,41 +458,8 @@ const CityPage = () => {
       {/* =====================================================================
           CTA
       ===================================================================== */}
-
-
-          <section className="section-light pb-16 md:pb-20 lg:pb-24 rounded-b-2xl pt-20">
-      <div className="site-container max-w-[1200px]">
-        <div className="relative overflow-hidden rounded-3xl border border-blue-500/15 bg-gradient-to-r from-[#081120] to-[#0b1d35] p-6 sm:p-8">
-          {/* Décoration */}
-          <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-            <div className="flex items-center gap-5">
-              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl border border-blue-500/20 text-2xl text-blue-400 sm:h-16 sm:w-16 sm:text-3xl">
-                💬
-              </div>
-
-              <div>
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">
-                  Un projet de site internet à {city.name} ?
-                </h2>
-
-                <p className="mt-1 text-slate-300">
-                  Présentez-moi votre activité et vos besoins. <br/>Nous pourrons échanger
-              simplement afin de déterminer la solution la plus adaptée à votre
-              projet.
-                </p>
-              </div>
-            </div>
-
-            <Link
-              to="/contact"
-              className="btn-primary px-8 py-4 md:min-w-[180px]"
-            >
-              Me contacter →
-            </Link>
-          </div>
-        </div>
-      </div>
-    </section>
+<GlobalCTA variant="citypage" />
+      
     </main>
   );
 };

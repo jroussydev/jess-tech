@@ -4,7 +4,7 @@ import CalculTarifs from "../../components/tarifs/CalculTarifs";
 import EtapesProjet from "../../components/tarifs/EtapesProjet";
 import PrestationsIncluses from "../../components/tarifs/PrestationsIncluses";
 import FaqTarifs from "../../components/tarifs/FaqTarifs";
-import ContactTarifs from "../../components/tarifs/ContactTarifs";
+import GlobalCTA from "../../components/GlobalCTA";
 
 export default function TarifsTransparents() {
     return (
@@ -15,7 +15,8 @@ export default function TarifsTransparents() {
             <EtapesProjet />
             <PrestationsIncluses />
             <FaqTarifs />
-            <ContactTarifs />
+            <GlobalCTA variant="tarifs" />
+                  
         </>
     );
 }

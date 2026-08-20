@@ -870,3 +870,37 @@ height: calc(100% + 20px);
 .group:hover .card-animated-stroke {
   stroke-dashoffset: 0;
 }
+
+/* ==========================================================
+   PAGE SERVICES — DÉROULEMENT DU PROJET
+   Animation du point lumineux sur la ligne des étapes
+========================================================== */
+
+@keyframes services-project-pulse {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+
+  15% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  85% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+
+  100% {
+    left: calc(100% - 0.75rem);
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+}
+
+.services-project-pulse {
+  animation: services-project-pulse 700ms ease-in-out forwards;
+  opacity: 0;
+}

@@ -98,44 +98,84 @@ export default function ServicesListe() {
   ];
 
   return (
-    <section className="section-dark section-spacing relative isolate overflow-hidden">
-<img
-    src="/decorations/vagueLumineuse.png"
-    alt=""
-    aria-hidden="true"
-    className="
-      pointer-events-none
-      absolute
-      left-[55%]
-      top-140
-      z-0
-      hidden
-      h-[1700px]
-      w-auto
-      -translate-y-1/2
-      opacity-100
-      lg:block
-    "
-  />
-      <div className="site-container">
-        <div className="section-intro max-w-3xl">
-          <p className="section-label">Les prestations Jess Tech</p>
+    <section className="section-dark section-fade-dark-soft section-spacing mb-15">
+  <div className="site-container relative z-10">
+    <div className="section-intro max-w-3xl">
+      <p className="section-label">Les prestations Jess Tech</p>
 
-          <h2>Des services adaptés à chaque étape de votre projet</h2>
+      <h2>
+        Des services adaptés à chaque étape de votre{" "}
+        <span className="text-gradient-blue">
+          projet
+        </span>
+      </h2>
 
-          <p>
-            Chaque catégorie regroupe plusieurs prestations. Vous pouvez ainsi
-            choisir un accompagnement complet ou demander une intervention
-            ponctuelle selon votre situation.
-          </p>
-        </div>
+      <p>
+        Chaque catégorie regroupe plusieurs prestations. Vous pouvez ainsi
+        choisir un accompagnement complet ou demander une intervention
+        ponctuelle selon votre situation.
+      </p>
+    </div>
 
-        <div className="mt-12 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-          {services.map((service) => (
-            <ServicesCarte key={service.title} {...service} />
-          ))}
-        </div>
+    {/* Zone cartes + décorations */}
+    <div className="relative mt-10">
+      {/* Vague haut droite */}
+      <img
+        src="/decorations/vagues/15.png"
+        alt=""
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -right-20
+          -top-28
+          z-0
+          hidden
+          h-auto
+          w-72
+
+          lg:block
+          xl:-right-28
+          xl:w-80
+          2xl:-right-36
+          2xl:w-96
+        "
+      />
+
+      {/* Vague bas gauche */}
+      <img
+        src="/decorations/vagues/16.png"
+        alt=""
+        aria-hidden="true"
+        className="
+          pointer-events-none
+          absolute
+          -bottom-28
+          -left-20
+          z-0
+          hidden
+          h-auto
+          w-72
+
+          lg:block
+          xl:-left-28
+          xl:w-80
+          2xl:-left-36
+          2xl:w-96
+        "
+      />
+
+      {/* Cartes */}
+      <div className="relative z-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3">
+        {services.map((service) => (
+          <ServicesCarte
+            key={service.title}
+            {...service}
+          />
+        ))}
       </div>
-    </section>
+    </div>
+  </div>
+</section>
   );
 }

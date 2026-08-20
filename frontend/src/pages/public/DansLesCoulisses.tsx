@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import GlobalCTA from "../../components/GlobalCTA";
 
 import { internalProjects } from "../../data/internalProjects";
 import {
@@ -155,56 +155,8 @@ export default function DansLesCoulisses() {
       {/* =====================================================
           CTA
       ====================================================== */}
-      <section className="section-light section-spacing rounded-b-2xl">
-        <div className="site-container max-w-[1200px]">
-          <div className="relative overflow-hidden rounded-3xl border border-blue-500/15 bg-gradient-to-r from-[#081120] to-[#0b1d35] p-6 sm:p-8">
-            <div className="relative z-10 flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
-              <div className="flex min-w-0 items-start gap-4 sm:gap-5">
-                <div
-                  className="
-                    flex
-                    h-14
-                    w-14
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-2xl
-                    border
-                    border-blue-500/20
-                    text-2xl
-                    text-blue-400
-                    sm:h-16
-                    sm:w-16
-                    sm:text-3xl
-                  "
-                  aria-hidden="true"
-                >
-                  💬
-                </div>
-
-                <div className="min-w-0">
-                  <h2 className="text-2xl font-bold leading-tight text-slate-100 sm:text-3xl">
-                    Une idée en tête ?
-                  </h2>
-
-                  <p className="mt-2 max-w-xl text-lg leading-8 text-slate-300">
-                    Ces projets montrent une partie de la méthode de travail.
-                    Pour un besoin réel, chaque solution est adaptée au contexte,
-                    aux objectifs et aux contraintes du projet.
-                  </p>
-                </div>
-              </div>
-
-              <Link
-                to="/contact"
-                className="btn-primary w-full shrink-0 px-8 py-4 sm:w-auto lg:min-w-[210px]"
-              >
-                Parlons de votre idée →
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <GlobalCTA variant="coulisses" />
+            
     </main>
   );
 }

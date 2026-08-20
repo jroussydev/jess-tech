@@ -5,7 +5,7 @@ import {
   AboutWorkflow,
   AboutTechnologies,
 } from "../../components/about";
-import ContactCTA from "../../components/home/ContactCTA";
+import GlobalCTA from "../../components/GlobalCTA";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
       <AboutStory />
       <AboutWorkflow />
       <AboutTechnologies />
-      <ContactCTA />
+      <GlobalCTA variant="about" />
     </>
   );
 };

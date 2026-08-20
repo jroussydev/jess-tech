@@ -1,5 +1,4 @@
-import { ArrowRight, Check } from "lucide-react";
-import type { LucideIcon } from "lucide-react";
+import { Check, type LucideIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 
 type ServicesCarteProps = {
@@ -20,35 +19,62 @@ export default function ServicesCarte({
   icon: Icon,
 }: ServicesCarteProps) {
   return (
-    <article className="card-dark card-dark-opaque flex h-full flex-col relative z-10">
-      {/* En-tête : icône et titre */}
-<div className="flex items-center gap-4">
-  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-blue-500/20 bg-blue-500/10">
-    <Icon
-      className="h-7 w-7 text-blue-400"
-      aria-hidden="true"
-    />
-  </div>
+    <article
+  className="
+    card-dark
+    card-dark-opaque
+    card-glow
+    group
+    relative
+    z-10
+    flex
+    h-full
+    flex-col
+    transition-transform
+    duration-300
+    hover:-translate-y-1
+  "
+>
+      {/* En-tête */}
+      <div className="flex items-center gap-4">
+        <Icon
+  className="
+    h-8
+    w-8
+    shrink-0
+    text-sky-500
+    transition-transform
+    duration-300
+    group-hover:scale-110
+  "
+  aria-hidden="true"
+/>
 
-  <h3 className="min-w-0">
-    {title}
-  </h3>
-</div>
+        <h3 className="min-w-0 text-slate-200">
+          {title}
+        </h3>
+      </div>
 
-{/* Description sous toute la ligne */}
-<p className="mt-4">
-  {description}
-</p>
+      {/* Description */}
+      <p className="mt-4 text-slate-300">
+        {description}
+      </p>
 
       {/* Prestations incluses */}
       <ul className="mt-5 space-y-2.5">
         {prestations.map((prestation) => (
           <li
             key={prestation}
-            className="flex items-start gap-3 text-base leading-7 text-slate-300"
+            className="flex items-start gap-3 text-slate-300"
           >
             <Check
-              className="mt-1.5 h-4 w-4 shrink-0 text-blue-400"
+              className="
+                mt-1
+                h-4
+                w-4
+                shrink-0
+                text-sky-500
+              "
               aria-hidden="true"
             />
 
@@ -57,22 +83,47 @@ export default function ServicesCarte({
         ))}
       </ul>
 
-      {/* Prix et lien */}
-      <div className="mt-auto flex flex-col gap-4 pt-6 sm:flex-row sm:items-center sm:justify-between">
-        <span className="badge badge-primary self-start">
+      {/* Prix + lien */}
+      <div className="mt-auto flex items-center justify-between gap-3 pt-6">
+        <span className="badge badge-primary shrink-0">
           {prix}
         </span>
 
         <Link
           to={link}
-          className="group inline-flex items-center gap-2 font-semibold text-blue-400 transition-colors duration-300 hover:text-blue-300"
+          className="
+            group
+            inline-flex
+            min-w-0
+            items-center
+            justify-end
+            gap-2
+            text-right
+            font-semibold
+            text-sky-500
+            transition-colors
+            duration-300
+            hover:text-sky-400
+          "
         >
-          Découvrir ce service
+          <span className="whitespace-nowrap">
+            Découvrir ce service
+          </span>
 
-          <ArrowRight
-            className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
-            aria-hidden="true"
-          />
+          <img
+  src="/decorations/fleche.png"
+  alt=""
+  aria-hidden="true"
+  className="
+    h-6
+    w-auto
+    shrink-0
+    object-contain
+    transition-transform
+    duration-300
+    group-hover:translate-x-1
+  "
+/>
         </Link>
       </div>
     </article>

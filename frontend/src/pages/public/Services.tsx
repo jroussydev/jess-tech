@@ -3,7 +3,7 @@ import ServicesChoisir from "../../components/services/ServicesChoisir";
 import ServicesListe from "../../components/services/ServicesListe";
 import ServicesDeroulementProjet from "../../components/services/ServicesDeroulementProjet";
 import ServicesPourquoi from "../../components/services/ServicesPourquoi";
-import ServicesCta from "../../components/services/ServicesCta";
+import GlobalCTA from "../../components/GlobalCTA";
 
 export default function Services() {
     return (
@@ -13,7 +13,7 @@ export default function Services() {
       <ServicesListe />
       <ServicesDeroulementProjet />
       <ServicesPourquoi />
-      <ServicesCta />
+      <GlobalCTA variant="services" />
     </main>
   );
 }

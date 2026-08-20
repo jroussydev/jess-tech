@@ -82,14 +82,17 @@ export default function ServicesDeroulementProjet() {
   return (
     <section
       ref={sectionRef}
-      className="section-light section-spacing"
+      className="section-light section-fade-light-soft section-spacing"
     >
       <div className="site-container">
         {/* Introduction */}
         <div className="section-intro max-w-3xl">
           <p className="section-label">Un accompagnement clair</p>
 
-          <h2>Comment se déroule un projet ?</h2>
+          <h2>
+            Comment se déroule un{" "}
+            <span className="text-gradient-blue">projet</span> ?
+          </h2>
 
           <p>
             Chaque prestation possède ses particularités, mais l’organisation
@@ -99,7 +102,7 @@ export default function ServicesDeroulementProjet() {
         </div>
 
         {/* Parcours du projet */}
-        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-10 xl:gap-y-10">
+        <div className="mt-10 grid gap-4 md:grid-cols-2 xl:grid-cols-3 xl:gap-x-10 xl:gap-y-10">
           {etapes.map(
             ({ numero, titre, description, icon: Icon }, index) => (
               <div
@@ -107,30 +110,42 @@ export default function ServicesDeroulementProjet() {
                 className={`relative ${positionsEtapes[index]}`}
               >
                 {/* Carte */}
-                <article className="card-dark relative z-10 flex h-full flex-col p-5 text-left">
+                <article
+                  className="
+                    card-dark
+                    card-glow
+                    relative
+                    z-10
+                    flex
+                    h-full
+                    flex-col
+                    text-left
+                  "
+                >
                   <div className="flex items-center gap-3">
                     <div className="flex h-10 w-10 shrink-0 items-center justify-center">
                       <Icon
-                        className="h-10 w-10 text-blue-500"
+                        className="h-10 w-10 text-sky-500"
                         aria-hidden="true"
                       />
                     </div>
 
-                    <h3 className="text-lg leading-snug">
-                      {titre}
-                    </h3>
+                    <h3>{titre}</h3>
                   </div>
 
-                  <p className="mt-3 text-base leading-7">
+                  <p className="mt-3 text-slate-300">
                     {description}
                   </p>
 
-                  <div className="mt-auto pt-4" aria-hidden="true">
-                    <div className="h-px rounded-full bg-gradient-to-r from-blue-500/50 to-transparent" />
+                  <div
+                    className="mt-auto pt-4"
+                    aria-hidden="true"
+                  >
+                    <div className="h-px rounded-full bg-gradient-to-r from-sky-500/50 to-transparent" />
                   </div>
                 </article>
 
-                {/* Flèches horizontales : étapes 01 vers 02 et 02 vers 03 */}
+                {/* Flèches horizontales : 01 → 02 et 02 → 03 */}
                 {index < 2 && (
                   <div
                     className="
@@ -223,7 +238,7 @@ export default function ServicesDeroulementProjet() {
                   </div>
                 )}
 
-                {/* Flèche descendante : étape 03 vers étape 04 */}
+                {/* Flèche descendante : 03 → 04 */}
                 {index === 2 && (
                   <div
                     className="
@@ -295,7 +310,7 @@ export default function ServicesDeroulementProjet() {
                   </div>
                 )}
 
-                {/* Flèche inversée : étape 04 vers étape 05 */}
+                {/* Flèche inversée : 04 → 05 */}
                 {index === 3 && (
                   <div
                     className="
@@ -370,33 +385,27 @@ export default function ServicesDeroulementProjet() {
               </div>
             ),
           )}
+
           {/* Note de fin */}
-<div
-  className="
-    hidden
-    xl:col-start-1
-    xl:row-start-2
-    xl:flex
-    xl:items-center
-  "
->
-  <div
-    className="
-      max-w-sm
-      
-      p-5
-    "
-  >
-    <p className="text-sm leading-7 text-slate-500">
-      Selon la prestation choisie, certaines étapes peuvent être plus
-      rapides ou adaptées. Une assistance ponctuelle ne suit naturellement
-      pas le même rythme qu’une création complète de site internet.
-    </p>
-  </div>
-</div>
+          <div
+            className="
+              hidden
+              xl:col-start-1
+              xl:row-start-2
+              xl:flex
+              xl:items-center
+            "
+          >
+            <div className="max-w-sm p-5">
+              <p className="text-sm leading-7 text-slate-500">
+                Selon la prestation choisie, certaines étapes peuvent être plus
+                rapides ou adaptées. Une assistance ponctuelle ne suit
+                naturellement pas le même rythme qu’une création complète de
+                site internet.
+              </p>
+            </div>
+          </div>
         </div>
-
-
       </div>
     </section>
   );
