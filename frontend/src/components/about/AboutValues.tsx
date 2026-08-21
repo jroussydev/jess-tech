@@ -49,12 +49,12 @@ const AboutValues = () => {
     grid
     grid-cols-3
     gap-2
-    pt-8
+    
 
     sm:flex
     sm:flex-col
     sm:gap-8
-    sm:pt-12
+    lg:pt-12
   "
 >
   {valuesItems.map((item) => {

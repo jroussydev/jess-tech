@@ -246,225 +246,251 @@ useEffect(() => {
   return (
     <main>
 {/* Section 1 — Hero */}
-<section className="section-dark relative overflow-visible">
+<section className="hero section-dark relative overflow-visible">
+
   {/* Halos décoratifs */}
   <div
-    className="pointer-events-none absolute left-1/4 top-0 h-96 w-96 rounded-full bg-blue-600/10 blur-[130px]"
+    className="
+      pointer-events-none
+      absolute
+      left-1/4
+      top-0
+      h-96
+      w-96
+      rounded-full
+      bg-blue-600/10
+      blur-[130px]
+    "
     aria-hidden="true"
   />
 
   <div
-    className="pointer-events-none absolute right-0 top-1/4 h-96 w-96 rounded-full bg-blue-600/10 blur-[140px]"
+    className="
+      pointer-events-none
+      absolute
+      right-0
+      top-1/4
+      h-96
+      w-96
+      rounded-full
+      bg-blue-600/10
+      blur-[140px]
+    "
     aria-hidden="true"
   />
 
   {/* Contenu */}
-  <div className="site-container relative z-20">
-    <div className="py-16 md:py-20 lg:min-h-[680px] lg:w-[52%] lg:py-24">
-      <div className="section-intro">
-        <p className="section-label">Contact</p>
+  <div className="hero__container relative z-20">
+    <div className="hero__layout">
+      <div className="hero__content lg:max-w-[760px]">
 
-        <h1>
-          Parlons de{" "}
-          <span className="bg-gradient-to-r from-blue-400 to-blue-500 bg-clip-text text-transparent">
-            votre projet
-          </span>
-        </h1>
+        {/* Introduction */}
+        <div className="section-intro">
+          <p className="section-label">
+            Contact
+          </p>
 
-        <p className="max-w-xl">
-          Vous avez un projet de site internet, une question technique ou
-          simplement besoin d’aide pour y voir plus clair ?
-          <br />
-          Présentez-moi votre besoin, même s’il n’est pas encore complètement
-          défini.
-        </p>
+          <h1 className="hero__title">
+            Parlons de{" "}
+            <span className="text-gradient-blue">
+              votre projet
+            </span>
+          </h1>
+
+          <p className="hero__description max-w-2xl text-slate-300">
+            Vous avez un projet de site internet, une question technique ou
+            simplement besoin d’aide pour y voir plus clair ?
+            <br />
+            Présentez-moi votre besoin, même s’il n’est pas encore complètement
+            défini.
+          </p>
+        </div>
+
+        {/* Contacts rapides */}
+        <div className="mt-8 grid grid-cols-4 gap-2 sm:gap-3 xl:gap-4">
+          {quickContacts.map((method) => {
+            const Icon = method.icon;
+
+            return (
+              <a
+                key={method.title}
+                href={method.href}
+                target={method.href.startsWith("http") ? "_blank" : undefined}
+                rel={method.href.startsWith("http") ? "noreferrer" : undefined}
+                className="
+                  card-dark
+                  card-glow
+                  group
+                  min-w-0
+                  overflow-hidden
+                  text-center
+                  !p-2
+                  sm:!p-3
+                  lg:!p-4
+                "
+              >
+                <Icon
+                  className="
+                    mx-auto
+                    h-6
+                    w-6
+                    text-blue-400
+                    transition-transform
+                    duration-300
+                    group-hover:scale-110
+                    sm:h-7
+                    sm:w-7
+                    lg:h-8
+                    lg:w-8
+                  "
+                  aria-hidden="true"
+                />
+
+                <h3
+                  className="
+                    mt-2
+                    whitespace-nowrap
+                    !text-xs
+                    leading-tight
+                    sm:!text-sm
+                    lg:mt-4
+                    lg:!text-base
+                  "
+                >
+                  {method.title}
+                </h3>
+
+                <p
+                  className="
+                    !mt-1
+                    min-w-0
+                    overflow-hidden
+                    text-ellipsis
+                    whitespace-nowrap
+                    !text-[10px]
+                    !leading-4
+                    sm:!text-xs
+                    lg:!text-sm
+                  "
+                >
+                  {method.description}
+                </p>
+              </a>
+            );
+          })}
+
+          <article
+            className="
+              card-dark
+              card-glow
+              min-w-0
+              overflow-hidden
+              text-center
+              !p-2
+              sm:!p-3
+              lg:!p-4
+            "
+          >
+            <Clock3
+              className="
+                mx-auto
+                h-6
+                w-6
+                text-blue-400
+                sm:h-7
+                sm:w-7
+                lg:h-8
+                lg:w-8
+              "
+              aria-hidden="true"
+            />
+
+            <h3
+              className="
+                mt-2
+                whitespace-nowrap
+                !text-xs
+                leading-tight
+                sm:!text-sm
+                lg:mt-4
+                lg:!text-base
+              "
+            >
+              Réponse
+            </h3>
+
+            <p
+              className="
+                !mt-1
+                whitespace-nowrap
+                !text-[10px]
+                !leading-4
+                sm:!text-xs
+                lg:!text-sm
+              "
+            >
+              Sous 24h
+            </p>
+          </article>
+        </div>
       </div>
-
-      {/* Contacts rapides */}
-<div className="mt-10 grid grid-cols-4 gap-2 sm:gap-3 xl:gap-4">
-  {quickContacts.map((method) => {
-    const Icon = method.icon;
-
-    return (
-      <a
-        key={method.title}
-        href={method.href}
-        target={method.href.startsWith("http") ? "_blank" : undefined}
-        rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-        className="
-          card-dark
-          card-glow
-          group
-          min-w-0
-          overflow-hidden
-          text-center
-          !p-2
-          sm:!p-3
-          lg:!p-4
-        "
-      >
-        <Icon
-          className="
-            mx-auto
-            h-6
-            w-6
-            text-blue-400
-            transition
-            duration-300
-            group-hover:scale-110
-
-            sm:h-7
-            sm:w-7
-            lg:h-8
-            lg:w-8
-          "
-          aria-hidden="true"
-        />
-
-        <h3
-          className="
-            mt-2
-            whitespace-nowrap
-            !text-xs
-            leading-tight
-
-            sm:!text-sm
-            lg:mt-4
-            lg:!text-base
-          "
-        >
-          {method.title}
-        </h3>
-
-        <p
-          className="
-            !mt-1
-            min-w-0
-            overflow-hidden
-            text-ellipsis
-            whitespace-nowrap
-            !text-[10px]
-            !leading-4
-
-            sm:!text-xs
-            lg:!text-sm
-          "
-        >
-          {method.description}
-        </p>
-      </a>
-    );
-  })}
-
-  <article
-    className="
-      card-dark
-      card-glow
-      min-w-0
-      overflow-hidden
-      text-center
-      !p-2
-      sm:!p-3
-      lg:!p-4
-    "
-  >
-    <Clock3
-      className="
-        mx-auto
-        h-6
-        w-6
-        text-blue-400
-        sm:h-7
-        sm:w-7
-        lg:h-8
-        lg:w-8
-      "
-      aria-hidden="true"
-    />
-
-    <h3
-      className="
-        mt-2
-        whitespace-nowrap
-        !text-xs
-        leading-tight
-
-        sm:!text-sm
-        lg:mt-4
-        lg:!text-base
-      "
-    >
-      Réponse
-    </h3>
-
-    <p
-      className="
-        !mt-1
-        whitespace-nowrap
-        !text-[10px]
-        !leading-4
-
-        sm:!text-xs
-        lg:!text-sm
-      "
-    >
-      Sous 24h
-    </p>
-  </article>
-</div>
     </div>
   </div>
 
   {/* Visuel mobile / tablette */}
-<div className="hero__visual-mobile">
-  <div className="hero__visual-mobile-mask">
-    <img
-      src="/contact/jessica-roussy-contact.png"
-      alt=""
-      aria-hidden="true"
-      className="
-        hero__visual-mobile-image
-        contact-hero__image
-      "
-    />
+  <div className="hero__visual-mobile">
+    <div className="hero__visual-mobile-mask">
+      <img
+        src="/contact/jessica-roussy-contact.png"
+        alt=""
+        aria-hidden="true"
+        className="
+          hero__visual-mobile-image
+          contact-hero__image
+        "
+      />
+    </div>
   </div>
-</div>
 
-{/* Visuel desktop */}
-<div
+  {/* Visuel desktop */}
+  <div
+    className="
+      contact-hero__visual
+      pointer-events-none
+      absolute
+      inset-y-0
+      right-0
+      z-10
+      hidden
+      w-[58%]
+      lg:block
+    "
+  >
+    <img
+  src="/contact/jessica-roussy-contact.png"
+  alt=""
+  aria-hidden="true"
   className="
-    contact-hero__visual
-    pointer-events-none
     absolute
-    inset-y-0
+    bottom-0
     right-0
-    z-10
-    hidden
-    w-[58%]
-    lg:block
+    h-[110%]
+    w-auto
+    max-w-none
+    object-contain
+    object-bottom
+    xl:h-[115%]
   "
->
+/>
+  </div>
+
+  {/* Vague basse */}
   <img
-    src="/contact/jessica-roussy-contact.png"
+    src="/decorations/vagues/09.png"
     alt=""
     aria-hidden="true"
-    className="
-      absolute
-      bottom-0
-      right-0
-      h-full
-      w-auto
-      max-w-none
-    "
+    className="hero__wave z-30"
   />
-</div>
-  {/* Vague basse */}
-        <img
-          src="/decorations/vagues/09.png"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave z-30"
-        />
 </section>
 
       {/* Section 2 — Localisation et formulaire */}

@@ -202,6 +202,19 @@
     #F5F7FC;
 }
 
+.section-fade-dark-bottom {
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(245, 247, 252, 0) calc(100% - 90px),
+      rgba(245, 247, 252, 0.04) calc(100% - 65px),
+      rgba(245, 247, 252, 0.12) calc(100% - 45px),
+      rgba(245, 247, 252, 0.28) calc(100% - 20px),
+      #f5f7fc 100%
+    ),
+    #020817;
+}
+
   /*
    * Léger fondu sombre en haut des sections claires.
    * Il aide notamment à raccorder les sections situées
@@ -443,12 +456,14 @@
       lg:py-16;
   }
 
-  .hero__content {
-    @apply
-      relative
-      z-20
-      max-w-3xl;
-  }
+.hero__content {
+  @apply
+    relative
+    z-20
+    w-full
+    max-w-3xl
+    lg:max-w-4xl;
+}
 
 
   /* =========================
@@ -527,25 +542,26 @@
   ========================== */
 
   .hero__visual {
-    @apply
-      pointer-events-none
-      absolute
-      hidden
-      lg:block
-      lg:w-[58%]
-      xl:w-[62%]
-      2xl:w-[65%];
+  @apply
+    pointer-events-none
+    absolute
+    hidden
+    lg:block
+    lg:w-[58%]
+    xl:w-[62%]
+    2xl:w-[62%];
 
-    top: 0;
+  top: 0;
+  right: -140px;
 
-    right: -80px;
-height: calc(100% + 20px);
-    filter:
-      drop-shadow(-2px 0 4px rgba(13, 178, 255, 0.9))
-      drop-shadow(-6px 0 14px rgba(17, 92, 252, 0.45));
+  height: calc(100% + 20px);
 
-      clip-path: inset(-20px 0 10px -20px);
-  }
+  filter:
+    drop-shadow(-2px 0 4px rgba(13, 178, 255, 0.9))
+    drop-shadow(-6px 0 14px rgba(17, 92, 252, 0.45));
+
+  clip-path: inset(-20px 0 10px -20px);
+}
 
   .hero__visual-mask {
     @apply

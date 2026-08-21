@@ -34,6 +34,10 @@ export default function Navbar() {
           Services
         </Link>
 
+        <Link to="/TarifsTransparents" className="text-slate-200 hover:text-[#0D5BFF] transition">
+          Tarifs
+        </Link>
+
         <Link to="/DansLesCoulisses" className="text-slate-200 hover:text-[#0D5BFF] transition">
           Réalisations
         </Link>
@@ -70,6 +74,11 @@ export default function Navbar() {
               <Link to="/services" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
                 Services
+              </Link>
+
+              <Link to="/TarifsTransparents" onClick={() => setIsOpen(false)}
+ className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
+                Tarifs
               </Link>
 
               <Link to="/realisations" onClick={() => setIsOpen(false)}

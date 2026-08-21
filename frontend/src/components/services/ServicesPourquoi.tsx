@@ -10,7 +10,7 @@ const engagements = [
 
 export default function ServicesPourquoi() {
   return (
-    <section className="section-dark section-fade-dark-soft section-spacing">
+    <section className="section-dark section-fade-dark-bottom section-spacing pb-40">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-16">
           {/* Présentation */}
@@ -82,30 +82,7 @@ export default function ServicesPourquoi() {
 
 
 </div>
-  {/* Décoration */}
-<img
-  src="/decorations/vagues/08.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    bottom-85
-    -left-10
-    z-10
-    h-20
-    w-[110%]
-    max-w-none
-    -translate-x-1
-    object-fill
-    md:h-30
-    md:bottom-75
-    md:-left-10
-    xl:h-35
-    xl:bottom-73
-    xl:-left-10
-  "
-/>
+
         </div>
       </div>
     </section>

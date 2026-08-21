@@ -184,7 +184,7 @@ const CityPage = () => {
           </Link>
 
           <Link
-            to="/tarifs"
+            to="/TarifsTransparents"
             className="btn-secondary"
           >
             Consulter les tarifs
@@ -196,11 +196,27 @@ const CityPage = () => {
 
   {/* Vague basse */}
   <img
-    src="/decorations/vagues/09.png"
-    alt=""
-    aria-hidden="true"
-    className="hero__wave z-30"
-  />
+  src="/decorations/vagues/19.png"
+  alt=""
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    right-5
+    -bottom-20
+    z-30
+    hidden
+    h-auto
+    origin-right
+      scale-x-[1.2]
+    object-contain
+
+    lg:block
+    lg:w-[48%]
+    xl:w-[52%]
+    2xl:w-[85%]
+  "
+/>
 </section>
 
       {/* =====================================================================

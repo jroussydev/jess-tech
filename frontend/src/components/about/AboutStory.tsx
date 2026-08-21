@@ -69,7 +69,7 @@ const AboutStory = () => {
           </div>
 
           {/* Informations clés */}
-          <div className="flex flex-col gap-8 pt-14">
+          <div className="flex flex-col gap-8 lg:pt-14">
             {storyHighlights.map((item) => {
               const Icon = item.icon;
 

@@ -56,17 +56,15 @@ export default function Hero() {
             </span>
 
             {/* Titre */}
-            <h1 className="hero__title mt-6">
-              Des <span className="text-gradient-blue">solutions</span> web
-              <br />
-              propres,
-              <span className="text-gradient-blue"> utiles </span>
-              et
-              <span className="text-gradient-blue">
-                {" "}
-                bien construites
-              </span>
-            </h1>
+<h1 className="hero__title mt-6">
+  Des <span className="text-gradient-blue">solutions</span> web propres,
+  <span className="text-gradient-blue"> utiles </span>
+  et
+  <span className="text-gradient-blue">
+    {" "}
+    bien construites
+  </span>
+</h1>
 
             {/* Description */}
             <p className="hero__description text-slate-300">
