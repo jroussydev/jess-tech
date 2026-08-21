@@ -1,5 +1,10 @@
-import { ChevronDown, HelpCircle, MessageCircle } from "lucide-react";
-import { Link } from "react-router-dom";
+import {
+  ChevronDown,
+  HelpCircle,
+
+} from "lucide-react";
+
+
 
 const questions = [
   {
@@ -47,13 +52,21 @@ const questions = [
 
 const FaqLocalisation = () => {
   return (
-    <section className="section-light">
-      <div className="site-container section-spacing">
-        {/* Introduction */}
-        <div className="section-intro">
-          <p className="section-label">Questions fréquentes</p>
+    <section className="section-dark section-fade-dark-soft section-spacing">
+      <div className="site-container">
 
-          <h2>Vos questions sur mes zones d’intervention</h2>
+        {/* Introduction */}
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            Questions fréquentes
+          </p>
+
+          <h2>
+            Vos questions sur mes zones{" "}
+            <span className="text-gradient-blue">
+              d’intervention
+            </span>
+          </h2>
 
           <p>
             Retrouvez les principales informations concernant les déplacements,
@@ -62,61 +75,88 @@ const FaqLocalisation = () => {
         </div>
 
         {/* Questions */}
-        <div className="mt-12 grid items-start gap-4 lg:grid-cols-2">
+        <div className="mt-8 grid items-start gap-4 lg:grid-cols-2">
           {questions.map(({ question, reponse }) => (
             <details
               key={question}
-              className="group rounded-2xl border border-slate-200 bg-white px-6 shadow-sm transition duration-300 open:border-blue-200 open:shadow-md"
+              className="
+                card-dark
+                card-glow
+                group
+                overflow-hidden
+                !p-0
+              "
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-5 py-5 [&::-webkit-details-marker]:hidden">
-                <span className="flex items-center gap-3">
-                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                    <HelpCircle
-                      className="h-5 w-5"
-                      aria-hidden="true"
-                    />
-                  </span>
+              <summary
+                className="
+                  flex
+                  cursor-pointer
+                  list-none
+                  items-center
+                  justify-between
+                  gap-4
+                  px-5
+                  py-4
+                  [&::-webkit-details-marker]:hidden
 
-                  <span className="font-semibold leading-6 text-slate-900">
+                  sm:px-6
+                  sm:py-5
+                "
+              >
+                {/* Question */}
+                <span className="flex min-w-0 items-center gap-3">
+                  <HelpCircle
+                    className="
+                      h-6
+                      w-6
+                      shrink-0
+                      text-sky-500
+                      transition-transform
+                      duration-300
+                      group-open:scale-110
+                    "
+                    aria-hidden="true"
+                  />
+
+                  <span className="font-semibold leading-6 text-slate-200">
                     {question}
                   </span>
                 </span>
 
+                {/* Ouverture */}
                 <ChevronDown
-                  className="h-5 w-5 shrink-0 text-slate-400 transition-transform duration-300 group-open:rotate-180 group-open:text-blue-600"
+                  className="
+                    h-5
+                    w-5
+                    shrink-0
+                    text-sky-500
+                    transition-transform
+                    duration-300
+                    group-open:rotate-180
+                  "
                   aria-hidden="true"
                 />
               </summary>
 
-              <div className="border-t border-slate-100 pb-6 pt-4">
-                <p className="m-0 leading-7 text-slate-600">{reponse}</p>
+              {/* Réponse */}
+              <div
+                className="
+                  border-t
+                  border-sky-500/20
+                  px-5
+                  pb-5
+                  pt-4
+
+                  sm:px-6
+                  sm:pb-6
+                "
+              >
+                <p className="m-0 text-slate-300">
+                  {reponse}
+                </p>
               </div>
             </details>
           ))}
-        </div>
-
-        {/* Contact */}
-        <div className="mt-10 flex flex-col items-center justify-between gap-5 rounded-2xl border border-blue-100 bg-blue-50/70 px-6 py-6 text-center sm:flex-row sm:text-left">
-          <div className="flex flex-col items-center gap-4 sm:flex-row">
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-              <MessageCircle className="h-6 w-6" aria-hidden="true" />
-            </div>
-
-            <div>
-              <h3 className="text-lg font-bold text-slate-900">
-                Vous avez une autre question ?
-              </h3>
-
-              <p className="mt-1 text-sm leading-6 text-slate-600">
-                Présentez-moi votre besoin et votre commune afin que nous
-                étudions ensemble les possibilités d’intervention.
-              </p>
-            </div>
-          </div>
-
-          <Link to="/contact" className="btn-primary shrink-0">
-            Me contacter
-          </Link>
         </div>
       </div>
     </section>

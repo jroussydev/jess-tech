@@ -21,13 +21,27 @@ const ModesIntervention = () => {
   ];
 
   return (
-    <section className="section-light">
-      <div className="site-container section-spacing">
-        {/* Introduction */}
-        <div className="section-intro">
-          <p className="section-label">Organisation</p>
+    <section
+      className="
+        section-light
+        section-fade-light-soft
+        section-spacing
+      "
+    >
+      <div className="site-container">
 
-          <h2>Deux façons de vous accompagner</h2>
+        {/* Introduction */}
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            Organisation
+          </p>
+
+          <h2>
+            Deux façons de vous{" "}
+            <span className="text-gradient-blue">
+              accompagner
+            </span>
+          </h2>
 
           <p>
             Certaines prestations peuvent nécessiter une intervention locale,
@@ -37,30 +51,63 @@ const ModesIntervention = () => {
         </div>
 
         {/* Modes d’intervention */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+        <div className="mt-8 grid gap-4 grid-cols-2">
+
           {/* Intervention locale */}
-          <article className="card-dark">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
-              <House className="h-7 w-7" aria-hidden="true" />
+          <article
+            className="
+              card-dark
+              card-glow
+              group
+              flex
+              h-full
+              flex-col
+            "
+          >
+            {/* Icône + titre */}
+            <div className="flex items-center gap-3">
+              <House
+                className="
+                  h-8
+                  w-8
+                  shrink-0
+                  text-sky-500
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+                "
+                aria-hidden="true"
+              />
+
+              <h3 className="text-slate-100">
+                Intervention locale
+              </h3>
             </div>
 
-            <h3 className="mt-6">Intervention locale</h3>
-
-            <p>
+            {/* Description */}
+            <p className="mt-4 text-slate-300">
               Pour les demandes nécessitant une présence sur place, Jess Tech
               peut intervenir autour de Beaurieux selon la nature du besoin et
               la distance.
             </p>
 
-            <ul className="mt-6 space-y-4">
+            {/* Prestations */}
+            <ul className="mt-5 space-y-3">
               {servicesLocaux.map((service) => (
                 <li
                   key={service}
                   className="flex items-start gap-3 text-slate-300"
                 >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-400">
-                    <Check className="h-4 w-4" aria-hidden="true" />
-                  </span>
+                  <Check
+                    className="
+                      mt-1
+                      h-4
+                      w-4
+                      shrink-0
+                      text-sky-500
+                    "
+                    aria-hidden="true"
+                  />
 
                   <span>{service}</span>
                 </li>
@@ -69,34 +116,67 @@ const ModesIntervention = () => {
           </article>
 
           {/* Accompagnement à distance */}
-          <article className="card-dark">
-            <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-500/10 text-blue-400">
-              <Laptop className="h-7 w-7" aria-hidden="true" />
+          <article
+            className="
+              card-dark
+              card-glow
+              group
+              flex
+              h-full
+              flex-col
+            "
+          >
+            {/* Icône + titre */}
+            <div className="flex items-center gap-3">
+              <Laptop
+                className="
+                  h-8
+                  w-8
+                  shrink-0
+                  text-sky-500
+                  transition-transform
+                  duration-300
+                  group-hover:scale-110
+                "
+                aria-hidden="true"
+              />
+
+              <h3 className="text-slate-100">
+                Accompagnement à distance
+              </h3>
             </div>
 
-            <h3 className="mt-6">Accompagnement à distance</h3>
-
-            <p>
+            {/* Description */}
+            <p className="mt-4 text-slate-300">
               Les prestations de développement web peuvent être réalisées à
               distance, avec des échanges réguliers par téléphone,
               visioconférence ou e-mail.
             </p>
 
-            <ul className="mt-6 space-y-4">
+            {/* Prestations */}
+            <ul className="mt-5 space-y-3">
               {servicesDistance.map((service) => (
                 <li
                   key={service}
                   className="flex items-start gap-3 text-slate-300"
                 >
-                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-blue-500/10 text-blue-400">
-                    <Check className="h-4 w-4" aria-hidden="true" />
-                  </span>
+                  <Check
+                    className="
+                      mt-1
+                      h-4
+                      w-4
+                      shrink-0
+                      text-sky-500
+                    "
+                    aria-hidden="true"
+                  />
 
                   <span>{service}</span>
                 </li>
               ))}
             </ul>
           </article>
+
         </div>
       </div>
     </section>

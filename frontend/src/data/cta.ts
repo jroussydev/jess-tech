@@ -6,7 +6,8 @@ export type CtaKey =
   | "realisation"
   | "citypage"
   | "legal"
-  | "tarifs";
+  | "tarifs"
+  | "localisation";
 
 type Cta = {
   titre: string;
@@ -75,7 +76,15 @@ export const ctas: Record<CtaKey, Cta> = {
     titre: "Besoin d’un tarif précis ?",
     description:
       "Expliquez-moi votre projet pour obtenir une estimation adaptée à votre besoin.",
-    bouton: "Demander un devis",
+    bouton: "Me contacter",
+    lien: "/contact",
+  },
+
+    localisation: {
+    titre: "Vous avez une autre question ?",
+    description:
+      "Présentez-moi votre besoin et votre commune afin que nous étudiions ensemble les possibilités d’intervention.",
+    bouton: "Me contacter",
     lien: "/contact",
   },
 };

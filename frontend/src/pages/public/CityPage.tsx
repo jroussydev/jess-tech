@@ -4,6 +4,7 @@ import GlobalCTA from "../../components/GlobalCTA";
 import {
   ArrowRight,
   Check,
+  ChevronDown,
   Clock3,
   Mail,
   MapPin,
@@ -105,353 +106,692 @@ const CityPage = () => {
 
   return (
     <main>
-      {/* =====================================================================
-          HERO
-      ===================================================================== */}
+     {/* =====================================================================
+    HERO
+===================================================================== */}
 
-      <section className="section-light relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(13,91,255,0.18),transparent_40%)]" />
+<section
+  className="
+    hero
+    section-dark
+    relative
+    overflow-visible
+  "
+>
+  {/* Halo décoratif */}
+  <div
+    className="
+      pointer-events-none
+      absolute
+      -right-24
+      top-12
+      h-72
+      w-72
+      rounded-full
+      bg-blue-600/10
+      blur-3xl
 
-        <div className="site-container relative py-20 sm:py-24 lg:py-28">
-          <div className="section-intro max-w-4xl">
-            <p className="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-500/20 bg-blue-500/10 px-4 py-2 text-sm font-medium text-blue-600">
-              <MapPin className="h-4 w-4" aria-hidden="true" />
-              Jess Tech près de chez vous
-            </p>
+      sm:h-80
+      sm:w-80
 
-            <h1>
-              Création de site internet à{" "}
-              <span className="text-blue-600">{city.name}</span>
-            </h1>
+      lg:-right-32
+      lg:h-96
+      lg:w-96
+    "
+    aria-hidden="true"
+  />
 
-            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-slate-600">
-              {city.introduction}
-            </p>
+  {/* Contenu */}
+  <div className="hero__container">
+    <div className="hero__layout">
+      <div className="hero__content">
 
-            <div className="mt-8 flex flex-col gap-4 sm:flex-row">
-              <Link
-                to="/contact"
-                className="btn-primary inline-flex items-center justify-center gap-2"
-              >
-                Parler de votre projet
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </Link>
+        {/* Badge localisation */}
+        <div className="badge badge-primary gap-2">
+          <MapPin
+            className="h-4 w-4 shrink-0"
+            aria-hidden="true"
+          />
 
-              <Link
-                to="/tarifs"
-                className="inline-flex items-center justify-center rounded-lg border border-blue-500/25 bg-white px-5 py-3 font-semibold text-blue-600 transition hover:border-blue-500 hover:bg-blue-50"
-              >
-                Consulter les tarifs
-              </Link>
-            </div>
-          </div>
+          Jess Tech près de chez vous
         </div>
-      </section>
 
-      {/* =====================================================================
-          INTERVENTION LOCALE
-      ===================================================================== */}
+        {/* Titre */}
+        <h1 className="hero__title mt-6">
+          Création de site internet à{" "}
+          <span className="text-gradient-blue">
+            {city.name}
+          </span>
+        </h1>
 
-      <section className="section-dark section-spacing">
-        <div className="site-container">
-          <div className="grid items-start gap-10 lg:grid-cols-[1fr_0.8fr]">
-            <div className="section-intro">
-              <p className="section-label">Accompagnement local</p>
+        {/* Introduction */}
+        <p className="hero__description max-w-2xl text-slate-300">
+          {city.introduction}
+        </p>
 
-              <h2>
-                Votre projet web à{" "}
-                <span className="text-blue-400">{city.name}</span>
-              </h2>
+        {/* Actions */}
+        <div className="hero__actions">
+          <Link
+            to="/contact"
+            className="btn-primary inline-flex items-center gap-2"
+          >
+            Parler de votre projet
 
-              <div className="mt-6 space-y-5 leading-relaxed text-slate-300">
-                <p>{city.localContext}</p>
-                <p>{city.intervention}</p>
-              </div>
-            </div>
+            <ArrowRight
+              className="h-5 w-5"
+              aria-hidden="true"
+            />
+          </Link>
 
-            <aside className="card-dark">
-              <div className="flex items-start gap-4">
-                <div className="rounded-xl bg-blue-400/10 p-3 text-blue-400">
-                  <Mail className="h-6 w-6" aria-hidden="true" />
-                </div>
-
-                <div>
-                  <h3 className="text-xl">Des échanges simples et réguliers</h3>
-
-                  <p className="mt-3 leading-relaxed text-slate-300">
-                    Les échanges peuvent se faire par téléphone, par e-mail ou
-                    en visioconférence selon vos préférences et les besoins du
-                    projet.
-                  </p>
-                </div>
-              </div>
-
-              <div className="mt-6 flex items-start gap-4">
-                <div className="rounded-xl bg-blue-400/10 p-3 text-blue-400">
-                  <Clock3 className="h-6 w-6" aria-hidden="true" />
-                </div>
-
-                <div>
-                  <h3 className="text-xl">Un suivi à chaque étape</h3>
-
-                  <p className="mt-3 leading-relaxed text-slate-300">
-                    Vous restez informé de l’avancement et validez les éléments
-                    importants avant la poursuite du projet.
-                  </p>
-                </div>
-              </div>
-            </aside>
-          </div>
+          <Link
+            to="/tarifs"
+            className="btn-secondary"
+          >
+            Consulter les tarifs
+          </Link>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+
+  {/* Vague basse */}
+  <img
+    src="/decorations/vagues/09.png"
+    alt=""
+    aria-hidden="true"
+    className="hero__wave z-30"
+  />
+</section>
 
       {/* =====================================================================
-          PRESTATIONS
-      ===================================================================== */}
+    INTERVENTION LOCALE
+===================================================================== */}
 
-      <section className="section-light section-spacing">
-        <div className="site-container">
-          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-            <div className="section-intro">
-              <p className="section-label">Prestations disponibles</p>
+<section
+  className="
+    section-light
+    section-fade-light-soft
+    section-spacing
+  "
+>
+  <div className="site-container">
+    <div
+      className="
+        grid
+        items-start
+        gap-10
 
-              <h2>Un accompagnement adapté à votre projet</h2>
-
-              <p className="mt-5 max-w-xl leading-relaxed text-slate-400">
-                Que vous souhaitiez créer votre premier site internet, améliorer
-                un site existant ou développer un outil plus spécifique, votre
-                demande est étudiée selon vos véritables besoins.
-              </p>
-
-              <Link
-                to="/services"
-                className="mt-7 inline-flex items-center gap-2 font-semibold text-blue-400 transition hover:text-blue-300"
-              >
-                Découvrir toutes les prestations
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-
-            <div className="card-dark">
-              <ul className="space-y-5">
-                {services.map((service) => (
-                  <li
-                    key={service}
-                    className="flex items-center gap-4 text-lg text-slate-200"
-                  >
-                    <span className="shrink-0 rounded-full bg-blue-400/10 p-1.5 text-blue-400">
-                      <Check className="h-4 w-4" aria-hidden="true" />
-                    </span>
-
-                    <span>{service}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          FAÇON DE TRAVAILLER + TARIFS
-      ===================================================================== */}
-
-      <section className="section-dark section-spacing">
-        <div className="site-container">
-          <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
-            {/* Ma façon de travailler */}
-
-            <div className="section-intro">
-              <p className="section-label">Ma façon de travailler</p>
-
-              <h2>Une collaboration simple, claire et humaine.</h2>
-
-              <div className="mt-8 max-w-3xl space-y-6 text-lg leading-8 text-slate-300">
-                <p>
-                  Je préfère prendre le temps de comprendre votre activité avant
-                  de commencer à développer. Un site internet est un
-                  investissement : il doit donc répondre à vos besoins réels,
-                  plutôt qu’à une liste de fonctionnalités imposées.
-                </p>
-
-                <p>
-                  Tout au long de la création, je privilégie les échanges simples,
-                  les explications claires et un suivi régulier. Mon objectif est
-                  que vous sachiez toujours où en est votre site et que vous soyez
-                  pleinement satisfait du résultat.
-                </p>
-              </div>
-            </div>
-
-            {/* Tarifs */}
-
-            <aside className="card-dark lg:sticky lg:top-24 text-center">
-              <p className="section-label">Tarifs transparents</p>
-
-              <h2 className="mt-4">Un devis adapté à votre demande</h2>
-
-              <p className="mt-5 leading-relaxed text-slate-300">
-                Le tarif dépend notamment du nombre de pages, des fonctionnalités,
-                du niveau de personnalisation et des contenus nécessaires. Chaque
-                demande fait donc l’objet d’un devis détaillé avant le début de la
-                prestation.
-              </p>
-
-              <Link
-                to="/tarifs"
-                className="btn-primary mt-8 inline-flex items-center justify-center gap-2"
-              >
-                Découvrir les tarifs
-                <ArrowRight className="h-5 w-5" aria-hidden="true" />
-              </Link>
-            </aside>
-          </div>
-        </div>
-      </section>
-
-      {/* =====================================================================
-          CARTE ET COMMUNES VOISINES
-      ===================================================================== */}
-
-      <section className="section-light section-spacing">
-        <div className="site-container">
-          <div className="section-intro mx-auto max-w-3xl text-center">
-            <p className="section-label">Zone d’intervention</p>
-
-            <h2>
-              Jess Tech intervient à {city.name} et dans les communes voisines
-            </h2>
-
-            <p className="mt-5 leading-relaxed text-slate-600">
-              Votre entreprise est située à proximité de {city.name} ? Votre
-              projet peut également être étudié, sur place lorsque cela est
-              possible ou entièrement à distance.
-            </p>
-          </div>
-<div className="mx-auto mt-12 max-w-4xl">
-  <div className="overflow-hidden rounded-[22px] border border-blue-400/35 bg-[#020817] p-4 shadow-xl shadow-blue-950/20">
-    <MapContainer
-      center={cityPosition}
-      zoom={9}
-      scrollWheelZoom={false}
-      className="jess-tech-dark-map h-[400px] w-full rounded-2xl md:h-[480px]"
+        lg:grid-cols-[1fr_0.8fr]
+        lg:gap-14
+      "
     >
-              <TileLayer
-                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
-                url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
-              />
+      {/* Présentation */}
+      <div className="section-intro">
+        <p className="section-label">
+          Accompagnement local
+        </p>
 
-              <Circle
-                center={cityPosition}
-                radius={10000}
-                pathOptions={{
-                  color: "#0D5BFF",
-                  fillColor: "#0D5BFF",
-                  fillOpacity: 0.09,
-                  opacity: 0.8,
-                  weight: 2,
-                }}
-              />
+        <h2>
+          Votre projet web à{" "}
+          <span className="text-gradient-blue">
+            {city.name}
+          </span>
+        </h2>
 
-              <Marker position={cityPosition} icon={cityMarkerIcon}>
-                <Popup>
-                  <div className="min-w-[190px]">
-                    <p className="m-0 font-bold text-slate-900">
-                      Jess Tech
-                    </p>
+        <div className="mt-6 space-y-5">
+          <p>
+            {city.localContext}
+          </p>
 
-                    <p className="mt-1 text-sm text-slate-600">
-                      {city.name} · {city.department}
-                    </p>
-
-                    <p className="mb-0 mt-3 text-sm leading-6 text-slate-600">
-                      Interventions locales selon la demande et projets web
-                      réalisables partout en France.
-                    </p>
-                  </div>
-                </Popup>
-              </Marker>
-            </MapContainer>
-          </div>
-</div>
-          {city.nearbyCities.length > 0 && (
-            <div className="mt-10">
-              <h3 className="text-center text-xl">
-                Communes situées autour de {city.name}
-              </h3>
-
-              <div className="mt-6 flex flex-wrap justify-center gap-3">
-                {city.nearbyCities.map((nearbyCity) => {
-                  const nearbySlug = createCitySlug(nearbyCity);
-                  const hasLocalPage = localCities.some(
-                    (localCity) => localCity.slug === nearbySlug,
-                  );
-
-                  if (!hasLocalPage) {
-                    return (
-                      <span
-                        key={nearbyCity}
-                        className="badge badge-primary gap-2"
-                      >
-                        <MapPin className="h-4 w-4" aria-hidden="true" />
-                        {nearbyCity}
-                      </span>
-                    );
-                  }
-
-                  return (
-                    <Link
-                      key={nearbyCity}
-                      to={`/localisation/${nearbySlug}`}
-                      className="badge badge-primary gap-2 transition hover:-translate-y-0.5 hover:border-blue-400/60 hover:bg-blue-500/20"
-                    >
-                      <MapPin className="h-4 w-4" aria-hidden="true" />
-                      {nearbyCity}
-                    </Link>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+          <p>
+            {city.intervention}
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* Informations complémentaires */}
+      <div className="flex flex-col gap-7 lg:pt-6">
+
+        {/* Échanges */}
+        <div
+          className="
+            group
+            border-b
+            border-sky-500/20
+            pb-6
+            lg:pt-15
+          "
+        >
+          <div className="flex items-center gap-3">
+            <Mail
+              className="
+                h-7
+                w-7
+                shrink-0
+                text-sky-500
+                transition-transform
+                duration-300
+                group-hover:scale-110
+              "
+              aria-hidden="true"
+            />
+
+            <h3>
+              Des échanges simples et réguliers
+            </h3>
+          </div>
+
+          <p className="mt-2 max-w-xl">
+            Les échanges peuvent se faire par téléphone, par e-mail ou en
+            visioconférence selon vos préférences et les besoins du projet.
+          </p>
+        </div>
+
+        {/* Suivi */}
+        <div className="group">
+          <div className="flex items-center gap-3">
+            <Clock3
+              className="
+                h-7
+                w-7
+                shrink-0
+                text-sky-500
+                transition-transform
+                duration-300
+                group-hover:scale-110
+              "
+              aria-hidden="true"
+            />
+
+            <h3>
+              Un suivi à chaque étape
+            </h3>
+          </div>
+
+          <p className="mt-2 max-w-xl">
+            Vous restez informé de l’avancement et validez les éléments
+            importants avant la poursuite du projet.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* =====================================================================
-          FAQ LOCALE
-      ===================================================================== */}
+    PRESTATIONS
+===================================================================== */}
 
-      <section className="section-dark section-spacing">
-        <div className="site-container">
-          <div className="mx-auto max-w-3xl">
-            <div className="section-intro text-center">
-              <p className="section-label">Questions fréquentes</p>
+<section className="section-dark section-fade-dark-soft section-spacing">
+  <div className="site-container">
+    <div
+      className="
+        grid
+        gap-10
 
-              <h2>Votre projet web à {city.name}</h2>
-            </div>
+        lg:grid-cols-[0.9fr_1.1fr]
+        lg:items-center
+        lg:gap-14
+      "
+    >
+      {/* Introduction */}
+      <div className="section-intro">
+        <p className="section-label">
+          Prestations disponibles
+        </p>
 
-            <div className="mt-10 space-y-4">
-              {city.faq.map(({ question, answer }) => (
-                <details
-                  key={question}
-                  className="group rounded-2xl border border-slate-700 bg-slate-900 p-6"
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-5 font-semibold text-white">
-                    {question}
+        <h2>
+          Un accompagnement adapté à votre{" "}
+          <span className="text-gradient-blue">
+            projet
+          </span>
+        </h2>
 
-                    <span className="text-2xl font-light text-blue-400 transition group-open:rotate-45">
-                      +
-                    </span>
-                  </summary>
+        <p className="max-w-xl text-slate-300">
+          Que vous souhaitiez créer votre premier site internet, améliorer
+          un site existant ou développer un outil plus spécifique, votre
+          demande est étudiée selon vos véritables besoins.
+        </p>
 
-                  <p className="mt-4 border-t border-slate-700 pt-4 leading-relaxed text-slate-300">
-                    {answer}
-                  </p>
-                </details>
-              ))}
-            </div>
+        <Link
+          to="/services"
+          className="
+            mt-6
+            inline-flex
+            items-center
+            gap-2
+            font-semibold
+            text-sky-500
+            transition-colors
+            duration-300
+            hover:text-sky-400
+          "
+        >
+          Découvrir toutes les prestations
+
+          <ArrowRight
+            className="
+              h-5
+              w-5
+              transition-transform
+              duration-300
+              group-hover:translate-x-1
+            "
+            aria-hidden="true"
+          />
+        </Link>
+      </div>
+
+      {/* Liste des prestations */}
+      <div className="flex flex-col gap-5 lg:pt-18">
+        {services.map((service) => (
+          <div
+            key={service}
+            className="
+              group
+              flex
+              items-center
+              gap-3
+              border-b
+              border-sky-500/20
+              pb-5
+              last:border-b-0
+              last:pb-0
+            "
+          >
+            <Check
+              className="
+                h-5
+                w-5
+                shrink-0
+                text-sky-500
+                transition-transform
+                duration-300
+                group-hover:scale-110
+              "
+              aria-hidden="true"
+            />
+
+            <span className="text-lg">
+              {service}
+            </span>
           </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+      {/* =====================================================================
+    FAÇON DE TRAVAILLER + TARIFS
+===================================================================== */}
+
+<section className="section-light section-fade-light-soft section-spacing">
+  <div className="site-container">
+    <div
+      className="
+        grid
+        gap-10
+
+        lg:grid-cols-[1.15fr_0.85fr]
+        lg:items-start
+        lg:gap-14
+      "
+    >
+      {/* Ma façon de travailler */}
+      <div className="section-intro">
+        <p className="section-label">
+          Ma façon de travailler
+        </p>
+
+        <h2>
+          Une collaboration{" "}
+          <span className="text-gradient-blue">
+            simple
+          </span>
+          , claire et humaine
+        </h2>
+
+        <div className="mt-6 max-w-3xl space-y-5">
+          <p>
+            Je préfère prendre le temps de comprendre votre activité avant
+            de commencer à développer. Un site internet est un
+            investissement : il doit donc répondre à vos besoins réels,
+            plutôt qu’à une liste de fonctionnalités imposées.
+          </p>
+
+          <p>
+            Tout au long de la création, je privilégie les échanges simples,
+            les explications claires et un suivi régulier. Mon objectif est
+            que vous sachiez toujours où en est votre site et que vous soyez
+            pleinement satisfait du résultat.
+          </p>
         </div>
-      </section>
+      </div>
+
+      {/* Tarifs */}
+      <aside
+        className="
+          card-dark
+          card-glow
+          relative
+          text-center
+          lg:sticky
+          lg:top-24
+        "
+      >
+        <p className="section-label">
+          Tarifs transparents
+        </p>
+
+        <h2 className="mt-4">
+          Un devis adapté à votre demande
+        </h2>
+
+        <p className="mt-5 text-slate-300">
+          Le tarif dépend notamment du nombre de pages, des fonctionnalités,
+          du niveau de personnalisation et des contenus nécessaires. Chaque
+          demande fait donc l’objet d’un devis détaillé avant le début de la
+          prestation.
+        </p>
+
+        <Link
+          to="/tarifs"
+          className="
+            btn-primary
+            mt-7
+            inline-flex
+            items-center
+            justify-center
+            gap-2
+          "
+        >
+          Découvrir les tarifs
+
+          <ArrowRight
+            className="h-5 w-5"
+            aria-hidden="true"
+          />
+        </Link>
+      </aside>
+    </div>
+  </div>
+</section>
+
+      {/* =====================================================================
+    CARTE ET COMMUNES VOISINES
+===================================================================== */}
+
+<section
+  className="
+    section-dark
+    section-fade-dark-soft
+    section-spacing
+  "
+>
+  <div className="site-container">
+
+    {/* Introduction */}
+    <div className="section-intro max-w-3xl">
+      <p className="section-label">
+        Zone d’intervention
+      </p>
+
+      <h2>
+        Jess Tech intervient à{" "}
+        <span className="text-gradient-blue">
+          {city.name}
+        </span>{" "}
+        et dans les communes voisines
+      </h2>
+
+      <p className="max-w-2xl text-slate-600">
+        Votre entreprise est située à proximité de {city.name} ? Votre
+        projet peut également être étudié, sur place lorsque cela est
+        possible ou entièrement à distance.
+      </p>
+    </div>
+
+    {/* Carte interactive */}
+    <div className="mx-auto mt-8 max-w-4xl">
+      <div
+        className="
+          card-glow
+          overflow-hidden
+          rounded-3xl
+          bg-gradient-to-br
+          from-[#041126]
+          via-[#020817]
+          to-[#001A5A]
+          p-2
+          shadow-xl
+          shadow-blue-950/20
+
+          sm:p-3
+          lg:p-4
+        "
+      >
+        <div
+          className="
+            overflow-hidden
+            rounded-[20px]
+            border
+            border-sky-500/35
+
+            sm:rounded-[22px]
+          "
+        >
+          <MapContainer
+            center={cityPosition}
+            zoom={9}
+            scrollWheelZoom={false}
+            className="
+              jess-tech-dark-map
+              h-[320px]
+              w-full
+
+              sm:h-[380px]
+              md:h-[420px]
+              lg:h-[460px]
+              xl:h-[480px]
+            "
+          >
+            <TileLayer
+              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/attributions">CARTO</a>'
+              url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+            />
+
+            <Circle
+              center={cityPosition}
+              radius={10000}
+              pathOptions={{
+                color: "#0D5BFF",
+                fillColor: "#0D5BFF",
+                fillOpacity: 0.09,
+                opacity: 0.8,
+                weight: 2,
+              }}
+            />
+
+            <Marker
+              position={cityPosition}
+              icon={cityMarkerIcon}
+            >
+              <Popup>
+                <div className="min-w-[190px]">
+                  <p className="m-0 font-bold text-slate-900">
+                    Jess Tech
+                  </p>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    {city.name} · {city.department}
+                  </p>
+
+                  <p className="mb-0 mt-3 text-sm leading-6 text-slate-600">
+                    Interventions locales selon la demande et projets web
+                    réalisables partout en France.
+                  </p>
+                </div>
+              </Popup>
+            </Marker>
+          </MapContainer>
+        </div>
+      </div>
+    </div>
+
+{/* Communes voisines */}
+{city.nearbyCities.length > 0 && (
+  <div className="mt-8 text-center">
+    <h3 className="text-slate-950">
+      Communes situées autour de {city.name}
+    </h3>
+
+    <div className="mt-4 flex flex-wrap justify-center gap-2 sm:gap-3">
+      {city.nearbyCities.map((nearbyCity) => {
+        const nearbySlug = createCitySlug(nearbyCity);
+
+        const hasLocalPage = localCities.some(
+          (localCity) => localCity.slug === nearbySlug,
+        );
+
+        if (!hasLocalPage) {
+          return (
+            <span
+              key={nearbyCity}
+              className="badge badge-primary gap-2"
+            >
+              <MapPin
+                className="h-4 w-4"
+                aria-hidden="true"
+              />
+
+              {nearbyCity}
+            </span>
+          );
+        }
+
+        return (
+          <Link
+            key={nearbyCity}
+            to={`/localisation/${nearbySlug}`}
+            className="
+              badge
+              badge-primary
+              gap-2
+              transition
+              duration-300
+              hover:-translate-y-0.5
+              hover:border-blue-400/60
+              hover:bg-blue-500/20
+            "
+          >
+            <MapPin
+              className="h-4 w-4"
+              aria-hidden="true"
+            />
+
+            {nearbyCity}
+          </Link>
+        );
+      })}
+    </div>
+  </div>
+)}
+  </div>
+</section>
+      {/* =====================================================================
+    FAQ LOCALE
+===================================================================== */}
+
+<section
+  className="
+    section-light
+    section-fade-light-soft
+    section-spacing
+  "
+>
+  <div className="site-container">
+
+    {/* Introduction */}
+    <div className="section-intro mx-auto max-w-3xl text-center">
+      <p className="section-label">
+        Questions fréquentes
+      </p>
+
+      <h2>
+        Votre projet web à{" "}
+        <span className="text-gradient-blue">
+          {city.name}
+        </span>
+      </h2>
+    </div>
+
+    {/* FAQ */}
+    <div className="mx-auto mt-8 max-w-4xl space-y-3">
+      {city.faq.map(({ question, answer }) => (
+        <details
+          key={question}
+          className="
+            card-dark
+            card-glow
+            group
+            !p-0
+            overflow-hidden
+          "
+        >
+          <summary
+            className="
+              flex
+              cursor-pointer
+              list-none
+              items-center
+              justify-between
+              gap-4
+              px-4
+              py-4
+              sm:px-5
+              [&::-webkit-details-marker]:hidden
+            "
+          >
+            <span className="font-semibold text-white">
+              {question}
+            </span>
+
+            <ChevronDown
+              className="
+                h-5
+                w-5
+                shrink-0
+                text-sky-400
+                transition-transform
+                duration-300
+                group-open:rotate-180
+              "
+              aria-hidden="true"
+            />
+          </summary>
+
+          <div
+            className="
+              mx-4
+              border-t
+              border-sky-500/20
+              pb-4
+              pt-3
+              sm:mx-5
+              sm:pb-5
+            "
+          >
+            <p className="!m-0 text-slate-300">
+              {answer}
+            </p>
+          </div>
+        </details>
+      ))}
+    </div>
+
+  </div>
+</section>
 
 
 

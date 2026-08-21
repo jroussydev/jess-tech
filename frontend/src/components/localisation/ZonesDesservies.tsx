@@ -2,85 +2,99 @@ import {
   Building2,
   Castle,
   House,
-  MapPin,
   Trees,
 } from "lucide-react";
+
 import { Link } from "react-router-dom";
 
 const ZonesDesservies = () => {
   const communes = [
-  {
-    id: "berry-au-bac",
-    label: "Berry-au-Bac",
-    nom: (
-      <>
-        Berry-au-
-        <br />
-        Bac
-      </>
-    ),
-    icon: Trees,
-  },
-  {
-    id: "corbeny",
-    label: "Corbeny",
-    nom: "Corbeny",
-    icon: Trees,
-  },
-  {
-    id: "villeneuve-sur-aisne",
-    label: "Villeneuve-sur-Aisne",
-    nom: (
-      <>
-        Villeneuve-
-        <br />
-        sur-Aisne
-      </>
-    ),
-    icon: House,
-  },
-  {
-    id: "braine",
-    label: "Braine",
-    nom: "Braine",
-    icon: House,
-  },
-  {
-    id: "fismes",
-    label: "Fismes",
-    nom: "Fismes",
-    icon: Building2,
-  },
-  {
-    id: "laon",
-    label: "Laon",
-    nom: "Laon",
-    icon: Castle,
-  },
-  {
-    id: "cormontreuil",
-    label: "Cormontreuil",
-    nom: "Cormontreuil",
-    icon: Building2,
-  },
-  {
-    id: "reims",
-    label: "Reims",
-    nom: "Reims",
-    icon: Building2,
-  },
-];
+    {
+      id: "berry-au-bac",
+      label: "Berry-au-Bac",
+      nom: (
+        <>
+          Berry-au-
+          <br />
+          Bac
+        </>
+      ),
+      icon: Trees,
+    },
+    {
+      id: "corbeny",
+      label: "Corbeny",
+      nom: "Corbeny",
+      icon: Trees,
+    },
+    {
+      id: "villeneuve-sur-aisne",
+      label: "Villeneuve-sur-Aisne",
+      nom: (
+        <>
+          Villeneuve-
+          <br />
+          sur-Aisne
+        </>
+      ),
+      icon: House,
+    },
+    {
+      id: "braine",
+      label: "Braine",
+      nom: "Braine",
+      icon: House,
+    },
+    {
+      id: "fismes",
+      label: "Fismes",
+      nom: "Fismes",
+      icon: Building2,
+    },
+    {
+      id: "laon",
+      label: "Laon",
+      nom: "Laon",
+      icon: Castle,
+    },
+    {
+      id: "cormontreuil",
+      label: "Cormontreuil",
+      nom: "Cormontreuil",
+      icon: Building2,
+    },
+    {
+      id: "reims",
+      label: "Reims",
+      nom: "Reims",
+      icon: Building2,
+    },
+  ];
 
   return (
-    <section className="section-dark">
-      <div className="site-container section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
+      <div className="site-container">
+
         {/* Introduction */}
-        <div className="section-intro">
-          <p className="section-label">Principaux secteurs desservis</p>
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            Principaux secteurs desservis
+          </p>
 
-          <h2>Les communes où j’interviens régulièrement</h2>
+          <h2>
+            Les communes où j’interviens{" "}
+            <span className="text-gradient-blue">
+              régulièrement
+            </span>
+          </h2>
 
-          <p>
+          <p className="max-w-2xl text-slate-300">
             Basée à Beaurieux, j’interviens dans différentes communes de
             l’Aisne et des alentours pour les prestations nécessitant une
             présence sur place.
@@ -88,43 +102,123 @@ const ZonesDesservies = () => {
         </div>
 
         {/* Cartes des communes */}
-<div className="mt-12 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-8">
-  {communes.map(({ id, label, nom, icon: Icon }) => (
-  <Link
-    key={id}
-    to={`/localisation/${id}`}
-    className="group block"
-    aria-label={`Voir les services de création de site internet de Jess Tech à ${label}`}
-  >
-      <article className="card-dark h-full text-center transition-all duration-300 group-hover:-translate-y-1 group-hover:border-blue-500/40 group-hover:shadow-lg group-hover:shadow-blue-500/10">
-        <div className="mt-2 flex justify-center">
-          <Icon
-            className="h-14 w-14 stroke-[1.4] text-blue-400"
-            aria-hidden="true"
-          />
+        <div
+          className="
+            mt-9
+            grid
+            grid-cols-2
+            gap-3
+
+            sm:grid-cols-3
+            sm:gap-4
+
+            lg:grid-cols-4
+
+            xl:grid-cols-8
+          "
+        >
+          {communes.map(({ id, label, nom, icon: Icon }) => (
+            <Link
+              key={id}
+              to={`/localisation/${id}`}
+              className="group block min-w-0"
+              aria-label={`Voir les services de création de site internet de Jess Tech à ${label}`}
+            >
+              <article
+                className="
+                  card-dark
+                  card-glow
+                  relative
+                  flex
+                  h-full
+                  min-w-0
+                  flex-col
+                  items-center
+                  text-center
+                  !p-3
+
+                  sm:!p-4
+                "
+              >
+                {/* Icône */}
+                <Icon
+                  className="
+                    h-9
+                    w-9
+                    shrink-0
+                    stroke-[1.4]
+                    text-sky-500
+                    transition-transform
+                    duration-300
+                    group-hover:scale-110
+
+                    sm:h-11
+                    sm:w-11
+
+                    lg:h-12
+                    lg:w-12
+                  "
+                  aria-hidden="true"
+                />
+
+                {/* Commune */}
+                <h3
+                  className="
+                    mt-3
+                    min-h-10
+                    leading-tight
+                    text-slate-200
+                  "
+                >
+                  {nom}
+                </h3>
+
+                {/* Alentours */}
+                <p
+                  className="
+                    !mt-2
+                    text-slate-400
+                    !text-xs
+
+                    sm:!text-sm
+                  "
+                >
+                  et ses alentours
+                </p>
+              </article>
+            </Link>
+          ))}
         </div>
 
-        <h3 className="mt-3 min-h-14 leading-tight">
-          {nom}
-        </h3>
-
-        <p className="mt-2">et ses alentours</p>
-      </article>
-    </Link>
-  ))}
-</div>
-
         {/* Commune absente */}
-        <div className="mt-8 flex flex-col items-center justify-center gap-4 rounded-2xl border border-slate-700 bg-slate-800 px-6 py-5 text-center sm:flex-row mx-auto max-w-4xl">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-blue-100 text-blue-600">
-            <MapPin className="h-5 w-5" aria-hidden="true" />
-          </div>
+        <div
+          className="
+            mx-auto
+            mt-7
+            flex
+            max-w-4xl
+            items-center
+            justify-center
+            gap-3
+            border-t
+            border-sky-500/20
+            pt-6
+            text-center
+          "
+        >
+
 
           <p className="m-0 text-slate-300">
             Votre commune n’apparaît pas ? N’hésitez pas à{" "}
             <Link
               to="/contact"
-              className="font-semibold text-blue-500 transition hover:text-blue-700"
+              className="
+                font-semibold
+                text-sky-500
+                transition-colors
+                duration-300
+                hover:text-sky-400
+              "
             >
               me contacter
             </Link>

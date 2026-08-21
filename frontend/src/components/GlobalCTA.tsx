@@ -9,7 +9,7 @@ export default function GlobalCTA({ variant }: GlobalCTAProps) {
   const cta = ctas[variant];
 
   return (
-    <section className="section-light section-fade-light-soft pb-16 pt-20 md:pb-20 lg:pb-24">
+    <section className="section-light  pb-16 pt-20 md:pb-20 lg:pb-24">
       <div className="site-container max-w-[1200px]">
         {/* Wrapper extérieur : autorise la vague mobile à dépasser */}
         <div className="relative">

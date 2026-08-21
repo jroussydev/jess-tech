@@ -1,3 +1,4 @@
+import GlobalCTA from "../../components/GlobalCTA";
 import {
   CarteZoneLocale,
 
@@ -15,6 +16,7 @@ const Localisation = () => {
         <ZonesDesservies />
         <ModesIntervention />
         <FaqLocalisation />
+        <GlobalCTA variant="localisation" />
     </main>
   );
 };
