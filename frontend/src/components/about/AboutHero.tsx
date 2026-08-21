@@ -27,12 +27,37 @@ const aboutValeurs = [
 export default function AboutHero() {
   return (
     <section className="about-hero">
-      {/* Photo principale */}
-      <img
-        src="/about/jesstech-mon-profil-hero-page-about.webp"
-        alt="Jessica, développeuse web chez Jess Tech, présentant son site internet"
-        className="about-hero__image"
-      />
+      {/* Vague basse */}
+        <img
+  src="/decorations/vagues/06.png"
+  alt=""
+  aria-hidden="true"
+  className="
+    pointer-events-none
+    absolute
+    left-0
+    z-30
+    max-w-none
+    
+    
+
+    -bottom-13
+    h-50
+    w-[100%]
+    
+
+    sm:h-60
+    sm:w-[100%]
+
+    md:h-40
+    md:w-[100%]
+
+    lg:bottom-40
+    lg:h-100
+    lg:w-[100%]
+    
+  "
+/>
 
       {/* Contenu */}
       <div className="site-container relative z-10 flex min-h-[calc(100svh-5rem)] items-center py-16 lg:py-24">
@@ -102,6 +127,13 @@ export default function AboutHero() {
           </div>
         </div>
       </div>
+      {/* Vague basse */}
+        <img
+          src="/decorations/vagues/09.png"
+          alt=""
+          aria-hidden="true"
+          className="hero__wave"
+        />
     </section>
   );
 }
