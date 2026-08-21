@@ -22,7 +22,7 @@ const AboutValues = () => {
   return (
     <section
       id="mon-approche"
-      className="section-light section-spacing scroll-mt-24"
+      className="section-light section-fade-hero section-spacing"
     >
       <div className="site-container">
         <div className="grid items-start gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
@@ -44,39 +44,90 @@ const AboutValues = () => {
           </div>
 
           {/* Étapes */}
-          <div className="flex flex-col">
-            {valuesItems.map((item) => {
-              const Icon = item.icon;
+<div
+  className="
+    grid
+    grid-cols-3
+    gap-2
+    pt-8
 
-              return (
-                <article
-                  key={item.title}
-                  className="mt-3 group flex items-start gap-4 text-justify rounded-2xl  transition duration-300 hover:-translate-y-1 hover:border-blue-200 hover:shadow-md"
-                >
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-50 text-blue-600 transition duration-300 group-hover:bg-blue-600 group-hover:text-white">
-                    <Icon
-                      className="h-7 w-7"
-                      aria-hidden="true"
-                    />
-                  </div>
+    sm:flex
+    sm:flex-col
+    sm:gap-8
+    sm:pt-12
+  "
+>
+  {valuesItems.map((item) => {
+    const Icon = item.icon;
 
-                  <div>
-                    <div className="flex items-baseline gap-3">
+    return (
+      <div
+        key={item.title}
+        className="
+          group
+          min-w-0
+          text-center
 
+          sm:border-b
+          sm:border-sky-500/20
+          sm:pb-6
+          sm:text-left
+          sm:last:border-b-0
+          sm:last:pb-0
+        "
+      >
+        {/* Icône + titre */}
+        <div
+          className="
+            flex
+            flex-col
+            items-center
+            gap-2
 
-                      <h3 className="text-2xl font-semibold text-slate-950">
-                        {item.title}
-                      </h3>
-                    </div>
+            sm:flex-row
+            sm:gap-3
+          "
+        >
+          <Icon
+            className="
+              h-6
+              w-6
+              shrink-0
+              text-sky-500
+              transition-transform
+              duration-300
+              group-hover:scale-110
 
-                    <p className="mt-3 max-w-2xl leading-7 text-slate-600">
-                      {item.text}
-                    </p>
-                  </div>
-                </article>
-              );
-            })}
-          </div>
+              sm:h-7
+              sm:w-7
+            "
+            aria-hidden="true"
+          />
+
+          <h3 className="text-slate-950 !text-sm sm:!text-lg">
+            {item.title}
+          </h3>
+        </div>
+
+        {/* Texte */}
+        <p
+          className="
+            mt-2
+            text-slate-600
+            !text-xs
+            !leading-5
+
+            sm:max-w-2xl
+            sm:!text-base
+            sm:!leading-7
+          "
+        >
+          {item.text}
+        </p>
+      </div>
+    );
+  })}
+</div>
         </div>
       </div>
     </section>

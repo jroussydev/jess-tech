@@ -82,8 +82,7 @@ export default function ServicesDeroulementProjet() {
   return (
     <section
       ref={sectionRef}
-      className="section-light section-fade-light-soft section-spacing"
-    >
+      className="section-light section-fade-light-soft section-spacing">
       <div className="site-container">
         {/* Introduction */}
         <div className="section-intro max-w-3xl">

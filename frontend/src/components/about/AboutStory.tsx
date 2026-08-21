@@ -1,4 +1,8 @@
-import { Code2, HeartHandshake, MapPin } from "lucide-react";
+import {
+  Code2,
+  HeartHandshake,
+  MapPin,
+} from "lucide-react";
 
 const storyHighlights = [
   {
@@ -20,21 +24,30 @@ const storyHighlights = [
 
 const AboutStory = () => {
   return (
-    <section className="section-dark section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
       <div className="site-container">
-        <div className="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+        <div className="grid items-start gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-20">
+
           {/* Texte */}
-          <div>
+          <div className="section-intro">
             <p className="section-label">
               Mon parcours
             </p>
 
-            <h2 className="mt-5 max-w-2xl text-3xl font-bold leading-tight text-white sm:text-4xl lg:text-5xl">
-              Revenir à l’informatique pour construire un projet qui me
-              ressemble
+            <h2 className="max-w-2xl">
+              Revenir à l’informatique pour construire un projet qui me{" "}
+              <span className="text-gradient-blue">
+                ressemble
+              </span>
             </h2>
 
-            <div className="mt-7 flex max-w-2xl flex-col gap-5 text-base leading-8 text-slate-300 sm:text-lg text-justify">
+            <div className="mt-6 flex max-w-2xl flex-col gap-5 text-slate-300">
               <p>
                 Après plusieurs années dans d’autres domaines, j’ai choisi de
                 revenir vers l’informatique et le développement web afin de
@@ -56,35 +69,51 @@ const AboutStory = () => {
           </div>
 
           {/* Informations clés */}
-          <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1">
+          <div className="flex flex-col gap-8 pt-14">
             {storyHighlights.map((item) => {
               const Icon = item.icon;
 
               return (
-                <article
+                <div
                   key={item.title}
-                  className="card-dark group flex flex-col gap-4 sm:h-full lg:flex-row lg:items-start"
+                  className="
+                    group
+                    border-b
+                    border-sky-500/20
+                    pb-6
+                    last:border-b-0
+                    last:pb-0
+                  "
                 >
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-blue-500/15 text-blue-400 transition duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                  {/* Icône + titre */}
+                  <div className="flex items-center gap-3">
                     <Icon
-                      className="h-6 w-6"
+                      className="
+                        h-7
+                        w-7
+                        shrink-0
+                        text-sky-500
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                      "
                       aria-hidden="true"
                     />
-                  </div>
 
-                  <div>
-                    <h3 className="text-lg font-semibold text-white">
+                    <h3 className="text-slate-200">
                       {item.title}
                     </h3>
-
-                    <p className="mt-2 leading-7 text-slate-400">
-                      {item.text}
-                    </p>
                   </div>
-                </article>
+
+                  {/* Texte */}
+                  <p className="mt-2 max-w-xl text-slate-300">
+                    {item.text}
+                  </p>
+                </div>
               );
             })}
           </div>
+
         </div>
       </div>
     </section>

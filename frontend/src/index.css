@@ -904,3 +904,26 @@ height: calc(100% + 20px);
   animation: services-project-pulse 700ms ease-in-out forwards;
   opacity: 0;
 }
+
+/* =========================================================
+   HERO CONTACT — VISUEL DESKTOP
+   Fondu progressif entre le fond du hero et l'image
+   ========================================================= */
+
+.contact-hero__visual {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.55) 22%,
+    black 38%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.55) 22%,
+    black 38%
+  );
+}
