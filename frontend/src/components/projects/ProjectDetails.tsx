@@ -83,13 +83,13 @@ export default function ProjectDetails({ project }: ProjectDetailsProps) {
         {/* Début réel des détails */}
         <header className="mt-3 border-b border-sky-500/30 pb-6">
           {/* Titre + catégorie */}
-          <div className="mt-3 flex items-center justify-start gap-4">
-            <h3 className="text-3xl font-black text-slate-50">
-              {project.title}
-            </h3>
+          <div className="mt-3 flex items-center justify-start gap-2 sm:gap-4">
+  <h3 className="text-xl font-black text-slate-50 sm:text-2xl lg:text-3xl">
+    {project.title}
+  </h3>
 
-            <CategoryBadge category={project.category} />
-          </div>
+  <CategoryBadge category={project.category} />
+</div>
 
           <div className="mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-slate-400">
             {project.startedAt && (

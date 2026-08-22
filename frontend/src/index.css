@@ -940,23 +940,27 @@
   }
 
 
-  /* =========================
-     BADGE GÉNÉRIQUE
-  ========================== */
+/* =========================
+   BADGE GÉNÉRIQUE
+========================== */
 
-  .badge {
-    @apply
-      inline-flex
-      items-center
-      gap-2
-      rounded-full
-      border
-      px-3
-      py-1
-      text-xs
-      font-medium
-      md:text-sm;
-  }
+.badge {
+  @apply
+    inline-flex
+    items-center
+    gap-1
+    rounded-full
+    border
+    px-2
+    py-1
+    text-[10px]
+
+    sm:gap-2
+    sm:px-3
+    sm:text-xs
+
+    md:text-sm;
+}
 
 
   /* =========================
@@ -1094,4 +1098,40 @@
     rgba(0, 0, 0, 0.55) 22%,
     black 38%
   );
+}
+
+/* =========================
+   GALERIE PROJET — MOBILE
+========================= */
+
+.project-gallery__arrow {
+  @apply
+    flex
+    h-7
+    w-7
+    items-center
+    justify-center
+    p-0
+    opacity-70;
+}
+
+.project-gallery__arrow-icon {
+  @apply
+    h-3.5
+    w-3.5;
+}
+
+@media (min-width: 640px) {
+  .project-gallery__arrow {
+    @apply
+      h-auto
+      w-auto
+      opacity-100;
+  }
+
+  .project-gallery__arrow-icon {
+    @apply
+      h-5
+      w-5;
+  }
 }

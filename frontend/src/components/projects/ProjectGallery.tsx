@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
 type ProjectGalleryProps = {
@@ -32,32 +32,65 @@ export default function ProjectGallery({
   const [selectedMedia, setSelectedMedia] =
     useState<SelectedMedia | null>(firstMedia);
 
-const currentIndex =
-  selectedMedia?.type === "image"
-    ? gallery.indexOf(selectedMedia.src)
-    : -1;
+  const touchStartX = useRef<number | null>(null);
 
-    function previousImage() {
-  if (gallery.length <= 1 || currentIndex <= 0) return;
+  const currentIndex =
+    selectedMedia?.type === "image"
+      ? gallery.indexOf(selectedMedia.src)
+      : -1;
 
-  setSelectedMedia({
-    type: "image",
-    src: gallery[currentIndex - 1],
-  });
-}
+  function previousImage() {
+    if (gallery.length <= 1 || currentIndex <= 0) return;
 
-function nextImage() {
-  if (
-    gallery.length <= 1 ||
-    currentIndex >= gallery.length - 1
-  )
-    return;
+    setSelectedMedia({
+      type: "image",
+      src: gallery[currentIndex - 1],
+    });
+  }
 
-  setSelectedMedia({
-    type: "image",
-    src: gallery[currentIndex + 1],
-  });
-}
+  function nextImage() {
+    if (
+      gallery.length <= 1 ||
+      currentIndex >= gallery.length - 1
+    ) {
+      return;
+    }
+
+    setSelectedMedia({
+      type: "image",
+      src: gallery[currentIndex + 1],
+    });
+  }
+
+  function handleTouchStart(event: React.TouchEvent<HTMLDivElement>) {
+    touchStartX.current = event.touches[0].clientX;
+  }
+
+  function handleTouchEnd(event: React.TouchEvent<HTMLDivElement>) {
+    if (
+      touchStartX.current === null ||
+      selectedMedia?.type !== "image"
+    ) {
+      return;
+    }
+
+    const touchEndX = event.changedTouches[0].clientX;
+    const distance = touchStartX.current - touchEndX;
+
+    const swipeMinimum = 50;
+
+    // Swipe vers la gauche → image suivante
+    if (distance > swipeMinimum) {
+      nextImage();
+    }
+
+    // Swipe vers la droite → image précédente
+    if (distance < -swipeMinimum) {
+      previousImage();
+    }
+
+    touchStartX.current = null;
+  }
 
   if (!selectedMedia) {
     return (
@@ -69,57 +102,115 @@ function nextImage() {
 
   return (
     <div>
-{/* Média principal */}
-<div className="relative aspect-video overflow-hidden rounded-2xl border border-slate-700 bg-slate-950">
-  {selectedMedia.type === "image" ? (
-    <img
-      src={selectedMedia.src}
-      alt={`Capture du projet ${title}`}
-      className="h-full w-full object-contain"
-    />
-  ) : (
-    <video
-      src={selectedMedia.src}
-      controls
-      className="h-full w-full object-contain"
-    >
-      Votre navigateur ne prend pas en charge la lecture de vidéos.
-    </video>
-  )}
-
-  {/* Flèche précédente */}
-  {selectedMedia.type === "image" && currentIndex > 0 && (
-    <button
-      type="button"
-      onClick={previousImage}
-      className="absolute left-4 top-1/2 -translate-y-1/2 rounded-full border border-blue-400/40 bg-blue-600/70 p-3 text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm transition hover:border-blue-300/70 hover:bg-blue-500/90 focus-visible:outline-none
-focus-visible:ring-2
-focus-visible:ring-blue-400
-focus-visible:ring-offset-2
-focus-visible:ring-offset-slate-950"
-      aria-label="Afficher l’image précédente"
-    >
-      <ChevronLeft size={22} />
-    </button>
-  )}
-
-  {/* Flèche suivante */}
-  {selectedMedia.type === "image" &&
-    currentIndex < gallery.length - 1 && (
-      <button
-        type="button"
-        onClick={nextImage}
-        className="absolute right-4 top-1/2 -translate-y-1/2 rounded-full border border-blue-400/40 bg-blue-600/70 p-3 text-white shadow-lg shadow-blue-950/30 backdrop-blur-sm transition hover:border-blue-300/70 hover:bg-blue-500/90 focus-visible:outline-none
-focus-visible:ring-2
-focus-visible:ring-blue-400
-focus-visible:ring-offset-2
-focus-visible:ring-offset-slate-950"
-        aria-label="Afficher l’image suivante"
+      {/* Média principal */}
+      <div
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+        className="
+          relative
+          aspect-video
+          touch-pan-y
+          overflow-hidden
+          rounded-2xl
+          border
+          border-slate-700
+          bg-slate-950
+        "
       >
-        <ChevronRight size={22} />
-      </button>
-    )}
-</div>
+        {selectedMedia.type === "image" ? (
+          <img
+            src={selectedMedia.src}
+            alt={`Capture du projet ${title}`}
+            className="h-full w-full object-contain"
+          />
+        ) : (
+          <video
+            src={selectedMedia.src}
+            controls
+            className="h-full w-full object-contain"
+          >
+            Votre navigateur ne prend pas en charge la lecture de vidéos.
+          </video>
+        )}
+
+        {/* Flèche précédente */}
+        {selectedMedia.type === "image" && currentIndex > 0 && (
+          <button
+            type="button"
+            onClick={previousImage}
+            className="
+              project-gallery__arrow
+              absolute
+              left-2
+              top-1/2
+              -translate-y-1/2
+              rounded-full
+              border
+              border-blue-400/40
+              bg-blue-600/70
+              text-white
+              backdrop-blur-sm
+              transition
+
+              sm:left-4
+              sm:p-3
+
+              hover:border-blue-300/70
+              hover:bg-blue-500/90
+            "
+            aria-label="Afficher l’image précédente"
+          >
+            <ChevronLeft className="project-gallery__arrow-icon" />
+          </button>
+        )}
+
+        {/* Flèche suivante */}
+        {selectedMedia.type === "image" &&
+          currentIndex < gallery.length - 1 && (
+            <button
+              type="button"
+              onClick={nextImage}
+              className="
+                project-gallery__arrow
+                absolute
+                right-2
+                top-1/2
+                -translate-y-1/2
+                rounded-full
+                border
+                border-blue-400/40
+                bg-blue-600/70
+                text-white
+                backdrop-blur-sm
+                transition
+
+                sm:right-4
+                sm:p-3
+
+                hover:border-blue-300/70
+                hover:bg-blue-500/90
+              "
+              aria-label="Afficher l’image suivante"
+            >
+              <ChevronRight className="project-gallery__arrow-icon" />
+            </button>
+          )}
+      </div>
+
+      {/* Indication swipe — mobile uniquement */}
+      {selectedMedia.type === "image" && gallery.length > 1 && (
+        <p
+          className="
+            mt-2
+            text-center
+            !text-[10px]
+            text-slate-500
+            sm:hidden
+          "
+        >
+          Glissez à gauche ou à droite pour parcourir les images
+        </p>
+      )}
 
       {/* Miniatures */}
       <div className="mt-4 flex justify-center gap-3 overflow-x-auto pb-2">
@@ -138,17 +229,36 @@ focus-visible:ring-offset-slate-950"
                   src: image,
                 })
               }
-              className={`group relative h-20 w-32 shrink-0 overflow-hidden rounded-xl border transition-all duration-300 ${
-  isSelected
-    ? "border-blue-500 ring-2 ring-blue-500/20"
-    : "border-slate-700 hover:border-slate-500"
-}`}
+              className={`
+                group
+                relative
+                h-20
+                w-32
+                shrink-0
+                overflow-hidden
+                rounded-xl
+                border
+                transition-all
+                duration-300
+                ${
+                  isSelected
+                    ? "border-blue-500 ring-2 ring-blue-500/20"
+                    : "border-slate-700 hover:border-slate-500"
+                }
+              `}
               aria-label={`Afficher la capture ${index + 1} du projet ${title}`}
             >
               <img
                 src={image}
                 alt=""
-                className="h-full w-full object-contain transition-transform duration-300 group-hover:scale-105"
+                className="
+                  h-full
+                  w-full
+                  object-contain
+                  transition-transform
+                  duration-300
+                  group-hover:scale-105
+                "
               />
             </button>
           );
@@ -163,11 +273,25 @@ focus-visible:ring-offset-slate-950"
                 src: video,
               })
             }
-            className={`flex h-20 w-32 shrink-0 items-center justify-center rounded-xl border bg-slate-950 text-sm font-semibold transition ${
-              selectedMedia.type === "video"
-                ? "border-blue-500 text-blue-400"
-                : "border-slate-700 text-slate-300 hover:border-slate-500"
-            }`}
+            className={`
+              flex
+              h-20
+              w-32
+              shrink-0
+              items-center
+              justify-center
+              rounded-xl
+              border
+              bg-slate-950
+              text-sm
+              font-semibold
+              transition
+              ${
+                selectedMedia.type === "video"
+                  ? "border-blue-500 text-blue-400"
+                  : "border-slate-700 text-slate-300 hover:border-slate-500"
+              }
+            `}
             aria-label={`Afficher la vidéo du projet ${title}`}
           >
             ▶ Vidéo
