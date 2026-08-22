@@ -120,88 +120,90 @@ export default function AboutHero() {
             >
               {aboutValeurs.map(({ title, description, icon: Icon, image}) => (
                 <article
-                  key={title}
-                  className="
-                    card-dark
-                    card-glow
-                    group
-                    relative
-                    flex
-                    min-w-0
-                    flex-col
-                    items-center
-                    justify-start
-                    overflow-hidden
-                    text-center
-                    !p-3
-                    sm:!p-4
-                  "
-                >
-{/* Image de fond */}
-                <img
-                  src={image}
-                  alt=""
-                  aria-hidden="true"
-                  className="
-                    absolute
-                    inset-0
-                    h-full
-                    w-full
-                    object-cover
-                    transition-transform
-                    duration-500
-                    group-hover:scale-110
-                    opacity-25
-                  "
-                />
+  key={title}
+  className="
+    about-value-card
+    card-dark
+    card-glow
+    group
+    relative
+    flex
+    min-w-0
+    flex-col
+    items-center
+    justify-start
+    overflow-hidden
+    text-center
+    !p-3
+    sm:!p-4
+  "
+>
+  {/* Image de fond */}
+  <img
+    src={image}
+    alt=""
+    aria-hidden="true"
+    className="
+      about-value-card__image
+      absolute
+      inset-0
+      h-full
+      w-full
+      object-cover
+      opacity-25
+      transition-transform
+      duration-500
+      group-hover:scale-110
+    "
+  />
 
-                  {/* Icône */}
-                  <Icon
-                    className="
-                      relative
-                      z-10
-                      h-6
-                      w-6
-                      shrink-0
-                      text-sky-500
-                      transition-transform
-                      duration-300
-                      group-hover:scale-110
-                      sm:h-7
-                      sm:w-7
-                    "
-                    aria-hidden="true"
-                  />
+  {/* Icône */}
+  <Icon
+    className="
+      about-value-card__icon
+      relative
+      z-10
+      h-6
+      w-6
+      shrink-0
+      text-sky-500
+      transition-transform
+      duration-300
+      group-hover:scale-110
+      sm:h-7
+      sm:w-7
+    "
+    aria-hidden="true"
+  />
 
-                  {/* Titre */}
-                  <h3
-                    className="
-                      relative
-                      z-10
-                      mt-2
-                      text-slate-200
-                      !text-sm
-                      sm:!text-base
-                    "
-                  >
-                    {title}
-                  </h3>
+  {/* Titre */}
+  <h3
+    className="
+      about-value-card__title
+      relative
+      z-10
+      mt-2
+      text-slate-200
+      sm:!text-base
+    "
+  >
+    {title}
+  </h3>
 
-                  {/* Description */}
-                  <p
-                    className="
-                      relative
-                      z-10
-                      !mt-2
-                      text-slate-300
-                      !text-xs
-                      !leading-5
-                      sm:!text-sm
-                    "
-                  >
-                    {description}
-                  </p>
-                </article>
+  {/* Description */}
+  <p
+    className="
+      about-value-card__description
+      relative
+      z-10
+      !mt-2
+      text-slate-300
+      sm:!text-sm
+    "
+  >
+    {description}
+  </p>
+</article>
               ))}
             </div>
           </div>

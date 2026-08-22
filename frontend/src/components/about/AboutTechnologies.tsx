@@ -86,44 +86,48 @@ const AboutTechnologies = () => {
 
     return (
       <article
-        key={technology.name}
-        className="
-          card-dark
-          card-glow
-          group
-          relative
-          flex
-          h-full
-          flex-col
-          overflow-hidden
-        "
-      >
-        <AnimatedCardBorder/>
-        {/* Icône + titre */}
-        <div className="flex items-center gap-3">
-          <Icon
-            className="
-              h-7
-              w-7
-              shrink-0
-              text-sky-500
-              transition-transform
-              duration-300
-              group-hover:scale-110
-            "
-            aria-hidden="true"
-          />
+  key={technology.name}
+  className="
+    card-dark
+    card-glow
+    card-content-mobile
+    technology-card
+    group
+    relative
+    flex
+    h-full
+    flex-col
+    overflow-hidden
+  "
+>
+  <AnimatedCardBorder />
 
-          <h3 className="text-white">
-            {technology.name}
-          </h3>
-        </div>
+  {/* Icône + titre */}
+  <div className="technology-card__heading flex items-center gap-3">
+    <Icon
+      className="
+        technology-card__icon
+        h-7
+        w-7
+        shrink-0
+        text-sky-500
+        transition-transform
+        duration-300
+        group-hover:scale-110
+      "
+      aria-hidden="true"
+    />
 
-        {/* Description */}
-        <p className="mt-3 text-slate-300">
-          {technology.description}
-        </p>
-      </article>
+    <h3 className="technology-card__title text-white">
+      {technology.name}
+    </h3>
+  </div>
+
+  {/* Description */}
+  <p className="technology-card__description mt-3 text-slate-300">
+    {technology.description}
+  </p>
+</article>
     );
   })}
 </div>

@@ -51,7 +51,7 @@ const ModesIntervention = () => {
         </div>
 
         {/* Modes d’intervention */}
-        <div className="mt-8 grid gap-4 grid-cols-2">
+        <div className="mt-8 grid gap-4 grid-cols-1 lg:grid-cols-2">
 
           {/* Intervention locale */}
           <article

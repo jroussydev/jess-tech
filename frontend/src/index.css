@@ -1135,3 +1135,75 @@
       w-5;
   }
 }
+
+/* ==========================================================
+   HERO À PROPOS — CARTES MOBILE
+========================================================== */
+
+@media (max-width: 639px) {
+  .about-value-card {
+    @apply
+      !p-2;
+  }
+
+  .about-value-card__icon {
+    @apply hidden;
+  }
+
+  .about-value-card__title {
+    @apply
+      mt-1
+      text-center
+      text-xs
+      leading-tight;
+  }
+
+  .about-value-card__description {
+    @apply
+      !mt-1
+      text-center
+      text-[10px]
+      leading-4;
+  }
+
+  .about-value-card__image {
+    @apply opacity-20;
+  }
+}
+
+@media (max-width: 639px) {
+  .technology-card {
+    @apply
+      !p-3;
+  }
+
+  .technology-card__heading {
+    @apply
+      flex-col
+      items-center
+      justify-center
+      gap-2
+      text-center;
+  }
+
+  .technology-card__icon {
+    @apply
+      h-6
+      w-6;
+  }
+
+  .technology-card__title {
+    @apply
+      text-center
+      text-sm
+      leading-tight;
+  }
+
+  .technology-card__description {
+    @apply
+      mt-2
+      text-center
+      text-xs
+      leading-5;
+  }
+}
