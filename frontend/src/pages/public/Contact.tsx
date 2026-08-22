@@ -6,7 +6,7 @@ import {
 } from "@marsidev/react-turnstile";
 import {
   Car,
-  Clock3,
+
   FileText,
   Globe2,
   Mail,
@@ -151,7 +151,7 @@ setTurnstileToken("");
     {
       title: "E-mail",
       description: "contact@jesstech.fr",
-      infos: "Réponse sous 48 h maximum",
+      infos: "Réponse sous 24 h maximum",
       icon: Mail,
       href: "mailto:contact@jesstech.fr",
     },
@@ -306,191 +306,129 @@ useEffect(() => {
           </p>
         </div>
 
-        {/* Contacts rapides */}
-        <div className="mt-8 grid grid-cols-4 gap-2 sm:gap-3 xl:gap-4">
-          {quickContacts.map((method) => {
-            const Icon = method.icon;
+{/* Contacts rapides */}
+<div className="mt-8 grid grid-cols-3 gap-2 sm:gap-3 xl:gap-4">
+  {quickContacts.map((method) => {
+    const Icon = method.icon;
 
-            return (
-              <a
-                key={method.title}
-                href={method.href}
-                target={method.href.startsWith("http") ? "_blank" : undefined}
-                rel={method.href.startsWith("http") ? "noreferrer" : undefined}
-                className="
-                  card-dark
-                  card-glow
-                  group
-                  min-w-0
-                  overflow-hidden
-                  text-center
-                  !p-2
-                  sm:!p-3
-                  lg:!p-4
-                "
-              >
-                <Icon
-                  className="
-                    mx-auto
-                    h-6
-                    w-6
-                    text-blue-400
-                    transition-transform
-                    duration-300
-                    group-hover:scale-110
-                    sm:h-7
-                    sm:w-7
-                    lg:h-8
-                    lg:w-8
-                  "
-                  aria-hidden="true"
-                />
-
-                <h3
-                  className="
-                    mt-2
-                    whitespace-nowrap
-                    !text-xs
-                    leading-tight
-                    sm:!text-sm
-                    lg:mt-4
-                    lg:!text-base
-                  "
-                >
-                  {method.title}
-                </h3>
-
-                <p
-                  className="
-                    !mt-1
-                    min-w-0
-                    overflow-hidden
-                    text-ellipsis
-                    whitespace-nowrap
-                    !text-[10px]
-                    !leading-4
-                    sm:!text-xs
-                    lg:!text-sm
-                  "
-                >
-                  {method.description}
-                </p>
-              </a>
-            );
-          })}
-
-          <article
-            className="
-              card-dark
-              card-glow
-              min-w-0
-              overflow-hidden
-              text-center
-              !p-2
-              sm:!p-3
-              lg:!p-4
-            "
-          >
-            <Clock3
-              className="
-                mx-auto
-                h-6
-                w-6
-                text-blue-400
-                sm:h-7
-                sm:w-7
-                lg:h-8
-                lg:w-8
-              "
-              aria-hidden="true"
-            />
-
-            <h3
-              className="
-                mt-2
-                whitespace-nowrap
-                !text-xs
-                leading-tight
-                sm:!text-sm
-                lg:mt-4
-                lg:!text-base
-              "
-            >
-              Réponse
-            </h3>
-
-            <p
-              className="
-                !mt-1
-                whitespace-nowrap
-                !text-[10px]
-                !leading-4
-                sm:!text-xs
-                lg:!text-sm
-              "
-            >
-              Sous 24h
-            </p>
-          </article>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {/* Visuel mobile / tablette */}
-  <div className="hero__visual-mobile">
-    <div className="hero__visual-mobile-mask">
-      <img
-        src="/contact/jessica-roussy-contact.png"
-        alt=""
-        aria-hidden="true"
+    return (
+      <a
+        key={method.title}
+        href={method.href}
+        target={method.href.startsWith("http") ? "_blank" : undefined}
+        rel={method.href.startsWith("http") ? "noreferrer" : undefined}
         className="
-          hero__visual-mobile-image
-          contact-hero__image
+          card-dark
+          card-glow
+          group
+          min-w-0
+          overflow-hidden
+          text-center
+          !p-2
+          sm:!p-3
+          lg:!p-4
         "
-      />
-    </div>
-  </div>
+      >
+        <Icon
+          className="
+            mx-auto
+            h-5
+            w-5
+            text-blue-400
+            transition-transform
+            duration-300
+            group-hover:scale-110
+            sm:h-7
+            sm:w-7
+            lg:h-8
+            lg:w-8
+          "
+          aria-hidden="true"
+        />
 
-  {/* Visuel desktop */}
-  <div
-    className="
-      contact-hero__visual
-      pointer-events-none
-      absolute
-      inset-y-0
-      right-0
-      z-10
-      hidden
-      w-[58%]
-      lg:block
-    "
-  >
-    <img
-  src="/contact/jessica-roussy-contact.png"
-  alt=""
-  aria-hidden="true"
+        <h3
+          className="
+            mt-2
+            whitespace-nowrap
+            !text-[11px]
+            !leading-tight
+            sm:!text-sm
+            lg:mt-4
+            lg:!text-base
+          "
+        >
+          {method.title}
+        </h3>
+
+        <p
+          className="
+            !mt-1
+            min-w-0
+            overflow-hidden
+            text-ellipsis
+            whitespace-nowrap
+            !text-[9px]
+            !leading-4
+            sm:!text-xs
+            lg:!text-sm
+          "
+        >
+          {method.description}
+        </p>
+      </a>
+    );
+  })}
+</div>
+
+{/* Fermeture hero__content */}
+</div>
+
+{/* Fermeture hero__layout */}
+</div>
+
+{/* Fermeture hero__container */}
+</div>
+
+{/* Visuel desktop */}
+<div
   className="
+    contact-hero__visual
+    pointer-events-none
     absolute
-    bottom-0
+    inset-y-0
     right-0
-    h-[110%]
-    w-auto
-    max-w-none
-    object-contain
-    object-bottom
-    xl:h-[115%]
+    z-10
+    hidden
+    w-[58%]
+    lg:block
   "
-/>
-  </div>
-
-  {/* Vague basse */}
+>
   <img
-    src="/decorations/vagues/09.png"
+    src="/contact/jessica-roussy-contact.png"
     alt=""
     aria-hidden="true"
-    className="hero__wave z-30"
+    className="
+      absolute
+      bottom-0
+      right-0
+      h-[110%]
+      w-auto
+      max-w-none
+      object-contain
+      object-bottom
+      xl:h-[115%]
+    "
   />
+</div>
+
+{/* Vague basse */}
+<img
+  src="/decorations/vagues/09.png"
+  alt=""
+  aria-hidden="true"
+  className="hero__wave z-30"
+/>
+
 </section>
 
       {/* Section 2 — Localisation et formulaire */}
@@ -1040,7 +978,7 @@ useEffect(() => {
     </div>
 
     {/* Étapes */}
-    <div className="mt-7 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-10">
+    <div className="mt-7 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-10">
       {steps.map((step, index) => {
         const Icon = step.icon;
 
