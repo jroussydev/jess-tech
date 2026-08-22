@@ -107,7 +107,7 @@ export default function ServicesCarte({
           "
         >
           <span className="whitespace-nowrap">
-            Découvrir ce service
+            Découvrir
           </span>
 
           <img

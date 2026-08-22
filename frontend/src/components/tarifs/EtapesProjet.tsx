@@ -113,40 +113,40 @@ export default function EtapesProjet() {
               >
                 {/* Carte */}
                 <article
-                  className="
-                    card-dark
-                    card-glow
-                    group
-                    relative
-                    z-10
-                    flex
-                    h-full
-                    min-w-0
-                    flex-col
-                    !p-4
-                  "
-                >
+  className="
+    card-dark
+    card-glow
+    card-content-mobile
+    group
+    relative
+    z-10
+    flex
+    h-full
+    min-w-0
+    flex-col
+    !p-4
+  "
+>
                   {/* Icône + numéro */}
-                  <div className="flex items-center justify-wrap gap-3">
-                    <Icon
-                      className="
-                        h-7
-                        w-7
-                        shrink-0
-                        text-sky-500
-                        transition-transform
-                        duration-300
-                        group-hover:scale-110
-                      "
-                      aria-hidden="true"
-                    />
+                  <div className="step-card__heading flex items-center gap-3">
+  <Icon
+    className="
+      step-card__icon
+      h-7
+      w-7
+      shrink-0
+      text-sky-500
+      transition-transform
+      duration-300
+      group-hover:scale-110
+    "
+    aria-hidden="true"
+  />
 
-
-                  {/* Titre */}
-                  <h3 className="mt-3 text-slate-100">
-                    {etape.titre}
-                  </h3>
-                  </div>
+  <h3 className="step-card__title text-slate-100">
+    {etape.titre}
+  </h3>
+</div>
 
 
                   {/* Description */}

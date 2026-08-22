@@ -418,9 +418,10 @@
 
 @media (max-width: 639px) {
 
-  @media (max-width: 639px) {
   .card-content-mobile {
-    @apply text-center;
+    @apply
+      items-center
+      text-center;
   }
 
   .card-features-mobile {
@@ -429,7 +430,7 @@
       gap-x-4
       gap-y-2;
   }
-}
+
 
   .service-card__content {
     @apply
@@ -461,6 +462,27 @@
       mt-2
       text-center;
   }
+
+  .step-card__heading {
+    @apply
+      flex-col
+      items-center
+      justify-center
+      gap-2
+      text-center;
+  }
+
+  .step-card__icon {
+    @apply
+      h-6
+      w-6;
+  }
+
+  .step-card__title {
+    @apply
+      text-center;
+  }
+
 }
 
 /* ==========================================================

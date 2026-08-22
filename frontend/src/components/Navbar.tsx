@@ -39,7 +39,7 @@ export default function Navbar() {
         </Link>
 
         <Link to="/DansLesCoulisses" className="text-slate-200 hover:text-[#0D5BFF] transition">
-          Réalisations
+          En coulisses
         </Link>
 
         <Link to="/about" className="text-slate-200 hover:text-[#0D5BFF] transition">
@@ -81,9 +81,9 @@ export default function Navbar() {
                 Tarifs
               </Link>
 
-              <Link to="/realisations" onClick={() => setIsOpen(false)}
+              <Link to="/DansLesCoulisses" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
-                Réalisations
+                En coulisses
               </Link>
 
               <Link to="/about" onClick={() => setIsOpen(false)}
