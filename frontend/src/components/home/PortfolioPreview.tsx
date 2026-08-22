@@ -115,7 +115,7 @@ export default function PortfolioPreview() {
               </div>
 
               {/* Présentation */}
-              <div className="min-w-0">
+              <div className="card-content-mobile min-w-0">
                 <h3 className="text-slate-200">
   Les premières réalisations arrivent bientôt.
 </h3>
@@ -124,7 +124,7 @@ export default function PortfolioPreview() {
                   Chaque projet est unique et pensé sur mesure selon vos objectifs.
                 </p>
 
-                <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3">
+                <div className="card-features-mobile mt-5 flex flex-wrap gap-x-6 gap-y-3">
                   {features.map((feature) => (
                     <span
                       key={feature}

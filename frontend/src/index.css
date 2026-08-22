@@ -412,6 +412,56 @@
   }
 }
 
+/* =========================
+   CARTES SERVICES — MOBILE
+========================= */
+
+@media (max-width: 639px) {
+
+  @media (max-width: 639px) {
+  .card-content-mobile {
+    @apply text-center;
+  }
+
+  .card-features-mobile {
+    @apply
+      justify-center
+      gap-x-4
+      gap-y-2;
+  }
+}
+
+  .service-card__content {
+    @apply
+      items-center
+      justify-center
+      p-2
+      text-center;
+  }
+
+  .service-card__heading {
+    @apply
+      justify-center
+      text-center;
+  }
+
+  .service-card__icon {
+    @apply hidden;
+  }
+
+  .service-card__title {
+    @apply
+      whitespace-normal
+      text-center
+      leading-tight;
+  }
+
+  .service-card__description {
+    @apply
+      mt-2
+      text-center;
+  }
+}
 
 /* ==========================================================
    4. HERO GLOBAL
@@ -507,7 +557,7 @@
       top-0
       z-10
       block
-      h-43
+      h-30
       w-50
       md:h-56
       md:w-64
@@ -604,65 +654,145 @@
   }
 
 
-  /* =========================
-     CONTENU TEXTE
-  ========================== */
+/* =========================
+   CONTENU TEXTE
+========================== */
 
-  .hero__label {
-    @apply
-      mb-4
-      inline-flex
-      items-center
-      text-sm
-      font-semibold
-      uppercase
-      tracking-widest
-      text-blue-400;
-  }
+.hero__title {
+  @apply
+    max-w-[72%]
+    text-xl
+    sm:max-w-4xl
+    sm:text-2xl
+    md:text-4xl
+    lg:text-5xl;
+}
 
-  .hero__title {
-    @apply max-w-4xl;
-  }
-
-  .hero__description {
-    @apply
-      mt-5
-      max-w-2xl;
-  }
+.hero__description {
+  @apply
+    mt-4
+    max-w-full
+    sm:mt-5
+    sm:max-w-2xl;
+}
 
 
-  /* =========================
-     ACTIONS
-  ========================== */
+/* =========================
+   ACTIONS
+========================== */
 
-  .hero__actions {
-    @apply
-      mt-8
-      flex
-      flex-wrap
-      justify-center
-      gap-4
-      sm:mt-10
-      md:justify-start;
-  }
+.hero__actions {
+  @apply
+    mt-6
+    flex
+    flex-nowrap
+    items-center
+    justify-center
+    gap-2
+
+    sm:mt-10
+    sm:flex-wrap
+    sm:gap-4
+
+    md:justify-start;
+}
+
+/* Boutons plus compacts UNIQUEMENT sur mobile */
+.hero__actions .btn-primary,
+.hero__actions .btn-secondary {
+  @apply
+    whitespace-nowrap
+    px-3
+    py-2
+    text-xs
+
+    sm:px-4
+    sm:py-2.5
+    sm:text-sm
+
+    md:px-5
+    md:py-3
+    md:text-base
+
+    lg:px-6
+    lg:text-lg;
+}
 
 
-  /* =========================
-     PETITES CARTES DU HERO
-  ========================== */
+/* =========================
+   PETITES CARTES DU HERO
+========================== */
 
-  .hero__cards {
-    @apply
-      mt-8
-      grid
-      gap-2
-      sm:gap-3
-      md:gap-4;
-  }
+.hero__cards {
+  @apply
+    mt-6
+    grid
+    gap-2
 
-  .hero__card {
-    @apply min-w-0;
-  }
+    sm:mt-8
+    sm:gap-3
+
+    md:gap-4;
+}
+
+.hero__card {
+  @apply
+    min-w-0
+    text-center
+
+    sm:text-left;
+}
+
+/* Ligne titre */
+.hero__card-heading {
+  @apply
+    flex
+    items-center
+    justify-center
+
+    sm:justify-start
+    sm:gap-2
+
+    lg:gap-3;
+}
+
+/* Icône supprimée uniquement sur mobile */
+.hero__card-icon {
+  @apply
+    hidden
+
+    sm:flex;
+}
+
+/* Titre plus compact uniquement sur mobile */
+.hero__card-title {
+  @apply
+    text-xs
+    leading-tight
+
+    sm:text-sm
+
+    md:text-base
+
+    lg:text-lg;
+}
+
+/* Description centrée uniquement sur mobile */
+.hero__card-description {
+  @apply
+    mt-1
+    text-center
+    text-[11px]
+    leading-4
+
+    sm:mt-2
+    sm:text-left
+    sm:text-xs
+
+    md:text-sm
+
+    lg:text-base;
+}
 
 
   /* =========================

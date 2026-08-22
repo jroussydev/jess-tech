@@ -94,40 +94,46 @@ export default function Hero() {
             <div className="hero__cards grid-cols-3">
               {qualities.map(({ title, description, icon: Icon }) => (
                 <article key={title} className="hero__card">
-                  <div className="flex items-center gap-2 lg:gap-3">
-                    <div
-                      className="
-                        flex
-                        h-8
-                        w-8
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-lg
-                        border
-                        border-blue-500/30
-                        text-blue-500
-                        md:h-9
-                        md:w-9
-                        lg:h-10
-                        lg:w-10
-                        lg:rounded-xl
-                      "
-                    >
-                      <Icon
-                        className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
-                        aria-hidden="true"
-                      />
-                    </div>
+                  <div className="hero__card-heading">
 
-                    <h2 className="text-sm font-semibold md:text-base lg:text-lg">
-                      {title}
-                    </h2>
-                  </div>
+  {/* Icône */}
+  <div
+    className="
+      hero__card-icon
+      h-8
+      w-8
+      shrink-0
+      items-center
+      justify-center
+      rounded-lg
+      border
+      border-blue-500/30
+      text-blue-500
 
-                  <p className="mt-2 text-xs leading-snug text-slate-400 md:text-sm lg:text-base">
-                    {description}
-                  </p>
+      md:h-9
+      md:w-9
+
+      lg:h-10
+      lg:w-10
+      lg:rounded-xl
+    "
+  >
+    <Icon
+      className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
+      aria-hidden="true"
+    />
+  </div>
+
+  {/* Titre */}
+  <h2 className="hero__card-title font-semibold">
+    {title}
+  </h2>
+</div>
+
+{/* Description */}
+<p className="hero__card-description text-slate-400">
+  {description}
+</p>
                 </article>
               ))}
             </div>

@@ -126,21 +126,30 @@ export default function ServicesPreview() {
     aria-hidden="true"
   />
 
-  {/* Contenu */}
-  <div className="relative z-10 flex h-full flex-col justify-end p-4 lg:p-5">
-    <div className="flex items-center gap-3">
-      <Icon
-        className="h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7"
-        aria-hidden="true"
-      />
+<div className="service-card__content card-content-mobile relative z-10 flex h-full flex-col justify-end p-4 lg:p-5">
+  <div className="service-card__heading flex items-center gap-3">
+  <Icon
+    className="
+      service-card__icon
+      h-6
+      w-6
+      shrink-0
+      text-sky-500
+      lg:h-7
+      lg:w-7
+    "
+    aria-hidden="true"
+  />
 
-      <h3 className="text-white">{title}</h3>
-    </div>
+  <h3 className="service-card__title text-white">
+    {title}
+  </h3>
+</div>
 
-    <p className="mt-2 text-slate-300">
-      {description}
-    </p>
-  </div>
+<p className="service-card__description mt-2 text-slate-300">
+  {description}
+</p>
+</div>
 </article>
             ))}
           </div>
