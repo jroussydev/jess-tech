@@ -16,6 +16,7 @@ import RefonteSite from "./pages/services/RefonteSite"
 import MaintenanceSiteWeb from "./pages/services/MaintenanceSiteWeb.tsx"
 import DeveloppementSurMesure from "./pages/services/DeveloppementSurMesure.tsx"
 import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
+import DiagnosticTechnique from "./pages/services/DiagnosticTechnique.tsx";
 
 import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite.tsx"
 import MentionLegal from "./pages/legal/MentionLegal.tsx"
@@ -24,6 +25,7 @@ import Cgv from "./pages/legal/Cgv.tsx"
 import Localisation from "./pages/public/Localisation.tsx"
 import CityPage from "./pages/public/CityPage.tsx";
 import TarifsTransparents from "./pages/public/TarifsTransparents.tsx"
+
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
@@ -45,6 +47,7 @@ function App() {
         <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
         <Route path="/DeveloppementSurMesure" element={<DeveloppementSurMesure />} />
         <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />
+        <Route path="/DiagnosticTechnique" element={<DiagnosticTechnique />} />
 
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
         <Route path="/MentionLegal" element={<MentionLegal />} />
