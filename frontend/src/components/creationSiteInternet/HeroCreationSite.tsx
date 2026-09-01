@@ -14,7 +14,7 @@ const creationHighlights = [
     icon: LayoutTemplate,
   },
   {
-    title: "À partir de 490 €",
+    title: "À partir de 299 €",
     description:
       "Des formules avec un tarif défini dès le départ.",
     icon: BadgeEuro,

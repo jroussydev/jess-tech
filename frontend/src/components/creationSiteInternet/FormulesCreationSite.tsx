@@ -10,7 +10,7 @@ import {
 const formules = [
   {
     name: "Lite",
-    price: "490 €",
+    price: "299 €",
     title: "L’essentiel de votre activité sur une seule page.",
     icon: FileText,
     features: [
@@ -26,7 +26,7 @@ const formules = [
   },
   {
     name: "Essentiel",
-    price: "890 €",
+    price: "599 €",
     title: "Plusieurs pages pour entrer dans les détails.",
     icon: Layers3,
     features: [
@@ -43,7 +43,7 @@ const formules = [
   },
   {
     name: "Pro",
-    price: "1 290 €",
+    price: "999 €",
     title: "Pour un site qui a davantage à montrer.",
     icon: PanelsTopLeft,
     features: [
