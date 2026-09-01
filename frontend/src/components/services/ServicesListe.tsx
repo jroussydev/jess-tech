@@ -50,7 +50,7 @@ export default function ServicesListe() {
         "Outil métier, intranet ou extranet",
       ],
       prix: "À partir de 749 €",
-      link: "/DeveloppementWebSurMesure",
+      link: "/DeveloppementSurMesure",
       icon: CodeXml,
     },
     {
