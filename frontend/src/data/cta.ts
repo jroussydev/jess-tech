@@ -25,9 +25,9 @@ export const ctas: Record<CtaKey, Cta> = {
   },
 
   services: {
-    titre: "Vous ne savez pas quel service choisir ?",
+    titre: "Besoin d’un conseil ?",
     description:
-      "Décrivez simplement votre projet, votre besoin ou la difficulté rencontrée. Je vous aiderai à identifier la solution la plus adaptée.",
+      "Expliquez-moi votre situation et nous verrons ensemble quelle solution correspond le mieux à votre besoin.",
     bouton: "Expliquer moi",
     lien: "/contact",
   },
