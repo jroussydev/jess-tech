@@ -45,7 +45,7 @@ const besoins: Besoin[] = [
       "Développer une application, un espace utilisateur ou un outil adapté à mon projet.",
     service: "Développement web sur mesure",
     image: "/services/developpement-sur-mesure.png",
-    link: "/DeveloppementWebSurMesure",
+    link: "/DeveloppementSurMesure",
     icon: CodeXml,
   },
   {

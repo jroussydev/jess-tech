@@ -14,7 +14,7 @@ import DansLesCoulisses from "./pages/public/DansLesCoulisses.tsx"
 import CreationSiteInternet from "./pages/services/CreationSiteInternet"
 import RefonteSite from "./pages/services/RefonteSite"
 import MaintenanceSiteWeb from "./pages/services/MaintenanceSiteWeb.tsx"
-import DeveloppementWebSurMesure from "./pages/services/DeveloppementWebSurMesure.tsx"
+import DeveloppementSurMesure from "./pages/services/DeveloppementSurMesure.tsx"
 import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
 
 import PolitiqueDeConfidentialite from "./pages/legal/PolitiqueDeConfidentialite.tsx"
@@ -43,7 +43,7 @@ function App() {
         <Route path="/CreationSiteInternet" element={<CreationSiteInternet />} />
         <Route path="/RefonteSite" element={<RefonteSite />} />
         <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
-        <Route path="/DeveloppementWebSurMesure" element={<DeveloppementWebSurMesure />} />
+        <Route path="/DeveloppementSurMesure" element={<DeveloppementSurMesure />} />
         <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />
 
         <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />

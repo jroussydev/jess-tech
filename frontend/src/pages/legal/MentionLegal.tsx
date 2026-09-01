@@ -22,7 +22,7 @@ export default function MentionLegal() {
           <p>Entreprise individuelle</p>
 
           <p className="mt-4">
-            <strong>SIREN :</strong> XXX XXX XXX
+            <strong>SIREN :</strong> 802 112 854
           </p>
 
           <p>Localisation : Beaurieux, France</p>
