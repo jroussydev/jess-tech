@@ -12,6 +12,7 @@ import About from "./pages/public/About.tsx"
 import DansLesCoulisses from "./pages/public/DansLesCoulisses.tsx"
 
 import CreationSiteInternet from "./pages/services/CreationSiteInternet"
+import RefonteSite from "./pages/services/RefonteSite"
 import MaintenanceSiteWeb from "./pages/services/MaintenanceSiteWeb.tsx"
 import DeveloppementWebSurMesure from "./pages/services/DeveloppementWebSurMesure.tsx"
 import AssistanceTechnique from "./pages/services/AssistanceTechnique.tsx"
@@ -40,6 +41,7 @@ function App() {
         <Route path="/DansLesCoulisses" element={<DansLesCoulisses />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
         <Route path="/CreationSiteInternet" element={<CreationSiteInternet />} />
+        <Route path="/RefonteSite" element={<RefonteSite />} />
         <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
         <Route path="/DeveloppementWebSurMesure" element={<DeveloppementWebSurMesure />} />
         <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />

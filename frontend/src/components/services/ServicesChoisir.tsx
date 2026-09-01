@@ -36,7 +36,7 @@ const besoins: Besoin[] = [
       "Moderniser son apparence, améliorer sa structure ou l’adapter aux usages actuels.",
     service: "Refonte de site internet",
     image: "/services/refonte-de-site.png",
-    link: "/RefonteSiteInternet",
+    link: "/RefonteSite",
     icon: RefreshCw,
   },
   {

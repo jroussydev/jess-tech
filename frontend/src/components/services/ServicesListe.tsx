@@ -36,7 +36,7 @@ export default function ServicesListe() {
         "Migration ou optimisation technique",
       ],
       prix: "Sur devis",
-      link: "/RefonteSiteInternet",
+      link: "/RefonteSite",
       icon: RefreshCw,
     },
     {
