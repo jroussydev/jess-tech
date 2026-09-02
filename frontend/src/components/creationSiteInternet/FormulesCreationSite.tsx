@@ -69,21 +69,41 @@ const options = [
   "SEO avancé",
 ];
 
+const customItems = [
+  "Nombre de pages défini selon le projet",
+  "Fonctionnalités étudiées selon la demande",
+  "Contenus et visuels dimensionnés au devis",
+  "Cycles de modifications définis au devis",
+  "Délai établi selon le projet",
+  "Prise en main dimensionnée selon le besoin",
+];
+
 export default function FormulesCreationSite() {
   return (
     <section
       id="formules"
-      className="section-dark section-spacing"
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
     >
-      <div className="site-container">
-        {/* Introduction */}
-        <div className="section-intro">
+      <div className="site-container relative z-10">
+
+        {/* =====================================================
+            INTRODUCTION
+        ====================================================== */}
+
+        <div className="section-intro max-w-3xl">
           <p className="section-label">
             Les formules
           </p>
 
           <h2>
-            Choisissez jusqu’où vous voulez aller avec votre site.
+            Choisissez jusqu’où vous voulez aller avec{" "}
+            <span className="text-gradient-blue">
+              votre site
+            </span>
           </h2>
 
           <p>
@@ -93,207 +113,315 @@ export default function FormulesCreationSite() {
           </p>
         </div>
 
-        {/* Formules principales */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-3">
-          {formules.map((formule) => {
-            const Icon = formule.icon;
+        {/* =====================================================
+            ZONE FORMULES + DÉCORATIONS
+        ====================================================== */}
 
-            return (
-              <article
-                key={formule.name}
-                className="
-                  card-dark
-                  card-glow
-                  group
-                  flex
-                  h-full
-                  flex-col
-                "
-              >
-                {/* En-tête */}
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <p className="section-label">
-                      {formule.name}
-                    </p>
+        <div className="relative mt-10">
 
-                    <h3 className="mt-2">
-                      {formule.title}
-                    </h3>
-                  </div>
+          {/* Vague haut droite */}
+          <img
+            src="/decorations/vagues/15.png"
+            alt=""
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              -right-20
+              -top-28
+              z-0
+              hidden
+              h-auto
+              w-72
 
-                  <div
-                    className="
-                      flex
-                      h-11
-                      w-11
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-xl
-                      border
-                      border-blue-500/25
-                      text-blue-400
-                    "
-                  >
-                    <Icon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
+              lg:block
 
-                {/* Prix */}
-                <p className="mt-7 !text-3xl font-semibold !text-white">
-                  {formule.price}
-                </p>
+              xl:-right-28
+              xl:w-80
 
-                {/* Contenu */}
-                <ul className="mt-7 space-y-3">
-                  {formule.features.map((feature) => (
-                    <li
-                      key={feature}
-                      className="flex items-start gap-3 text-slate-300"
-                    >
-                      <Check
-                        className="mt-1 h-5 w-5 shrink-0 text-blue-400"
-                        aria-hidden="true"
-                      />
+              2xl:-right-36
+              2xl:w-96
+            "
+          />
 
-                      <span>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
+          {/* Vague bas gauche */}
+          <img
+            src="/decorations/vagues/16.png"
+            alt=""
+            aria-hidden="true"
+            className="
+              pointer-events-none
+              absolute
+              -bottom-28
+              -left-20
+              z-0
+              hidden
+              h-auto
+              w-72
 
-                {/* Délai */}
-                <div
+              lg:block
+
+              xl:-left-28
+              xl:w-80
+
+              2xl:-left-36
+              2xl:w-96
+            "
+          />
+
+          {/* =================================================
+              FORMULES PRINCIPALES
+          ================================================== */}
+
+          <div
+            className="
+              relative
+              z-10
+              grid
+              gap-4
+
+              md:grid-cols-2
+              xl:grid-cols-3
+            "
+          >
+            {formules.map((formule) => {
+              const Icon = formule.icon;
+
+              return (
+                <article
+                  key={formule.name}
                   className="
-                    mt-auto
-                    border-t
-                    border-blue-500/15
-                    pt-6
+                    card-dark
+                    card-glow
+                    group
+                    flex
+                    h-full
+                    flex-col
+                    !p-5
                   "
                 >
-                  <p className="!mt-0 !text-sm text-slate-400">
-                    Délai indicatif
-                  </p>
+                  {/* En-tête : icône + formule + prix */}
+<div className="flex items-center gap-3">
+  <Icon
+    className="
+      h-6
+      w-6
+      shrink-0
+      text-blue-400
+      transition-transform
+      duration-300
+      group-hover:scale-110
+    "
+    aria-hidden="true"
+  />
 
-                  <p className="!mt-1 font-semibold !text-white">
-                    {formule.delay}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
+  <h3
+    className="
+      !m-0
+      !text-lg
+      text-white
+      sm:!text-xl
+    "
+  >
+    {formule.name}
+  </h3>
 
-        {/* Options */}
-        <div
-          className="
-            mt-10
-            rounded-2xl
-            border
-            border-blue-500/20
-            bg-blue-500/5
-            p-6
-            md:p-8
-          "
-        >
-          <div className="flex items-start gap-4">
-            <Plus
-              className="mt-1 h-7 w-7 shrink-0 text-blue-400"
-              aria-hidden="true"
-            />
+  <span
+    className="
+      ml-auto
+      shrink-0
+      text-lg
+      font-semibold
+      text-blue-400
+      sm:text-xl
+    "
+  >
+    {formule.price}
+  </span>
+</div>
+
+{/* Présentation */}
+<p className="!mt-3 text-slate-200">
+  {formule.title}
+</p>
+
+                  {/* Prestations */}
+                  <ul className="mt-5 space-y-2">
+                    {formule.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="
+                          flex
+                          items-start
+                          gap-3
+                          text-slate-300
+                        "
+                      >
+                        <Check
+                          className="
+                            mt-1
+                            h-4
+                            w-4
+                            shrink-0
+                            text-blue-400
+                          "
+                          aria-hidden="true"
+                        />
+
+                        <span>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Délai */}
+<div
+  className="
+    mt-auto
+    border-t
+    border-blue-500/15
+    pt-4
+  "
+>
+  <p className="!m-0 !text-xs text-slate-400">
+    Délai indicatif
+  </p>
+
+  <p className="!mt-1 font-semibold text-slate-200">
+    {formule.delay}
+  </p>
+</div>
+                </article>
+              );
+            })}
+          </div>
+
+          {/* =================================================
+              CUSTOM
+          ================================================== */}
+
+          <div
+            className="
+              card-dark
+              card-glow
+              relative
+              z-10
+              mt-6
+              grid
+              gap-6
+              !p-5
+
+              lg:grid-cols-[0.8fr_1.2fr]
+              lg:items-center
+            "
+          >
+            <div>
+              <div className="flex items-center gap-3">
+                <Sparkles
+                  className="
+                    h-6
+                    w-6
+                    shrink-0
+                    text-blue-700
+                  "
+                  aria-hidden="true"
+                />
+
+                <h3 className="section-label !m-0 text-gradient-blue">
+                  Custom — Sur devis
+                </h3>
+              </div>
+
+              <p className="mt-3 text-slate-200">
+                Votre projet ne rentre pas dans une formule ?
+              </p>
+            </div>
 
             <div>
-              <h3>
-                Des options peuvent compléter votre formule.
-              </h3>
-
-              <p>
-                Vous avez besoin d’un élément qui n’est pas inclus dans votre
-                formule ? Des options peuvent être ajoutées au projet et
-                chiffrées en complément selon votre demande.
+              <p className=" text-slate-200">
+                Plus de pages, une structure particulière ou des besoins qui
+                dépassent les formules proposées ? Le projet peut être construit
+                à partir de votre demande et chiffré poste par poste.
               </p>
 
-              <div className="mt-5 flex flex-wrap gap-2">
-                {options.map((option) => (
-                  <span
-                    key={option}
-                    className="badge badge-primary"
+              <div
+                className="
+                  mt-4
+                  grid
+                  gap-x-6
+                  gap-y-2
+
+                  sm:grid-cols-2
+                "
+              >
+                {customItems.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3"
                   >
-                    {option}
-                  </span>
+                    <Check
+                      className="
+                        mt-1
+                        h-4
+                        w-4
+                        shrink-0
+                        text-blue-400
+                      "
+                      aria-hidden="true"
+                    />
+
+                    <span className="text-slate-300">
+                      {item}
+                    </span>
+                  </div>
                 ))}
               </div>
             </div>
           </div>
         </div>
 
-        {/* Custom */}
-        <div
-          className="
-            card-dark
-            card-glow
-            mt-8
-            grid
-            gap-8
-            lg:grid-cols-[1fr_1.4fr]
-            lg:items-center
-          "
-        >
-          <div>
-            <div className="flex items-center gap-4">
-              <Sparkles
-                className="h-8 w-8 text-blue-400"
-                aria-hidden="true"
-              />
+        {/* =====================================================
+            OPTIONS
+        ====================================================== */}
 
-              <p className="section-label !mb-0">
-                Custom — Sur devis
-              </p>
-            </div>
+        <div className="mx-auto mt-10 max-w-4xl text-center">
 
-            <h3 className="mt-5">
-              Votre projet ne rentre pas dans une formule ?
-            </h3>
-          </div>
+  <div className="flex items-center justify-center gap-3">
+    <Plus
+      className="
+        h-6
+        w-6
+        shrink-0
+        text-blue-400
+      "
+      aria-hidden="true"
+    />
 
-          <div>
-            <p className="!mt-0">
-              Plus de pages, une structure particulière ou des besoins qui
-              dépassent les formules proposées ? Le projet peut être construit
-              à partir de votre demande et chiffré poste par poste.
-            </p>
+    <h3>
+      Des options peuvent compléter votre formule.
+    </h3>
+  </div>
 
-            <div className="mt-6 grid gap-3 sm:grid-cols-2">
-              {[
-                "Nombre de pages défini selon le projet",
-                "Fonctionnalités étudiées selon la demande",
-                "Contenus et visuels dimensionnés au devis",
-                "Cycles de modifications définis au devis",
-                "Délai établi selon le projet",
-                "Prise en main dimensionnée selon le besoin",
-              ].map((item) => (
-                <div
-                  key={item}
-                  className="flex items-start gap-3"
-                >
-                  <Check
-                    className="mt-1 h-5 w-5 shrink-0 text-blue-400"
-                    aria-hidden="true"
-                  />
+  <p className="mx-auto max-w-3xl">
+    Vous avez besoin d’un élément qui n’est pas inclus dans votre
+    formule ? Des options peuvent être ajoutées au projet et chiffrées
+    en complément selon votre demande.
+  </p>
 
-                  <span className="text-slate-300">
-                    {item}
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+  <div className="mt-4 flex flex-wrap justify-center gap-2">
+    {options.map((option) => (
+      <span
+        key={option}
+        className="badge badge-primary !text-blue-400"
+      >
+        {option}
+      </span>
+    ))}
+  </div>
+
+</div>
+
       </div>
     </section>
   );

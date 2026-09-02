@@ -2,14 +2,10 @@ import {
   FileText,
   Files,
   PanelsTopLeft,
-  ArrowRight,
-  ArrowDown,
-  MessageCircle,
 } from "lucide-react";
 
 const typesSite = [
   {
-    number: "01",
     title: "One Page",
     subtitle: "Une seule page",
     description:
@@ -17,7 +13,6 @@ const typesSite = [
     icon: FileText,
   },
   {
-    number: "02",
     title: "Site vitrine",
     subtitle: "Plusieurs pages",
     description:
@@ -25,7 +20,6 @@ const typesSite = [
     icon: Files,
   },
   {
-    number: "03",
     title: "Projet plus complet",
     subtitle: "Une structure plus importante",
     description:
@@ -38,111 +32,85 @@ export default function TypeSiteCreation() {
   return (
     <section className="section-light section-spacing">
       <div className="site-container">
+
         {/* Introduction */}
-        <div className="section-intro">
+        <div className="section-intro max-w-3xl">
           <p className="section-label">
             Votre projet
           </p>
 
           <h2>
-            Quel site pour votre projet ?
-          </h2>
+  Quel site pour{" "}
+  <span className="text-gradient-blue">
+    votre projet
+  </span>{" "}
+  ?
+</h2>
         </div>
 
-        {/* Parcours */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-center">
-          {typesSite.map((type, index) => {
+        {/* Types de site */}
+        <div
+          className="
+            mt-8
+            grid
+            grid-cols-1
+            gap-4
+
+            sm:grid-cols-3
+          "
+        >
+          {typesSite.map((type) => {
             const Icon = type.icon;
 
             return (
-              <div
-                key={type.number}
-                className="contents"
+              <article
+                key={type.title}
+                className="
+                  group
+                  min-w-0
+
+                  border-b
+                  border-sky-500/20
+                  pb-5
+
+                  sm:border-b-0
+                  sm:border-r
+                  sm:pr-5
+
+                  sm:last:border-r-0
+                  sm:last:pr-0
+                "
               >
-                {/* Type de site */}
-                <article className="relative">
-                  <div className="mb-5 flex items-center gap-4">
-                    <div
-                      className="
-                        flex
-                        h-12
-                        w-12
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-2xl
-                        border
-                        border-blue-500/25
-                        bg-blue-500/5
-                        text-blue-500
-                      "
-                    >
-                      <Icon
-                        className="h-6 w-6"
-                        aria-hidden="true"
-                      />
-                    </div>
+                {/* Icône + sous-titre */}
+                <div className="flex items-center gap-3">
+                  <Icon
+                    className="
+                      h-7
+                      w-7
+                      shrink-0
+                      text-sky-500
+                      transition-transform
+                      duration-300
+                      group-hover:scale-110
+                    "
+                    aria-hidden="true"
+                  />
 
-                    <span className="font-semibold text-blue-500">
-                      {type.number}
-                    </span>
-                  </div>
-
-                  <p className="section-label">
+                  <p className="section-label !m-0">
                     {type.subtitle}
                   </p>
+                </div>
 
-                  <h3>
-                    {type.title}
-                  </h3>
+                {/* Titre */}
+                <h3 className="mt-3 text-slate-950">
+                  {type.title}
+                </h3>
 
-                  <p>
-                    {type.description}
-                  </p>
-                </article>
-
-                {/* Flèche entre les étapes */}
-                {index < typesSite.length - 1 && (
-                  <>
-                    {/* Mobile / tablette */}
-                    <div
-                      className="
-                        flex
-                        justify-center
-                        py-2
-                        text-blue-500
-                        lg:hidden
-                      "
-                      aria-hidden="true"
-                    >
-                      <ArrowDown className="h-8 w-8 animate-bounce" />
-                    </div>
-
-                    {/* Desktop */}
-                    <div
-                      className="
-                        hidden
-                        items-center
-                        justify-center
-                        px-3
-                        text-blue-500
-                        lg:flex
-                      "
-                      aria-hidden="true"
-                    >
-                      <ArrowRight
-                        className="
-                          h-9
-                          w-9
-                          transition-transform
-                          duration-500
-                          hover:translate-x-2
-                        "
-                      />
-                    </div>
-                  </>
-                )}
-              </div>
+                {/* Description */}
+                <p className="mt-3 text-slate-600">
+                  {type.description}
+                </p>
+              </article>
             );
           })}
         </div>
@@ -150,28 +118,22 @@ export default function TypeSiteCreation() {
         {/* Aide au choix */}
         <div
           className="
-            mt-14
-            flex
-            items-start
-            gap-4
-            border-l-2
-            border-blue-500
-            pl-5
+            mx-auto
+            mt-10
+            max-w-3xl
+            text-center
           "
         >
-          <MessageCircle
-            className="mt-1 h-6 w-6 shrink-0 text-blue-500"
-            aria-hidden="true"
-          />
-
-          <p className="!mt-0 max-w-3xl">
+          <p className="!m-0">
             <strong>
               Vous ne savez pas quel type de site choisir ?
-            </strong>{" "}
+            </strong>
+            <br />
             Nous pouvons le déterminer ensemble à partir de ce que vous
             souhaitez mettre en avant.
           </p>
         </div>
+
       </div>
     </section>
   );

@@ -44,6 +44,7 @@ export default function PossibilitesCreationSite() {
     <section className="section-light section-spacing">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
+
           {/* Introduction */}
           <div className="section-intro lg:sticky lg:top-28 lg:self-start">
             <p className="section-label">
@@ -51,7 +52,10 @@ export default function PossibilitesCreationSite() {
             </p>
 
             <h2>
-              Que souhaitez-vous montrer à vos visiteurs ?
+              Que souhaitez-vous montrer à{" "}
+              <span className="text-gradient-blue">
+                vos visiteurs ?
+              </span>
             </h2>
 
             <p>
@@ -68,70 +72,49 @@ export default function PossibilitesCreationSite() {
 
           {/* Possibilités */}
           <div className="divide-y divide-slate-200">
-            {possibilites.map(({ title, description, icon: Icon }, index) => (
+            {possibilites.map(({ title, description, icon: Icon }) => (
               <article
                 key={title}
                 className="
                   group
-                  grid
+                  flex
+                  items-start
                   gap-4
-                  py-7
+                  py-6
                   first:pt-0
                   last:pb-0
-                  sm:grid-cols-[auto_1fr]
-                  sm:gap-6
                 "
               >
-                {/* Numéro + icône */}
-                <div className="flex items-center gap-4 sm:items-start">
-                  <span
-                    className="
-                      min-w-7
-                      font-semibold
-                      text-blue-500/60
-                    "
-                  >
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
-
-                  <div
-                    className="
-                      flex
-                      h-11
-                      w-11
-                      shrink-0
-                      items-center
-                      justify-center
-                      rounded-xl
-                      border
-                      border-blue-500/20
-                      bg-blue-500/5
-                      text-blue-500
-                      transition-transform
-                      duration-300
-                      group-hover:scale-110
-                    "
-                  >
-                    <Icon
-                      className="h-6 w-6"
-                      aria-hidden="true"
-                    />
-                  </div>
-                </div>
+                {/* Icône */}
+                <Icon
+                  className="
+                    mt-1
+                    h-6
+                    w-6
+                    shrink-0
+                    text-blue-500
+                    transition-all
+                    duration-300
+                    group-hover:scale-110
+                    group-hover:text-blue-600
+                  "
+                  aria-hidden="true"
+                />
 
                 {/* Texte */}
-                <div>
+                <div className="min-w-0">
                   <h3>
                     {title}
                   </h3>
 
-                  <p>
+                  <p className="!mt-2">
                     {description}
                   </p>
                 </div>
               </article>
             ))}
           </div>
+
         </div>
       </div>
     </section>

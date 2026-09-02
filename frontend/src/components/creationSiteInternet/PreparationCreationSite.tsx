@@ -3,33 +3,28 @@ import {
   Images,
   Palette,
   Globe2,
-  CheckCircle2,
 } from "lucide-react";
 
 const preparationItems = [
   {
-    number: "01",
     title: "Vos textes",
     description:
       "Présentation de votre activité, services, coordonnées et autres informations à intégrer. Les petites corrections d’orthographe, de présentation ou de fluidité peuvent être réalisées lors de l’intégration. Une rédaction ou une réécriture importante constitue un travail supplémentaire.",
     icon: FileText,
   },
   {
-    number: "02",
     title: "Vos visuels",
     description:
       "Logo, photos de votre activité, réalisations ou autres images que vous souhaitez utiliser. Leur préparation, leur recherche ou leur création dépend de la formule choisie et des éléments prévus dans la prestation.",
     icon: Images,
   },
   {
-    number: "03",
     title: "Votre identité",
     description:
       "Si vous avez déjà un logo, des couleurs ou une identité visuelle, ils servent de base à la création. Si ce n’est pas encore le cas, nous faisons le point sur les éléments disponibles avant de démarrer.",
     icon: Palette,
   },
   {
-    number: "04",
     title: "Nom de domaine et hébergement",
     description:
       "Vous n’avez encore ni nom de domaine ni hébergement ? Ce n’est pas bloquant. Je peux vous accompagner dans leur choix et leur mise en place. Les abonnements et services souscrits restent à votre charge.",
@@ -42,6 +37,7 @@ export default function PreparationCreationSite() {
     <section className="section-dark section-spacing">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+
           {/* Introduction */}
           <div className="section-intro">
             <p className="section-label">
@@ -49,7 +45,10 @@ export default function PreparationCreationSite() {
             </p>
 
             <h2>
-              Ce qu’il faut pour démarrer votre site.
+              Ce qu’il faut pour démarrer{" "}
+              <span className="text-gradient-blue">
+                votre site
+              </span>
             </h2>
 
             <p>
@@ -63,9 +62,9 @@ export default function PreparationCreationSite() {
           {/* Checklist */}
           <div>
             {preparationItems.map(
-              ({ number, title, description, icon: Icon }, index) => (
+              ({ title, description, icon: Icon }, index) => (
                 <article
-                  key={number}
+                  key={title}
                   className="
                     group
                     relative
@@ -99,7 +98,13 @@ export default function PreparationCreationSite() {
                       "
                     >
                       <Icon
-                        className="h-6 w-6"
+                        className="
+                          h-6
+                          w-6
+                          transition-transform
+                          duration-300
+                          group-hover:scale-110
+                        "
                         aria-hidden="true"
                       />
                     </div>
@@ -122,15 +127,9 @@ export default function PreparationCreationSite() {
 
                   {/* Contenu */}
                   <div className="pb-1">
-                    <div className="flex flex-wrap items-center gap-3">
-                      <span className="font-semibold text-blue-400">
-                        {number}
-                      </span>
-
-                      <h3 className="!mt-0">
-                        {title}
-                      </h3>
-                    </div>
+                    <h3 className="!mt-0">
+                      {title}
+                    </h3>
 
                     <p>
                       {description}
@@ -145,29 +144,22 @@ export default function PreparationCreationSite() {
         {/* Message de fin */}
         <div
           className="
+            mx-auto
             mt-12
-            flex
-            max-w-4xl
-            items-start
-            gap-4
-            border-l-2
-            border-blue-500
-            pl-5
+            max-w-3xl
+            text-center
           "
         >
-          <CheckCircle2
-            className="mt-1 h-6 w-6 shrink-0 text-blue-400"
-            aria-hidden="true"
-          />
+          <h3>
+            Il vous manque certains éléments ?
+          </h3>
 
-          <p className="!mt-0 text-slate-300">
-            <strong className="text-white">
-              Il vous manque certains éléments ?
-            </strong>{" "}
+          <p className="mx-auto max-w-2xl text-slate-300">
             Dites-moi simplement ce que vous avez déjà. Nous verrons ce qu’il
             reste à préparer avant le démarrage.
           </p>
         </div>
+
       </div>
     </section>
   );
