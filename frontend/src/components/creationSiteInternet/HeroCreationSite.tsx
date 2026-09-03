@@ -29,7 +29,7 @@ const creationHighlights = [
 
 export default function HeroCreationSite() {
   return (
-    <section className="hero section-dark">
+    <section className="hero">
       {/* =====================================================
           VISUEL MOBILE / TABLETTE
       ====================================================== */}

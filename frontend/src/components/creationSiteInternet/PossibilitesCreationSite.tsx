@@ -41,7 +41,7 @@ const possibilites = [
 
 export default function PossibilitesCreationSite() {
   return (
-    <section className="section-light section-spacing">
+    <section className="section-light section-fade-light-soft section-spacing">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
 

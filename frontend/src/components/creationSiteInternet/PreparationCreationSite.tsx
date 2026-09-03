@@ -34,7 +34,7 @@ const preparationItems = [
 
 export default function PreparationCreationSite() {
   return (
-    <section className="section-dark section-spacing">
+    <section className="section-dark section-fade-dark-soft section-spacing">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
 

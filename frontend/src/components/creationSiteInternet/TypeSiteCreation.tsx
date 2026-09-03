@@ -30,7 +30,7 @@ const typesSite = [
 
 export default function TypeSiteCreation() {
   return (
-    <section className="section-light section-spacing">
+    <section className="section-light section-fade-light-soft section-spacing">
       <div className="site-container">
 
         {/* Introduction */}
