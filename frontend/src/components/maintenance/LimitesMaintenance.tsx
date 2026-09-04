@@ -1,56 +1,123 @@
-import { RefreshCw, TrendingUp } from "lucide-react";
+import {
+  RefreshCw,
+  TrendingUp,
+} from "lucide-react";
+
+const limites = [
+  {
+    label: "Entretenir",
+    title: "Maintenir ce qui existe",
+    description:
+      "La maintenance couvre les opérations prévues pour conserver le site en état, vérifier son fonctionnement et intervenir sur les éléments inclus dans la formule.",
+    icon: RefreshCw,
+  },
+  {
+    label: "Faire évoluer",
+    title: "Ajouter ou transformer",
+    description:
+      "Ajouter une page, créer une nouvelle fonctionnalité ou modifier plus largement le fonctionnement du site correspond à une évolution distincte de la maintenance.",
+    icon: TrendingUp,
+  },
+];
 
 export default function LimitesMaintenance() {
   return (
-    <section className="section-dark section-spacing">
+    <section className="section-dark section-fade-dark-soft section-spacing">
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">Périmètre</p>
-          <h2>Maintenance ≠ évolution du site</h2>
+
+        {/* Introduction */}
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            Périmètre
+          </p>
+
+          <h2>
+            Entretenir votre site ne veut pas dire{" "}
+            <span className="text-gradient-blue">
+              le transformer
+            </span>
+          </h2>
 
           <p>
-            Entretenir un site et lui ajouter de nouvelles possibilités sont
-            deux types d’intervention différents.
+            La maintenance permet de suivre ce qui existe déjà. Les nouvelles
+            pages, fonctionnalités ou transformations importantes sont des
+            évolutions étudiées séparément.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 lg:grid-cols-2">
-          <article className="card-dark">
-            <RefreshCw
-              className="h-8 w-8 text-blue-400"
-              aria-hidden="true"
-            />
+        {/* Comparaison */}
+        <div
+          className="
+            mt-10
+            grid
+            gap-6
 
-            <p className="section-label mt-5">Entretenir</p>
-            <h3 className="mt-2">Maintenir ce qui existe</h3>
+            md:grid-cols-2
+          "
+        >
+          {limites.map(({ label, title, description, icon: Icon }) => (
+            <article
+              key={title}
+              className="
+                group
+                min-w-0
 
-            <p className="mt-4">
-              Maintenir le site, effectuer les opérations prévues et intervenir
-              sur les éléments couverts par la formule.
-            </p>
-          </article>
+                border-b
+                border-blue-500/20
+                pb-6
 
-          <article className="card-dark">
-            <TrendingUp
-              className="h-8 w-8 text-blue-400"
-              aria-hidden="true"
-            />
+                md:border-b-0
+                md:border-r
+                md:pr-8
 
-            <p className="section-label mt-5">Faire évoluer</p>
-            <h3 className="mt-2">Ajouter ou transformer</h3>
+                md:last:border-r-0
+                md:last:pr-0
+              "
+            >
+              {/* Icône + label */}
+              <div className="flex items-center gap-3">
+                <Icon
+                  className="
+                    h-7
+                    w-7
+                    shrink-0
+                    text-blue-400
+                    transition-transform
+                    duration-300
+                    group-hover:scale-110
+                  "
+                  aria-hidden="true"
+                />
 
-            <p className="mt-4">
-              Ajouter une page, créer une nouvelle fonctionnalité ou modifier
-              plus largement le fonctionnement du site.
-            </p>
-          </article>
+                <p className="section-label !m-0">
+                  {label}
+                </p>
+              </div>
+
+              {/* Contenu */}
+              <h3 className="mt-3">
+                {title}
+              </h3>
+
+              <p className="mt-3 text-slate-300">
+                {description}
+              </p>
+            </article>
+          ))}
         </div>
 
-        <p className="mt-8 max-w-4xl">
-          Un site sous maintenance peut bien sûr évoluer. Les demandes qui
-          sortent du périmètre de la formule sont simplement étudiées
-          séparément.
-        </p>
+        {/* Message de fin */}
+        <div className="mx-auto mt-10 max-w-3xl text-center">
+          <p className="!m-0 text-slate-300">
+            <strong className="text-white">
+              Votre site peut bien sûr continuer à évoluer.
+            </strong>
+            <br />
+            Les demandes qui sortent du périmètre de la maintenance sont
+            simplement étudiées et chiffrées séparément.
+          </p>
+        </div>
+
       </div>
     </section>
   );

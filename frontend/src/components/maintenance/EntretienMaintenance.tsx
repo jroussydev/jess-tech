@@ -34,27 +34,78 @@ const elements = [
 
 export default function EntretienMaintenance() {
   return (
-    <section className="section-light section-spacing">
+    <section className="section-light section-fade-light-soft section-spacing">
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">Dans le temps</p>
-          <h2>Ce qui continue de vivre après la mise en ligne</h2>
-        </div>
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-16">
 
-        <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
-          {elements.map(({ title, description, icon: Icon }) => (
-            <article key={title} className="flex gap-4">
-              <Icon
-                className="mt-1 h-7 w-7 shrink-0 text-blue-500"
-                aria-hidden="true"
-              />
+          {/* Introduction */}
+          <div className="section-intro">
+            <p className="section-label">
+              Dans le temps
+            </p>
 
-              <div>
-                <h3>{title}</h3>
-                <p className="mt-2">{description}</p>
-              </div>
-            </article>
-          ))}
+            <h2>
+              Ce qui continue de vivre{" "}
+              <span className="text-gradient-blue">
+                après la mise en ligne
+              </span>
+            </h2>
+
+            <p>
+              Même une fois terminé, un site continue d’évoluer techniquement.
+              Certains éléments doivent être entretenus, vérifiés ou
+              sauvegardés afin de conserver un environnement correctement
+              suivi.
+            </p>
+
+            <p className="mt-5 !text-sm text-slate-500">
+              Le niveau de suivi dépend de la formule de maintenance choisie.
+            </p>
+          </div>
+
+          {/* Éléments suivis */}
+          <div className="divide-y divide-slate-200">
+            {elements.map(({ title, description, icon: Icon }) => (
+              <article
+                key={title}
+                className="
+                  group
+                  flex
+                  items-start
+                  gap-4
+                  py-6
+                  first:pt-0
+                  last:pb-0
+                "
+              >
+                <Icon
+                  className="
+                    mt-1
+                    h-6
+                    w-6
+                    shrink-0
+                    text-blue-500
+                    transition-all
+                    duration-300
+                    group-hover:scale-110
+                    group-hover:text-blue-600
+                  "
+                  aria-hidden="true"
+                />
+
+                <div className="min-w-0">
+                  <h3>
+                    {title}
+                  </h3>
+
+                  <p className="!mt-2">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+
         </div>
       </div>
     </section>

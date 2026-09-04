@@ -44,68 +44,107 @@ const interventions = [
   },
 ];
 
-const banques = [
-  { duration: "2 heures", price: "49 €" },
-  { duration: "5 heures", price: "129 €" },
-  { duration: "10 heures", price: "249 €" },
-];
-
 export default function InterventionsMaintenance() {
   return (
-    <section className="section-light section-spacing">
+    <section className="section-light section-fade-light-soft section-spacing">
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">Sans abonnement</p>
-          <h2>Pas besoin d’un abonnement pour une intervention ponctuelle</h2>
+
+        {/* Introduction */}
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            À la demande
+          </p>
+
+          <h2>
+            Besoin d’une{" "}
+            <span className="text-gradient-blue">
+              intervention précise ?
+            </span>
+          </h2>
 
           <p>
-            Certaines opérations peuvent être réalisées uniquement lorsqu’elles
-            deviennent nécessaires.
+            Certaines opérations peuvent être réalisées individuellement,
+            sans abonnement ni banque d’heures.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+        {/* Prestations */}
+        <div
+          className="
+            mt-10
+            grid
+            gap-4
+
+            md:grid-cols-2
+            xl:grid-cols-3
+          "
+        >
           {interventions.map(
             ({ title, description, price, icon: Icon }) => (
-              <article key={title} className="card-light">
-                <Icon
-                  className="h-7 w-7 text-blue-500"
-                  aria-hidden="true"
-                />
+              <article
+                key={title}
+                className="
+                  card-dark
+                  card-glow
+                  group
+                  flex
+                  h-full
+                  flex-col
+                  !p-5
+                "
+              >
+                {/* Icône + titre */}
+                <div className="flex items-center gap-3">
+                  <Icon
+                    className="
+                      h-6
+                      w-6
+                      shrink-0
+                      text-blue-400
+                      transition-transform
+                      duration-300
+                      group-hover:scale-110
+                    "
+                    aria-hidden="true"
+                  />
 
-                <h3 className="mt-4">{title}</h3>
-                <p className="mt-3">{description}</p>
+                  <h3 className="!m-0 !text-lg text-white sm:!text-xl">
+                    {title}
+                  </h3>
+                </div>
 
-                <p className="mt-5 font-bold">{price}</p>
+                {/* Description */}
+                <p className="!mt-3 text-slate-300">
+                  {description}
+                </p>
+
+                {/* Prix */}
+                <div
+                  className="
+                    mt-auto
+                    border-t
+                    border-blue-500/15
+                    pt-4
+                  "
+                >
+                  <p
+                    className="
+                      !m-0
+                      text-lg
+                      font-semibold
+                      text-blue-400
+
+                      sm:text-xl
+                    "
+                  >
+                    {price}
+                  </p>
+                </div>
               </article>
             ),
           )}
         </div>
 
-        <div className="mt-14">
-          <div className="max-w-3xl">
-            <p className="section-label">Banques d’heures</p>
-            <h2>Plusieurs petites interventions à prévoir ?</h2>
-
-            <p className="mt-4">
-              Une banque d’heures permet de disposer d’un volume de temps pour
-              plusieurs interventions sans souscrire un abonnement mensuel.
-            </p>
-          </div>
-
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {banques.map(({ duration, price }) => (
-              <article
-                key={duration}
-                className="card-light text-center"
-              >
-                <p className="font-semibold">{duration}</p>
-                <p className="mt-2 text-2xl font-bold">{price}</p>
-                <p className="mt-2 text-sm">Valable 12 mois</p>
-              </article>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
