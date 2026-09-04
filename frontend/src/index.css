@@ -1210,3 +1210,323 @@
       leading-5;
   }
 }
+
+/* ==========================================================
+   GlobalInfoBulle
+   ========================================================== */
+
+@property --info-reveal {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 100%;
+}
+
+@property --info-dissolve {
+  syntax: "<percentage>";
+  inherits: false;
+  initial-value: 0%;
+}
+
+/* ---------- Wrapper ---------- */
+
+.info-bulle-wrapper {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  z-index: 30;
+}
+
+/* ---------- Déclencheur ---------- */
+
+.info-bulle-trigger {
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  width: 64px;
+  height: 64px;
+
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+  z-index: 40;
+}
+
+@media (min-width: 640px) {
+  .info-bulle-trigger {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.info-bulle-trigger-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+
+  transform: scaleX(-1);
+}
+
+/* ---------- Carte ---------- */
+
+.info-bulle-card {
+  position: absolute;
+  top: 0;
+  right: 72px;
+
+  width: min(75vw, 34rem);
+
+  padding: 1rem 1.25rem;
+
+  border-radius: 1rem;
+
+  transform-origin: right center;
+
+  will-change:
+    transform,
+    opacity,
+    mask-image,
+    -webkit-mask-image;
+}
+
+@media (min-width: 640px) {
+  .info-bulle-card {
+    right: 88px;
+  }
+}
+
+/* ---------- Couleurs ---------- */
+
+.info-bulle-dark {
+  background: #020817;
+  color: #f8fafc;
+
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+.info-bulle-light {
+  background: #ffffff;
+  color: #0f172a;
+
+  border: 1px solid rgba(148, 163, 184, 0.45);
+}
+
+/* ---------- Texte ---------- */
+
+.info-bulle-title {
+  margin: 0 0 0.4rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.info-bulle-content {
+  line-height: 1.55;
+}
+
+/* ==========================================================
+   Ouverture
+   La carte se dévoile depuis la bulle,
+   donc de droite vers la gauche.
+   ========================================================== */
+
+.info-bulle-card.is-opening {
+  --info-reveal: 100%;
+
+  opacity: 1;
+  pointer-events: none;
+
+  animation:
+    info-bulle-reveal
+    1100ms
+    linear
+    forwards;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(var(--info-reveal) - 8%),
+    black var(--info-reveal),
+    black 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent calc(var(--info-reveal) - 8%),
+    black var(--info-reveal),
+    black 100%
+  );
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+@keyframes info-bulle-reveal {
+  from {
+    --info-reveal: 100%;
+  }
+
+  to {
+    --info-reveal: 8%;
+  }
+}
+
+/* ---------- Carte ouverte ---------- */
+
+.info-bulle-card.is-open {
+  opacity: 1;
+
+  -webkit-mask-image: none;
+  mask-image: none;
+}
+
+/* ==========================================================
+   Fermeture
+   La carte retourne vers la bulle, donc gauche -> droite.
+   ========================================================== */
+
+.info-bulle-card.is-dissolving {
+  --info-dissolve: 0%;
+
+  opacity: 1;
+  pointer-events: none;
+
+  animation:
+    info-bulle-dissolve
+    1000ms
+    linear
+    forwards;
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent var(--info-dissolve),
+    black calc(var(--info-dissolve) + 8%),
+    black 100%
+  );
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    transparent var(--info-dissolve),
+    black calc(var(--info-dissolve) + 8%),
+    black 100%
+  );
+
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
+
+@keyframes info-bulle-dissolve {
+  from {
+    --info-dissolve: 0%;
+  }
+
+  to {
+    --info-dissolve: 110%;
+  }
+}
+
+/* ---------- Accessibilité ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .info-bulle-card {
+    animation: none !important;
+    transition: none !important;
+    mask-image: none !important;
+    -webkit-mask-image: none !important;
+  }
+}
+
+/* ---------- Couleurs ---------- */
+
+/* Bulle sombre sur section claire */
+.info-bulle-dark {
+  background: #020817;
+  color: #f8fafc;
+
+  border: 1px solid rgba(59, 130, 246, 0.35);
+}
+
+/* Bulle claire sur section sombre */
+.info-bulle-light {
+  background: #ffffff;
+  color: #1e293b;
+
+  border: 1px solid rgba(59, 130, 246, 0.4);
+}
+
+
+/* ---------- Texte ---------- */
+
+.info-bulle-title {
+  margin: 0 0 0.4rem;
+
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+
+
+/* ---------- Contenu ---------- */
+
+.info-bulle-content {
+  line-height: 1.55;
+}
+
+/* On écrase aussi les styles globaux des <p> */
+.info-bulle-dark .info-bulle-content,
+.info-bulle-dark .info-bulle-content p {
+  color: #cbd5e1;
+}
+
+.info-bulle-light .info-bulle-content,
+.info-bulle-light .info-bulle-content p {
+  color: #334155;
+}
+
+@media (max-width: 639px) {
+  .info-bulle-section {
+    transition: padding-top 300ms ease;
+  }
+
+@media (max-width: 639px) {
+  .info-bulle-section.has-info-bulle-open
+  .info-bulle-wrapper {
+    position: relative;
+
+    top: auto;
+    right: auto;
+
+    display: flex;
+    justify-content: flex-end;
+
+    width: 100%;
+    height: 8rem;
+
+    margin-bottom: 1rem;
+  }
+
+  .info-bulle-section.has-info-bulle-open
+  .info-bulle-card {
+    top: 0;
+    right: 58px;
+  }
+
+  .info-bulle-section.has-info-bulle-open
+  .info-bulle-trigger {
+    top: 0;
+    right: 0;
+  }
+}
+}

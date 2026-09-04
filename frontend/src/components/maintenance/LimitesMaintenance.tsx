@@ -1,3 +1,5 @@
+import GlobalInfoBulle from "../info/GlobalInfoBulle";
+import { infoBulles } from "../../data/infoBulle";
 import {
   RefreshCw,
   TrendingUp,
@@ -22,8 +24,25 @@ const limites = [
 
 export default function LimitesMaintenance() {
   return (
-    <section className="section-dark section-fade-dark-soft section-spacing">
+    <section className="section-dark section-fade-dark-soft section-spacing info-bulle-section">
+              <div className="site-container">
+  <div className="relative">
+
+    <GlobalInfoBulle
+      section="dark"
+      title={infoBulles.limitesMaintenance.title}
+    >
+      <p className="!m-0">
+        {infoBulles.limitesMaintenance.content}
+      </p>
+    </GlobalInfoBulle>
+
+    {/* Tout le contenu actuel de LimitesMaintenance */}
+
+  </div>
+</div>
       <div className="site-container">
+
 
         {/* Introduction */}
         <div className="section-intro max-w-3xl">
