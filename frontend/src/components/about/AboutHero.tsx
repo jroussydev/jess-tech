@@ -76,7 +76,7 @@ export default function AboutHero() {
         <div className="hero__layout">
           <div className="hero__content">
             {/* Introduction */}
-            <p className="hero__label">
+            <p className="section-label">
               À propos
             </p>
 

@@ -51,9 +51,9 @@ export default function Hero() {
         <div className="hero__layout">
           <div className="hero__content">
             {/* Badge */}
-            <span className="badge badge-primary uppercase tracking-wide">
+            <p className="section-label">
               Jess Tech
-            </span>
+            </p>
 
             {/* Titre */}
 <h1 className="hero__title mt-6">

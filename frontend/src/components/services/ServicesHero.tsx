@@ -39,7 +39,7 @@ export default function ServicesHero() {
       <div className="hero__container">
         <div className="hero__layout">
           <div className="hero__content">
-            <p className="hero__label">
+            <p className="section-label">
               Services
             </p>
 

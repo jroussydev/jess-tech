@@ -68,9 +68,9 @@ export default function HeroMaintenance() {
         <div className="hero__layout">
           <div className="hero__content">
             {/* Badge */}
-            <span className="badge badge-primary uppercase tracking-wide">
+            <p className="section-label">
               Maintenance de site web
-            </span>
+            </p>
 
             {/* Titre */}
             <h1 className="hero__title mt-6">

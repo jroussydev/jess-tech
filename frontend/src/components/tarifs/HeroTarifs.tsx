@@ -19,7 +19,7 @@ export default function HeroTarifs() {
           <div className="hero__content">
 
             {/* Label */}
-            <p className="hero__label">
+            <p className="section-label">
               Tarifs transparents
             </p>
 

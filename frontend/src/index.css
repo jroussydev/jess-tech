@@ -218,6 +218,38 @@
     #020817;
 }
 
+/* =========================
+   FONDU SOMBRE
+   Haut + bas combinés
+========================== */
+
+.section-fade-dark-soft.section-fade-dark-bottom {
+  background:
+    /* Fondu du haut : clair -> sombre */
+    linear-gradient(
+      to bottom,
+      #F5F7FC 0px,
+      rgba(245, 247, 252, 0.45) 10px,
+      rgba(245, 247, 252, 0.15) 22px,
+      rgba(245, 247, 252, 0) 40px
+    ),
+
+    /* Fondu du bas : sombre -> clair */
+    linear-gradient(
+      to bottom,
+      rgba(245, 247, 252, 0) calc(100% - 70px),
+      rgba(245, 247, 252, 0.02) calc(100% - 52px),
+      rgba(245, 247, 252, 0.06) calc(100% - 38px),
+      rgba(245, 247, 252, 0.13) calc(100% - 27px),
+      rgba(245, 247, 252, 0.25) calc(100% - 18px),
+      rgba(245, 247, 252, 0.45) calc(100% - 10px),
+      rgba(245, 247, 252, 0.72) calc(100% - 4px),
+      #F5F7FC 100%
+    ),
+
+    #020817;
+}
+
   /*
    * Léger fondu sombre en haut des sections claires.
    * Il aide notamment à raccorder les sections situées

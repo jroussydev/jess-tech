@@ -119,7 +119,7 @@ export default function DansLesCoulisses() {
       {/* =====================================================
           PROJETS
       ====================================================== */}
-      <section className="section-dark section-fade-dark-soft section-spacing">
+      <section className="section-dark section-fade-dark-soft section-spacing section-fade-dark-bottom">
         <div className="site-container">
           <div className="section-intro mb-10 max-w-4xl md:mb-12">
             <p className="section-label">
@@ -142,7 +142,7 @@ export default function DansLesCoulisses() {
             Desktop xl :
             35 % liste / 65 % détails.
           */}
-          <div className="grid min-w-0 items-start gap-8 xl:grid-cols-[35%_65%]">
+          <div className="grid min-w-0 items-start gap-8 xl:grid-cols-[35%_65%] mb-20">
             <div className="min-w-0">
               <ProjectList
                 projects={internalProjects}

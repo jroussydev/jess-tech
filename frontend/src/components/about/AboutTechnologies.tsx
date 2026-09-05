@@ -53,6 +53,7 @@ const AboutTechnologies = () => {
       className="
         section-dark
         section-fade-dark-soft
+        section-fade-dark-bottom
         section-spacing
       "
     >

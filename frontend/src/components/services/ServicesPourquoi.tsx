@@ -10,7 +10,7 @@ const engagements = [
 
 export default function ServicesPourquoi() {
   return (
-    <section className="section-dark section-fade-dark-bottom section-spacing pb-40">
+    <section className="section-dark section-fade-dark-bottom section-fade-dark-soft section-spacing pb-40">
       <div className="site-container">
         <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:items-center xl:gap-16">
           {/* Présentation */}

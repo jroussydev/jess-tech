@@ -26,7 +26,7 @@ export default function GlobalFaq({
         section-spacing
         ${
           isDark
-            ? "section-dark section-fade-dark-soft "
+            ? "section-dark section-fade-dark-soft section-fade-dark-bottom"
             : "section-light section-fade-light-soft"
         }
       `}
