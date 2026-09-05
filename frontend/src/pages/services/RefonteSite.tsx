@@ -1,6 +1,6 @@
 import GlobalCTA from "../../components/GlobalCTA";
-import ElementsRefonte from "../../components/refonte/ElementsRefonte";
-import ExistantRefonte from "../../components/refonte/ExistantRefonte";
+
+
 import FaqRefonte from "../../components/refonte/FaqRefonte";
 import HeroRefonte from "../../components/refonte/HeroRefonte";
 import NiveauRefonte from "../../components/refonte/NiveauRefonte";
@@ -19,11 +19,11 @@ export default function RefonteSite() {
 
       <NiveauRefonte />
 
-      <ElementsRefonte />
+
 
       <TarifRefonte />
 
-      <ExistantRefonte />
+     
 
       <PreparationRefonte />
 

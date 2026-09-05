@@ -1,154 +1,167 @@
 import {
   KeyRound,
-  ArchiveRestore,
-  PencilRuler,
-  PlusCircle,
-  MessageCircle,
+  ServerCog,
+  Images,
+  ListChecks,
 } from "lucide-react";
 
-const preparationRefonte = [
+const etapes = [
   {
-    number: "01",
-    title: "Les accès au site",
+    title: "Les accès nécessaires",
     description:
-      "Les accès nécessaires permettent d’examiner le site, son administration et les éléments qui devront être repris pendant la refonte.",
+      "Les accès à l’administration du site doivent pouvoir être fournis afin d’examiner l’existant et d’intervenir dans de bonnes conditions.",
     icon: KeyRound,
   },
   {
-    number: "02",
-    title: "Ce que vous souhaitez conserver",
+    title: "L’environnement technique",
     description:
-      "Certaines pages, textes, photos, couleurs ou fonctionnalités vous conviennent encore ? Les identifier permet de ne pas refaire inutilement ce qui peut continuer à servir.",
-    icon: ArchiveRestore,
+      "Selon le site, l’accès à l’hébergement, au nom de domaine ou à certains services peut également être nécessaire pour préparer la refonte.",
+    icon: ServerCog,
   },
   {
-    number: "03",
-    title: "Ce que vous souhaitez changer",
+    title: "Les nouveaux contenus",
     description:
-      "Design, organisation, contenus, affichage mobile, navigation… Vous pouvez simplement m’indiquer ce qui vous gêne aujourd’hui, même si vous ne savez pas encore comment le corriger.",
-    icon: PencilRuler,
+      "Les textes, photos, documents ou autres éléments prévus pour la nouvelle version peuvent être transmis lorsqu’ils sont déjà disponibles.",
+    icon: Images,
   },
   {
-    number: "04",
-    title: "Les nouveautés à intégrer",
+    title: "Vos priorités",
     description:
-      "Si votre activité a évolué depuis la création du site, la refonte peut aussi intégrer de nouveaux textes, visuels, services, pages ou fonctionnalités prévus dans le projet.",
-    icon: PlusCircle,
+      "Quelques indications sur ce que vous souhaitez améliorer en priorité permettent de mieux cadrer la refonte dès le départ.",
+    icon: ListChecks,
   },
 ];
 
 export default function PreparationRefonte() {
   return (
-    <section className="section-dark section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
       <div className="site-container">
-        <div className="grid gap-12 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
+
+        <div
+          className="
+            grid
+            gap-10
+            lg:grid-cols-[0.75fr_1.25fr]
+            lg:gap-16
+          "
+        >
           {/* Introduction */}
-          <div className="section-intro">
+
+          <div>
             <p className="section-label">
-              Avant la refonte
+              Avant de commencer
             </p>
 
             <h2>
-              Pour commencer, il faut regarder l’existant.
+              Préparer{" "}
+              <span className="text-gradient-blue">
+                la refonte
+              </span>
             </h2>
 
-            <p>
-              Avant de modifier le site, j’ai besoin de comprendre ce que vous
-              souhaitez garder, ce qui ne vous convient plus et ce que la
-              nouvelle version doit apporter.
+            <p className="max-w-xl text-slate-300">
+              Quelques éléments suffisent pour comprendre votre situation,
+              accéder au site et préparer correctement le début du projet.
             </p>
           </div>
 
           {/* Étapes */}
-          <div className="space-y-8">
-            {preparationRefonte.map(
-              ({ number, title, description, icon: Icon }) => (
-                <article
-                  key={number}
-                  className="
-                    group
-                    grid
-                    grid-cols-[auto_1fr]
-                    gap-5
-                    border-b
-                    border-slate-700/70
-                    pb-8
-                    last:border-b-0
-                  "
-                >
-                  {/* Numéro / icône */}
-                  <div className="flex flex-col items-center gap-2">
-                    <span className="font-semibold text-blue-400/70">
-                      {number}
-                    </span>
 
+          <div>
+            {etapes.map(({ title, description, icon: Icon }, index) => (
+              <article
+                key={title}
+                className="
+                  group
+                  relative
+                  grid
+                  grid-cols-[auto_1fr]
+                  gap-5
+                  pb-10
+                  last:pb-0
+                "
+              >
+                {/* Icône + ligne */}
+
+                <div className="relative">
+                  <div
+                    className="
+                      relative
+                      z-10
+                      flex
+                      h-12
+                      w-12
+                      items-center
+                      justify-center
+                      rounded-xl
+                      border
+                      border-blue-500/25
+                      bg-[#081120]
+                      transition
+                      duration-300
+                      group-hover:border-blue-400/60
+                      group-hover:shadow-[0_0_22px_rgba(13,91,255,0.22)]
+                    "
+                  >
+                    <Icon
+                      className="h-5 w-5 text-blue-400"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {index !== etapes.length - 1 && (
                     <div
                       className="
-                        flex
-                        h-11
-                        w-11
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-blue-500/30
-                        text-blue-400
-                        transition
-                        duration-300
-                        group-hover:border-blue-400/60
-                        group-hover:scale-110
+                        absolute
+                        left-1/2
+                        top-12
+                        h-[calc(100%-3rem)]
+                        w-px
+                        -translate-x-1/2
+                        bg-gradient-to-b
+                        from-blue-500/50
+                        to-blue-500/10
                       "
-                    >
-                      <Icon
-                        className="h-5 w-5"
-                        aria-hidden="true"
-                      />
-                    </div>
-                  </div>
+                    />
+                  )}
+                </div>
 
-                  {/* Contenu */}
-                  <div>
-                    <h3 className="!mt-0">
-                      {title}
-                    </h3>
+                {/* Contenu */}
 
-                    <p className="text-slate-300">
-                      {description}
-                    </p>
-                  </div>
-                </article>
-              ),
-            )}
+                <div className="pt-1">
+                  <h3 className="!mt-0 text-white">
+                    {title}
+                  </h3>
+
+                  <p className="!mt-2 text-slate-300">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
           </div>
         </div>
 
-        {/* Message de fin */}
-        <div
-          className="
-            mt-14
-            flex
-            max-w-4xl
-            items-start
-            gap-4
-            border-l-2
-            border-blue-500
-            pl-5
-          "
-        >
-          <MessageCircle
-            className="mt-1 h-6 w-6 shrink-0 text-blue-400"
-            aria-hidden="true"
-          />
+        {/* Information complémentaire */}
 
-          <p className="!mt-0 text-slate-300">
-            <strong className="text-white">
-              Vous n’avez pas besoin de savoir précisément ce qu’il faut
-              refaire avant de me contacter.
-            </strong>{" "}
-            Votre retour sur le site actuel permet déjà de commencer à
-            identifier les changements à prévoir.
+        <div className="mx-auto mt-14 max-w-3xl text-center">
+          <h3 className="text-white">
+            Vous n’avez pas encore tout préparé ?
+          </h3>
+
+          <p className="mx-auto max-w-2xl text-slate-300">
+            Ce n’est pas un problème. Les éléments réellement nécessaires
+            peuvent être définis ensemble selon votre site et le niveau de
+            refonte envisagé.
           </p>
         </div>
+
       </div>
     </section>
   );

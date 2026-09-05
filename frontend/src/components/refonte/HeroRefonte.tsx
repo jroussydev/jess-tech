@@ -8,9 +8,9 @@ import { Link } from "react-router-dom";
 
 const refonteHighlights = [
   {
-    title: "Conserver l’utile",
+    title: "Conserver ce qui fonctionne",
     description:
-      "Les éléments qui fonctionnent encore peuvent rester en place.",
+      "Les éléments encore utiles peuvent rester en place.",
     icon: SearchCheck,
   },
   {
@@ -30,6 +30,7 @@ const refonteHighlights = [
 export default function HeroRefonte() {
   return (
     <section className="hero section-dark">
+
       {/* =====================================================
           VISUEL MOBILE / TABLETTE
           Provisoire pour la première passe
@@ -68,28 +69,35 @@ export default function HeroRefonte() {
 
       <div className="hero__container">
         <div className="hero__layout">
+
           <div className="hero__content">
+
             {/* Badge */}
+
             <span className="badge badge-primary uppercase tracking-wide">
               Refonte de site web
             </span>
 
             {/* Titre */}
+
             <h1 className="hero__title mt-6">
               Votre site existe déjà.{" "}
               <span className="text-gradient-blue">
-                Voyons ce qu’il faut vraiment refaire.
+                Voyons ce qu’il faut vraiment améliorer.
               </span>
             </h1>
 
             {/* Description */}
+
             <p className="hero__description text-slate-300">
-              Design, organisation des pages, affichage mobile, contenus ou
-              fonctionnement : une refonte permet de reprendre ce qui ne
-              convient plus tout en conservant ce qui mérite de l’être.
+              Design, organisation des pages, affichage mobile,
+              contenus ou fonctionnement : une refonte permet de
+              corriger ce qui ne convient plus sans forcément repartir
+              de zéro.
             </p>
 
             {/* Actions */}
+
             <div className="hero__actions">
               <Link
                 to="/contact"
@@ -107,6 +115,7 @@ export default function HeroRefonte() {
             </div>
 
             {/* Repères */}
+
             <div className="hero__cards grid-cols-3">
               {refonteHighlights.map(
                 ({ title, description, icon: Icon }) => (

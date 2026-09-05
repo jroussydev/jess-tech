@@ -1,195 +1,281 @@
+import { useEffect, useRef, useState } from "react";
 import {
   PencilRuler,
   RefreshCw,
   PanelsTopLeft,
   SearchCheck,
-  ArrowRight,
-  ArrowDown,
 } from "lucide-react";
 
 const niveauxRefonte = [
   {
-    number: "01",
     label: "Reprendre",
     title: "Une reprise ciblée",
     description:
-      "Certaines parties du site ne conviennent plus, mais l’ensemble reste exploitable. Une ou plusieurs pages, l’affichage mobile, certains contenus ou éléments visuels peuvent être retravaillés sans reconstruire tout le site.",
+      "Une ou plusieurs parties du site peuvent être retravaillées sans toucher inutilement au reste : une page, l’affichage mobile, certains contenus ou quelques éléments visuels.",
     icon: PencilRuler,
   },
   {
-    number: "02",
     label: "Remanier",
     title: "Une refonte plus importante",
     description:
-      "La base du site peut être conservée, mais son apparence, son organisation ou plusieurs de ses pages ont besoin d’être reprises. La refonte permet alors de revoir l’ensemble tout en récupérant les éléments encore utiles.",
+      "Lorsque plusieurs parties ne conviennent plus, l’apparence, l’organisation ou différentes pages peuvent être revues tout en conservant une base encore exploitable.",
     icon: RefreshCw,
   },
   {
-    number: "03",
     label: "Reconstruire",
     title: "Repartir sur une nouvelle base",
     description:
-      "Lorsque la structure existante est trop limitée, trop ancienne ou ne permet plus de réaliser correctement les évolutions souhaitées, reconstruire le site peut devenir plus pertinent que multiplier les corrections.",
+      "Si la structure existante est devenue trop limitée ou trop ancienne, reconstruire le site peut être plus pertinent que d’accumuler les corrections.",
     icon: PanelsTopLeft,
   },
 ];
 
 export default function NiveauRefonte() {
+  const sectionRef = useRef<HTMLElement | null>(null);
+  const [animationVisible, setAnimationVisible] = useState(false);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+
+    if (!section) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAnimationVisible(true);
+          observer.unobserve(section);
+        }
+      },
+      {
+        threshold: 0.35,
+      },
+    );
+
+    observer.observe(section);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section className="section-dark section-spacing">
+    <section
+      ref={sectionRef}
+      className="section-dark section-fade-dark-soft section-spacing"
+    >
       <div className="site-container">
+
         {/* Introduction */}
-        <div className="section-intro">
+
+        <div className="section-intro max-w-3xl">
           <p className="section-label">
             L’ampleur de la refonte
           </p>
 
           <h2>
-            Jusqu’où faut-il refaire votre site ?
+            Jusqu’où faut-il{" "}
+            <span className="text-gradient-blue">
+              refaire votre site
+            </span>{" "}
+            ?
           </h2>
 
           <p>
-            Tous les projets de refonte ne nécessitent pas le même niveau
-            d’intervention. L’état du site et les changements souhaités
-            permettent de déterminer jusqu’où il est utile d’aller.
+            Une refonte n’implique pas forcément de reconstruire tout le site.
+            L’état de l’existant permet de déterminer le niveau
+            d’intervention réellement nécessaire.
           </p>
         </div>
 
-        {/* Parcours */}
+        {/* Niveaux */}
+
         <div
           className="
-            mt-14
+            mt-10
             grid
-            gap-6
-            lg:grid-cols-[1fr_auto_1fr_auto_1fr]
-            lg:items-center
+            gap-4
+            lg:grid-cols-3
+            lg:gap-x-10
           "
         >
-          {niveauxRefonte.map((niveau, index) => {
-            const Icon = niveau.icon;
-
-            return (
+          {niveauxRefonte.map(
+            ({ label, title, description, icon: Icon }, index) => (
               <div
-                key={niveau.number}
-                className="contents"
+                key={title}
+                className="relative"
               >
-                <article className="group">
-                  {/* Numéro + icône */}
-                  <div className="flex items-center gap-4">
-                    <div
-                      className="
-                        flex
-                        h-12
-                        w-12
-                        shrink-0
-                        items-center
-                        justify-center
-                        rounded-xl
-                        border
-                        border-blue-500/30
-                        text-blue-400
-                        transition
-                        duration-300
-                        group-hover:border-blue-400/60
-                        group-hover:shadow-[0_0_20px_rgba(13,91,255,0.25)]
-                      "
-                    >
-                      <Icon
-                        className="h-6 w-6"
-                        aria-hidden="true"
-                      />
-                    </div>
+                {/* Carte */}
 
-                    <span className="font-semibold text-blue-400/70">
-                      {niveau.number}
-                    </span>
+                <article
+                  className="
+                    card-dark
+                    card-glow
+                    group
+                    relative
+                    z-10
+                    flex
+                    h-full
+                    flex-col
+                    !p-5
+                  "
+                >
+                  {/* Icône + label */}
+
+                  <div className="flex items-center gap-3">
+                    <Icon
+                      className="
+                        h-7
+                        w-7
+                        shrink-0
+                        text-blue-400
+                        transition-transform
+                        duration-300
+                        group-hover:scale-110
+                      "
+                      aria-hidden="true"
+                    />
+
+                    <p className="section-label !m-0">
+                      {label}
+                    </p>
                   </div>
 
-                  {/* Niveau */}
-                  <p
-                    className="
-                      mt-6
-                      font-semibold
-                      uppercase
-                      tracking-widest
-                      text-blue-400
-                    "
-                  >
-                    {niveau.label}
-                  </p>
+                  {/* Contenu */}
 
-                  <h3 className="mt-2">
-                    {niveau.title}
+                  <h3 className="mt-4 text-white">
+                    {title}
                   </h3>
 
-                  <p className="text-slate-300">
-                    {niveau.description}
+                  <p className="!mt-3 text-slate-300">
+                    {description}
                   </p>
+
+                  {/* Trait décoratif */}
+
+                  <div
+                    className="mt-auto pt-4"
+                    aria-hidden="true"
+                  >
+                    <div className="h-px rounded-full bg-gradient-to-r from-sky-500/50 to-transparent" />
+                  </div>
                 </article>
 
-                {/* Flèches */}
-                {index < niveauxRefonte.length - 1 && (
-                  <>
-                    {/* Mobile / tablette */}
-                    <div
-                      className="
-                        flex
-                        justify-center
-                        py-2
-                        text-blue-400
-                        lg:hidden
-                      "
-                      aria-hidden="true"
-                    >
-                      <ArrowDown className="h-8 w-8 animate-bounce" />
-                    </div>
+                {/* Flèche animée */}
 
-                    {/* Desktop */}
+                {index < niveauxRefonte.length - 1 && (
+                  <div
+                    className="
+                      pointer-events-none
+                      absolute
+                      left-full
+                      top-1/2
+                      z-20
+                      hidden
+                      h-8
+                      w-10
+                      -translate-y-1/2
+                      lg:flex
+                      lg:items-center
+                    "
+                    aria-hidden="true"
+                  >
                     <div
-                      className="
-                        hidden
-                        px-4
-                        text-blue-400
-                        lg:block
-                      "
-                      aria-hidden="true"
+                      className={`
+                        relative
+                        h-[7px]
+                        w-[calc(100%_-_10px)]
+                        origin-left
+                        rounded-full
+                        bg-gradient-to-r
+                        from-[#0D5BFF]
+                        via-blue-500
+                        to-blue-300
+                        shadow-[0_0_10px_rgba(13,91,255,0.55)]
+                        transition-transform
+                        duration-700
+                        ease-out
+                        ${
+                          animationVisible
+                            ? "scale-x-100"
+                            : "scale-x-0"
+                        }
+                      `}
+                      style={{
+                        transitionDelay: `${index * 550 + 300}ms`,
+                      }}
                     >
-                      <ArrowRight className="h-9 w-9" />
+                      {/* Pointe */}
+
+                      <span
+                        className={`
+                          absolute
+                          left-full
+                          top-1/2
+                          h-5
+                          w-5
+                          -translate-x-1
+                          -translate-y-1/2
+                          bg-blue-300
+                          drop-shadow-[0_0_8px_rgba(96,165,250,0.8)]
+                          transition-all
+                          duration-300
+                          ${
+                            animationVisible
+                              ? "scale-100 opacity-100"
+                              : "scale-0 opacity-0"
+                          }
+                        `}
+                        style={{
+                          clipPath:
+                            "polygon(0 0, 100% 50%, 0 100%)",
+                          transitionDelay: `${index * 550 + 850}ms`,
+                        }}
+                      />
+
+                      {/* Impulsion lumineuse */}
+
+                      {animationVisible && (
+                        <span
+                          className="
+                            services-project-pulse
+                            absolute
+                            left-0
+                            top-1/2
+                            h-3
+                            w-3
+                            -translate-y-1/2
+                            rounded-full
+                            bg-white
+                            shadow-[0_0_12px_#ffffff,0_0_20px_#60a5fa]
+                          "
+                          style={{
+                            animationDelay: `${index * 350 + 450}ms`,
+                          }}
+                        />
+                      )}
                     </div>
-                  </>
+                  </div>
                 )}
               </div>
-            );
-          })}
+            ),
+          )}
         </div>
 
         {/* Conclusion */}
-        <div
-          className="
-            mt-14
-            flex
-            max-w-4xl
-            items-start
-            gap-4
-            border-l-2
-            border-blue-500
-            pl-5
-          "
-        >
+
+        <div className="mx-auto mt-10 flex max-w-3xl items-start gap-4">
           <SearchCheck
             className="mt-1 h-6 w-6 shrink-0 text-blue-400"
             aria-hidden="true"
           />
 
-          <p className="!mt-0 text-slate-300">
+          <p className="!m-0 text-slate-300">
             <strong className="text-white">
-              Le niveau de refonte n’est pas décidé avant d’avoir regardé
-              votre site.
+              Le niveau de refonte est déterminé après examen du site.
             </strong>{" "}
-            L’existant permet de déterminer ce qui peut être gardé, amélioré
-            ou doit être remplacé.
+            Le but est de reprendre ce qui en a réellement besoin, sans
+            reconstruire inutilement ce qui fonctionne déjà.
           </p>
         </div>
+
       </div>
     </section>
   );

@@ -131,3 +131,49 @@ export const faqMaintenance: FaqItem[] = [
       "Non. La livraison d’un site et sa maintenance régulière sont deux prestations distinctes. Une formule de maintenance peut être mise en place séparément après la livraison.",
   },
 ];
+
+/* =========================================================
+   Refonte
+========================================================= */
+export const faqRefonte: FaqItem[] = [
+  {
+    question: "Faut-il forcément refaire tout le site ?",
+    reponse:
+      "Non. Une refonte peut concerner seulement certaines pages, l’affichage mobile, le design, les contenus ou quelques éléments techniques. L’objectif est de reprendre uniquement ce qui en a besoin.",
+  },
+  {
+    question: "Peut-on refaire seulement certaines pages ?",
+    reponse:
+      "Oui. Si une partie du site fonctionne encore correctement, il est tout à fait possible de concentrer la refonte sur quelques pages ou zones précises.",
+  },
+  {
+    question: "Puis-je conserver mes textes et mes photos ?",
+    reponse:
+      "Oui. Les contenus encore adaptés peuvent être conservés. Ils peuvent également être réorganisés, corrigés ou complétés si cela améliore la nouvelle version du site.",
+  },
+  {
+    question: "Peut-on ajouter de nouvelles pages ou fonctionnalités ?",
+    reponse:
+      "Oui. Une refonte peut aussi être l’occasion d’ajouter de nouvelles pages, formulaires ou fonctionnalités lorsque le projet le nécessite.",
+  },
+  {
+    question: "Mon site peut-il être refondu s’il a été créé par quelqu’un d’autre ?",
+    reponse:
+      "Oui, dans de nombreux cas. Il faut d’abord examiner la technologie utilisée, les accès disponibles et l’état général du site pour déterminer la meilleure manière d’intervenir.",
+  },
+  {
+    question: "Mon site restera-t-il accessible pendant la refonte ?",
+    reponse:
+      "Cela dépend de la manière dont le projet est réalisé. Lorsque c’est possible, le site actuel peut rester en ligne pendant que la nouvelle version est préparée.",
+  },
+  {
+    question: "Une sauvegarde du site actuel est-elle prévue ?",
+    reponse:
+      "Lorsqu’une intervention est réalisée directement sur un site existant, une sauvegarde peut être nécessaire avant les modifications afin de sécuriser l’intervention.",
+  },
+  {
+    question: "Combien coûte une refonte de site ?",
+    reponse:
+      "Le tarif dépend de l’état du site, du volume de pages, de l’ampleur de la refonte et des fonctionnalités prévues. Un devis est donc établi selon le projet.",
+  },
+];
