@@ -271,3 +271,51 @@ export const faqDiagnostic: FaqItem[] = [
       "Je vous indique ce qui a été relevé et les suites qui peuvent être envisagées. Vous restez ensuite libre de faire réaliser ou non la correction.",
   },
 ];
+
+/* =========================================================
+   Assistance
+========================================================= */
+export const faqAssistance: FaqItem[] = [
+  {
+    question: "Pouvez-vous intervenir directement chez moi ?",
+    reponse:
+      "Oui, lorsque l’intervention nécessite d’être sur place et que votre localisation se trouve dans la zone d’intervention de Jess Tech.",
+  },
+  {
+    question: "Comment fonctionne une assistance à distance ?",
+    reponse:
+      "Lorsque le matériel n’a pas besoin d’être manipulé directement, certaines interventions peuvent être réalisées à distance. La solution dépend surtout de ce qu’il faut faire.",
+  },
+  {
+    question:
+      "Pouvez-vous m’aider même si je ne suis pas à l’aise avec l’informatique ?",
+    reponse:
+      "Oui. L’assistance peut aussi servir à mieux comprendre un ordinateur, un logiciel ou un outil numérique, avec des explications adaptées à votre niveau.",
+  },
+  {
+    question:
+      "Pouvez-vous m’aider à écrire un e-mail ou faire une démarche administrative ?",
+    reponse:
+      "Non. L’assistance Jess Tech concerne l’utilisation de vos outils informatiques. Elle ne comprend pas la rédaction de courriers ou d’e-mails ni la réalisation de démarches administratives à votre place.",
+  },
+  {
+    question: "Pouvez-vous installer et préparer un nouvel ordinateur ?",
+    reponse:
+      "Oui. L’intervention peut comprendre la mise en service de l’ordinateur et les premiers réglages nécessaires selon votre besoin.",
+  },
+  {
+    question: "Pouvez-vous récupérer des fichiers perdus ?",
+    reponse:
+      "Une tentative de récupération peut être réalisée selon la situation et l’état du support. Le résultat ne peut cependant pas être garanti à l’avance.",
+  },
+  {
+    question: "Dois-je sauvegarder mes fichiers avant une intervention ?",
+    reponse:
+      "Lorsque c’est possible, il est préférable de conserver une copie des fichiers importants avant une intervention susceptible de les affecter.",
+  },
+  {
+    question: "Comment savoir combien coûtera mon intervention ?",
+    reponse:
+      "Cela dépend de la prestation. Certaines interventions ont un tarif de départ, tandis que l’assistance ou la formation peuvent être facturées au temps passé.",
+  },
+];

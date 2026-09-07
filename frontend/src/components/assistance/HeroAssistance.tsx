@@ -1,102 +1,153 @@
-import { Link } from "react-router-dom";
 import {
-  ArrowRight,
-  House,
-  MonitorSmartphone,
-  Users,
+  CircleHelp,
+  MessageSquareText,
+  HandHelping,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const points = [
   {
-    title: "À distance",
+    title: "Pas besoin de connaître le problème",
     description:
-      "Certaines interventions peuvent être réalisées directement à distance.",
-    icon: MonitorSmartphone,
+      "Expliquez simplement ce qui ne fonctionne pas ou ce que vous aimeriez faire.",
+    icon: CircleHelp,
   },
   {
-    title: "À domicile",
+    title: "Des explications simples",
     description:
-      "Une intervention sur place peut être proposée selon le besoin et la localisation.",
-    icon: House,
+      "Je vous explique les choses clairement, sans vous noyer dans les termes techniques.",
+    icon: MessageSquareText,
   },
   {
-    title: "Particuliers & professionnels",
+    title: "Une aide adaptée",
     description:
-      "L’assistance s’adapte au matériel, au problème rencontré et à votre niveau d’autonomie.",
-    icon: Users,
+      "Installation, dépannage ou prise en main : l’intervention s’adapte à votre besoin.",
+    icon: HandHelping,
   },
 ];
 
 export default function HeroAssistance() {
   return (
     <section className="hero section-dark">
-      <div className="hero__visual-mask md:hidden" aria-hidden="true">
-        <img
-          src="/services/assistance/hero-assistance.webp"
-          alt=""
-          className="hero__visual"
-        />
-      </div>
+
+      {/* Visuel mobile */}
 
       <div
-        className="hero__visual-mask hero__visual-mask--desktop hidden md:block"
+        className="hero__visual-mobile"
         aria-hidden="true"
       >
-        <img
-          src="/services/assistance/hero-assistance.webp"
-          alt=""
-          className="hero__visual"
-        />
+        <div className="hero__visual-mobile-mask">
+          <img
+            src="/services/assistance/hero-assistance.webp"
+            alt=""
+            className="hero__visual-mobile-image"
+          />
+        </div>
       </div>
 
-      <div className="site-container relative z-10">
-        <div className="hero__content">
-          <span className="badge badge-primary">
-            Assistance technique
-          </span>
+      {/* Visuel desktop */}
 
-          <h1 className="mt-5">
-            Un problème à résoudre, une installation à faire ou{" "}
-            <span className="text-gradient">
-              simplement besoin d’aide ?
+      <div
+        className="hero__visual"
+        aria-hidden="true"
+      >
+        <div className="hero__visual-mask">
+          <img
+            src="/services/assistance/hero-assistance.webp"
+            alt=""
+            className="hero__visual-image"
+          />
+        </div>
+      </div>
+
+      {/* Overlay */}
+
+      <div
+        className="hero__overlay"
+        aria-hidden="true"
+      />
+
+      {/* Contenu */}
+
+      <div className="hero__container">
+        <div className="hero__layout">
+          <div className="hero__content">
+
+            <span className="badge badge-primary">
+              Assistance technique
             </span>
-          </h1>
 
-          <p className="mt-6 max-w-3xl">
-            À distance ou à domicile, Jess Tech vous accompagne pour
-            installer, configurer, dépanner ou prendre en main vos outils
-            informatiques.
-          </p>
+            <h1 className="hero__title mt-5">
+              Un problème informatique ou{" "}
+              <span className="text-gradient-blue">
+                simplement besoin d’un coup de main ?
+              </span>
+            </h1>
 
-          <div className="hero__actions mt-8">
-            <a
-              href="#interventions-assistance"
-              className="btn-primary"
-            >
-              Voir les interventions
-              <ArrowRight className="h-5 w-5" aria-hidden="true" />
-            </a>
+            <p className="hero__description">
+              Ordinateur, logiciel, imprimante, réseau ou outil numérique :
+              je vous aide à installer, configurer, dépanner ou simplement
+              mieux comprendre ce que vous utilisez.
+            </p>
 
-            <Link to="/contact" className="btn-secondary">
-              Expliquer mon besoin
-            </Link>
-          </div>
+            {/* Actions */}
 
-          <div className="hero__cards mt-10">
-            {points.map(({ title, description, icon: Icon }) => (
-              <article key={title} className="hero__card">
-                <Icon
-                  className="h-6 w-6 text-blue-400"
-                  aria-hidden="true"
-                />
+            <div className="hero__actions">
+              <a
+                href="#interventions-assistance"
+                className="btn-primary"
+              >
+                Voir les interventions
+              </a>
 
-                <h2 className="mt-3">{title}</h2>
-                <p className="mt-2">{description}</p>
-              </article>
-            ))}
+              <Link
+                to="/contact"
+                className="btn-secondary"
+              >
+                Expliquer mon besoin
+              </Link>
+            </div>
+
+            {/* Points clés */}
+
+            <div className="hero__cards grid-cols-3">
+              {points.map(({ title, description, icon: Icon }) => (
+                <article
+                  key={title}
+                  className="hero__card"
+                >
+                  <div className="hero__card-heading">
+                    <div
+                      className="
+                        hero__card-icon
+                        items-center
+                        justify-center
+                        text-blue-400
+                      "
+                    >
+                      <Icon
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    <h2 className="hero__card-title">
+                      {title}
+                    </h2>
+                  </div>
+
+                  <p className="hero__card-description">
+                    {description}
+                  </p>
+                </article>
+              ))}
+            </div>
+
           </div>
         </div>
       </div>
+
+      {/* Vague */}
 
       <img
         src="/decorations/vagues/09.png"
@@ -104,6 +155,7 @@ export default function HeroAssistance() {
         className="hero__wave"
         aria-hidden="true"
       />
+
     </section>
   );
 }
