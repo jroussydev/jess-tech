@@ -177,3 +177,49 @@ export const faqRefonte: FaqItem[] = [
       "Le tarif dépend de l’état du site, du volume de pages, de l’ampleur de la refonte et des fonctionnalités prévues. Un devis est donc établi selon le projet.",
   },
 ];
+
+/* =========================================================
+   Developpement sur mesure
+========================================================= */
+export const faqDeveloppement: FaqItem[] = [
+  {
+    question: "Qu’est-ce qu’un développement sur mesure ?",
+    reponse:
+      "C’est un site, un outil ou une fonctionnalité développé pour répondre à un besoin particulier. Le fonctionnement et les choix techniques sont définis en fonction du projet.",
+  },
+  {
+    question: "Peut-on développer un site complet sur mesure ?",
+    reponse:
+      "Oui. Le sur-mesure peut concerner tout un site ou seulement une partie de son fonctionnement.",
+  },
+  {
+    question: "Est-ce que tous les projets sont développés avec React ?",
+    reponse:
+      "Non. React peut être utilisé lorsqu’il convient au projet, mais ce n’est pas une obligation. La technologie est choisie selon le besoin.",
+  },
+  {
+    question: "Peut-on ajouter une fonctionnalité à un site existant ?",
+    reponse:
+      "Oui, lorsque la structure du site le permet. Il peut être nécessaire de regarder l’existant avant de confirmer la faisabilité.",
+  },
+  {
+    question: "Dois-je savoir exactement ce que je veux avant de vous contacter ?",
+    reponse:
+      "Non. Une idée ou un besoin suffit pour commencer. Le fonctionnement peut être précisé ensuite pendant le cadrage du projet.",
+  },
+  {
+    question: "Combien de temps faut-il pour développer un projet sur mesure ?",
+    reponse:
+      "Cela dépend du nombre de fonctionnalités, de la complexité du projet et du travail nécessaire. Le délai est estimé une fois le besoin suffisamment défini.",
+  },
+  {
+    question: "Le projet peut-il évoluer après sa livraison ?",
+    reponse:
+      "Oui. De nouvelles fonctionnalités ou modifications peuvent être ajoutées plus tard dans le cadre d’une nouvelle demande.",
+  },
+  {
+    question: "Combien coûte un développement sur mesure ?",
+    reponse:
+      "Le développement sur mesure est réalisé sur devis. Le tarif dépend notamment des fonctionnalités, du nombre d’interfaces, des données à gérer et de la complexité du projet.",
+  },
+];

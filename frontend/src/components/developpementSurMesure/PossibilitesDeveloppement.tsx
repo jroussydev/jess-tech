@@ -1,95 +1,177 @@
-import { CodeXml, Puzzle } from "lucide-react";
+import {
+  CodeXml,
+  Puzzle,
+  Database,
+  Cable,
+  GitBranch,
+  PanelsTopLeft,
+} from "lucide-react";
+
+const possibilites = [
+  {
+    label: "Projet complet",
+    title: "Créer un projet vraiment adapté",
+    description:
+      "Parfois, un thème ou une solution déjà toute faite ne suffit pas. Dans ce cas, le projet peut être construit sur mesure pour correspondre réellement à ce dont vous avez besoin.",
+    icon: CodeXml,
+    exemples: [
+      {
+        title: "Une structure pensée pour votre projet",
+        icon: PanelsTopLeft,
+      },
+      {
+        title: "Des données à gérer",
+        icon: Database,
+      },
+      {
+        title: "Des services à connecter",
+        icon: Cable,
+      },
+    ],
+  },
+  {
+    label: "Fonctionnalité",
+    title: "Ajouter un fonctionnement particulier",
+    description:
+      "Vous pouvez aussi avoir besoin d’une seule fonctionnalité qui n’existe pas déjà ou qui ne fonctionne pas comme vous le souhaitez. Elle peut alors être développée spécialement pour votre projet.",
+    icon: Puzzle,
+    exemples: [
+      {
+        title: "Une logique propre à votre besoin",
+        icon: GitBranch,
+      },
+      {
+        title: "Des informations à enregistrer ou modifier",
+        icon: Database,
+      },
+      {
+        title: "Une API ou un service externe",
+        icon: Cable,
+      },
+    ],
+  },
+];
 
 export default function PossibilitesDeveloppement() {
   return (
     <section
       id="possibilites"
-      className="section-light section-spacing"
+      className="section-light section-fade-light-soft section-spacing"
     >
       <div className="site-container">
-        <div className="section-intro">
+
+        {/* Introduction */}
+
+        <div className="section-intro max-w-3xl">
           <p className="section-label">
             Les possibilités
           </p>
 
           <h2>
-            Qu’est-ce qu’on peut développer sur mesure ?
+            Quand le{" "}
+            <span className="text-gradient-blue">
+              sur-mesure
+            </span>{" "}
+            devient utile
           </h2>
 
           <p>
-            Le développement sur mesure peut concerner l’ensemble d’un
-            site ou seulement une partie de son fonctionnement. Tout dépend
-            du projet et de ce qu’il doit permettre de faire.
+            Le sur-mesure devient intéressant lorsqu’un projet a besoin de
+            quelque chose de plus spécifique qu’une solution déjà existante.
+            Cela peut concerner tout un site comme une seule fonctionnalité.
           </p>
         </div>
 
-        <div className="mt-12 overflow-hidden rounded-3xl border border-slate-200 lg:grid lg:grid-cols-2">
-          {/* Site complet */}
-          <article className="p-6 sm:p-8 lg:p-10">
-            <div className="flex items-center justify-between gap-4">
-              <CodeXml
-                className="h-9 w-9 text-blue-500"
-                aria-hidden="true"
-              />
+        {/* Possibilités */}
 
-              <span className="text-5xl font-bold text-slate-200">
-                01
-              </span>
-            </div>
+        <div
+          className="
+            mt-10
+            grid
+            gap-8
+            lg:grid-cols-2
+            lg:gap-0
+          "
+        >
+          {possibilites.map(
+            ({ label, title, description, icon: Icon, exemples }, index) => (
+              <article
+                key={title}
+                className={`
+                  group
+                  min-w-0
+                  ${
+                    index === 0
+                      ? "lg:border-r lg:border-sky-500/20 lg:pr-10"
+                      : "lg:pl-10"
+                  }
+                `}
+              >
+                {/* Icône + label */}
 
-            <h3 className="mt-8">
-              Un site développé sur mesure
-            </h3>
+                <div className="flex items-center gap-3">
+                  <Icon
+                    className="
+                      h-8
+                      w-8
+                      shrink-0
+                      text-sky-500
+                      transition-transform
+                      duration-300
+                      group-hover:scale-110
+                    "
+                    aria-hidden="true"
+                  />
 
-            <p className="mt-4">
-              Certains projets nécessitent une construction spécifique dès
-              le départ. Le site peut alors être développé directement en
-              code, avec une structure et un fonctionnement adaptés au
-              projet.
-            </p>
+                  <p className="section-label !m-0">
+                    {label}
+                  </p>
+                </div>
 
-            <div className="mt-6 flex flex-wrap gap-2">
-              <span className="badge">Site React</span>
-              <span className="badge">Interface personnalisée</span>
-              <span className="badge">Contenu dynamique</span>
-              <span className="badge">Connexion à des données</span>
-            </div>
-          </article>
+                <h3 className="mt-4 text-slate-950">
+                  {title}
+                </h3>
 
-          {/* Fonctionnalité */}
-          <article className="border-t border-slate-200 p-6 sm:p-8 lg:border-l lg:border-t-0 lg:p-10">
-            <div className="flex items-center justify-between gap-4">
-              <Puzzle
-                className="h-9 w-9 text-blue-500"
-                aria-hidden="true"
-              />
+                <p className="mt-3 text-slate-600">
+                  {description}
+                </p>
 
-              <span className="text-5xl font-bold text-slate-200">
-                02
-              </span>
-            </div>
+                {/* Exemples */}
 
-            <h3 className="mt-8">
-              Une fonctionnalité spécifique
-            </h3>
+                <div className="mt-6 grid gap-3">
+                  {exemples.map(({ title: exempleTitle, icon: ExempleIcon }) => (
+                    <div
+                      key={exempleTitle}
+                      className="flex items-center gap-3"
+                    >
+                      <ExempleIcon
+                        className="h-5 w-5 shrink-0 text-blue-500"
+                        aria-hidden="true"
+                      />
 
-            <p className="mt-4">
-              Le sur-mesure peut aussi répondre à un besoin précis au sein
-              d’un site ou d’un projet web lorsqu’une fonctionnalité
-              existante ne correspond pas suffisamment au fonctionnement
-              attendu.
-            </p>
-
-            <div className="mt-6 flex flex-wrap gap-2">
-              <span className="badge">Formulaire avancé</span>
-              <span className="badge">Espace utilisateur</span>
-              <span className="badge">Gestion de données</span>
-              <span className="badge">API</span>
-              <span className="badge">Administration</span>
-              <span className="badge">Automatisation</span>
-            </div>
-          </article>
+                      <span className="font-semibold text-slate-700">
+                        {exempleTitle}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </article>
+            ),
+          )}
         </div>
+
+        {/* Précision */}
+
+        <div className="mx-auto mt-12 max-w-3xl border-l-2 border-blue-500 pl-5">
+          <p className="!m-0">
+            <strong>
+              Le sur-mesure n’est pas toujours nécessaire.
+            </strong>{" "}
+            Si une solution existante fait déjà correctement le travail,
+            autant l’utiliser plutôt que de tout redévelopper pour rien.
+          </p>
+        </div>
+
       </div>
     </section>
   );

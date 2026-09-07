@@ -1,4 +1,4 @@
-import { ApresDeveloppement, FaqDeveloppement, FonctionnementDeveloppement, HeroDeveloppementSurMesure, PossibilitesDeveloppement, PreparationDeveloppement, QuandSurMesure, TarifDeveloppement } from "../../components/developpementSurMesure";
+import { FaqDeveloppement, FonctionnementDeveloppement, HeroDeveloppementSurMesure, PossibilitesDeveloppement, PreparationDeveloppement, TarifDeveloppement } from "../../components/developpementSurMesure";
 import GlobalCTA from "../../components/GlobalCTA";
 
 
@@ -10,15 +10,11 @@ export default function DeveloppementSurMesure() {
 
       <PossibilitesDeveloppement />
 
-      <FonctionnementDeveloppement />
-
-      <QuandSurMesure />
-
-      <TarifDeveloppement />
-
       <PreparationDeveloppement />
 
-      <ApresDeveloppement />
+      <FonctionnementDeveloppement />
+
+      <TarifDeveloppement />
 
       <FaqDeveloppement />
 

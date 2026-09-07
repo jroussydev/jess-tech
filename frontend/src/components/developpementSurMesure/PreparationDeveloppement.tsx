@@ -5,90 +5,164 @@ import {
   Boxes,
 } from "lucide-react";
 
-const elements = [
+const etapes = [
   {
-    numero: "01",
     title: "Ce que vous voulez obtenir",
     description:
-      "Expliquez simplement ce que le site, l’outil ou la fonctionnalité doit permettre de faire. Vous n’avez pas besoin de connaître la solution technique.",
+      "Expliquez-moi simplement ce que vous aimeriez pouvoir faire avec votre site, votre outil ou votre fonctionnalité. Pas besoin de connaître la solution technique.",
     icon: Target,
   },
   {
-    numero: "02",
     title: "Qui va l’utiliser",
     description:
-      "Visiteurs, clients, membres, équipe interne… Les utilisateurs concernés permettent de mieux comprendre les parcours et les accès à prévoir.",
+      "Clients, visiteurs, membres ou équipe interne : savoir qui utilisera le projet aide à mieux prévoir les parcours et les accès nécessaires.",
     icon: Users,
   },
   {
-    numero: "03",
     title: "Les règles importantes",
     description:
-      "Si certaines actions dépendent de conditions particulières, de calculs, de statuts ou d’étapes précises, elles devront être prises en compte dans le fonctionnement.",
+      "S’il y a des conditions particulières, des étapes précises, des calculs ou des actions qui dépendent les unes des autres, on les définit ensemble.",
     icon: ListChecks,
   },
   {
-    numero: "04",
     title: "Ce qui existe déjà",
     description:
-      "Si le développement doit s’intégrer à un site, un service ou des données existantes, les informations et accès nécessaires seront identifiés avant l’intervention.",
+      "Si le projet doit fonctionner avec un site, des données ou un service déjà existant, on regarde simplement ce qu’il faudra récupérer ou connecter.",
     icon: Boxes,
   },
 ];
 
 export default function PreparationDeveloppement() {
   return (
-    <section className="section-light section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">
-            Avant de développer
-          </p>
 
-          <h2>
-            Quelques informations suffisent pour commencer.
-          </h2>
+        <div
+          className="
+            grid
+            gap-10
+            lg:grid-cols-[0.75fr_1.25fr]
+            lg:gap-16
+          "
+        >
+          {/* Introduction */}
 
-          <p>
-            Un projet sur mesure n’a pas besoin d’être entièrement défini
-            avant le premier échange. Quelques éléments permettent déjà de
-            comprendre ce qu’il faudra construire.
-          </p>
-        </div>
+          <div>
+            <p className="section-label">
+              Avant de développer
+            </p>
 
-        <div className="mt-12 border-y border-slate-200">
-          {elements.map(({ numero, title, description, icon: Icon }) => (
-            <article
-              key={numero}
-              className="grid gap-4 border-b border-slate-200 py-7 last:border-b-0 sm:grid-cols-[60px_1fr] lg:grid-cols-[60px_260px_1fr] lg:items-start"
-            >
-              <span className="text-sm font-bold text-blue-500">
-                {numero}
+            <h2>
+              Pas besoin d’avoir{" "}
+              <span className="text-gradient-blue">
+                tout prévu
               </span>
+            </h2>
 
-              <div className="flex items-start gap-3">
-                <Icon
-                  className="mt-1 h-6 w-6 shrink-0 text-blue-500"
-                  aria-hidden="true"
-                />
+            <p className="max-w-xl text-slate-300">
+              Une idée, un besoin ou même un problème à résoudre suffit déjà
+              pour commencer à en discuter. Le reste se précise ensuite
+              pendant le cadrage du projet.
+            </p>
+          </div>
 
-                <h3>
-                  {title}
-                </h3>
-              </div>
+          {/* Étapes */}
 
-              <p className="sm:col-start-2 lg:col-start-3">
-                {description}
-              </p>
-            </article>
-          ))}
+          <div>
+            {etapes.map(({ title, description, icon: Icon }, index) => (
+              <article
+                key={title}
+                className="
+                  group
+                  relative
+                  grid
+                  grid-cols-[auto_1fr]
+                  gap-5
+                  pb-10
+                  last:pb-0
+                "
+              >
+                {/* Icône + ligne */}
+
+                <div className="relative">
+                  <div
+                    className="
+                      relative
+                      z-10
+                      flex
+                      h-12
+                      w-12
+                      items-center
+                      justify-center
+                      rounded-xl
+                      border
+                      border-blue-500/25
+                      bg-[#081120]
+                      transition
+                      duration-300
+                      group-hover:border-blue-400/60
+                      group-hover:shadow-[0_0_22px_rgba(13,91,255,0.22)]
+                    "
+                  >
+                    <Icon
+                      className="h-5 w-5 text-blue-400"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {index !== etapes.length - 1 && (
+                    <div
+                      className="
+                        absolute
+                        left-1/2
+                        top-12
+                        h-[calc(100%-3rem)]
+                        w-px
+                        -translate-x-1/2
+                        bg-gradient-to-b
+                        from-blue-500/50
+                        to-blue-500/10
+                      "
+                    />
+                  )}
+                </div>
+
+                {/* Contenu */}
+
+                <div className="pt-1">
+                  <h3 className="!mt-0 text-white">
+                    {title}
+                  </h3>
+
+                  <p className="!mt-2 text-slate-300">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
 
-        <p className="mt-10 max-w-4xl">
-          Une idée encore imparfaite suffit pour commencer à en discuter.
-          Le cadrage sert justement à transformer le besoin en
-          fonctionnalités suffisamment précises pour pouvoir les développer.
-        </p>
+        {/* Information complémentaire */}
+
+        <div className="mx-auto mt-14 max-w-3xl text-center">
+          <h3 className="text-white">
+            Votre idée n’est pas encore complètement définie ?
+          </h3>
+
+          <p className="mx-auto max-w-2xl text-slate-300">
+            Ce n’est pas gênant. Le but du premier échange est justement de
+            comprendre ce que vous voulez obtenir avant de réfléchir à la
+            manière de le construire.
+          </p>
+        </div>
+
       </div>
     </section>
   );

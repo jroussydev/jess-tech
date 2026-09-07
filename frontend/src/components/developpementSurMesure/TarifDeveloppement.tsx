@@ -7,88 +7,140 @@ import {
 
 const criteres = [
   {
-    title: "Fonctionnalités",
+    label: "Fonctionnalités",
+    title: "Ce que le projet doit faire",
     description:
-      "Ce que le projet doit permettre de faire.",
+      "Plus il y a de fonctionnalités ou de règles particulières à prévoir, plus le temps de développement peut évoluer.",
     icon: Blocks,
   },
   {
-    title: "Interfaces",
+    label: "Interfaces",
+    title: "Ce qu’il faut construire",
     description:
-      "Le nombre d’écrans, de pages ou d’espaces à construire.",
+      "Le nombre de pages, d’écrans ou d’espaces différents à créer entre directement dans le volume de travail.",
     icon: PanelsTopLeft,
   },
   {
-    title: "Données et connexions",
+    label: "Données",
+    title: "Ce qu’il faut gérer ou connecter",
     description:
-      "Les informations à gérer et les éventuels services avec lesquels le projet doit communiquer.",
+      "Enregistrer des informations, les modifier ou communiquer avec un service extérieur peut demander un travail supplémentaire.",
     icon: Database,
   },
   {
-    title: "Complexité technique",
+    label: "Complexité",
+    title: "Les règles propres au projet",
     description:
-      "Les règles de fonctionnement, interactions et contraintes propres au projet.",
+      "Certaines interactions, conditions ou automatisations demandent davantage de développement et de tests.",
     icon: Binary,
   },
 ];
 
 export default function TarifDeveloppement() {
   return (
-    <section className="section-dark section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
       <div className="site-container">
-        <div className="section-intro">
+
+        {/* Introduction */}
+
+        <div className="section-intro max-w-3xl">
           <p className="section-label">
-            Tarification
+            Le tarif
           </p>
 
           <h2>
-            Le tarif dépend de ce qu’il faut développer.
+            Le prix dépend de ce qu’il faut{" "}
+            <span className="text-gradient-blue">
+              réellement développer
+            </span>
           </h2>
 
           <p>
-            Un site complet et l’ajout d’une fonctionnalité spécifique ne
-            représentent pas le même travail. Le projet est donc étudié
-            avant d’en définir le périmètre et le tarif.
+            Deux projets sur mesure peuvent être très différents.
+            Le tarif est donc défini une fois le besoin suffisamment clair
+            pour estimer le travail à réaliser.
           </p>
         </div>
 
-        {/* Remplacer par AnimatedCardBorder si souhaité */}
-        <div className="card-dark card-glow mt-12">
-          <div className="grid gap-10 lg:grid-cols-[280px_1fr] lg:items-center">
-            <div>
-              <span className="badge badge-primary">
-                Sur mesure
-              </span>
+        {/* Contenu */}
 
-              <p className="mt-5 text-3xl font-bold text-white sm:text-4xl">
-                SUR DEVIS
-              </p>
+        <div
+          className="
+            mt-10
+            grid
+            gap-10
+            lg:grid-cols-[300px_1fr]
+            lg:items-start
+            lg:gap-14
+          "
+        >
+          {/* Prix */}
 
-              <p className="mt-4">
-                Le périmètre est défini après étude du projet.
-              </p>
-            </div>
+          <div className="card-dark card-glow !p-6">
+            <span className="badge badge-primary">
+              Développement sur mesure
+            </span>
 
-            <div className="grid gap-6 sm:grid-cols-2">
-              {criteres.map(({ title, description, icon: Icon }) => (
-                <div key={title}>
+            <p className="!mt-5 text-3xl font-bold !text-white sm:text-4xl">
+              Sur devis
+            </p>
+
+            <p className="!mt-4 text-slate-300">
+              Le périmètre et le tarif sont définis après avoir compris
+              précisément ce que le projet doit permettre de faire.
+            </p>
+          </div>
+
+          {/* Critères */}
+
+          <div className="grid gap-x-8 gap-y-8 sm:grid-cols-2">
+            {criteres.map(({ label, title, description, icon: Icon }) => (
+              <article
+                key={title}
+                className="
+                  group
+                  border-b
+                  border-blue-500/20
+                  pb-6
+                "
+              >
+                <div className="flex items-center gap-3">
                   <Icon
-                    className="h-7 w-7 text-blue-400"
+                    className="
+                      h-7
+                      w-7
+                      shrink-0
+                      text-blue-400
+                      transition-transform
+                      duration-300
+                      group-hover:scale-110
+                    "
                     aria-hidden="true"
                   />
 
-                  <h3 className="mt-4">
-                    {title}
-                  </h3>
-
-                  <p className="mt-2">
-                    {description}
+                  <p className="section-label !m-0">
+                    {label}
                   </p>
                 </div>
-              ))}
-            </div>
+
+                <h3 className="mt-3 text-white">
+                  {title}
+                </h3>
+
+                <p className="!mt-3 text-slate-300">
+                  {description}
+                </p>
+              </article>
+            ))}
           </div>
         </div>
+
       </div>
     </section>
   );
