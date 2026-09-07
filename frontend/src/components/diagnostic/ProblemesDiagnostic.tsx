@@ -9,39 +9,45 @@ import {
 
 const problemes = [
   {
-    title: "Une erreur apparaît",
+    label: "Erreur",
+    title: "Un message d’erreur apparaît",
     description:
-      "Un message d’erreur s’affiche ou une partie du site ne fonctionne plus comme auparavant.",
+      "Une erreur s’affiche ou une partie du site ne fonctionne plus comme avant.",
     icon: FileWarning,
   },
   {
-    title: "Une page pose problème",
+    label: "Affichage",
+    title: "Une page ne s’affiche plus correctement",
     description:
-      "Une page ne s’affiche plus correctement ou certains de ses éléments réagissent de façon inhabituelle.",
+      "Certains éléments ont bougé, disparu ou réagissent de façon inhabituelle.",
     icon: Bug,
   },
   {
+    label: "Formulaire",
     title: "Un formulaire ne fonctionne plus",
     description:
-      "L’envoi échoue, un message n’arrive pas ou le comportement du formulaire a changé.",
+      "L’envoi échoue, les messages n’arrivent plus ou le comportement a changé.",
     icon: FormInput,
   },
   {
-    title: "Le problème dépend de l’écran",
+    label: "Responsive",
+    title: "Le problème apparaît seulement sur certains écrans",
     description:
-      "Le site fonctionne sur certains appareils mais rencontre un problème sur mobile, tablette ou ordinateur.",
+      "Tout semble fonctionner sur ordinateur, mais pas sur mobile ou tablette, ou l’inverse.",
     icon: MonitorSmartphone,
   },
   {
-    title: "Le problème est apparu après un changement",
+    label: "Changement récent",
+    title: "Le problème est apparu après une modification",
     description:
-      "Une mise à jour, une modification ou une intervention récente semble avoir changé le fonctionnement du site.",
+      "Une mise à jour, une modification ou une intervention récente semble avoir changé quelque chose.",
     icon: RefreshCcw,
   },
   {
-    title: "Vous ne savez pas d’où vient le problème",
+    label: "Origine inconnue",
+    title: "Vous savez juste que quelque chose ne va pas",
     description:
-      "Vous constatez simplement que quelque chose ne fonctionne pas normalement sans pouvoir en identifier la cause.",
+      "Vous constatez un problème sans savoir d’où il vient. C’est justement là que le diagnostic devient utile.",
     icon: CircleHelp,
   },
 ];
@@ -50,41 +56,105 @@ export default function ProblemesDiagnostic() {
   return (
     <section
       id="problemes-diagnostic"
-      className="section-light section-spacing"
+      className="section-light section-fade-light-soft section-spacing"
     >
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">Le point de départ</p>
-          <h2>Quel problème rencontrez-vous ?</h2>
+
+        {/* Introduction */}
+
+        <div className="section-intro max-w-3xl">
+          <p className="section-label">
+            Le point de départ
+          </p>
+
+          <h2>
+            Quel problème rencontrez-vous sur{" "}
+            <span className="text-gradient-blue">
+              votre site
+            </span>
+            {" "}?
+          </h2>
 
           <p>
-            Il n’est pas nécessaire de connaître l’origine du
-            dysfonctionnement avant de demander un diagnostic. Ce que vous
-            observez constitue déjà un point de départ.
+            Vous n’avez pas besoin de savoir d’où vient le problème.
+            Ce que vous voyez ou ce qui ne fonctionne plus suffit déjà
+            pour commencer à regarder ce qui se passe.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-x-10 gap-y-8 md:grid-cols-2">
-          {problemes.map(({ title, description, icon: Icon }) => (
-            <article key={title} className="flex gap-4">
-              <Icon
-                className="mt-1 h-7 w-7 shrink-0 text-blue-500"
-                aria-hidden="true"
-              />
+        {/* Problèmes */}
 
-              <div>
-                <h3>{title}</h3>
-                <p className="mt-2">{description}</p>
+        <div
+          className="
+            mt-8
+            grid
+            grid-cols-1
+            gap-x-4
+            gap-y-8
+            sm:grid-cols-3
+          "
+        >
+          {problemes.map(({ label, title, description, icon: Icon }, index) => (
+            <article
+              key={title}
+              className={`
+                group
+                min-w-0
+                border-b
+                border-sky-500/20
+                pb-5
+                sm:border-b-0
+                sm:pr-5
+                ${
+                  index % 3 !== 2
+                    ? "sm:border-r sm:border-sky-500/20"
+                    : "sm:pr-0"
+                }
+              `}
+            >
+              <div className="flex items-center gap-3">
+                <Icon
+                  className="
+                    h-7
+                    w-7
+                    shrink-0
+                    text-sky-500
+                    transition-transform
+                    duration-300
+                    group-hover:scale-110
+                  "
+                  aria-hidden="true"
+                />
+
+                <p className="section-label !m-0">
+                  {label}
+                </p>
               </div>
+
+              <h3 className="mt-3 text-slate-950">
+                {title}
+              </h3>
+
+              <p className="mt-3 text-slate-600">
+                {description}
+              </p>
             </article>
           ))}
         </div>
 
-        <p className="mt-10 max-w-4xl font-semibold">
-          Le symptôme visible n’indique pas toujours immédiatement son
-          origine. Le diagnostic sert justement à examiner ce qui se passe
-          avant d’engager une correction.
-        </p>
+        {/* Précision */}
+
+        <div className="mx-auto mt-10 max-w-3xl text-center">
+          <p className="!m-0">
+            <strong>
+              Le problème visible n’est pas toujours la vraie cause.
+            </strong>
+            <br />
+            Le diagnostic sert justement à regarder ce qui se passe avant
+            de prévoir une correction.
+          </p>
+        </div>
+
       </div>
     </section>
   );

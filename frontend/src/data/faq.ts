@@ -223,3 +223,51 @@ export const faqDeveloppement: FaqItem[] = [
       "Le développement sur mesure est réalisé sur devis. Le tarif dépend notamment des fonctionnalités, du nombre d’interfaces, des données à gérer et de la complexité du projet.",
   },
 ];
+/* =========================================================
+   Diagnostic
+========================================================= */
+export const faqDiagnostic: FaqItem[] = [
+  {
+    question:
+      "Je ne sais pas d’où vient le problème, puis-je quand même vous contacter ?",
+    reponse:
+      "Oui. Vous pouvez simplement m’expliquer ce que vous constatez. Le diagnostic sert justement à chercher ce qui peut provoquer le problème.",
+  },
+  {
+    question: "Quels types de sites pouvez-vous diagnostiquer ?",
+    reponse:
+      "Cela dépend de la technologie utilisée, de l’environnement du site et des accès disponibles. Ces éléments sont vérifiés avant de confirmer l’intervention.",
+  },
+  {
+    question:
+      "Mon site n’a pas été créé par Jess Tech, pouvez-vous quand même l’examiner ?",
+    reponse:
+      "Oui, lorsque son environnement technique et les accès disponibles permettent de réaliser les vérifications nécessaires.",
+  },
+  {
+    question: "Le diagnostic comprend-il la correction du problème ?",
+    reponse:
+      "Non, pas automatiquement. Le diagnostic sert d’abord à comprendre la situation. Si une correction est nécessaire et que Jess Tech peut la réaliser, elle est étudiée séparément.",
+  },
+  {
+    question:
+      "Et si le problème ne peut pas être identifié immédiatement ?",
+    reponse:
+      "Certaines situations demandent plus de recherches que d’autres. Les possibilités d’analyse dépendent du problème rencontré et des éléments auxquels il est possible d’accéder.",
+  },
+  {
+    question: "Avez-vous besoin des accès à mon site ?",
+    reponse:
+      "Pas toujours. Certaines premières vérifications peuvent être réalisées sans accès particulier. Une analyse plus poussée peut en revanche nécessiter l’administration du site, l’hébergement ou d’autres accès techniques.",
+  },
+  {
+    question: "Combien coûte un diagnostic technique ?",
+    reponse:
+      "Le diagnostic technique est proposé à partir de 99 €. Le périmètre exact est défini selon le problème à examiner.",
+  },
+  {
+    question: "Que se passe-t-il une fois le problème identifié ?",
+    reponse:
+      "Je vous indique ce qui a été relevé et les suites qui peuvent être envisagées. Vous restez ensuite libre de faire réaliser ou non la correction.",
+  },
+];

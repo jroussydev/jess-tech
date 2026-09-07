@@ -5,73 +5,165 @@ import {
   TriangleAlert,
 } from "lucide-react";
 
-const elements = [
+const etapes = [
   {
-    numero: "01",
     title: "Ce que vous constatez",
     description:
-      "Décrivez simplement ce qui ne fonctionne pas ou ce qui vous paraît inhabituel.",
+      "Expliquez simplement ce qui ne fonctionne plus, ce qui vous paraît étrange ou ce qui a changé sur votre site.",
     icon: MessageSquareText,
   },
   {
-    numero: "02",
-    title: "Les messages affichés",
+    title: "Les messages ou captures utiles",
     description:
-      "Une capture d’écran ou le texte d’un message d’erreur peut apporter des informations utiles lorsqu’il y en a un.",
+      "S’il y a un message d’erreur ou quelque chose de visible à l’écran, une capture peut déjà donner de bonnes indications.",
     icon: TriangleAlert,
   },
   {
-    numero: "03",
-    title: "Le moment où le problème apparaît",
+    title: "Quand le problème apparaît",
     description:
-      "Précisez si possible quand le problème se produit et s’il est permanent ou seulement présent dans certaines situations.",
+      "Précisez si possible s’il est permanent, s’il arrive seulement dans certaines situations ou depuis un changement récent.",
     icon: Clock3,
   },
   {
-    numero: "04",
     title: "Les accès nécessaires",
     description:
-      "Selon le problème, certains accès au site, à son administration ou à son environnement technique peuvent être nécessaires pour poursuivre l’analyse.",
+      "Selon le problème, certains accès au site, à son administration ou à son hébergement peuvent être nécessaires pour aller plus loin dans l’analyse.",
     icon: KeyRound,
   },
 ];
 
 export default function PreparationDiagnostic() {
   return (
-    <section className="section-dark section-spacing">
+    <section
+      className="
+        section-dark
+        section-fade-dark-soft
+        section-spacing
+      "
+    >
       <div className="site-container">
-        <div className="section-intro">
-          <p className="section-label">Pour commencer</p>
-          <h2>Ce qui peut aider à examiner le problème</h2>
 
-          <p>
-            Vous n’avez pas besoin de connaître la cause. Quelques informations
-            sur ce que vous observez permettent déjà de commencer
-            l’investigation.
+        <div
+          className="
+            grid
+            gap-10
+            lg:grid-cols-[0.75fr_1.25fr]
+            lg:gap-16
+          "
+        >
+
+          {/* Introduction */}
+
+          <div>
+            <p className="section-label">
+              Pour commencer
+            </p>
+
+            <h2>
+              Quelques informations peuvent déjà{" "}
+              <span className="text-gradient-blue">
+                beaucoup aider
+              </span>
+            </h2>
+
+            <p className="max-w-xl text-slate-300">
+              Vous n’avez pas besoin de connaître la cause du problème.
+              Quelques détails sur ce que vous observez suffisent souvent
+              pour commencer l’analyse.
+            </p>
+          </div>
+
+          {/* Étapes */}
+
+          <div>
+            {etapes.map(({ title, description, icon: Icon }, index) => (
+              <article
+                key={title}
+                className="
+                  group
+                  relative
+                  grid
+                  grid-cols-[auto_1fr]
+                  gap-5
+                  pb-10
+                  last:pb-0
+                "
+              >
+                {/* Icône + ligne */}
+
+                <div className="relative">
+                  <div
+                    className="
+                      relative
+                      z-10
+                      flex
+                      h-12
+                      w-12
+                      items-center
+                      justify-center
+                      rounded-xl
+                      border
+                      border-blue-500/25
+                      bg-[#081120]
+                      transition
+                      duration-300
+                      group-hover:border-blue-400/60
+                      group-hover:shadow-[0_0_22px_rgba(13,91,255,0.22)]
+                    "
+                  >
+                    <Icon
+                      className="h-5 w-5 text-blue-400"
+                      aria-hidden="true"
+                    />
+                  </div>
+
+                  {index !== etapes.length - 1 && (
+                    <div
+                      className="
+                        absolute
+                        left-1/2
+                        top-12
+                        h-[calc(100%-3rem)]
+                        w-px
+                        -translate-x-1/2
+                        bg-gradient-to-b
+                        from-blue-500/50
+                        to-blue-500/10
+                      "
+                    />
+                  )}
+                </div>
+
+                {/* Contenu */}
+
+                <div className="pt-1">
+                  <h3 className="!mt-0 text-white">
+                    {title}
+                  </h3>
+
+                  <p className="!mt-2 text-slate-300">
+                    {description}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+
+        {/* Information complémentaire */}
+
+        <div className="mx-auto mt-14 max-w-3xl text-center">
+          <h3 className="text-white">
+            Vous n’avez pas toutes ces informations ?
+          </h3>
+
+          <p className="mx-auto max-w-2xl text-slate-300">
+            Ce n’est pas bloquant. Commencez simplement par me montrer ou
+            m’expliquer ce qui se passe, et on verra ensuite ce qui est
+            nécessaire pour poursuivre l’analyse.
           </p>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {elements.map(
-            ({ numero, title, description, icon: Icon }) => (
-              <article key={numero} className="card-dark">
-                <div className="flex items-start justify-between gap-4">
-                  <Icon
-                    className="h-8 w-8 text-blue-400"
-                    aria-hidden="true"
-                  />
-
-                  <span className="text-2xl font-bold text-white/20">
-                    {numero}
-                  </span>
-                </div>
-
-                <h3 className="mt-5">{title}</h3>
-                <p className="mt-3">{description}</p>
-              </article>
-            ),
-          )}
-        </div>
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import { DiagnosticVsCorrection, ElementsDiagnostic, FaqDiagnostic, HeroDiagnostic, ParcoursDiagnostic, PreparationDiagnostic, ProblemesDiagnostic, ResultatDiagnostic, TarifDiagnostic } from "../../components/diagnostic";
+import { FaqDiagnostic, HeroDiagnostic, ParcoursDiagnostic, PreparationDiagnostic, ProblemesDiagnostic, ResultatDiagnostic, TarifDiagnostic } from "../../components/diagnostic";
 import GlobalCTA from "../../components/GlobalCTA";
 
 
@@ -7,12 +7,10 @@ export default function DiagnosticTechnique() {
     <>
       <HeroDiagnostic />
       <ProblemesDiagnostic />
-      <ParcoursDiagnostic />
-      <ElementsDiagnostic />
-      <TarifDiagnostic />
-      <DiagnosticVsCorrection />
       <PreparationDiagnostic />
+      <ParcoursDiagnostic />
       <ResultatDiagnostic />
+      <TarifDiagnostic />
       <FaqDiagnostic />
 
       <GlobalCTA variant="services" />
