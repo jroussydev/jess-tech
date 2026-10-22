@@ -138,11 +138,6 @@ export default {
       const turnstileSecretKey =
         process.env.TURNSTILE_SECRET_KEY;
 
-        console.log(
-  "TURNSTILE_SECRET_KEY:",
-  process.env.TURNSTILE_SECRET_KEY,
-);
-
       if (!turnstileSecretKey) {
         console.error(
           "La variable TURNSTILE_SECRET_KEY est absente.",
