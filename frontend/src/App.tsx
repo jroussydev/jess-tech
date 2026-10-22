@@ -40,23 +40,23 @@ function App() {
         <Route path="/services" element={<Services />} />
         <Route path="/realisations" element={<Realisations />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/About" element={<About />} />
-        <Route path="/DansLesCoulisses" element={<DansLesCoulisses />} />
+        <Route path="/a-propos" element={<About />} />
+        <Route path="/dans-les-coulisses" element={<DansLesCoulisses />} />
         {/* <Route path="/dashboard" element={<Dashboard />} /> */}
-        <Route path="/CreationSiteInternet" element={<CreationSiteInternet />} />
-        <Route path="/RefonteSite" element={<RefonteSite />} />
-        <Route path="/MaintenanceSiteWeb" element={<MaintenanceSiteWeb />} />
-        <Route path="/DeveloppementSurMesure" element={<DeveloppementSurMesure />} />
-        <Route path="/AssistanceTechnique" element={<AssistanceTechnique />} />
-        <Route path="/DiagnosticTechnique" element={<DiagnosticTechnique />} />
+        <Route path="/services/creation-site-internet" element={<CreationSiteInternet />} />
+        <Route path="/services/refonte-site" element={<RefonteSite />} />
+        <Route path="/services/maintenance-site-web" element={<MaintenanceSiteWeb />} />
+        <Route path="/services/developpement-sur-mesure" element={<DeveloppementSurMesure />} />
+        <Route path="/services/assistance-technique" element={<AssistanceTechnique />} />
+        <Route path="/services/diagnostic-technique" element={<DiagnosticTechnique />} />
 
-        <Route path="/PolitiqueDeConfidentialite" element={<PolitiqueDeConfidentialite />} />
-        <Route path="/MentionLegal" element={<MentionLegal />} />
-        <Route path="/Cgv" element={<Cgv />} />
+        <Route path="/politique-de-confidentialite" element={<PolitiqueDeConfidentialite />} />
+        <Route path="/mentions-legales" element={<MentionLegal />} />
+        <Route path="/cgv" element={<Cgv />} />
 
-        <Route path="/Localisation" element={<Localisation />} />
+        <Route path="/localisation" element={<Localisation />} />
         <Route path="/localisation/:ville" element={<CityPage />} />
-        <Route path="/TarifsTransparents" element={<TarifsTransparents />} />
+        <Route path="/tarifs" element={<TarifsTransparents />} />
 
 {/* NotFound reste en dernière position */}
         <Route path="*" element={<NotFound />} />

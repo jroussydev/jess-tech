@@ -34,15 +34,15 @@ export default function Navbar() {
           Services
         </Link>
 
-        <Link to="/TarifsTransparents" className="text-slate-200 hover:text-[#0D5BFF] transition">
+        <Link to="/tarifs" className="text-slate-200 hover:text-[#0D5BFF] transition">
           Tarifs
         </Link>
 
-        <Link to="/DansLesCoulisses" className="text-slate-200 hover:text-[#0D5BFF] transition">
+        <Link to="/dans-les-coulisses" className="text-slate-200 hover:text-[#0D5BFF] transition">
           En coulisses
         </Link>
 
-        <Link to="/about" className="text-slate-200 hover:text-[#0D5BFF] transition">
+        <Link to="/a-propos" className="text-slate-200 hover:text-[#0D5BFF] transition">
           A propos
         </Link>
 
@@ -76,17 +76,17 @@ export default function Navbar() {
                 Services
               </Link>
 
-              <Link to="/TarifsTransparents" onClick={() => setIsOpen(false)}
+              <Link to="/tarifs" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
                 Tarifs
               </Link>
 
-              <Link to="/DansLesCoulisses" onClick={() => setIsOpen(false)}
+              <Link to="/dans-les-coulisses" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
                 En coulisses
               </Link>
 
-              <Link to="/about" onClick={() => setIsOpen(false)}
+              <Link to="/a-propos" onClick={() => setIsOpen(false)}
  className="rounded-xl px-4 py-3 text-slate-100 hover:bg-blue-500/10">
                 A propos
               </Link>

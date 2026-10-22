@@ -1,4 +1,18 @@
 {
+  "redirects": [
+    { "source": "/About", "destination": "/a-propos", "permanent": true },
+    { "source": "/about", "destination": "/a-propos", "permanent": true },
+    { "source": "/DansLesCoulisses", "destination": "/dans-les-coulisses", "permanent": true },
+    { "source": "/TarifsTransparents", "destination": "/tarifs", "permanent": true },
+    { "source": "/CreationSiteInternet", "destination": "/services/creation-site-internet", "permanent": true },
+    { "source": "/RefonteSite", "destination": "/services/refonte-site", "permanent": true },
+    { "source": "/MaintenanceSiteWeb", "destination": "/services/maintenance-site-web", "permanent": true },
+    { "source": "/DeveloppementSurMesure", "destination": "/services/developpement-sur-mesure", "permanent": true },
+    { "source": "/AssistanceTechnique", "destination": "/services/assistance-technique", "permanent": true },
+    { "source": "/DiagnosticTechnique", "destination": "/services/diagnostic-technique", "permanent": true },
+    { "source": "/MentionLegal", "destination": "/mentions-legales", "permanent": true },
+    { "source": "/PolitiqueDeConfidentialite", "destination": "/politique-de-confidentialite", "permanent": true }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",

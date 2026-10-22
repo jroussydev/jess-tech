@@ -86,10 +86,10 @@ export default function Footer() {
 
             <div className="mt-5 flex flex-col gap-2">
               <div className="flex gap-2"><BookOpen/><Link to="/">Accueil</Link></div>
-              <div className="flex gap-2"><Handshake /><Link to="/Services">Services</Link></div>
-              <div className="flex gap-2"><StarCheck /><Link to="/DansLesCoulisses">Réalisations</Link></div>
-              <div className="flex gap-2"><UserRound /><Link to="/About">À propos</Link></div>
-              <div className="flex gap-2"><Mail /><Link to="/Contact">Contact</Link></div>
+              <div className="flex gap-2"><Handshake /><Link to="/services">Services</Link></div>
+              <div className="flex gap-2"><StarCheck /><Link to="/dans-les-coulisses">Réalisations</Link></div>
+              <div className="flex gap-2"><UserRound /><Link to="/a-propos">À propos</Link></div>
+              <div className="flex gap-2"><Mail /><Link to="/contact">Contact</Link></div>
             </div>
           </div>
 
@@ -98,10 +98,10 @@ export default function Footer() {
             <h3 className="font-bold text-xl text-blue-500">Services</h3>
 
             <div className="mt-5 flex flex-col gap-2">
-              <div className="flex gap-2"><PenTool/><Link to="/CreationSiteInternet">Sites vitrines</Link></div>
+              <div className="flex gap-2"><PenTool/><Link to="/services/creation-site-internet">Sites vitrines</Link></div>
               <div className="flex gap-2"><Monitor/><span>Refonte de site</span></div>
-              <div className="flex gap-2"><Wrench/><Link to="/MaintenanceSiteWeb">Maintenance</Link></div>
-              <div className="flex gap-2"><LifeBuoy/><Link to="/AssistanceTechnique">Assistance technique</Link></div>
+              <div className="flex gap-2"><Wrench/><Link to="/services/maintenance-site-web">Maintenance</Link></div>
+              <div className="flex gap-2"><LifeBuoy/><Link to="/services/assistance-technique">Assistance technique</Link></div>
             </div>
           </div>
 
@@ -135,15 +135,15 @@ export default function Footer() {
 
             <div className="flex gap-2">
               <Link
-                to="/MentionLegal"
+                to="/mentions-legales"
                 className="">Mentions légales</Link>
               <span>|</span>
               <Link
-                to="/Cgv"
+                to="/cgv"
                 className="">Conditions Générales de Vente</Link>
               <span>|</span>
               <Link
-                to="/PolitiqueDeConfidentialite"
+                to="/politique-de-confidentialite"
                 className="">Politique de confidentialité</Link>
             </div>
           </div>

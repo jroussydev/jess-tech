@@ -22,7 +22,7 @@ export default function ServicesListe() {
         "Référencement technique de base",
       ],
       prix: "À partir de 299 €",
-      link: "/CreationSiteInternet",
+      link: "/services/creation-site-internet",
       icon: Monitor,
     },
     {
@@ -36,7 +36,7 @@ export default function ServicesListe() {
         "Migration ou optimisation technique",
       ],
       prix: "Sur devis",
-      link: "/RefonteSite",
+      link: "/services/refonte-site",
       icon: RefreshCw,
     },
     {
@@ -50,7 +50,7 @@ export default function ServicesListe() {
         "Outil métier, intranet ou extranet",
       ],
       prix: "À partir de 749 €",
-      link: "/DeveloppementSurMesure",
+      link: "/services/developpement-sur-mesure",
       icon: CodeXml,
     },
     {
@@ -64,7 +64,7 @@ export default function ServicesListe() {
         "Restauration après incident",
       ],
       prix: "À partir de 49 €/mois",
-      link: "/MaintenanceSiteWeb",
+      link: "/services/maintenance-site-web",
       icon: Wrench,
     },
     {
@@ -78,7 +78,7 @@ export default function ServicesListe() {
         "Rapport et recommandations",
       ],
       prix: "À partir de 99 €",
-      link: "/DiagnosticTechnique",
+      link: "/services/diagnostic-technique",
       icon: Activity,
     },
     {
@@ -92,7 +92,7 @@ export default function ServicesListe() {
         "Configuration et prise en main",
       ],
       prix: "À partir de 25 €",
-      link: "/AssistanceTechnique",
+      link: "/services/assistance-technique",
       icon: LifeBuoy,
     },
   ];

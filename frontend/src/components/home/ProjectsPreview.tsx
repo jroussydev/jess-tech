@@ -27,7 +27,7 @@ export default function ProjectsPreview() {
             </p>
 
             <Link
-              to="/DansLesCoulisses"
+              to="/dans-les-coulisses"
               className="btn-primary mt-6"
             >
               Voir tous les projets →
@@ -39,7 +39,7 @@ export default function ProjectsPreview() {
             {previewProjects.map((project) => (
               <Link
   key={project.id}
-  to={`/DansLesCoulisses?project=${project.id}`}
+  to={`/dans-les-coulisses?project=${project.id}`}
   className="card-dark
     card-glow
     group
