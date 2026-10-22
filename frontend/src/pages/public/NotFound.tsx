@@ -4,6 +4,8 @@ import { ArrowLeft } from "lucide-react";
 const NotFound = () => {
   return (
     <main className="section-dark section-spacing">
+      <meta name="robots" content="noindex" />
+
       <div className="site-container flex min-h-[60vh] flex-col items-center justify-center text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-[#2E7BFF]">
           Erreur 404
