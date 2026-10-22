@@ -26,6 +26,7 @@ import Localisation from "./pages/public/Localisation.tsx"
 import CityPage from "./pages/public/CityPage.tsx";
 import TarifsTransparents from "./pages/public/TarifsTransparents.tsx"
 
+import NotFound from "./pages/public/NotFound.tsx"
 
 {/*import Dashboard from "./pages/admin/Dashboard.tsx" */}
 
@@ -56,6 +57,9 @@ function App() {
         <Route path="/Localisation" element={<Localisation />} />
         <Route path="/localisation/:ville" element={<CityPage />} />
         <Route path="/TarifsTransparents" element={<TarifsTransparents />} />
+
+{/* NotFound reste en dernière position */}
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
 
