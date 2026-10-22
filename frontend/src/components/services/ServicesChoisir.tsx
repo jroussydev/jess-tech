@@ -27,7 +27,7 @@ const besoins: Besoin[] = [
       "Créer un site clair et professionnel pour présenter mon activité et être visible en ligne.",
     service: "Création de site internet",
     image: "/services/creation-de-site.png",
-    link: "/CreationSiteInternet",
+    link: "/services/creation-site-internet",
     icon: Monitor,
   },
   {
@@ -36,7 +36,7 @@ const besoins: Besoin[] = [
       "Moderniser son apparence, améliorer sa structure ou l’adapter aux usages actuels.",
     service: "Refonte de site internet",
     image: "/services/refonte-de-site.png",
-    link: "/RefonteSite",
+    link: "/services/refonte-site",
     icon: RefreshCw,
   },
   {
@@ -45,7 +45,7 @@ const besoins: Besoin[] = [
       "Développer une application, un espace utilisateur ou un outil adapté à mon projet.",
     service: "Développement web sur mesure",
     image: "/services/developpement-sur-mesure.png",
-    link: "/DeveloppementSurMesure",
+    link: "/services/developpement-sur-mesure",
     icon: CodeXml,
   },
   {
@@ -54,7 +54,7 @@ const besoins: Besoin[] = [
       "Assurer les mises à jour, les sauvegardes, les corrections et son bon fonctionnement.",
     service: "Maintenance de site web",
     image: "/services/maintenance-de-site.png",
-    link: "/MaintenanceSiteWeb",
+    link: "/services/maintenance-site-web",
     icon: Wrench,
   },
   {
@@ -63,7 +63,7 @@ const besoins: Besoin[] = [
       "Identifier l’origine d’un dysfonctionnement avant de choisir la solution adaptée.",
     service: "Diagnostic technique",
     image: "/services/diagnostic-technique.png",
-    link: "/DiagnosticTechnique",
+    link: "/services/diagnostic-technique",
     icon: Activity,
   },
   {
@@ -72,7 +72,7 @@ const besoins: Besoin[] = [
       "Être aidé pour comprendre, configurer ou débloquer un outil lié à mon activité.",
     service: "Assistance technique",
     image: "/services/assistance-technique.png",
-    link: "/AssistanceTechnique",
+    link: "/services/assistance-technique",
     icon: LifeBuoy,
   },
 ];

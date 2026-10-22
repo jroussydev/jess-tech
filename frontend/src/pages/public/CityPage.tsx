@@ -184,7 +184,7 @@ const CityPage = () => {
           </Link>
 
           <Link
-            to="/TarifsTransparents"
+            to="/tarifs"
             className="btn-secondary"
           >
             Consulter les tarifs

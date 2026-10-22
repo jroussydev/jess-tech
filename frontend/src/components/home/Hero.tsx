@@ -71,7 +71,7 @@ export default function Hero() {
               Développeuse freelance, j&apos;accompagne particuliers, artisans,
               associations et petites entreprises dans la{" "}
               <Link
-                to="/CreationSiteInternet"
+                to="/services/creation-site-internet"
                 className="font-semibold text-blue-400 transition-colors duration-300 hover:text-blue-300"
               >
                 création de sites web
