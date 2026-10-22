@@ -11,12 +11,16 @@
     { "source": "/AssistanceTechnique", "destination": "/services/assistance-technique", "permanent": true },
     { "source": "/DiagnosticTechnique", "destination": "/services/diagnostic-technique", "permanent": true },
     { "source": "/MentionLegal", "destination": "/mentions-legales", "permanent": true },
-    { "source": "/PolitiqueDeConfidentialite", "destination": "/politique-de-confidentialite", "permanent": true }
+    { "source": "/PolitiqueDeConfidentialite", "destination": "/politique-de-confidentialite", "permanent": true },
+    { "source": "/Services", "destination": "/services", "permanent": true },
+    { "source": "/Contact", "destination": "/contact", "permanent": true },
+    { "source": "/Localisation", "destination": "/localisation", "permanent": true },
+    { "source": "/Cgv", "destination": "/cgv", "permanent": true }
   ],
   "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/(services|realisations|contact|a-propos|dans-les-coulisses|tarifs|localisation|mentions-legales|politique-de-confidentialite|cgv)", "destination": "/index.html" },
+    { "source": "/services/(creation-site-internet|refonte-site|maintenance-site-web|developpement-sur-mesure|assistance-technique|diagnostic-technique)", "destination": "/index.html" },
+    { "source": "/localisation/:ville", "destination": "/index.html" }
   ]
 }
