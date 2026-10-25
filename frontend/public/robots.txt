@@ -2,3 +2,5 @@ User-agent: *
 Allow: /
 
 Disallow: /api/
+
+Sitemap: https://www.jesstech.fr/sitemap.xml
