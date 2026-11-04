@@ -27,6 +27,16 @@ import {
   FaWhatsapp,
 } from "react-icons/fa6";
 import AnimatedCardBorder from "../../components/decorations/AnimatedCardBorder";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Contact et demande de devis | Jess Tech",
+    description:
+      "Un projet de site internet, une refonte ou un problème technique ? Contactez Jess Tech pour en parler et recevoir un devis adapté à votre besoin.",
+    path: "/contact",
+  });
+}
 
 export default function Contact() {
   type FormStatus = "idle" | "success" | "error";

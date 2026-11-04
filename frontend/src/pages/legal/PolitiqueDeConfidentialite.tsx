@@ -12,6 +12,16 @@ import {
   Pencil,
   Mail,
 } from "lucide-react";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Politique de confidentialité | Jess Tech",
+    description:
+      "Comment Jess Tech collecte, utilise et protège les données personnelles transmises via le site jesstech.fr, et quels sont vos droits.",
+    path: "/politique-de-confidentialite",
+  });
+}
 
 export default function PolitiqueConfidentialite() {
   const sections = [

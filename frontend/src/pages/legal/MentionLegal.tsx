@@ -8,6 +8,16 @@ import {
   Scale,
   Mail,
 } from "lucide-react";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Mentions légales | Jess Tech",
+    description:
+      "Mentions légales du site jesstech.fr : éditeur, hébergement et informations sur Jess Tech, entreprise individuelle basée à Beaurieux (Aisne).",
+    path: "/mentions-legales",
+  });
+}
 
 export default function MentionLegal() {
   const sections = [

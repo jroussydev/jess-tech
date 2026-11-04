@@ -6,6 +6,16 @@ import {
   ProjectDetails,
   ProjectList,
 } from "../../components/projects";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Dans les coulisses : ma façon de travailler | Jess Tech",
+    description:
+      "Méthode, outils et étapes d'un projet : découvrez comment Jess Tech travaille, de la première prise de contact à la mise en ligne de votre site.",
+    path: "/dans-les-coulisses",
+  });
+}
 
 export default function DansLesCoulisses() {
   const [selectedProject, setSelectedProject] = useState(

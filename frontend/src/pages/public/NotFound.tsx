@@ -1,10 +1,21 @@
 import { Link } from "react-router";
 import { ArrowLeft } from "lucide-react";
 
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Page introuvable | Jess Tech",
+    description: "Cette page n’existe pas ou a été déplacée.",
+    path: "/404",
+    noIndex: true,
+  });
+}
+
 const NotFound = () => {
   return (
     <main className="section-dark section-spacing">
-      <meta name="robots" content="noindex" />
+      
 
       <div className="site-container flex min-h-[60vh] flex-col items-center justify-center text-center">
         <p className="text-sm font-semibold uppercase tracking-widest text-[#2E7BFF]">

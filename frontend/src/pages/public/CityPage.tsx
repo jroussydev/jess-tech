@@ -1,4 +1,4 @@
-import { lazy, Suspense, useEffect } from "react";
+import { lazy, Suspense } from "react";
 import { Link, Navigate, useParams } from "react-router";
 import GlobalCTA from "../../components/GlobalCTA";
 import {
@@ -11,6 +11,10 @@ import {
 } from "lucide-react";
 
 import { localCities } from "../../data/localCities";
+
+import type { MetaArgs } from "react-router";
+import { createMeta } from "../../seo/createMeta";
+
 import ClientOnly from "../../components/ClientOnly";
 import MapPlaceholder from "../../components/localisation/MapPlaceholder";
 
@@ -32,36 +36,26 @@ const createCitySlug = (cityName: string) =>
     .replace(/[’']/g, "-")
     .replace(/\s+/g, "-");
 
+export function meta({ params }: MetaArgs) {
+  const city = localCities.find((item) => item.slug === params.ville);
+
+  if (!city) {
+    return [{ title: "Jess Tech" }];
+  }
+
+  return createMeta({
+    title: city.title,
+    description: city.metaDescription,
+    path: `/localisation/${city.slug}`,
+  });
+}
+
 const CityPage = () => {
   const { ville } = useParams<{ ville: string }>();
 
   const city = localCities.find((item) => item.slug === ville);
 
-  useEffect(() => {
-    if (!city) return;
 
-    document.title = city.title;
-
-    const existingDescription = document.querySelector(
-      'meta[name="description"]',
-    );
-
-    if (existingDescription) {
-      existingDescription.setAttribute("content", city.metaDescription);
-      return;
-    }
-
-    const description = document.createElement("meta");
-
-    description.name = "description";
-    description.content = city.metaDescription;
-
-    document.head.appendChild(description);
-
-    return () => {
-      document.head.removeChild(description);
-    };
-  }, [city]);
 
   if (!city) {
     return <Navigate to="/localisation" replace />;
