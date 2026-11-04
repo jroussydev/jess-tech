@@ -1,5 +1,5 @@
 import { Headset, MessageCircle, Shield } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const qualities = [
   {

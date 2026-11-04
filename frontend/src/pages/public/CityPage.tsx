@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, Navigate, useParams } from "react-router";
 import GlobalCTA from "../../components/GlobalCTA";
 import {
   ArrowRight,

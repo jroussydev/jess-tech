@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { ctas, type CtaKey } from "../data/cta";
 
 type GlobalCTAProps = {

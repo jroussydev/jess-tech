@@ -7,6 +7,9 @@ import "@fontsource-variable/lemonada/wght.css"
 import "@fontsource-variable/josefin-sans/wght.css"
 import "@fontsource-variable/orbitron/wght.css"
 
+import Header from "./components/Header"
+import Footer from "./components/Footer"
+
 export function Layout({ children }: { children: ReactNode }) {
   return (
     <html lang="fr">
@@ -27,5 +30,11 @@ export function Layout({ children }: { children: ReactNode }) {
 }
 
 export default function Root() {
-  return <Outlet />
+  return (
+    <div className="min-h-screen bg-[#020817] text-white">
+      <Header />
+      <Outlet />
+      <Footer />
+    </div>
+  )
 }

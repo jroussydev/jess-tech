@@ -5,7 +5,7 @@ import {
   Wrench,
   type LucideIcon,
 } from "lucide-react";
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import AnimatedCardBorder from "../decorations/AnimatedCardBorder";
 
 type Service = {
