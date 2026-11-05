@@ -1,10 +1,20 @@
-{/* import { Link } from "react-router-dom" */}
+{/* import { Link } from "react-router" */}
 
 import Hero from "../../components/home/Hero"
 import ServicesPreview from "../../components/home/ServicesPreview"
 import ProjectsPreview from "../../components/home/ProjectsPreview"
 import PortfolioPreview from "../../components/home/PortfolioPreview"
 import GlobalCTA from "../../components/GlobalCTA";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Création de site internet dans l'Aisne | Jess Tech",
+    description:
+      "Développeuse web freelance à Beaurieux (Aisne) : création de sites internet, refonte, maintenance et assistance technique pour particuliers, artisans et petites entreprises.",
+    path: "/",
+  });
+}
 
 export default function Home() {
     return (

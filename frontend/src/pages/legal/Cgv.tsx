@@ -8,6 +8,16 @@ import {
   Database,
   Mail,
 } from "lucide-react";
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Conditions générales de vente | Jess Tech",
+    description:
+      "Conditions générales de vente des prestations Jess Tech : devis, tarifs, délais, paiement et modalités de réalisation des projets web.",
+    path: "/cgv",
+  });
+}
 
 export default function Cgv() {
 const sections = [

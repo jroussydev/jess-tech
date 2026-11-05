@@ -6,6 +6,16 @@ import PreparationCreationSite from "../../components/creationSiteInternet/Prepa
 import TypeSiteCreation from "../../components/creationSiteInternet/TypeSiteCreation";
 import GlobalCTA from "../../components/GlobalCTA";
 
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Création de site internet vitrine dans l'Aisne | Jess Tech",
+    description:
+      "One Page, site vitrine ou projet plus complet : un site pour présenter vos services, montrer vos réalisations et faciliter la prise de contact.",
+    path: "/services/creation-site-internet",
+  });
+}
 
 export default function CreationSiteInternet() {
   return (

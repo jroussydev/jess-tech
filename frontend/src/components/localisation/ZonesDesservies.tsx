@@ -5,7 +5,7 @@ import {
   Trees,
 } from "lucide-react";
 
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 
 const ZonesDesservies = () => {
   const communes = [

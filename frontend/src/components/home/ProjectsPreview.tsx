@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link } from "react-router";
 import { internalProjects } from "../../data/internalProjects";
 import AnimatedCardBorder from "../decorations/AnimatedCardBorder";
 

@@ -1,3 +1,14 @@
+import { createMeta } from "../../seo/createMeta";
+
+export function meta() {
+  return createMeta({
+    title: "Réalisations et projets web | Jess Tech",
+    description:
+      "Découvrez des exemples de sites internet et de projets web réalisés par Jess Tech pour des artisans, associations et petites entreprises.",
+    path: "/realisations",
+  });
+}
+
 export default function Realisations() {
   return (
     <main>

@@ -1,4 +1,8 @@
 {
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "buildCommand": "npm run build",
+  "outputDirectory": "build/client",
+  "trailingSlash": false,
   "redirects": [
     { "source": "/About", "destination": "/a-propos", "permanent": true },
     { "source": "/about", "destination": "/a-propos", "permanent": true },
@@ -16,11 +20,5 @@
     { "source": "/Contact", "destination": "/contact", "permanent": true },
     { "source": "/Localisation", "destination": "/localisation", "permanent": true },
     { "source": "/Cgv", "destination": "/cgv", "permanent": true }
-  ],
-  "rewrites": [
-    { "source": "/", "destination": "/index.html" },
-    { "source": "/(services|realisations|contact|a-propos|dans-les-coulisses|tarifs|localisation|mentions-legales|politique-de-confidentialite|cgv)", "destination": "/index.html" },
-    { "source": "/services/(creation-site-internet|refonte-site|maintenance-site-web|developpement-sur-mesure|assistance-technique|diagnostic-technique)", "destination": "/index.html" },
-    { "source": "/localisation/:ville", "destination": "/index.html" }
   ]
 }
