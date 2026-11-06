@@ -19,5 +19,16 @@ export default defineConfig([
       ecmaVersion: 2020,
       globals: globals.browser,
     },
+    rules: {
+      // Les modules de route React Router exportent aussi des fonctions
+      // spéciales (meta, links…) à côté du composant : on les autorise.
+      'react-refresh/only-export-components': [
+        'error',
+        {
+          allowConstantExport: true,
+          allowExportNames: ['meta', 'links', 'headers', 'loader', 'clientLoader', 'action', 'clientAction', 'handle', 'shouldRevalidate', 'ErrorBoundary', 'HydrateFallback', 'Layout'],
+        },
+      ],
+    },
   },
 ])
