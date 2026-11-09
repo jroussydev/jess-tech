@@ -23,27 +23,29 @@ const formules = [
   },
   {
     name: "Sérénité",
-    price: "89 €",
+    price: "95 €",
     icon: HeartHandshake,
     description:
       "Pour aller au-delà de l’entretien courant et bénéficier d’une prise en charge plus complète.",
     includes: [
       "Tout ce qui est compris dans Essentielle",
-      "Petites corrections",
-      "Assistance prioritaire",
+      "1 h de petites corrections incluse chaque mois",
+      "Intervention sous 3 jours ouvrés",
+      "Rapport mensuel",
     ],
     note: "Les évolutions importantes sont facturées séparément.",
   },
   {
     name: "Prioritaire",
-    price: "149 €",
+    price: "159 €",
     icon: Zap,
     description:
       "Pour les activités qui dépendent davantage de leur site et souhaitent un niveau de priorité supérieur.",
     includes: [
       "Tout ce qui est compris dans Sérénité",
-      "Priorité maximale",
-      "Accompagnement renforcé",
+      "2 h de petites corrections incluses chaque mois",
+      "Intervention sous 48 h ouvrées",
+      "Site hors ligne pris en charge le soir même",
     ],
     note: "Une formule destinée aux activités dépendantes de leur site.",
   },
@@ -52,15 +54,15 @@ const formules = [
 const banques = [
   {
     duration: "2 heures",
-    price: "49 €",
+    price: "85 €",
   },
   {
     duration: "5 heures",
-    price: "119 €",
+    price: "199 €",
   },
   {
     duration: "10 heures",
-    price: "229 €",
+    price: "379 €",
   },
 ];
 

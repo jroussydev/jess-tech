@@ -10,36 +10,36 @@ const interventions = [
   {
     title: "Intervention ponctuelle",
     description:
-      "Une intervention pour effectuer une opération précise sur votre site.",
-    price: "25 € / heure",
+      "Une intervention pour effectuer une opération précise sur votre site. Minimum 1 h, puis facturation par tranche de 30 min.",
+    price: "45 € / heure",
     icon: Wrench,
   },
   {
     title: "Correction de bug",
     description:
       "Diagnostic, correction et vérification d’un dysfonctionnement.",
-    price: "Base : 25 € / heure",
+    price: "Base : 45 € / heure",
     icon: Bug,
   },
   {
     title: "Mise à jour majeure",
     description:
       "Sauvegarde, mise à jour, tests et validation pour un site hors contrat.",
-    price: "À partir de 99 €",
+    price: "À partir de 135 €",
     icon: RefreshCcw,
   },
   {
     title: "Restauration après incident",
     description:
       "Analyse, restauration et vérification lorsqu’une sauvegarde exploitable est disponible.",
-    price: "À partir de 149 €",
+    price: "À partir de 180 €",
     icon: Clock,
   },
   {
-    title: "Audit de maintenance",
+    title: "Diagnostic technique",
     description:
-      "Vérification générale du site avec rapport et recommandations.",
-    price: "À partir de 79 €",
+      "Vérification générale du site avec rapport et recommandations. Montant déduit si vous souscrivez une maintenance ou commandez un site dans les 2 mois.",
+    price: "90 €",
     icon: FileSearch,
   },
 ];

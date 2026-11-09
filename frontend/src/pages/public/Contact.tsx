@@ -161,21 +161,21 @@ setTurnstileToken("");
     {
       title: "E-mail",
       description: "contact@jesstech.fr",
-      infos: "Réponse sous 24 h maximum",
+      infos: "Réponse sous 48 h ouvrées",
       icon: Mail,
       href: "mailto:contact@jesstech.fr",
     },
     {
       title: "Téléphone",
       description: "07 67 87 63 16",
-      infos: "Lundi au vendredi, de 9 h à 20 h",
+      infos: "Sur rendez-vous — laissez un message, je vous rappelle",
       icon: Phone,
       href: "tel:+33767876316",
     },
     {
       title: "WhatsApp",
       description: "Discutons en direct",
-      infos: "Échange rapide et direct",
+      infos: "Pour une question rapide",
       icon: FaWhatsapp,
       href: "https://wa.me/33767876316",
     },
@@ -196,7 +196,7 @@ setTurnstileToken("");
     {
       title: "GitHub",
       description: "github.com/jroussydev",
-      infos: "Mes projets et réalisations",
+      infos: "Mes projets techniques",
       icon: FaGithub,
       href: "https://github.com/jroussydev",
     },

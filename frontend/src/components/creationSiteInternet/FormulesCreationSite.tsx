@@ -10,23 +10,25 @@ import {
 const formules = [
   {
     name: "Lite",
-    price: "299 €",
+    price: "490 €",
     title: "L’essentiel de votre activité sur une seule page.",
     icon: FileText,
     features: [
       "1 page — jusqu’à 6 sections",
-      "Jusqu’à 10 visuels",
+      "Choix parmi 3 modèles prêts à personnaliser",
+      "Textes fournis par vos soins",
+      "Jusqu'à 8 visuels",
       "Responsive mobile, tablette et ordinateur",
       "SEO technique de base",
-      "2 cycles de modifications",
-      "30 min de prise en main",
-      "Mise en ligne du site",
+      "1 cycle de modifications",
+      "Tutoriel vidéo + 15 min de questions",
+      "Mise en ligne du site"
     ],
     delay: "10 à 15 jours",
   },
   {
     name: "Essentiel",
-    price: "599 €",
+    price: "1190 €",
     title: "Plusieurs pages pour entrer dans les détails.",
     icon: Layers3,
     features: [
@@ -43,7 +45,7 @@ const formules = [
   },
   {
     name: "Pro",
-    price: "999 €",
+    price: "1790 €",
     title: "Pour un site qui a davantage à montrer.",
     icon: PanelsTopLeft,
     features: [
