@@ -1662,3 +1662,14 @@
   height: max(0.9em, 18px);
   transform: none;
 }
+
+.header__wave {
+  @apply
+    pointer-events-none
+    absolute
+    left-0
+    top-full
+    w-5/12
+    max-w-none
+    -translate-y-[40%];
+}

@@ -30,6 +30,12 @@ export default function Header() {
         {/* Navigation */}
         <Navbar />
       </div>
+      <img
+    src="/decorations/vagues/vague_header.webp"
+    alt=""
+    aria-hidden="true"
+    className="header__wave"
+  />
     </header>
   );
 }
