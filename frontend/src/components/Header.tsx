@@ -1,6 +1,6 @@
 import { Link } from "react-router";
 import Navbar from "./Navbar";
-import Logo from "./Logo";
+import Banniere from "./Banniere";
 
 export default function Header() {
   return (
@@ -21,17 +21,9 @@ export default function Header() {
         {/* Logo / identité */}
         <Link to="/" aria-label="Retour à l'accueil">
           <div className="flex min-w-0 items-center gap-3">
-            <Logo className="h-12 lg:h-16" />
+            <Banniere variant="header" />
 
-            <div className="min-w-0">
-              <h1 className="font-logo font-semibold tracking-[0.04em] text-slate-100 sm:text-xl">
-                JESS <span className="text-[#0D5BFF]">TECH</span>
-              </h1>
-
-              <p className="text-[10px] text-slate-300 sm:text-xs">
-                Développement web & assistante technique
-              </p>
-            </div>
+            
           </div>
         </Link>
 

@@ -52,12 +52,12 @@ export default function Hero() {
           <div className="hero__content">
             {/* Badge */}
             <p className="section-label">
-              Jess Tech
+              <span className="glitter-band glitter-band--underline">JESS TECH</span>
             </p>
 
             {/* Titre */}
 <h1 className="hero__title mt-6">
-  Des <span className="text-gradient-blue">solutions</span> web propres,
+  Des <span className="text-gradient-gold">solutions</span> web propres,
   <span className="text-gradient-blue"> utiles </span>
   et
   <span className="text-gradient-blue">
@@ -68,11 +68,11 @@ export default function Hero() {
 
             {/* Description */}
             <p className="hero__description text-slate-300">
-              Développeuse freelance, j&apos;accompagne particuliers, artisans,
+              Développeur freelance, j&apos;accompagne particuliers, artisans,
               associations et petites entreprises dans la{" "}
               <Link
                 to="/services/creation-site-internet"
-                className="font-semibold text-blue-400 transition-colors duration-300 hover:text-blue-300"
+                className="color-link font-semibold transition-colors duration-300 hover:text-blue-300"
               >
                 création de sites web
               </Link>{" "}
@@ -126,7 +126,7 @@ export default function Hero() {
 
   {/* Titre */}
   <h2 className="hero__card-title font-semibold">
-    {title}
+    <span className="glitter-band">{title}</span>
   </h2>
 </div>
 
@@ -142,7 +142,7 @@ export default function Hero() {
 
         {/* Vague basse */}
         <img
-          src="/decorations/vagues/09.png"
+          src="/decorations/vagues/vague_longue_dore_hero.webp"
           alt=""
           aria-hidden="true"
           className="hero__wave"

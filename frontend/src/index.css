@@ -89,6 +89,26 @@
     @apply font-text;
   }
 
+/* ===========================
+    LIEN CLIQUABLE
+=========================== */
+.color-link {
+  @apply
+  text-[#E9C46A];
+}
+
+/* =========================
+   TEXTE DÉGRADÉ DORÉ
+========================== */
+
+.text-gradient-gold {
+  background-image: linear-gradient(90deg, #C08A30 0%, #E9C46A 50%, #FFE6A8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-right: 0.08em;
+}
+
   /* =========================
      ACCESSIBILITÉ
   ========================== */
@@ -694,20 +714,18 @@
   ========================== */
 
   .hero__wave {
-    @apply
-      pointer-events-none
-      absolute
-      bottom-0
-      left-0
-      z-30
-      w-full
-      object-fill
-      h-24
-      md:h-28
-      lg:h-32
-      xl:h-36
-      2xl:h-42
-      translate-y-1/2;
+  @apply
+    pointer-events-none
+    absolute
+    bottom-0
+    left-1/2
+    z-30
+    h-[50%]
+    w-[108%]
+    max-w-none
+    min-w-[900px]
+    -translate-x-1/2
+    translate-y-1/2;
   }
 
 
@@ -1561,4 +1579,47 @@
     right: 0;
   }
 }
+}
+
+/* =========================
+   BANDE PAILLETÉE
+========================== */
+
+.glitter-band {
+  position: relative;
+  display: inline-block;
+  isolation: isolate;
+}
+
+.glitter-band::before {
+  content: "";
+  position: absolute;
+  left: -0.5em;
+  right: -0.5em;
+  top: 50%;
+  height: 1.8em;
+  transform: translateY(-45%);
+  background:
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat;
+  filter: brightness(1.3) saturate(1.4);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Variante : paillettes PAR-DESSUS le texte */
+.glitter-band--over::before {
+  z-index: 1;
+  mix-blend-mode: screen;
+}
+
+/* Variante : soulignement pailleté */
+.glitter-band--underline::before {
+  top: auto;
+  bottom: -0.55em;
+  left: -0.35em;
+  right: -0.35em;
+  height: max(0.9em, 18px);
+  transform: none;
 }
