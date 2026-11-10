@@ -68,7 +68,7 @@ export default function Hero() {
 
             {/* Description */}
             <p className="hero__description text-slate-300">
-              Développeur freelance, j&apos;accompagne particuliers, artisans,
+              Développeur web freelance basé dans l'Aisne : j&apos;accompagne particuliers, artisans,
               associations et petites entreprises dans la{" "}
               <Link
                 to="/services/creation-site-internet"

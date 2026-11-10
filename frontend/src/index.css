@@ -670,7 +670,8 @@
 
   .hero {
   position: relative;
-  isolation: isolate;          /* les z-index négatifs restent DANS le hero */
+  isolation: isolate;
+  overflow-x: clip;     /* coupe ce qui dépasse à gauche et à droite */
 }
 
 .hero__visual {
@@ -681,6 +682,13 @@
   width: min(68%, 1300px);     /* au lieu de toute la largeur */
   z-index: -1;
   overflow: hidden;            /* l'image ne peut plus déborder */
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .hero__visual {
+    display: block;
+  }
 }
 
 .hero__visual img {
@@ -1633,10 +1641,10 @@
 .glitter-band::before {
   content: "";
   position: absolute;
-  left: -0.5em;
-  right: -0.5em;
+  left: -0.7em;
+  right: -0.8em;
   top: 50%;
-  height: 1.8em;
+  height: 2.2em;
   transform: translateY(-45%);
   background:
     url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
