@@ -39,7 +39,7 @@ export default function Hero() {
 <div className="hero__visual">
   <div className="hero__visual-mask">
     <img
-      src="/home/gerante-de-jess-tech-de-dos.png"
+      src="/home/gerante-de-jess-tech-de-dos.webp"
       alt=""
       aria-hidden="true"
       className="hero__visual-image"
