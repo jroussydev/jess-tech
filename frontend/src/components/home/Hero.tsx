@@ -81,7 +81,7 @@ export default function Hero() {
 
             {/* Actions */}
             <div className="hero__actions">
-              <Link to="/contact" className="btn-primary">
+              <Link to="/contact" className="btn-primary btn-gold">
                 Demander un devis
               </Link>
 
