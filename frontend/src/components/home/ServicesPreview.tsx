@@ -13,6 +13,8 @@ type Service = {
   description: string;
   icon: LucideIcon;
   image: string;
+  gridClass: string;
+  featured?: boolean; // ← carte mise en avant
 };
 
 const services: Service[] = [
@@ -22,6 +24,8 @@ const services: Service[] = [
       "Des sites clairs, responsive et bien structurés pour présenter votre activité.",
     icon: Monitor,
     image: "/services/creation-de-site.png",
+    gridClass: "row-span-2",
+    featured: true,
   },
   {
     title: "Refonte",
@@ -29,6 +33,7 @@ const services: Service[] = [
       "La modernisation d’un site existant pour améliorer son image et sa lisibilité.",
     icon: PenTool,
     image: "/services/refonte-de-site.png",
+    gridClass: "",
   },
   {
     title: "Maintenance",
@@ -36,6 +41,7 @@ const services: Service[] = [
       "Des corrections, mises à jour, petites évolutions et suivi technique.",
     icon: Wrench,
     image: "/services/maintenance-de-site.png",
+    gridClass: "",
   },
   {
     title: "Assistance technique",
@@ -43,6 +49,7 @@ const services: Service[] = [
       "Un accompagnement ponctuel pour débloquer, comprendre ou améliorer vos outils.",
     icon: LifeBuoy,
     image: "/services/assistance-technique.png",
+    gridClass: "col-span-2",
   },
 ];
 
@@ -69,7 +76,6 @@ export default function ServicesPreview() {
           </div>
 
           {/* Cartes */}
-          {/* Cartes */}
 <div
   className="
     grid
@@ -81,17 +87,19 @@ export default function ServicesPreview() {
     xl:translate-y-7
   "
 >
-            {services.map(({ title, description, icon: Icon, image }) => (
+            {services.map(({ title, description, icon: Icon, image, gridClass, featured }) => (
               <article
   key={title}
-  className="
+  className={`
+    ${featured ? "card-glow-gold" : "card-glow"}
     card-glow
     group
     relative
     min-h-45
     overflow-hidden
     rounded-2xl
-  "
+    ${gridClass}
+  `}
 >
   <AnimatedCardBorder />
 
