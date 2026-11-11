@@ -65,18 +65,24 @@ export default function ServicesPreview() {
       <div className="site-container">
         <div className="grid gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-center xl:gap-12">
           {/* Introduction */}
-          <div className="section-intro max-w-xl">
+          <div className="section-intro max-w-xl text-justify">
             <p className="section-label">Services</p>
 
-            <h2>Comment je peux vous aider</h2>
+            <h2>Ce que je peux faire pour vous</h2>
 
             <p>
-              Des services clairs pour vous accompagner à chaque étape de votre
-              projet. Chaque service est pensé pour rester compréhensible,
-              utile et maintenable dans le temps.
+              Je vous présente les différents services que je propose. Mon but : concrétiser vos projets !
             </p>
-
-            <Link to="/services" className="btn-primary mt-6">
+            <p>
+              Un nouveau site internet, un bug ou une mise à jour à gérer, une refonte complète ou partielle de votre site : dans tous les cas, je reste à votre disposition et je donne le meilleur de moi-même.
+            </p>
+            <p>
+              Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps. N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
+            </p>
+            <Link to="/contact" className="btn-primary btn-gold mt-6">
+              Écrivez-moi
+            </Link>
+            <Link to="/services" className="btn-primary mt-6 ml-3">
               Voir tous les services →
             </Link>
           </div>
