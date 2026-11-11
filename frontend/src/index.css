@@ -1,118 +1,72 @@
 @import "tailwindcss";
-
+ 
+/* ##########################################################
+   SOMMAIRE
+   ----------------------------------------------------------
+   1. CONFIGURATION ........ polices du thème Tailwind
+   2. BASE ................. html, body, accessibilité
+   3. TYPOGRAPHIE .......... titres, textes, couleurs, textes spéciaux
+   4. MISE EN PAGE ......... conteneur, espacements, thèmes, fondus
+   5. COMPOSANTS ........... boutons, badges, cartes
+   6. MODULES GLOBAUX ...... header, hero, info-bulle, paillettes
+   7. PAGES ................ accueil, services, réalisations, à propos, contact
+   8. ARCHIVES ............. code désactivé (gardé pour mémoire)
+ 
+   À SAVOIR — les « couches » (layers) de Tailwind
+   ----------------------------------------------------------
+   La priorité ne dépend PAS de l'ordre dans ce fichier,
+   mais de la couche dans laquelle la règle est rangée :
+ 
+   @layer base        → priorité la plus faible
+   @layer components  → plus fort que base
+   classes Tailwind   → (flex, p-4…) plus fort que components
+   hors layer         → GAGNE TOUJOURS sur tout le reste
+ 
+   Chaque bloc ci-dessous garde donc sa couche d'origine.
+   Les blocs marqués [hors layer] doivent RESTER hors layer,
+   sinon les classes Tailwind du JSX reprendraient le dessus.
+########################################################## */
+ 
+ 
+ 
 /* ==========================================================
-   1. CONFIGURATION GLOBALE
-   Polices, comportement général et typographie de base
+   1. CONFIGURATION
+   Variables du thème Tailwind (utilisables en font-title…)
 ========================================================== */
-
+ 
 @theme {
   --font-title: "Lemonada Variable", cursive;
   --font-text: "Josefin Sans Variable", sans-serif;
   --font-logo: "Orbitron Variable", serif;
 }
-
+ 
+ 
+ 
+/* ==========================================================
+   2. BASE
+   Comportement général de la page et accessibilité
+========================================================== */
+ 
 @layer base {
+ 
+  /* ---------- Page ---------- */
+ 
   html {
     scroll-behavior: smooth;
   }
-
+ 
   body {
     overflow-x: hidden;
-
+ 
     @apply
       bg-slate-50
       font-text
       text-slate-900
       antialiased;
   }
-
-  /* =========================
-     TITRES GLOBAUX
-  ========================== */
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-title;
-  }
-
-  h1 {
-    @apply
-      text-2xl
-      font-black
-      leading-tight
-      md:text-4xl
-      lg:text-5xl;
-  }
-
-  h2 {
-    @apply
-      text-xl
-      font-black
-      leading-tight
-      md:text-2xl
-      lg:text-3xl;
-  }
-
-  h3 {
-    @apply
-      text-base
-      font-bold
-      leading-snug
-      md:text-lg
-      lg:text-xl;
-  }
-
-  /* =========================
-     TEXTE GLOBAL
-  ========================== */
-
-  p {
-    @apply
-      text-sm
-      leading-6
-      md:text-base
-      md:leading-7
-      lg:text-lg
-      lg:leading-8;
-  }
-
-  a,
-  button,
-  input,
-  textarea,
-  select,
-  label {
-    @apply font-text;
-  }
-
-/* ===========================
-    LIEN CLIQUABLE
-=========================== */
-.color-link {
-  @apply
-  text-[#E9C46A];
-}
-
-/* =========================
-   TEXTE DÉGRADÉ DORÉ
-========================== */
-
-.text-gradient-gold {
-  background-image: linear-gradient(90deg, #C08A30 0%, #E9C46A 50%, #FFE6A8 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  padding-right: 0.08em;
-}
-
-  /* =========================
-     ACCESSIBILITÉ
-  ========================== */
-
+ 
+  /* ---------- Accessibilité ---------- */
+ 
   button:focus-visible,
   a:focus-visible,
   input:focus-visible,
@@ -123,182 +77,182 @@
       ring-2
       ring-blue-400;
   }
-
+ 
   ::selection {
     @apply
       bg-blue-600
       text-white;
   }
 }
-
-
+ 
+ 
+ 
 /* ==========================================================
-   2. STRUCTURE GÉNÉRALE DU SITE
-   Fonds, conteneurs, espacements et introductions
+   3. TYPOGRAPHIE
+   Polices, tailles, couleurs et textes spéciaux
 ========================================================== */
-
-@layer components {
-
-  /* =========================
-     THÈMES DE SECTION
-  ========================== */
-
-  .section-dark {
-    @apply
-      bg-[#020817]
-      text-slate-100;
+ 
+/* ----------------------------------------------------------
+   3.1 Titres et textes — tailles et polices
+---------------------------------------------------------- */
+ 
+@layer base {
+ 
+  /* ---------- Police des titres ---------- */
+ 
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-title;
   }
-
-/* =========================
-   SECTION CLAIRE DE BASE
-========================== */
-
-.section-light {
+ 
+  /* ---------- Tailles des titres ---------- */
+ 
+  h1 {
+    @apply
+      text-2xl
+      font-black
+      leading-tight
+      md:text-4xl
+      lg:text-5xl;
+  }
+ 
+  h2 {
+    @apply
+      text-xl
+      font-black
+      leading-tight
+      md:text-2xl
+      lg:text-3xl;
+  }
+ 
+  h3 {
+    @apply
+      text-base
+      font-bold
+      leading-snug
+      md:text-lg
+      lg:text-xl;
+  }
+ 
+  /* ---------- Paragraphes ---------- */
+ 
+  p {
+    @apply
+      text-sm
+      leading-6
+      md:text-base
+      md:leading-7
+      lg:text-lg
+      lg:leading-8;
+  }
+ 
+  /* ---------- Police des éléments interactifs ---------- */
+ 
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    @apply font-text;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   3.2 Couleurs des textes selon le thème de section
+---------------------------------------------------------- */
+ 
+@layer components {
+ 
+  /* ---------- Titres ---------- */
+ 
+  .section-dark h1,
+  .section-dark h2,
+  .section-dark h3 {
+    @apply text-slate-100;
+  }
+ 
+  .section-light h1,
+  .section-light h2,
+  .section-light h3 {
+    @apply text-slate-900;
+  }
+ 
+  /* ---------- Paragraphes ---------- */
+ 
+  .section-dark p:not(.section-label) {
+    @apply text-slate-400;
+  }
+ 
+  .section-light p:not(.section-label) {
+    @apply text-slate-600;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   3.3 Textes spéciaux
+---------------------------------------------------------- */
+ 
+/* Ces deux classes étaient rangées dans @layer base :
+   on les y laisse pour ne rien changer au rendu. */
+@layer base {
+ 
+  /* ---------- Lien cliquable doré ---------- */
+ 
+  .color-link {
+    @apply text-[#E9C46A];
+  }
+ 
+  /* ---------- Texte dégradé doré ---------- */
+ 
+  .text-gradient-gold {
+    background-image: linear-gradient(90deg, #C08A30 0%, #E9C46A 50%, #FFE6A8 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    padding-right: 0.08em;
+  }
+}
+ 
+/* ---------- Texte dégradé bleu Jess Tech [hors layer] ---------- */
+ 
+.text-gradient-blue {
   @apply
-    relative
-    z-0
-    bg-[#F5F7FC]
-    text-slate-900;
+    bg-gradient-to-r
+    from-[#083daf]
+    via-[#0D5BFF]
+    to-sky-500
+    bg-clip-text
+    text-transparent;
 }
-
-
-/* =========================
-   FONDU APRÈS HERO
-   Plus long et plus marqué
-========================== */
-
-.section-fade-hero {
-  background:
-    linear-gradient(
-      to bottom,
-      #020817 0px,
-      rgba(2, 8, 23, 0.90) 20px,
-      rgba(2, 8, 23, 0.65) 45px,
-      rgba(2, 8, 23, 0.35) 80px,
-      rgba(2, 8, 23, 0.12) 120px,
-      rgba(2, 8, 23, 0) 160px
-    ),
-    #F5F7FC;
+ 
+/* ---------- Texte justifié ---------- */
+ 
+@layer components {
+  .text-justified {
+    @apply text-justify;
+  }
 }
-
-
-/* =========================
-   FONDU ENTRE SECTIONS
-   Plus court et plus discret
-========================== */
-
-.section-fade-soft {
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(2, 8, 23, 0.55) 0px,
-      rgba(2, 8, 23, 0.28) 20px,
-      rgba(2, 8, 23, 0.12) 45px,
-      rgba(2, 8, 23, 0.04) 65px,
-      rgba(2, 8, 23, 0) 90px
-    ),
-    #F5F7FC;
-}
-.section-fade-dark-soft {
-  background:
-    linear-gradient(
-      to bottom,
-      #F5F7FC 0px,
-      rgba(245, 247, 252, 0.45) 10px,
-      rgba(245, 247, 252, 0.15) 22px,
-      rgba(245, 247, 252, 0) 40px
-    ),
-    #020817;
-}
-.section-fade-light-soft {
-  background:
-    linear-gradient(
-      to bottom,
-      #020817 0px,
-      rgba(2, 8, 23, 0.45) 10px,
-      rgba(2, 8, 23, 0.15) 22px,
-      rgba(2, 8, 23, 0) 40px
-    ),
-    #F5F7FC;
-}
-
-.section-fade-dark-bottom {
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(245, 247, 252, 0) calc(100% - 70px),
-      rgba(245, 247, 252, 0.02) calc(100% - 52px),
-      rgba(245, 247, 252, 0.06) calc(100% - 38px),
-      rgba(245, 247, 252, 0.13) calc(100% - 27px),
-      rgba(245, 247, 252, 0.25) calc(100% - 18px),
-      rgba(245, 247, 252, 0.45) calc(100% - 10px),
-      rgba(245, 247, 252, 0.72) calc(100% - 4px),
-      #F5F7FC 100%
-    ),
-    #020817;
-}
-
-/* =========================
-   FONDU SOMBRE
-   Haut + bas combinés
-========================== */
-
-.section-fade-dark-soft.section-fade-dark-bottom {
-  background:
-    /* Fondu du haut : clair -> sombre */
-    linear-gradient(
-      to bottom,
-      #F5F7FC 0px,
-      rgba(245, 247, 252, 0.45) 10px,
-      rgba(245, 247, 252, 0.15) 22px,
-      rgba(245, 247, 252, 0) 40px
-    ),
-
-    /* Fondu du bas : sombre -> clair */
-    linear-gradient(
-      to bottom,
-      rgba(245, 247, 252, 0) calc(100% - 70px),
-      rgba(245, 247, 252, 0.02) calc(100% - 52px),
-      rgba(245, 247, 252, 0.06) calc(100% - 38px),
-      rgba(245, 247, 252, 0.13) calc(100% - 27px),
-      rgba(245, 247, 252, 0.25) calc(100% - 18px),
-      rgba(245, 247, 252, 0.45) calc(100% - 10px),
-      rgba(245, 247, 252, 0.72) calc(100% - 4px),
-      #F5F7FC 100%
-    ),
-
-    #020817;
-}
-
-  /*
-   * Léger fondu sombre en haut des sections claires.
-   * Il aide notamment à raccorder les sections situées
-   * après un Hero.
-   
-
-  .section-light::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 80px;
-
-    background: linear-gradient(
-      to bottom,
-      rgba(2, 8, 23, 0.18) 0%,
-      rgba(2, 8, 23, 0.08) 35%,
-      rgba(2, 8, 23, 0.03) 65%,
-      transparent 100%
-    );
-
-    pointer-events: none;
-  }*/
-
-  /* =========================
-     CONTENEUR GLOBAL
-  ========================== */
-
+ 
+ 
+ 
+/* ==========================================================
+   4. MISE EN PAGE
+   Conteneur, espacements, introductions, thèmes et fondus
+========================================================== */
+ 
+@layer components {
+ 
+  /* ----------------------------------------------------------
+     4.1 Conteneur global
+  ---------------------------------------------------------- */
+ 
   .site-container {
     @apply
       mx-auto
@@ -308,713 +262,297 @@
       sm:px-6
       lg:px-8;
   }
-
-
-  /* =========================
-     ESPACEMENT DES SECTIONS
-  ========================== */
-
+ 
+  /* ----------------------------------------------------------
+     4.2 Espacement des sections
+  ---------------------------------------------------------- */
+ 
   .section-spacing {
     @apply
       py-12
       md:py-16
       lg:py-20;
   }
-
-
-  /* =========================
-     INTRODUCTION DE SECTION
-  ========================== */
-
+ 
+  /* ----------------------------------------------------------
+     4.3 Introduction de section (petit titre + texte)
+  ---------------------------------------------------------- */
+ 
   .section-intro {
     @apply max-w-3xl;
   }
-
+ 
   .section-label {
-  @apply
-    mt-10
-    mb-3
-    text-sm
-    font-semibold
-    uppercase
-    tracking-widest
-    text-sky-500
-    md:text-base;
-
-}
-
-
-
+    @apply
+      mt-10
+      mb-3
+      text-sm
+      font-semibold
+      uppercase
+      tracking-widest
+      text-sky-500
+      md:text-base;
+  }
+ 
   .section-intro > p:not(.section-label) {
     @apply mt-4;
   }
-
-
-  /* =========================
-     COULEURS DES TITRES
-  ========================== */
-
-  .section-dark h1,
-  .section-dark h2,
-  .section-dark h3 {
-    @apply text-slate-100;
-  }
-
-  .section-light h1,
-  .section-light h2,
-  .section-light h3 {
-    @apply text-slate-900;
-  }
-
-
-  /* =========================
-     COULEURS DES PARAGRAPHES
-  ========================== */
-
-  .section-dark p:not(.section-label) {
-  @apply text-slate-400;
-}
-
-  .section-light p:not(.section-label) {
-  @apply text-slate-600;
-}
-
-
-  /* =========================
-     TEXTE JUSTIFIÉ
-  ========================== */
-
-  .text-justified {
-    @apply text-justify;
-  }
-}
-
-
-/* ==========================================================
-   3. CARTES
-   Styles réutilisables pour les blocs de contenu
-========================================================== */
-
-@layer components {
-
-  /* =========================
-     CARTE SOMBRE
-  ========================== */
-
-  .card-dark {
-    @apply
-      rounded-2xl
-      border
-      border-slate-800
-      bg-slate-900
-      p-4
-      text-slate-100
-      shadow-sm
-      transition
-      duration-300
-      md:p-5
-      lg:p-6;
-  }
-
-  .card-dark p {
-    @apply text-slate-400;
-  }
-
-  .card-dark h2,
-.card-dark h3,
-.card-dark h4 {
-  color: var(--color-slate-200);
-}
-
-  /* =========================
-     CARTE CLAIRE
-  ========================== */
-
-  .card-light {
-    @apply
-      rounded-2xl
-      border
-      border-slate-200
-      bg-white
-      p-4
-      text-slate-900
-      shadow-sm
-      transition
-      duration-300
-      md:p-5
-      lg:p-6;
-  }
-
-  .card-light p {
-    @apply text-slate-600;
-  }
-
-
-  /* =========================
-     FONCTIONNALITEE BORD CARTE
-  ========================== */
-
  
-  /* =========================
-     INTERACTION OPTIONNELLE
-  ========================== */
-
-  .card-interactive {
+  /* ----------------------------------------------------------
+     4.4 Thèmes de section
+     (à garder AVANT les fondus : les fondus doivent gagner)
+  ---------------------------------------------------------- */
+ 
+  .section-dark {
     @apply
-      cursor-pointer
-      hover:-translate-y-1
-      hover:shadow-lg;
+      bg-[#020817]
+      text-slate-100;
+  }
+ 
+  .section-light {
+    @apply
+      relative
+      z-0
+      bg-[#F5F7FC]
+      text-slate-900;
+  }
+ 
+  /* ----------------------------------------------------------
+     4.5 Fondus entre sections
+  ---------------------------------------------------------- */
+ 
+  /* ---------- Après un hero : long et marqué ---------- */
+ 
+  .section-fade-hero {
+    background:
+      linear-gradient(
+        to bottom,
+        #020817 0px,
+        rgba(2, 8, 23, 0.90) 20px,
+        rgba(2, 8, 23, 0.65) 45px,
+        rgba(2, 8, 23, 0.35) 80px,
+        rgba(2, 8, 23, 0.12) 120px,
+        rgba(2, 8, 23, 0) 160px
+      ),
+      #F5F7FC;
+  }
+ 
+  /* ---------- Entre sections : court et discret ---------- */
+ 
+  .section-fade-soft {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(2, 8, 23, 0.55) 0px,
+        rgba(2, 8, 23, 0.28) 20px,
+        rgba(2, 8, 23, 0.12) 45px,
+        rgba(2, 8, 23, 0.04) 65px,
+        rgba(2, 8, 23, 0) 90px
+      ),
+      #F5F7FC;
+  }
+ 
+  /* ---------- Section sombre : fondu clair en haut ---------- */
+ 
+  .section-fade-dark-soft {
+    background:
+      linear-gradient(
+        to bottom,
+        #F5F7FC 0px,
+        rgba(245, 247, 252, 0.45) 10px,
+        rgba(245, 247, 252, 0.15) 22px,
+        rgba(245, 247, 252, 0) 40px
+      ),
+      #020817;
+  }
+ 
+  /* ---------- Section claire : fondu sombre en haut ---------- */
+ 
+  .section-fade-light-soft {
+    background:
+      linear-gradient(
+        to bottom,
+        #020817 0px,
+        rgba(2, 8, 23, 0.45) 10px,
+        rgba(2, 8, 23, 0.15) 22px,
+        rgba(2, 8, 23, 0) 40px
+      ),
+      #F5F7FC;
+  }
+ 
+  /* ---------- Section sombre : fondu clair en bas ---------- */
+ 
+  .section-fade-dark-bottom {
+    background:
+      linear-gradient(
+        to bottom,
+        rgba(245, 247, 252, 0) calc(100% - 70px),
+        rgba(245, 247, 252, 0.02) calc(100% - 52px),
+        rgba(245, 247, 252, 0.06) calc(100% - 38px),
+        rgba(245, 247, 252, 0.13) calc(100% - 27px),
+        rgba(245, 247, 252, 0.25) calc(100% - 18px),
+        rgba(245, 247, 252, 0.45) calc(100% - 10px),
+        rgba(245, 247, 252, 0.72) calc(100% - 4px),
+        #F5F7FC 100%
+      ),
+      #020817;
+  }
+ 
+  /* ---------- Section sombre : haut + bas combinés ---------- */
+  /* (à garder APRÈS les deux fondus séparés) */
+ 
+  .section-fade-dark-soft.section-fade-dark-bottom {
+    background:
+      /* Fondu du haut : clair -> sombre */
+      linear-gradient(
+        to bottom,
+        #F5F7FC 0px,
+        rgba(245, 247, 252, 0.45) 10px,
+        rgba(245, 247, 252, 0.15) 22px,
+        rgba(245, 247, 252, 0) 40px
+      ),
+ 
+      /* Fondu du bas : sombre -> clair */
+      linear-gradient(
+        to bottom,
+        rgba(245, 247, 252, 0) calc(100% - 70px),
+        rgba(245, 247, 252, 0.02) calc(100% - 52px),
+        rgba(245, 247, 252, 0.06) calc(100% - 38px),
+        rgba(245, 247, 252, 0.13) calc(100% - 27px),
+        rgba(245, 247, 252, 0.25) calc(100% - 18px),
+        rgba(245, 247, 252, 0.45) calc(100% - 10px),
+        rgba(245, 247, 252, 0.72) calc(100% - 4px),
+        #F5F7FC 100%
+      ),
+ 
+      #020817;
   }
 }
-
-/* =========================
-   CARTES SERVICES — MOBILE
-========================= */
-
-@media (max-width: 639px) {
-
-  .card-content-mobile {
+ 
+ 
+ 
+/* ==========================================================
+   5. COMPOSANTS
+   Boutons, badges et cartes réutilisables partout
+========================================================== */
+ 
+@layer components {
+ 
+  /* ----------------------------------------------------------
+     5.1 Boutons
+  ---------------------------------------------------------- */
+ 
+  /* ---------- Bouton principal (bleu) ---------- */
+ 
+  .btn-primary {
     @apply
-      items-center
-      text-center;
-  }
-
-  .card-features-mobile {
-    @apply
-      justify-center
-      gap-x-4
-      gap-y-2;
-  }
-
-
-  .service-card__content {
-    @apply
-      items-center
-      justify-center
-      p-2
-      text-center;
-  }
-
-  .service-card__heading {
-    @apply
-      justify-center
-      text-center;
-  }
-
-  .service-card__icon {
-    @apply hidden;
-  }
-
-  .service-card__title {
-    @apply
-      whitespace-normal
-      text-center
-      leading-tight;
-  }
-
-  .service-card__description {
-    @apply
-      mt-2
-      text-center;
-  }
-
-  .step-card__heading {
-    @apply
-      flex-col
+      inline-flex
       items-center
       justify-center
       gap-2
-      text-center;
-  }
-
-  .step-card__icon {
-    @apply
-      h-6
-      w-6;
-  }
-
-  .step-card__title {
-    @apply
-      text-center;
-  }
-
-}
-
-/* ==========================================================
-   4. HERO GLOBAL
-   Base réutilisable pour les héros du site
-========================================================== */
-
-@layer components {
-
-  /* =========================
-     STRUCTURE GÉNÉRALE
-  ========================== */
-
-  .hero {
-    @apply
-      relative
-      z-10
-      isolate
-      overflow-visible
-      bg-[#020817];
-  }
-
-  .hero__container {
-    @apply
-      relative
-      z-10
-      w-full
+      rounded-xl
       px-4
-      pt-0
-      pb-6
-      sm:px-10
-      md:pb-6
-      lg:px-20
-      lg:pb-10;
+      py-2.5
+      text-sm
+      font-semibold
+      text-white
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-blue-400
+      md:px-5
+      md:py-3
+      md:text-base
+      lg:px-6
+      lg:text-lg;
+ 
+    background-image: linear-gradient(90deg, #083daf 0%, #0D5BFF 25%, #2E7BFF 50%, #0D5BFF 75%, #083daf 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0;
+    box-shadow: 0 6px 20px rgb(13 91 255 / 0.25);
+    transition: background-position 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
   }
-
-  .hero__layout {
-    @apply
-      grid
-      gap-8
-      py-10
-      md:py-14
-      lg:py-16;
+ 
+  .btn-primary:hover {
+    background-position: 100% 0;
+    box-shadow: 0 10px 28px rgb(13 91 255 / 0.45);
+    transform: translateY(-2px);
   }
-
-.hero__content {
-  @apply
-    relative
-    z-20
-    w-full
-    max-w-3xl
-    lg:max-w-4xl;
-}
-
-
-  /* =========================
-     FONDU BAS DU HERO
-  ========================== */
-
-  /*.hero::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -1px;
-  height: 200px;
-
-  background: linear-gradient(
-    to bottom,
-    rgba(245, 247, 252, 0) 20%,
-    rgba(245, 247, 252, 0.03) 35%,
-    rgba(245, 247, 252, 0.08) 50%,
-    rgba(245, 247, 252, 0.18) 65%,
-    rgba(245, 247, 252, 0.35) 78%,
-    rgba(245, 247, 252, 0.60) 88%,
-    rgba(245, 247, 252, 0.82) 95%,
-    #F5F7FC 100%
-  );
-
-  pointer-events: none;
-  z-index: 15;
-} */
-
-
-  /* =========================
-     VISUEL MOBILE / TABLETTE
-  ========================== */
-
-  .hero__visual-mobile {
-    @apply
-      pointer-events-none
-      absolute
-      right-0
-      top-0
-      z-10
-      block
-      h-30
-      w-50
-      md:h-56
-      md:w-64
-      lg:hidden;
-
-    filter:
-      drop-shadow(-2px 2px 4px rgba(13, 178, 255, 0.75))
-      drop-shadow(-5px 5px 12px rgba(17, 92, 252, 0.35));
-  }
-
-  .hero__visual-mobile-mask {
-    @apply
-      h-full
-      w-full
-      overflow-hidden;
-
-    clip-path: ellipse(100% 100% at 100% 0%);
-  }
-
-  .hero__visual-mobile-image {
-    @apply
-      h-full
-      w-full
-      object-cover;
-
-    object-position: 35% center;
-  }
-
-
-  /* =========================
-     VISUEL DESKTOP
-  ========================== */
-
-  .hero {
-  position: relative;
-  isolation: isolate;
-  overflow-x: clip;     /* coupe ce qui dépasse à gauche et à droite */
-}
-
-.hero__visual {
-  position: absolute;
-  top: 0;
-  right: 0;                    /* collée au bord droit */
-  bottom: 0;
-  width: min(68%, 1300px);     /* au lieu de toute la largeur */
-  z-index: -1;
-  overflow: hidden;            /* l'image ne peut plus déborder */
-  display: none;
-}
-
-@media (min-width: 1024px) {
-  .hero__visual {
-    display: block;
-  }
-}
-
-.hero__visual img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: right center;   /* le bord droit de la photo reste toujours visible */
-}
-
-/* Le voile, maintenant calculé sur la largeur de la photo */
-.hero__visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background:
-    linear-gradient(90deg,
-      #020817 0%,
-      rgb(2 8 23 / 0.75) 18%,
-      rgb(2 8 23 / 0.25) 38%,
-      transparent 55%),
-    linear-gradient(to bottom, transparent 65%, #020817 100%);
-}
-
-
-  /* =========================
-     VAGUE BASSE
-  ========================== */
-
-  .hero__wave {
-  @apply
-    pointer-events-none
-    absolute
-    bottom-0
-    left-1/2
-    z-30
-    h-[50%]
-    w-[108%]
-    max-w-none
-    min-w-[900px]
-    -translate-x-1/2
-    translate-y-1/2;
-  }
-
-
-/* =========================
-   CONTENU TEXTE
-========================== */
-
-.hero__title {
-  @apply
-    max-w-[72%]
-    text-xl
-    sm:max-w-4xl
-    sm:text-2xl
-    md:text-4xl
-    lg:text-5xl;
-}
-
-.hero__description {
-  @apply
-    mt-4
-    max-w-full
-    sm:mt-5
-    sm:max-w-2xl;
-}
-
-
-/* =========================
-   ACTIONS
-========================== */
-
-.hero__actions {
-  @apply
-    mt-6
-    flex
-    flex-nowrap
-    items-center
-    justify-center
-    gap-2
-
-    sm:mt-10
-    sm:flex-wrap
-    sm:gap-4
-
-    md:justify-start;
-}
-
-/* Boutons plus compacts UNIQUEMENT sur mobile */
-.hero__actions .btn-primary,
-.hero__actions .btn-secondary {
-  @apply
-    whitespace-nowrap
-    px-3
-    py-2
-    text-xs
-
-    sm:px-4
-    sm:py-2.5
-    sm:text-sm
-
-    md:px-5
-    md:py-3
-    md:text-base
-
-    lg:px-6
-    lg:text-lg;
-}
-
-
-/* =========================
-   PETITES CARTES DU HERO
-========================== */
-
-.hero__cards {
-  @apply
-    mt-6
-    grid
-    gap-2
-
-    sm:mt-8
-    sm:gap-3
-
-    md:gap-4;
-}
-
-.hero__card {
-  @apply
-    min-w-0
-    text-center
-
-    sm:text-left;
-}
-
-/* Ligne titre */
-.hero__card-heading {
-  @apply
-    flex
-    items-center
-    justify-center
-
-    sm:justify-start
-    sm:gap-2
-
-    lg:gap-3;
-}
-
-/* Icône supprimée uniquement sur mobile */
-.hero__card-icon {
-  @apply
-    hidden
-
-    sm:flex;
-}
-
-/* Titre plus compact uniquement sur mobile */
-.hero__card-title {
-  @apply
-    text-xs
-    leading-tight
-
-    sm:text-sm
-
-    md:text-base
-
-    lg:text-lg;
-}
-
-/* Description centrée uniquement sur mobile */
-.hero__card-description {
-  @apply
-    mt-1
-    text-center
-    text-[11px]
-    leading-4
-
-    sm:mt-2
-    sm:text-left
-    sm:text-xs
-
-    md:text-sm
-
-    lg:text-base;
-}
-
-
-  /* =========================
-     OVERLAY
-  ========================== */
-
-  .hero__overlay {
-    @apply
-      pointer-events-none
-      absolute
-      inset-0
-      z-[1];
-
-    background: linear-gradient(
-      to right,
-      #020817 30%,
-      transparent 70%
-    );
-  }
-
-
-  /* =========================
-     DÉCORATIONS
-  ========================== */
-
-  .hero__decoration {
-    @apply
-      pointer-events-none
-      absolute
-      hidden
-      lg:block;
-  }
-}
-
-
-/* ==========================================================
-   5. BOUTONS ET BADGES
-   Styles réutilisables pour les actions et étiquettes
-========================================================== */
-
-@layer components {
-
-  /* =========================
-     BOUTON PRINCIPAL
-  ========================== */
-
-  .btn-primary {
-  @apply
-    inline-flex
-    items-center
-    justify-center
-    gap-2
-    rounded-xl
-    px-4
-    py-2.5
-    text-sm
-    font-semibold
-    text-white
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-blue-400
-    md:px-5
-    md:py-3
-    md:text-base
-    lg:px-6
-    lg:text-lg;
-
-  background-image: linear-gradient(90deg, #083daf 0%, #0D5BFF 25%, #2E7BFF 50%, #0D5BFF 75%, #083daf 100%);
-  background-size: 200% 100%;
-  background-position: 0% 0;
-  box-shadow: 0 6px 20px rgb(13 91 255 / 0.25);
-  transition: background-position 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-position: 100% 0;
-  box-shadow: 0 10px 28px rgb(13 91 255 / 0.45);
-  transform: translateY(-2px);
-}
-
+ 
+  /* ---------- Variante dorée ---------- */
+  /* (à garder APRÈS .btn-primary pour remplacer son dégradé) */
+ 
   .btn-gold {
-  background-image: linear-gradient(90deg, #C08A30 0%, #E9C46A 25%, #FFE6A8 50%, #E9C46A 75%, #C08A30 100%);
-  background-size: 200% 100%;
-  background-position: 0% 0;
-  color: #001A5A;
-  box-shadow: 0 6px 20px rgb(212 162 76 / 0.25);
-  transition: background-position 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
-}
-
-.btn-gold:hover {
-  background-position: 100% 0;
-  box-shadow: 0 10px 28px rgb(212 162 76 / 0.45);
-  transform: translateY(-2px);
-}
-
-.btn-gold:focus-visible {
-  outline: none;
-  box-shadow: 0 0 0 2px #020817, 0 0 0 4px #E9C46A;
-}
-
-  /* =========================
-     BOUTON SECONDAIRE
-  ========================== */
-
+    background-image: linear-gradient(90deg, #C08A30 0%, #E9C46A 25%, #FFE6A8 50%, #E9C46A 75%, #C08A30 100%);
+    background-size: 200% 100%;
+    background-position: 0% 0;
+    color: #001A5A;
+    box-shadow: 0 6px 20px rgb(212 162 76 / 0.25);
+    transition: background-position 0.6s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+ 
+  .btn-gold:hover {
+    background-position: 100% 0;
+    box-shadow: 0 10px 28px rgb(212 162 76 / 0.45);
+    transform: translateY(-2px);
+  }
+ 
+  .btn-gold:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px #020817, 0 0 0 4px #E9C46A;
+  }
+ 
+  /* ---------- Bouton secondaire (contour) ---------- */
+ 
   .btn-secondary {
-  @apply
-    inline-flex
-    items-center
-    justify-center
-    gap-2
-    rounded-xl
-    border
-    border-white/20
-    px-4
-    py-2.5
-    text-sm
-    font-semibold
-    text-white
-    transition
-    duration-300
-    hover:-translate-y-0.5
-    hover:border-blue-500
-    hover:bg-blue-500/10
-    focus-visible:outline-none
-    focus-visible:ring-2
-    focus-visible:ring-blue-400
-    md:px-5
-    md:py-3
-    md:text-base
-    lg:px-6
-    lg:text-lg;
-}
-
-/* Flèche qui glisse au survol */
-.btn-secondary .btn-arrow {
-  @apply transition-transform duration-300;
-}
-
-.btn-secondary:hover .btn-arrow {
-  @apply translate-x-1;
-}
-
-    .btn-cta {
+    @apply
+      inline-flex
+      items-center
+      justify-center
+      gap-2
+      rounded-xl
+      border
+      border-white/20
+      px-4
+      py-2.5
+      text-sm
+      font-semibold
+      text-white
+      transition
+      duration-300
+      hover:-translate-y-0.5
+      hover:border-blue-500
+      hover:bg-blue-500/10
+      focus-visible:outline-none
+      focus-visible:ring-2
+      focus-visible:ring-blue-400
+      md:px-5
+      md:py-3
+      md:text-base
+      lg:px-6
+      lg:text-lg;
+  }
+ 
+  /* Flèche qui glisse au survol */
+  .btn-secondary .btn-arrow {
+    @apply transition-transform duration-300;
+  }
+ 
+  .btn-secondary:hover .btn-arrow {
+    @apply translate-x-1;
+  }
+ 
+  /* Couleur selon le thème de section */
+  .section-dark .btn-secondary {
+    @apply text-white;
+  }
+ 
+  .section-light .btn-secondary {
+    @apply text-slate-900;
+  }
+ 
+  /* ---------- Bouton lien (CTA texte) ---------- */
+ 
+  .btn-cta {
     @apply
       text-sm
       font-semibold
@@ -1030,254 +568,211 @@
       lg:px-6
       lg:text-lg;
   }
-
-  .section-dark .btn-secondary {
-    @apply text-white;
+ 
+  /* ----------------------------------------------------------
+     5.2 Badges
+  ---------------------------------------------------------- */
+ 
+  .badge {
+    @apply
+      inline-flex
+      items-center
+      gap-1
+      rounded-full
+      border
+      px-2
+      py-1
+      text-[10px]
+      sm:gap-2
+      sm:px-3
+      sm:text-xs
+      md:text-sm;
   }
-
-  .section-light .btn-secondary {
-    @apply text-slate-900;
-  }
-
-
-/* =========================
-   BADGE GÉNÉRIQUE
-========================== */
-
-.badge {
-  @apply
-    inline-flex
-    items-center
-    gap-1
-    rounded-full
-    border
-    px-2
-    py-1
-    text-[10px]
-
-    sm:gap-2
-    sm:px-3
-    sm:text-xs
-
-    md:text-sm;
-}
-
-
-  /* =========================
-     VARIANTES DE BADGE
-  ========================== */
-
+ 
   .badge-primary {
     @apply
       border-blue-500/20
       bg-blue-500/10
       text-blue-400;
   }
-
+ 
   .badge-success {
     @apply
       border-green-500/20
       bg-green-500/15
       text-green-400;
   }
-
+ 
   .badge-warning {
     @apply
       border-orange-500/20
       bg-orange-500/15
       text-orange-400;
   }
-
+ 
   .badge-danger {
     @apply
       border-red-500/20
       bg-red-500/15
       text-red-400;
   }
+ 
+  /* ----------------------------------------------------------
+     5.3 Cartes
+  ---------------------------------------------------------- */
+ 
+  /* ---------- Carte sombre ---------- */
+ 
+  .card-dark {
+    @apply
+      rounded-2xl
+      border
+      border-slate-800
+      bg-slate-900
+      p-4
+      text-slate-100
+      shadow-sm
+      transition
+      duration-300
+      md:p-5
+      lg:p-6;
+  }
+ 
+  .card-dark p {
+    @apply text-slate-400;
+  }
+ 
+  .card-dark h2,
+  .card-dark h3,
+  .card-dark h4 {
+    color: var(--color-slate-200);
+  }
+ 
+  /* ---------- Carte claire ---------- */
+ 
+  .card-light {
+    @apply
+      rounded-2xl
+      border
+      border-slate-200
+      bg-white
+      p-4
+      text-slate-900
+      shadow-sm
+      transition
+      duration-300
+      md:p-5
+      lg:p-6;
+  }
+ 
+  .card-light p {
+    @apply text-slate-600;
+  }
+ 
+  /* ---------- Interaction au survol (optionnelle) ---------- */
+ 
+  .card-interactive {
+    @apply
+      cursor-pointer
+      hover:-translate-y-1
+      hover:shadow-lg;
+  }
 }
-
-/* ==========================================================
-   UTILITAIRES VISUELS
-========================================================== */
-
-/* == Dégradé bleu Jess Tech pour les mots mis en valeur */
-.text-gradient-blue {
-  @apply
-    bg-gradient-to-r
-    from-[#083daf]
-    via-[#0D5BFF]
-    to-sky-500
-    bg-clip-text
-    text-transparent;
-}
-
-/* == HALO BLEU AUTOUR DES CARTES == */
-
+ 
+/* ----------------------------------------------------------
+   5.4 Effets de cartes [hors layer]
+---------------------------------------------------------- */
+ 
+/* ---------- Halo bleu autour des cartes ---------- */
+ 
 .card-glow {
   border: 1px solid rgba(8, 131, 212, 0.45);
-
+ 
   box-shadow:
     0 0 6px rgba(13, 178, 255, 0.35),
     0 0 14px rgba(17, 92, 252, 0.22);
 }
-
-/* == BORDURE LUMINEUSE ANIMÉE == */
-
+ 
+/* ---------- Bordure lumineuse animée (SVG) ---------- */
+ 
 .card-animated-stroke {
   fill: none;
   stroke: #0883d4;
   stroke-width: 2;
-
+ 
   stroke-dasharray: 1;
   stroke-dashoffset: 1;
   stroke-linecap: round;
-
+ 
   filter:
     drop-shadow(0 0 4px rgba(13, 178, 255, 0.8))
     drop-shadow(0 0 8px rgba(17, 92, 252, 0.5));
-
+ 
   transition: stroke-dashoffset 1s ease;
 }
-
+ 
 .group:hover .card-animated-stroke {
   stroke-dashoffset: 0;
 }
-
-/* ==========================================================
-   PAGE SERVICES — DÉROULEMENT DU PROJET
-   Animation du point lumineux sur la ligne des étapes
-========================================================== */
-
-@keyframes services-project-pulse {
-  0% {
-    left: 0;
-    opacity: 0;
-    transform: translateY(-50%) scale(0.6);
-  }
-
-  15% {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
-
-  85% {
-    opacity: 1;
-    transform: translateY(-50%) scale(1);
-  }
-
-  100% {
-    left: calc(100% - 0.75rem);
-    opacity: 0;
-    transform: translateY(-50%) scale(0.6);
-  }
-}
-
-.services-project-pulse {
-  animation: services-project-pulse 700ms ease-in-out forwards;
-  opacity: 0;
-}
-
-/* =========================================================
-   HERO CONTACT — VISUEL DESKTOP
-   Fondu progressif entre le fond du hero et l'image
-   ========================================================= */
-
-.contact-hero__visual {
-  -webkit-mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.15) 10%,
-    rgba(0, 0, 0, 0.55) 22%,
-    black 38%
-  );
-
-  mask-image: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(0, 0, 0, 0.15) 10%,
-    rgba(0, 0, 0, 0.55) 22%,
-    black 38%
-  );
-}
-
-/* =========================
-   GALERIE PROJET — MOBILE
-========================= */
-
-.project-gallery__arrow {
-  @apply
-    flex
-    h-7
-    w-7
-    items-center
-    justify-center
-    p-0
-    opacity-70;
-}
-
-.project-gallery__arrow-icon {
-  @apply
-    h-3.5
-    w-3.5;
-}
-
-@media (min-width: 640px) {
-  .project-gallery__arrow {
-    @apply
-      h-auto
-      w-auto
-      opacity-100;
-  }
-
-  .project-gallery__arrow-icon {
-    @apply
-      h-5
-      w-5;
-  }
-}
-
-/* ==========================================================
-   HERO À PROPOS — CARTES MOBILE
-========================================================== */
-
+ 
+/* ----------------------------------------------------------
+   5.5 Cartes — adaptations mobile (< 640px) [hors layer]
+   Cartes de services et cartes d'étapes
+---------------------------------------------------------- */
+ 
 @media (max-width: 639px) {
-  .about-value-card {
+ 
+  /* ---------- Générique ---------- */
+ 
+  .card-content-mobile {
     @apply
-      !p-2;
+      items-center
+      text-center;
   }
-
-  .about-value-card__icon {
+ 
+  .card-features-mobile {
+    @apply
+      justify-center
+      gap-x-4
+      gap-y-2;
+  }
+ 
+  /* ---------- Carte de service ---------- */
+ 
+  .service-card__content {
+    @apply
+      items-center
+      justify-center
+      p-2
+      text-center;
+  }
+ 
+  .service-card__heading {
+    @apply
+      justify-center
+      text-center;
+  }
+ 
+  .service-card__icon {
     @apply hidden;
   }
-
-  .about-value-card__title {
+ 
+  .service-card__title {
     @apply
-      mt-1
+      whitespace-normal
       text-center
-      text-xs
       leading-tight;
   }
-
-  .about-value-card__description {
+ 
+  .service-card__description {
     @apply
-      !mt-1
-      text-center
-      text-[10px]
-      leading-4;
+      mt-2
+      text-center;
   }
-
-  .about-value-card__image {
-    @apply opacity-20;
-  }
-}
-
-@media (max-width: 639px) {
-  .technology-card {
-    @apply
-      !p-3;
-  }
-
-  .technology-card__heading {
+ 
+  /* ---------- Carte d'étape ---------- */
+ 
+  .step-card__heading {
     @apply
       flex-col
       items-center
@@ -1285,163 +780,522 @@
       gap-2
       text-center;
   }
-
-  .technology-card__icon {
+ 
+  .step-card__icon {
     @apply
       h-6
       w-6;
   }
-
-  .technology-card__title {
-    @apply
-      text-center
-      text-sm
-      leading-tight;
-  }
-
-  .technology-card__description {
-    @apply
-      mt-2
-      text-center
-      text-xs
-      leading-5;
+ 
+  .step-card__title {
+    @apply text-center;
   }
 }
-
+ 
+ 
+ 
 /* ==========================================================
-   GlobalInfoBulle
-   ========================================================== */
-
+   6. MODULES GLOBAUX
+   Blocs complets réutilisables sur n'importe quelle page
+========================================================== */
+ 
+/* ----------------------------------------------------------
+   6.1 Header et navigation [hors layer]
+---------------------------------------------------------- */
+ 
+/* ---------- Vague sous le header ---------- */
+ 
+.header__wave {
+  @apply
+    pointer-events-none
+    absolute
+    left-0
+    top-full
+    w-5/12
+    max-w-none
+    -translate-y-[40%];
+}
+ 
+/* ---------- Liens de navigation : soulignement pailleté ---------- */
+ 
+.nav-link {
+  position: relative;
+  display: inline-block;
+}
+ 
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: -0.3em;
+  right: -0.3em;
+  bottom: -0.55em;
+  height: max(0.8em, 12px);
+  background:
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
+    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat;
+  filter: brightness(1.3) saturate(1.4);
+  pointer-events: none;
+ 
+  /* Caché au départ : le "rideau" couvre tout */
+  clip-path: inset(0 100% 0 0);
+  transition: clip-path 0.45s ease;
+}
+ 
+/* Survol, focus clavier et page active : le rideau s'ouvre */
+.nav-link:hover::after,
+.nav-link:focus-visible::after,
+.nav-link.active::after {
+  clip-path: inset(0 0 0 0);
+}
+ 
+/* Moins d'animations si l'utilisateur le demande */
+@media (prefers-reduced-motion: reduce) {
+  .nav-link::after {
+    transition: none;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   6.2 Hero global
+   Base commune à tous les héros du site
+---------------------------------------------------------- */
+ 
+@layer components {
+ 
+  /* ---------- Structure ---------- */
+ 
+  .hero {
+    @apply
+      relative
+      z-10
+      isolate
+      overflow-visible
+      bg-[#020817];
+ 
+    overflow-x: clip; /* coupe ce qui dépasse à gauche et à droite */
+  }
+ 
+  .hero__container {
+    @apply
+      relative
+      z-10
+      w-full
+      px-4
+      pt-0
+      pb-6
+      sm:px-10
+      md:pb-6
+      lg:px-20
+      lg:pb-10;
+  }
+ 
+  .hero__layout {
+    @apply
+      grid
+      gap-8
+      py-10
+      md:py-14
+      lg:py-16;
+  }
+ 
+  .hero__content {
+    @apply
+      relative
+      z-20
+      w-full
+      max-w-3xl
+      lg:max-w-4xl;
+  }
+ 
+  /* ---------- Contenu texte ---------- */
+ 
+  .hero__title {
+    @apply
+      max-w-[72%]
+      text-xl
+      sm:max-w-4xl
+      sm:text-2xl
+      md:text-4xl
+      lg:text-5xl;
+  }
+ 
+  .hero__description {
+    @apply
+      mt-4
+      max-w-full
+      sm:mt-5
+      sm:max-w-2xl;
+  }
+ 
+  /* ---------- Boutons d'action ---------- */
+ 
+  .hero__actions {
+    @apply
+      mt-6
+      flex
+      flex-nowrap
+      items-center
+      justify-center
+      gap-2
+      sm:mt-10
+      sm:flex-wrap
+      sm:gap-4
+      md:justify-start;
+  }
+ 
+  /* Boutons plus compacts uniquement sur mobile */
+  .hero__actions .btn-primary,
+  .hero__actions .btn-secondary {
+    @apply
+      whitespace-nowrap
+      px-3
+      py-2
+      text-xs
+      sm:px-4
+      sm:py-2.5
+      sm:text-sm
+      md:px-5
+      md:py-3
+      md:text-base
+      lg:px-6
+      lg:text-lg;
+  }
+ 
+  /* ---------- Petites cartes du hero ---------- */
+ 
+  .hero__cards {
+    @apply
+      mt-6
+      grid
+      gap-2
+      sm:mt-8
+      sm:gap-3
+      md:gap-4;
+  }
+ 
+  .hero__card {
+    @apply
+      min-w-0
+      text-center
+      sm:text-left;
+  }
+ 
+  /* Ligne titre */
+  .hero__card-heading {
+    @apply
+      flex
+      items-center
+      justify-center
+      sm:justify-start
+      sm:gap-2
+      lg:gap-3;
+  }
+ 
+  /* Icône masquée uniquement sur mobile */
+  .hero__card-icon {
+    @apply
+      hidden
+      sm:flex;
+  }
+ 
+  /* Titre plus compact uniquement sur mobile */
+  .hero__card-title {
+    @apply
+      text-xs
+      leading-tight
+      sm:text-sm
+      md:text-base
+      lg:text-lg;
+  }
+ 
+  /* Description centrée uniquement sur mobile */
+  .hero__card-description {
+    @apply
+      mt-1
+      text-center
+      text-[11px]
+      leading-4
+      sm:mt-2
+      sm:text-left
+      sm:text-xs
+      md:text-sm
+      lg:text-base;
+  }
+ 
+  /* ---------- Visuel mobile / tablette ---------- */
+ 
+  .hero__visual-mobile {
+    @apply
+      pointer-events-none
+      absolute
+      right-0
+      top-0
+      z-10
+      block
+      h-30
+      w-50
+      md:h-56
+      md:w-64
+      lg:hidden;
+ 
+    filter:
+      drop-shadow(-2px 2px 4px rgba(13, 178, 255, 0.75))
+      drop-shadow(-5px 5px 12px rgba(17, 92, 252, 0.35));
+  }
+ 
+  .hero__visual-mobile-mask {
+    @apply
+      h-full
+      w-full
+      overflow-hidden;
+ 
+    clip-path: ellipse(100% 100% at 100% 0%);
+  }
+ 
+  .hero__visual-mobile-image {
+    @apply
+      h-full
+      w-full
+      object-cover;
+ 
+    object-position: 35% center;
+  }
+ 
+  /* ---------- Visuel desktop (≥ 1024px) ---------- */
+ 
+  .hero__visual {
+    position: absolute;
+    top: 0;
+    right: 0;                    /* collée au bord droit */
+    bottom: 0;
+    width: min(68%, 1300px);     /* au lieu de toute la largeur */
+    z-index: -1;
+    overflow: hidden;            /* l'image ne peut plus déborder */
+    display: none;
+  }
+ 
+  @media (min-width: 1024px) {
+    .hero__visual {
+      display: block;
+    }
+  }
+ 
+  .hero__visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: right center;   /* le bord droit de la photo reste visible */
+  }
+ 
+  /* Voile sombre, calculé sur la largeur de la photo */
+  .hero__visual::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(90deg,
+        #020817 0%,
+        rgb(2 8 23 / 0.75) 18%,
+        rgb(2 8 23 / 0.25) 38%,
+        transparent 55%),
+      linear-gradient(to bottom, transparent 65%, #020817 100%);
+  }
+ 
+  /* ---------- Overlay ---------- */
+ 
+  .hero__overlay {
+    @apply
+      pointer-events-none
+      absolute
+      inset-0
+      z-[1];
+ 
+    background: linear-gradient(
+      to right,
+      #020817 30%,
+      transparent 70%
+    );
+  }
+ 
+  /* ---------- Vague basse ---------- */
+ 
+  .hero__wave {
+    @apply
+      pointer-events-none
+      absolute
+      bottom-0
+      left-1/2
+      z-30
+      h-[50%]
+      w-[108%]
+      max-w-none
+      min-w-[900px]
+      -translate-x-1/2
+      translate-y-1/2;
+  }
+ 
+  /* ---------- Décorations ---------- */
+ 
+  .hero__decoration {
+    @apply
+      pointer-events-none
+      absolute
+      hidden
+      lg:block;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   6.3 Info-bulle (composant GlobalInfoBulle) [hors layer]
+---------------------------------------------------------- */
+ 
+/* ---------- Variables animables ---------- */
+ 
 @property --info-reveal {
   syntax: "<percentage>";
   inherits: false;
   initial-value: 100%;
 }
-
+ 
 @property --info-dissolve {
   syntax: "<percentage>";
   inherits: false;
   initial-value: 0%;
 }
-
+ 
 /* ---------- Wrapper ---------- */
-
+ 
 .info-bulle-wrapper {
   position: absolute;
   top: 10px;
   right: 10px;
   z-index: 30;
 }
-
-/* ---------- Déclencheur ---------- */
-
+ 
+/* ---------- Déclencheur (la bulle) ---------- */
+ 
 .info-bulle-trigger {
   position: absolute;
   top: 0;
   right: 0;
-
+ 
   width: 64px;
   height: 64px;
-
+ 
   padding: 0;
   border: 0;
   background: transparent;
-
+ 
   cursor: pointer;
   z-index: 40;
 }
-
+ 
 @media (min-width: 640px) {
   .info-bulle-trigger {
     width: 80px;
     height: 80px;
   }
 }
-
+ 
 .info-bulle-trigger-img {
   display: block;
   width: 100%;
   height: 100%;
   object-fit: contain;
   pointer-events: none;
-
+ 
   transform: scaleX(-1);
 }
-
+ 
 /* ---------- Carte ---------- */
-
+ 
 .info-bulle-card {
   position: absolute;
   top: 0;
   right: 72px;
-
+ 
   width: min(75vw, 34rem);
-
+ 
   padding: 1rem 1.25rem;
-
+ 
   border-radius: 1rem;
-
+ 
   transform-origin: right center;
-
+ 
   will-change:
     transform,
     opacity,
     mask-image,
     -webkit-mask-image;
 }
-
+ 
 @media (min-width: 640px) {
   .info-bulle-card {
     right: 88px;
   }
 }
-
+ 
 /* ---------- Couleurs ---------- */
-
+ 
+/* Bulle sombre sur section claire */
 .info-bulle-dark {
   background: #020817;
   color: #f8fafc;
-
+ 
   border: 1px solid rgba(59, 130, 246, 0.35);
 }
-
+ 
+/* Bulle claire sur section sombre */
 .info-bulle-light {
   background: #ffffff;
-  color: #0f172a;
-
-  border: 1px solid rgba(148, 163, 184, 0.45);
+  color: #1e293b;
+ 
+  border: 1px solid rgba(59, 130, 246, 0.4);
 }
-
+ 
 /* ---------- Texte ---------- */
-
+ 
 .info-bulle-title {
   margin: 0 0 0.4rem;
+ 
   font-size: 1.1rem;
   font-weight: 600;
 }
-
+ 
 .info-bulle-content {
   line-height: 1.55;
 }
-
-/* ==========================================================
-   Ouverture
+ 
+/* On écrase aussi les styles globaux des <p> */
+.info-bulle-dark .info-bulle-content,
+.info-bulle-dark .info-bulle-content p {
+  color: #cbd5e1;
+}
+ 
+.info-bulle-light .info-bulle-content,
+.info-bulle-light .info-bulle-content p {
+  color: #334155;
+}
+ 
+/* ---------- Ouverture ----------
    La carte se dévoile depuis la bulle,
-   donc de droite vers la gauche.
-   ========================================================== */
-
+   donc de droite vers la gauche. */
+ 
 .info-bulle-card.is-opening {
   --info-reveal: 100%;
-
+ 
   opacity: 1;
   pointer-events: none;
-
+ 
   animation:
     info-bulle-reveal
     1100ms
     linear
     forwards;
-
+ 
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -1449,7 +1303,7 @@
     black var(--info-reveal),
     black 100%
   );
-
+ 
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -1457,50 +1311,49 @@
     black var(--info-reveal),
     black 100%
   );
-
+ 
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-
+ 
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-
+ 
 @keyframes info-bulle-reveal {
   from {
     --info-reveal: 100%;
   }
-
+ 
   to {
     --info-reveal: 8%;
   }
 }
-
+ 
 /* ---------- Carte ouverte ---------- */
-
+ 
 .info-bulle-card.is-open {
   opacity: 1;
-
+ 
   -webkit-mask-image: none;
   mask-image: none;
 }
-
-/* ==========================================================
-   Fermeture
-   La carte retourne vers la bulle, donc gauche -> droite.
-   ========================================================== */
-
+ 
+/* ---------- Fermeture ----------
+   La carte retourne vers la bulle,
+   donc de gauche vers la droite. */
+ 
 .info-bulle-card.is-dissolving {
   --info-dissolve: 0%;
-
+ 
   opacity: 1;
   pointer-events: none;
-
+ 
   animation:
     info-bulle-dissolve
     1000ms
     linear
     forwards;
-
+ 
   -webkit-mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -1508,7 +1361,7 @@
     black calc(var(--info-dissolve) + 8%),
     black 100%
   );
-
+ 
   mask-image: linear-gradient(
     to right,
     transparent 0%,
@@ -1516,26 +1369,59 @@
     black calc(var(--info-dissolve) + 8%),
     black 100%
   );
-
+ 
   -webkit-mask-repeat: no-repeat;
   mask-repeat: no-repeat;
-
+ 
   -webkit-mask-size: 100% 100%;
   mask-size: 100% 100%;
 }
-
+ 
 @keyframes info-bulle-dissolve {
   from {
     --info-dissolve: 0%;
   }
-
+ 
   to {
     --info-dissolve: 110%;
   }
 }
-
-/* ---------- Accessibilité ---------- */
-
+ 
+/* ---------- Mobile : la bulle ouverte pousse le contenu ---------- */
+ 
+@media (max-width: 639px) {
+  .info-bulle-section {
+    transition: padding-top 300ms ease;
+  }
+ 
+  .info-bulle-section.has-info-bulle-open .info-bulle-wrapper {
+    position: relative;
+ 
+    top: auto;
+    right: auto;
+ 
+    display: flex;
+    justify-content: flex-end;
+ 
+    width: 100%;
+    height: 8rem;
+ 
+    margin-bottom: 1rem;
+  }
+ 
+  .info-bulle-section.has-info-bulle-open .info-bulle-card {
+    top: 0;
+    right: 58px;
+  }
+ 
+  .info-bulle-section.has-info-bulle-open .info-bulle-trigger {
+    top: 0;
+    right: 0;
+  }
+}
+ 
+/* ---------- Accessibilité : moins d'animations ---------- */
+ 
 @media (prefers-reduced-motion: reduce) {
   .info-bulle-card {
     animation: none !important;
@@ -1544,100 +1430,18 @@
     -webkit-mask-image: none !important;
   }
 }
-
-/* ---------- Couleurs ---------- */
-
-/* Bulle sombre sur section claire */
-.info-bulle-dark {
-  background: #020817;
-  color: #f8fafc;
-
-  border: 1px solid rgba(59, 130, 246, 0.35);
-}
-
-/* Bulle claire sur section sombre */
-.info-bulle-light {
-  background: #ffffff;
-  color: #1e293b;
-
-  border: 1px solid rgba(59, 130, 246, 0.4);
-}
-
-
-/* ---------- Texte ---------- */
-
-.info-bulle-title {
-  margin: 0 0 0.4rem;
-
-  font-size: 1.1rem;
-  font-weight: 600;
-}
-
-
-
-/* ---------- Contenu ---------- */
-
-.info-bulle-content {
-  line-height: 1.55;
-}
-
-/* On écrase aussi les styles globaux des <p> */
-.info-bulle-dark .info-bulle-content,
-.info-bulle-dark .info-bulle-content p {
-  color: #cbd5e1;
-}
-
-.info-bulle-light .info-bulle-content,
-.info-bulle-light .info-bulle-content p {
-  color: #334155;
-}
-
-@media (max-width: 639px) {
-  .info-bulle-section {
-    transition: padding-top 300ms ease;
-  }
-
-@media (max-width: 639px) {
-  .info-bulle-section.has-info-bulle-open
-  .info-bulle-wrapper {
-    position: relative;
-
-    top: auto;
-    right: auto;
-
-    display: flex;
-    justify-content: flex-end;
-
-    width: 100%;
-    height: 8rem;
-
-    margin-bottom: 1rem;
-  }
-
-  .info-bulle-section.has-info-bulle-open
-  .info-bulle-card {
-    top: 0;
-    right: 58px;
-  }
-
-  .info-bulle-section.has-info-bulle-open
-  .info-bulle-trigger {
-    top: 0;
-    right: 0;
-  }
-}
-}
-
-/* =========================
-   BANDE PAILLETÉE
-========================== */
-
+ 
+ 
+/* ----------------------------------------------------------
+   6.4 Bande pailletée (derrière les petits titres) [hors layer]
+---------------------------------------------------------- */
+ 
 .glitter-band {
   position: relative;
   display: inline-block;
   isolation: isolate;
 }
-
+ 
 .glitter-band::before {
   content: "";
   position: absolute;
@@ -1654,13 +1458,13 @@
   z-index: -1;
   pointer-events: none;
 }
-
+ 
 /* Variante : paillettes PAR-DESSUS le texte */
 .glitter-band--over::before {
   z-index: 1;
   mix-blend-mode: screen;
 }
-
+ 
 /* Variante : soulignement pailleté */
 .glitter-band--underline::before {
   top: auto;
@@ -1670,56 +1474,243 @@
   height: max(0.9em, 18px);
   transform: none;
 }
-
-.header__wave {
-  @apply
-    pointer-events-none
-    absolute
-    left-0
-    top-full
-    w-5/12
-    max-w-none
-    -translate-y-[40%];
-}
-
-/* =========================
-   NAVBAR — SOULIGNEMENT PAILLETÉ
-========================== */
-
-.nav-link {
-  position: relative;
-  display: inline-block;
-}
-
-.nav-link::after {
-  content: "";
-  position: absolute;
-  left: -0.3em;
-  right: -0.3em;
-  bottom: -0.55em;
-  height: max(0.8em, 12px);
-  background:
-    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
-    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat,
-    url("/decorations/paillettes-bande.webp") center / 100% 100% no-repeat;
-  filter: brightness(1.3) saturate(1.4);
-  pointer-events: none;
-
-  /* Caché au départ : le "rideau" couvre tout */
-  clip-path: inset(0 100% 0 0);
-  transition: clip-path 0.45s ease;
-}
-
-/* Survol, focus clavier et page active : le rideau s'ouvre */
-.nav-link:hover::after,
-.nav-link:focus-visible::after,
-.nav-link.active::after {
-  clip-path: inset(0 0 0 0);
-}
-
-/* Respect des utilisateurs qui préfèrent moins d'animations */
-@media (prefers-reduced-motion: reduce) {
-  .nav-link::after {
-    transition: none;
+ 
+ 
+ 
+/* ==========================================================
+   7. PAGES
+   Styles propres à une seule page [hors layer]
+========================================================== */
+ 
+/* ----------------------------------------------------------
+   7.1 Page Accueil
+---------------------------------------------------------- */
+ 
+/* (rien de spécifique pour l'instant) */
+ 
+ 
+/* ----------------------------------------------------------
+   7.2 Page Services — déroulement du projet
+   Point lumineux qui parcourt la ligne des étapes
+---------------------------------------------------------- */
+ 
+@keyframes services-project-pulse {
+  0% {
+    left: 0;
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
+  }
+ 
+  15% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+ 
+  85% {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+ 
+  100% {
+    left: calc(100% - 0.75rem);
+    opacity: 0;
+    transform: translateY(-50%) scale(0.6);
   }
 }
+ 
+.services-project-pulse {
+  animation: services-project-pulse 700ms ease-in-out forwards;
+  opacity: 0;
+}
+ 
+ 
+/* ----------------------------------------------------------
+   7.3 Page Réalisations — galerie projet
+---------------------------------------------------------- */
+ 
+/* Mobile : flèches compactes */
+.project-gallery__arrow {
+  @apply
+    flex
+    h-7
+    w-7
+    items-center
+    justify-center
+    p-0
+    opacity-70;
+}
+ 
+.project-gallery__arrow-icon {
+  @apply
+    h-3.5
+    w-3.5;
+}
+ 
+/* À partir de 640px : taille normale */
+@media (min-width: 640px) {
+  .project-gallery__arrow {
+    @apply
+      h-auto
+      w-auto
+      opacity-100;
+  }
+ 
+  .project-gallery__arrow-icon {
+    @apply
+      h-5
+      w-5;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   7.4 Page À propos — cartes mobile (< 640px)
+---------------------------------------------------------- */
+ 
+@media (max-width: 639px) {
+ 
+  /* ---------- Cartes valeurs (hero) ---------- */
+ 
+  .about-value-card {
+    @apply !p-2;
+  }
+ 
+  .about-value-card__icon {
+    @apply hidden;
+  }
+ 
+  .about-value-card__title {
+    @apply
+      mt-1
+      text-center
+      text-xs
+      leading-tight;
+  }
+ 
+  .about-value-card__description {
+    @apply
+      !mt-1
+      text-center
+      text-[10px]
+      leading-4;
+  }
+ 
+  .about-value-card__image {
+    @apply opacity-20;
+  }
+ 
+  /* ---------- Cartes technologies ---------- */
+ 
+  .technology-card {
+    @apply !p-3;
+  }
+ 
+  .technology-card__heading {
+    @apply
+      flex-col
+      items-center
+      justify-center
+      gap-2
+      text-center;
+  }
+ 
+  .technology-card__icon {
+    @apply
+      h-6
+      w-6;
+  }
+ 
+  .technology-card__title {
+    @apply
+      text-center
+      text-sm
+      leading-tight;
+  }
+ 
+  .technology-card__description {
+    @apply
+      mt-2
+      text-center
+      text-xs
+      leading-5;
+  }
+}
+ 
+ 
+/* ----------------------------------------------------------
+   7.5 Page Contact — visuel desktop du hero
+   Fondu progressif entre le fond du hero et l'image
+---------------------------------------------------------- */
+ 
+.contact-hero__visual {
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.55) 22%,
+    black 38%
+  );
+ 
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(0, 0, 0, 0.15) 10%,
+    rgba(0, 0, 0, 0.55) 22%,
+    black 38%
+  );
+}
+ 
+ 
+ 
+/* ==========================================================
+   8. ARCHIVES — code désactivé
+   Gardé pour mémoire. À supprimer quand tu es sûre
+   de ne plus en avoir besoin.
+========================================================== */
+ 
+/* ---------- Ancien fondu sombre en haut des sections claires ----------
+ 
+.section-light::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(
+    to bottom,
+    rgba(2, 8, 23, 0.18) 0%,
+    rgba(2, 8, 23, 0.08) 35%,
+    rgba(2, 8, 23, 0.03) 65%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+ 
+---------------------------------------------------------------------- */
+ 
+/* ---------- Ancien fondu bas du hero ----------
+ 
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 200px;
+  background: linear-gradient(
+    to bottom,
+    rgba(245, 247, 252, 0) 20%,
+    rgba(245, 247, 252, 0.03) 35%,
+    rgba(245, 247, 252, 0.08) 50%,
+    rgba(245, 247, 252, 0.18) 65%,
+    rgba(245, 247, 252, 0.35) 78%,
+    rgba(245, 247, 252, 0.60) 88%,
+    rgba(245, 247, 252, 0.82) 95%,
+    #F5F7FC 100%
+  );
+  pointer-events: none;
+  z-index: 15;
+}
+ 
+---------------------------------------------- */
