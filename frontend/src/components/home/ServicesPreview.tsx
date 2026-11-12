@@ -22,9 +22,9 @@ const services: Service[] = [
     description:
       "Un site clair et responsive, pensé pour que vos clients vous trouvent et vous contactent.",
     icon: Monitor,
-    image: "/services/deco-sites-vitrines.png",
+    image: "/services/deco-sites-vitrines.webp",
     link: "/services/creation-site-internet",
-    gridClass: "row-span-2",
+    gridClass: "row-span-2 lg:min-h-[520px]",
     featured: true,
     points: ["Design sur mesure", "Adapté au mobile", "Référencement de base"],
     price: "À partir de 490 €",
@@ -65,7 +65,7 @@ export default function ServicesPreview() {
       <div className="site-container">
         <div className="grid gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-center xl:gap-12">
           {/* Introduction */}
-          <div className="section-intro max-w-xl text-justify">
+          <div className="section-intro max-w-xl">
             <p className="section-label">Services</p>
 
             <h2>Ce que je peux faire pour vous</h2>
@@ -99,89 +99,88 @@ export default function ServicesPreview() {
     xl:translate-y-7
   "
 >
-            {services.map(({ accroche, title, description, icon: Icon, image, link, gridClass, featured, points, price }) => (
+                        {services.map(({ accroche, title, description, icon: Icon, image, link, gridClass, featured, points, price }) => (
               <article
-  key={title}
-  className={`
-    ${featured ? "card-glow-gold" : "card-glow"}
-    service-card-bg
-    group
-    relative
-    min-h-45
-    overflow-hidden
-    rounded-2xl
-    ${gridClass}
-  `}
->
-  <AnimatedCardBorder />
+                key={title}
+                className={`
+                  ${featured ? "card-glow-gold" : "card-glow"}
+                  service-card-bg
+                  group
+                  relative
+                  min-h-45
+                  overflow-hidden
+                  rounded-2xl
+                  ${gridClass}
+                `}
+              >
+                <AnimatedCardBorder />
 
-  {/* Dessin Procreate (PNG transparent, aligné à droite) */}
-  <img
-    src={image}
-    alt=""
-    aria-hidden="true"
-    onError={(e) => (e.currentTarget.style.display = "none")}
-    className="
-      pointer-events-none
-      absolute
-      inset-0
-      h-full
-      w-full
-      object-contain
-      object-right
-      transition-transform
-      duration-500
-      group-hover:scale-105
-    "
-  />
+                {featured ? (
+                  /* ===== Grande carte : grille 2 colonnes × 4 lignes ===== */
+                  <div className="relative z-10 grid h-full grid-cols-2 grid-rows-[auto_auto_1fr_auto] gap-x-6 gap-y-4 p-5 lg:p-6">
+                    {/* Ligne 1 : titre à gauche, accroche à droite */}
+                    <div className="flex items-center gap-3">
+                      <Icon className="h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7" aria-hidden="true" />
+                      <h3 className="text-white">{title}</h3>
+                    </div>
+                    <p className="self-center text-right text-sm text-[#E9C46A]">{accroche}</p>
 
-  {/* Texte à gauche */}
-  <div
-    className={`
-      service-card__content
-      card-content-mobile
-      relative
-      z-10
-      flex
-      h-full
-      flex-col
-      p-4
-      lg:p-5
-      ${featured ? "max-w-[50%] justify-between" : "max-w-[60%] justify-center"}
-    `}
-  >
-    <div>
-      <p className="text-sm text-[#E9C46A]">{accroche}</p>
+                    {/* Ligne 2 : description sur toute la largeur */}
+                    <p className="col-span-2 text-justify text-slate-300 hyphens-auto">{description}</p>
 
-      <div className="service-card__heading mt-1 flex items-center gap-3">
-        <Icon className="service-card__icon h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7" aria-hidden="true" />
-        <h3 className="service-card__title text-white">{title}</h3>
-      </div>
+                    {/* Ligne 3 : points à gauche */}
+                    <ul className="self-center space-y-2 text-slate-300">
+                      {points?.map((point) => (
+                        <li key={point} className="flex items-center gap-2">
+                          <Check className="h-4 w-4 shrink-0 text-[#E9C46A]" aria-hidden="true" />
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
 
-      <p className="service-card__description mt-2 text-slate-300">{description}</p>
+                    {/* Lignes 3 et 4 à droite : case du dessin (2 cases fusionnées) */}
+                    <div className="relative row-span-2">
+                      <img
+                        src={image}
+                        alt=""
+                        aria-hidden="true"
+                        onError={(e) => (e.currentTarget.style.display = "none")}
+                        className="pointer-events-none absolute right-0 bottom-0 h-full w-auto max-w-none origin-bottom-right transition-transform duration-500 group-hover:scale-105"
+                      />
+                    </div>
 
-      {points && (
-        <ul className="mt-4 space-y-2 text-slate-300">
-          {points.map((point) => (
-            <li key={point} className="flex items-center gap-2">
-              <Check className="h-4 w-4 shrink-0 text-[#E9C46A]" aria-hidden="true" />
-              {point}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
+                    {/* Ligne 4 : prix + lien regroupés à gauche */}
+                    <div className="self-end">
+                      <p className="text-lg text-white">{price}</p>
+                      <Link to={link} className="color-link mt-1 inline-block">
+                        Voir l'offre →
+                      </Link>
+                    </div>
+                  </div>
+                ) : (
+                  /* ===== Petites cartes : dessin en fond, texte à gauche ===== */
+                  <>
+                    <img
+                      src={image}
+                      alt=""
+                      aria-hidden="true"
+                      onError={(e) => (e.currentTarget.style.display = "none")}
+                      className="pointer-events-none absolute inset-0 h-full w-full object-contain object-right transition-transform duration-500 group-hover:scale-105"
+                    />
 
-    {price && (
-      <div className="mt-6">
-        <p className="text-lg text-white">{price}</p>
-        <Link to={link} className="color-link mt-1 inline-block">
-          Voir l'offre →
-        </Link>
-      </div>
-    )}
-  </div>
-</article>
+                    <div className="service-card__content card-content-mobile relative z-10 flex h-full max-w-[60%] flex-col justify-center p-4 lg:p-5">
+                      <p className="text-sm text-[#E9C46A]">{accroche}</p>
+
+                      <div className="service-card__heading mt-1 flex items-center gap-3">
+                        <Icon className="service-card__icon h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7" aria-hidden="true" />
+                        <h3 className="service-card__title text-white">{title}</h3>
+                      </div>
+
+                      <p className="service-card__description mt-2 text-slate-300">{description}</p>
+                    </div>
+                  </>
+                )}
+              </article>
             ))}
           </div>
         </div>
