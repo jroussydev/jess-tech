@@ -81,4 +81,51 @@ export const internalProjects: InternalProject[] = [
     completedAt:
       "2026-06",
   },
+
+  {
+    id: "nuance-coiffure",
+    title: "Nuance Coiffure",
+    category: "Projet de démonstration",
+    description:
+      "Site vitrine d’un salon de coiffure fictif, construit sur un thème WordPress maison entièrement codé, sans constructeur de pages ni extension. Le projet sert de démonstration et de base réutilisable pour les futurs sites de salons.",
+    tags: ["WordPress", "Thème de blocs (FSE)", "PHP", "JavaScript", "CSS", "Responsive", "Git"],
+    status: "Terminé",
+
+    featuredImage: "/portfolio/nuance-coiffure/Hero.webp",
+    gallery: [
+      "/portfolio/nuance-coiffure/Hero.webp",
+      "/portfolio/nuance-coiffure/prestations.webp",
+      "/portfolio/nuance-coiffure/tarifs.webp",
+      "/portfolio/nuance-coiffure/cta.webp",
+      "/portfolio/nuance-coiffure/galerie.webp",
+      "/portfolio/nuance-coiffure/contact-1.webp",
+      "/portfolio/nuance-coiffure/contact-2.webp",
+      "/portfolio/nuance-coiffure/nuance-coiffure-pleine-page.webp",
+      "/portfolio/nuance-coiffure/nuance-coiffure-pleine-page-mobile.webp"
+    ],
+
+    learnings: [
+      "Développer un thème WordPress de zéro, sans thème parent ni constructeur : le client reste propriétaire de son site, sans dépendre d’un outil payant.",
+      "Écrire un formulaire de contact sécurisé sans extension : jeton de sécurité, anti-robots, confirmation automatique au visiteur.",
+      "Concevoir un site conforme sans bandeau cookies, en limitant la collecte de données à la source.",
+      "Construire une base réutilisable, qui réduit le délai et le coût des projets suivants.",
+    ],
+    challenges: [
+      "Faire fonctionner le formulaire même sans JavaScript, pour qu’aucun visiteur ne reste bloqué.",
+      "Rendre les tarifs lisibles sur un écran de téléphone, sans sacrifier le détail des prestations.",
+      "Concevoir des tarifs non genrés, classés par prestation et par longueur : un parti pris assumé avec le salon.",
+      "Centraliser le lien de réservation à un seul endroit, pour éviter les oublis lors des mises à jour.",
+    ],
+    summary:
+      "Exercice de création d'un site vitrine One-page pour un artisan coiffeur.",
+
+    github:
+      "https://github.com/jroussydev/jesstech-wp-themes",
+
+    startedAt:
+      "2026-09",
+
+    completedAt:
+      "2026-11",
+  },
 ];
