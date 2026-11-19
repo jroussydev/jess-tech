@@ -1,4 +1,3 @@
-import { Link } from "react-router";
 import Navbar from "./Navbar";
 import Banniere from "./Banniere";
 
@@ -18,14 +17,10 @@ export default function Header() {
           lg:px-8
         "
       >
-        {/* Logo / identité */}
-        <Link to="/" aria-label="Retour à l'accueil">
-          <div className="flex min-w-0 items-center gap-3">
-            <Banniere variant="header" />
-
-            
-          </div>
-        </Link>
+        {/* Logo / identité (le lien vers l'accueil est déjà dans Banniere) */}
+        <div className="flex min-w-0 items-center gap-3">
+          <Banniere variant="header" />
+        </div>
 
         {/* Navigation */}
         <Navbar />

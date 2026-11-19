@@ -745,6 +745,47 @@
     0 0 40px rgba(192, 138, 48, 0.15);
 }
 
+/* ---------- Reflet miroir sur le badge Offre fondateur ---------- */
+
+.badge-fondateur {
+  position: relative;
+}
+
+/* La bande de lumière, cachée à gauche du badge */
+.badge-fondateur::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: -60%;
+  width: 40%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  transform: skewX(-20deg);
+  pointer-events: none;
+}
+
+/* Au survol de la carte, le reflet traverse le badge une fois */
+.group:hover .badge-fondateur::after {
+  animation: reflet-miroir 0.9s ease-out;
+}
+
+@keyframes reflet-miroir {
+  from { left: -60%; }
+  to   { left: 130%; }
+}
+
+/* Respect des personnes qui désactivent les animations */
+@media (prefers-reduced-motion: reduce) {
+  .group:hover .badge-fondateur::after {
+    animation: none;
+  }
+}
+
 /* ---------- Fond des cartes de services ---------- */
 
 .service-card-bg {

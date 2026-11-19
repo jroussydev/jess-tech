@@ -6,11 +6,12 @@ import {
   Plus,
   Sparkles,
 } from "lucide-react";
+import { offreActive, offreFondateur, prixSites } from "../../data/tarifs";
 
 const formules = [
   {
     name: "Lite",
-    price: "490 €",
+    price: prixSites.Lite.normal,
     title: "L’essentiel de votre activité sur une seule page.",
     icon: FileText,
     features: [
@@ -28,7 +29,7 @@ const formules = [
   },
   {
     name: "Essentiel",
-    price: "1190 €",
+    price: prixSites.Essentiel.normal,
     title: "Plusieurs pages pour entrer dans les détails.",
     icon: Layers3,
     features: [
@@ -45,7 +46,7 @@ const formules = [
   },
   {
     name: "Pro",
-    price: "1790 €",
+    price: prixSites.Pro.normal,
     title: "Pour un site qui a davantage à montrer.",
     icon: PanelsTopLeft,
     features: [
@@ -174,7 +175,21 @@ export default function FormulesCreationSite() {
           {/* =================================================
               FORMULES PRINCIPALES
           ================================================== */}
+          {offreActive && (
+            <div className="card-dark card-glow-gold relative z-10 mb-6 !p-5">
+              <p className="!m-0 font-semibold text-[#E9C46A]">
+                Offre fondateur : {offreFondateur.placesRestantes} place
+                {offreFondateur.placesRestantes > 1 ? "s" : ""} sur{" "}
+                {offreFondateur.placesTotal}
+              </p>
 
+              <p className="!mt-2 text-slate-200">
+                Pour mes premiers clients, les trois formules sont à prix réduit,
+                avec {offreFondateur.bonus}. En échange : un témoignage, un avis
+                Google et l'accord pour présenter votre site dans mes réalisations.
+              </p>
+            </div>
+          )}
           <div
             className="
               relative
@@ -227,21 +242,33 @@ export default function FormulesCreationSite() {
   >
     {formule.name}
   </h3>
-
-  <span
-    className="
-      ml-auto
-      shrink-0
-      text-lg
-      font-semibold
-      text-blue-400
-      sm:text-xl
-    "
-  >
-    {formule.price}
-  </span>
 </div>
+{/* Prix */}
+<div className="mt-3 flex flex-wrap items-center gap-3">
+  {offreActive ? (
+    <>
+      {/* Badge doré : étiquette + prix fondateur */}
+      <span className="badge-fondateur inline-flex overflow-hidden rounded-lg border border-[#E9C46A] shadow-[0_0_10px_rgba(233,196,106,0.35)]">
+        <span className="flex items-center bg-[#E9C46A] px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-[#001A5A]">
+          Offre fondateur
+        </span>
+        <span className="px-3 py-1 text-xl font-semibold text-[#E9C46A]">
+          {prixSites[formule.name].fondateur}
+        </span>
+      </span>
 
+      {/* Prix normal barré */}
+      <span className="sr-only">au lieu de</span>
+      <span className="text-lg text-slate-400 line-through decoration-slate-400/70">
+        {formule.price}
+      </span>
+    </>
+  ) : (
+    <span className="text-2xl font-semibold text-blue-400">
+      {formule.price}
+    </span>
+  )}
+</div>
 {/* Présentation */}
 <p className="!mt-3 text-slate-200">
   {formule.title}
