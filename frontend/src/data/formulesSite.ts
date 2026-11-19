@@ -1,0 +1,57 @@
+import { FileText, Layers3, PanelsTopLeft } from "lucide-react";
+
+export const formules = [
+  {
+    name: "Lite",
+    title: "L’essentiel de votre activité sur une seule page.",
+    resume: "1 page, jusqu’à 6 sections",
+    icon: FileText,
+    features: [
+      "1 page — jusqu’à 6 sections",
+      "Choix parmi 3 modèles prêts à personnaliser",
+      "Textes fournis par vos soins",
+      "Jusqu'à 8 visuels",
+      "Responsive mobile, tablette et ordinateur",
+      "SEO technique de base",
+      "1 cycle de modifications",
+      "Tutoriel vidéo + 15 min de questions",
+      "Mise en ligne du site",
+    ],
+    delay: "10 à 15 jours",
+  },
+  {
+    name: "Essentiel",
+    title: "Plusieurs pages pour entrer dans les détails.",
+    resume: "3 pages + pages juridiques",
+    icon: Layers3,
+    features: [
+      "3 pages principales + pages juridiques",
+      "Jusqu’à 18 visuels",
+      "Jusqu’à 2 formulaires simples",
+      "Responsive mobile, tablette et ordinateur",
+      "SEO technique de base",
+      "2 cycles de modifications",
+      "45 min de prise en main",
+      "Mise en ligne du site",
+    ],
+    delay: "15 à 20 jours",
+  },
+  {
+    name: "Pro",
+    title: "Pour un site qui a davantage à montrer.",
+    resume: "5 pages + pages juridiques",
+    icon: PanelsTopLeft,
+    features: [
+      "5 pages principales + pages juridiques",
+      "Jusqu’à 30 visuels",
+      "Jusqu’à 3 formulaires simples",
+      "Personnalisation avancée",
+      "Responsive mobile, tablette et ordinateur",
+      "SEO technique de base",
+      "3 cycles de modifications",
+      "1 h de prise en main",
+      "Mise en ligne du site",
+    ],
+    delay: "20 à 25 jours",
+  },
+];

@@ -1,68 +1,11 @@
 import {
   Check,
-  FileText,
-  Layers3,
-  PanelsTopLeft,
   Plus,
   Sparkles,
 } from "lucide-react";
-import { offreActive, offreFondateur, prixSites } from "../../data/tarifs";
-
-const formules = [
-  {
-    name: "Lite",
-    price: prixSites.Lite.normal,
-    title: "L’essentiel de votre activité sur une seule page.",
-    icon: FileText,
-    features: [
-      "1 page — jusqu’à 6 sections",
-      "Choix parmi 3 modèles prêts à personnaliser",
-      "Textes fournis par vos soins",
-      "Jusqu'à 8 visuels",
-      "Responsive mobile, tablette et ordinateur",
-      "SEO technique de base",
-      "1 cycle de modifications",
-      "Tutoriel vidéo + 15 min de questions",
-      "Mise en ligne du site"
-    ],
-    delay: "10 à 15 jours",
-  },
-  {
-    name: "Essentiel",
-    price: prixSites.Essentiel.normal,
-    title: "Plusieurs pages pour entrer dans les détails.",
-    icon: Layers3,
-    features: [
-      "3 pages principales + pages juridiques",
-      "Jusqu’à 18 visuels",
-      "Jusqu’à 2 formulaires simples",
-      "Responsive mobile, tablette et ordinateur",
-      "SEO technique de base",
-      "2 cycles de modifications",
-      "45 min de prise en main",
-      "Mise en ligne du site",
-    ],
-    delay: "15 à 20 jours",
-  },
-  {
-    name: "Pro",
-    price: prixSites.Pro.normal,
-    title: "Pour un site qui a davantage à montrer.",
-    icon: PanelsTopLeft,
-    features: [
-      "5 pages principales + pages juridiques",
-      "Jusqu’à 30 visuels",
-      "Jusqu’à 3 formulaires simples",
-      "Personnalisation avancée",
-      "Responsive mobile, tablette et ordinateur",
-      "SEO technique de base",
-      "3 cycles de modifications",
-      "1 h de prise en main",
-      "Mise en ligne du site",
-    ],
-    delay: "20 à 25 jours",
-  },
-];
+import PrixFormule from "../fondateur/PrixFormule";
+import EncadreFondateur from "../fondateur/EncadreFondateur";
+import { formules } from "../../data/formulesSite";
 
 const options = [
   "Page supplémentaire",
@@ -175,21 +118,9 @@ export default function FormulesCreationSite() {
           {/* =================================================
               FORMULES PRINCIPALES
           ================================================== */}
-          {offreActive && (
-            <div className="card-dark card-glow-gold relative z-10 mb-6 !p-5">
-              <p className="!m-0 font-semibold text-[#E9C46A]">
-                Offre fondateur : {offreFondateur.placesRestantes} place
-                {offreFondateur.placesRestantes > 1 ? "s" : ""} sur{" "}
-                {offreFondateur.placesTotal}
-              </p>
-
-              <p className="!mt-2 text-slate-200">
-                Pour mes premiers clients, les trois formules sont à prix réduit,
-                avec {offreFondateur.bonus}. En échange : un témoignage, un avis
-                Google et l'accord pour présenter votre site dans mes réalisations.
-              </p>
-            </div>
-          )}
+          <div className="mb-6">
+            <EncadreFondateur />
+          </div>
           <div
             className="
               relative
@@ -243,32 +174,12 @@ export default function FormulesCreationSite() {
     {formule.name}
   </h3>
 </div>
-{/* Prix */}
-<div className="mt-3 flex flex-wrap items-center gap-3">
-  {offreActive ? (
-    <>
-      {/* Badge doré : étiquette + prix fondateur */}
-      <span className="badge-fondateur inline-flex overflow-hidden rounded-lg border border-[#E9C46A] shadow-[0_0_10px_rgba(233,196,106,0.35)]">
-        <span className="flex items-center bg-[#E9C46A] px-2.5 py-1 text-xs font-semibold uppercase tracking-wide text-[#001A5A]">
-          Offre fondateur
-        </span>
-        <span className="px-3 py-1 text-xl font-semibold text-[#E9C46A]">
-          {prixSites[formule.name].fondateur}
-        </span>
-      </span>
 
-      {/* Prix normal barré */}
-      <span className="sr-only">au lieu de</span>
-      <span className="text-lg text-slate-400 line-through decoration-slate-400/70">
-        {formule.price}
-      </span>
-    </>
-  ) : (
-    <span className="text-2xl font-semibold text-blue-400">
-      {formule.price}
-    </span>
-  )}
+{/* Prix */}
+<div className="mt-3">
+  <PrixFormule nom={formule.name} />
 </div>
+
 {/* Présentation */}
 <p className="!mt-3 text-slate-200">
   {formule.title}

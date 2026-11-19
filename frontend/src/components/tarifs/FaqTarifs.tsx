@@ -25,7 +25,7 @@ const faqTarifs = [
 
 export default function FaqTarifs() {
   return (
-    <section className="section-light section-fade-light-soft section-spacing">
+    <section className="section-light section-spacing">
       <div className="site-container">
 
         {/* Introduction */}

@@ -796,6 +796,7 @@
 
 /* Bordure + halo extérieur */
 .card-glow-gold {
+  position: relative;
   border: 3px solid #E9C46A;
 
   box-shadow:
