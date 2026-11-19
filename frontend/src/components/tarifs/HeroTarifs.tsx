@@ -1,10 +1,22 @@
-import { ArrowRight, Check } from "lucide-react";
+import { ArrowRight, BadgeCheck, Eye, Handshake } from "lucide-react";
 import { Link } from "react-router";
 
-const garanties = [
-  "Devis gratuit",
-  "Aucun frais caché",
-  "Accompagnement personnalisé",
+const engagements = [
+  {
+    icon: Eye,
+    title: "Des prix affichés",
+    description: "Tous mes tarifs sont sur cette page, avant même de me contacter.",
+  },
+  {
+    icon: BadgeCheck,
+    title: "Un devis détaillé",
+    description: "Ce qui est prévu est écrit noir sur blanc avant de commencer.",
+  },
+  {
+    icon: Handshake,
+    title: "Aucun ajout imprévu",
+    description: "Rien n’est ajouté au prix sans votre accord.",
+  },
 ];
 
 export default function HeroTarifs() {
@@ -18,79 +30,90 @@ export default function HeroTarifs() {
         <div className="hero__layout">
           <div className="hero__content">
 
-            {/* Label */}
+                        {/* Label */}
             <p className="section-label">
-              Tarifs transparents
+              Tarifs
             </p>
 
             {/* Titre */}
             <h1 className="hero__title">
-              Des tarifs{" "}
-              <span className="text-gradient-blue">
-                clairs
+              Des prix{" "}
+              <span className="text-gradient-gold">
+                affichés 
               </span>
-              , sans surprise
+              , sans{" "}
+              <span className="text-gradient-blue">
+              surprise
+              </span>
             </h1>
 
             {/* Description */}
             <p className="hero__description max-w-2xl text-slate-300">
-              Chaque projet commence par un échange afin de comprendre votre
-              besoin. Vous recevez ensuite un devis détaillé avant le début de
-              la prestation.
+              Sites vitrines, maintenance, audit, assistance : tous mes tarifs
+              sont sur cette page. Vous savez à quoi vous attendre avant même de
+              me contacter, et vous recevez un devis détaillé avant tout
+              démarrage.
             </p>
 
             {/* Actions */}
             <div className="hero__actions">
-              <Link
-                to="/contact"
-                className="btn-primary group gap-2"
-              >
-                Demander un devis
-
+              <a href="#prix" className="btn-secondary group gap-2">
+                Voir les prix
                 <ArrowRight
-                  className="
-                    h-5
-                    w-5
-                    transition-transform
-                    duration-300
-                    group-hover:translate-x-1
-                  "
+                  className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1"
                   aria-hidden="true"
                 />
-              </Link>
+              </a>
 
-              <Link
-                to="/services"
-                className="btn-secondary"
-              >
-                Voir les prestations
+              <Link to="/contact" className="btn-primary btn-gold">
+                Demander un devis
               </Link>
             </div>
+            {/* Engagements (même style que les qualités de l'accueil) */}
+            <div className="hero__cards grid-cols-3">
+              {engagements.map(({ title, description, icon: Icon }) => (
+                <article key={title} className="hero__card">
+                  <div className="hero__card-heading">
 
-            {/* Garanties rapides */}
-            <div
-              className="
-                mt-7
-                flex
-                flex-wrap
-                gap-x-6
-                gap-y-3
-              "
-            >
-              {garanties.map((garantie) => (
-                <div
-                  key={garantie}
-                  className="flex items-center gap-2 text-slate-300"
-                >
-                  <Check
-                    className="h-4 w-4 shrink-0 text-sky-500"
-                    aria-hidden="true"
-                  />
+                    {/* Icône */}
+                    <div
+                      className="
+                        hero__card-icon
+                        h-8
+                        w-8
+                        shrink-0
+                        items-center
+                        justify-center
+                        rounded-lg
+                        border
+                        border-blue-500/30
+                        text-blue-500
 
-                  <span className="text-sm sm:text-base">
-                    {garantie}
-                  </span>
-                </div>
+                        md:h-9
+                        md:w-9
+
+                        lg:h-10
+                        lg:w-10
+                        lg:rounded-xl
+                      "
+                    >
+                      <Icon
+                        className="h-4 w-4 md:h-5 md:w-5 lg:h-6 lg:w-6"
+                        aria-hidden="true"
+                      />
+                    </div>
+
+                    {/* Titre */}
+                    <h2 className="hero__card-title font-semibold">
+                      <span className="glitter-band">{title}</span>
+                    </h2>
+                  </div>
+
+                  {/* Description */}
+                  <p className="hero__card-description text-slate-400">
+                    {description}
+                  </p>
+                </article>
               ))}
             </div>
 

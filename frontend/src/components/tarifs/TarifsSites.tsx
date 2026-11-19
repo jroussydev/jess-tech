@@ -5,7 +5,7 @@ import EncadreFondateur from "../fondateur/EncadreFondateur";
 
 export default function TarifsSites() {
   return (
-    <section className="section-light section-fade-hero section-spacing">
+    <section id="prix" className="section-light section-fade-hero section-spacing">
       <div className="site-container relative z-10">
         <div className="section-intro max-w-3xl">
           <p className="section-label">Sites vitrines</p>

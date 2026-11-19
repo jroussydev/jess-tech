@@ -1,5 +1,4 @@
 import HeroTarifs from "../../components/tarifs/HeroTarifs";
-import NosEngagements from "../../components/tarifs/NosEngagements";
 import FaqTarifs from "../../components/tarifs/FaqTarifs";
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
@@ -12,7 +11,7 @@ export function meta() {
   return createMeta({
     title: "Tarifs de création et maintenance de site | Jess Tech",
     description:
-      "Des tarifs clairs et sans surprise : chaque projet commence par un échange, puis un devis détaillé vous est remis avant le début de la prestation.",
+      "Tous les prix affichés : sites vitrines dès 490 €, maintenance sans engagement dès 49 €/mois, audit à 90 €. Offre fondateur pour les premiers clients.",
     path: "/tarifs",
   });
 }
@@ -21,7 +20,6 @@ export default function TarifsTransparents() {
     return (
         <>
             <HeroTarifs />
-            <NosEngagements />
             <TarifsSites />
             <TarifsMaintenance />
             <TarifsAutres />

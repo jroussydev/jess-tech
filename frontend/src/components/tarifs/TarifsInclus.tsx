@@ -60,7 +60,7 @@ export default function TarifsInclus() {
             <span className="text-gradient-blue">quelle que soit la formule</span>
           </h2>
 
-          <p className="max-w-2xl text-slate-600">
+          <p className="max-w-2xl text-slate-300">
             Le prix affiché comprend toujours ces éléments. Pas de mauvaise
             surprise à la fin du projet.
           </p>
@@ -111,11 +111,11 @@ export default function TarifsInclus() {
                   aria-hidden="true"
                 />
 
-                <h3 className="text-slate-950">{title}</h3>
+                <h3 className="text-slate-200">{title}</h3>
               </div>
 
               {/* Description */}
-              <p className="mt-3 text-slate-600">{description}</p>
+              <p className="mt-3 text-slate-300">{description}</p>
             </article>
           ))}
         </div>

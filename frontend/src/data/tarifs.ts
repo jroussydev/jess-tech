@@ -54,13 +54,16 @@ export const tauxHoraire = "45 €/h";
 
 export const prixPageSupplementaire = "135 €";
 
+export const prixAudit = "90 €";
+export const prixSurMesure = "À partir de 540 €";
+
 export const autresPrestations = [
   {
     name: "Audit technique et SEO",
-    price: "90 €",
+    price: prixAudit,
     note: "Déduit une fois d'une création de site ou d'une maintenance, s'ils sont commandés dans les 2 mois",
   },
   { name: "Assistance technique", price: tauxHoraire, note: "Minimum 1 h" },
   { name: "Refonte de site", price: "Sur devis" },
-  { name: "Développement sur mesure", price: "À partir de 540 €" },
+  { name: "Développement sur mesure", price: prixSurMesure },
 ];

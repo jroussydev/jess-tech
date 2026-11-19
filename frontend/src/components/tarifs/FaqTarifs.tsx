@@ -1,20 +1,42 @@
 import { ChevronDown } from "lucide-react";
+import { offreActive, offreFondateur, prixAudit, prixSites } from "../../data/tarifs";
+
+const questionFondateur = {
+  question: "Qu’est-ce que l’offre fondateur ?",
+  reponse: `Pour mes ${offreFondateur.placesTotal} premiers clients, les formules sont à prix réduit : ${prixSites.Lite.fondateur} au lieu de ${prixSites.Lite.normal} pour le Lite, ${prixSites.Essentiel.fondateur} pour l’Essentiel et ${prixSites.Pro.fondateur} pour le Pro, avec ${offreFondateur.bonus}. En échange, je vous demande un témoignage, un avis Google et l’accord pour présenter votre site dans mes réalisations.`,
+};
 
 const faqTarifs = [
+  // La question fondateur n'apparaît que tant qu'il reste des places
+  ...(offreActive ? [questionFondateur] : []),
+  {
+    question: "Les prix affichés sont-ils définitifs ?",
+    reponse:
+      "Oui. Le prix d’une formule correspond à ce qui est décrit dans la formule. Seules les options ou les demandes qui dépassent ce cadre sont chiffrées à part, et toujours validées avec vous avant d’être réalisées.",
+  },
   {
     question: "Le devis est-il gratuit ?",
     reponse:
       "Oui. Le premier échange et l’établissement du devis sont gratuits et ne vous engagent pas.",
   },
   {
-    question: "Pourquoi les tarifs peuvent-ils varier ?",
+    question: "Puis-je arrêter ma maintenance ?",
     reponse:
-      "Le tarif dépend du nombre de pages, des fonctionnalités, du niveau de personnalisation, des contenus à intégrer et des éventuelles prestations complémentaires.",
+      "Oui, à tout moment. Les formules de maintenance sont sans engagement : vous restez parce que le suivi vous est utile, pas parce qu’un contrat vous y oblige.",
   },
   {
-    question: "Puis-je ajouter des options après le devis ?",
+    question: "L’audit est-il vraiment déduit ?",
+    reponse: `Oui. L’audit à ${prixAudit} est déduit une fois du prix d’une création de site ou d’une maintenance, si vous la commandez dans les 2 mois qui suivent.`,
+  },
+  {
+    question: "Les prix incluent-ils la TVA ?",
     reponse:
-      "Oui. Toute demande supplémentaire peut être étudiée. Son coût et son impact sur le planning sont précisés avant sa réalisation.",
+      "Il n’y a pas de TVA à ajouter : en tant que micro-entreprise, je ne facture pas la TVA (article 293 B du Code général des impôts). Le prix affiché est le prix que vous payez.",
+  },
+  {
+    question: "L’hébergement et le nom de domaine sont-ils compris ?",
+    reponse:
+      "Non, ils ne sont pas inclus dans les formules. Je vous accompagne dans leur choix et leur mise en place, et ils restent à votre nom, pour que votre site vous appartienne vraiment.",
   },
   {
     question: "Comment se déroule le paiement ?",
