@@ -13,6 +13,7 @@ type Service = {
   featured?: boolean;
   points?: string[];    // ← optionnel : points clés (grande carte)
   price?: string;       // ← optionnel : prix (grande carte)
+  imageClass?: string;  // ← taille/position du dessin (petites cartes)
 };
 
 const services: Service[] = [
@@ -34,7 +35,7 @@ const services: Service[] = [
     title: "Refonte",
     description: "On modernise votre site pour améliorer son image et sa lisibilité.",
     icon: PenTool,
-    image: "/services/deco-refonte.png",
+    image: "/services/deco-refonte.webp",
     link: "/services/refonte-site",
     gridClass: "",
   },
@@ -43,7 +44,7 @@ const services: Service[] = [
     title: "Maintenance",
     description: "Corrections, mises à jour et suivi technique.",
     icon: Wrench,
-    image: "/services/deco-maintenance.png",
+    image: "/services/deco-maintenance.webp",
     link: "/services/maintenance-site-web",
     gridClass: "",
   },
@@ -53,9 +54,10 @@ const services: Service[] = [
     description:
       "Un accompagnement ponctuel pour débloquer, comprendre ou améliorer vos outils.",
     icon: LifeBuoy,
-    image: "/services/deco-assistance.png",
+    image: "/services/deco-assistance-technique.webp",
     link: "/services/assistance-technique",
     gridClass: "col-span-2",
+    imageClass: "inset-y-0 right-0 w-[65%]",
   },
 ];
 
@@ -99,7 +101,7 @@ export default function ServicesPreview() {
     xl:translate-y-7
   "
 >
-                        {services.map(({ accroche, title, description, icon: Icon, image, link, gridClass, featured, points, price }) => (
+                        {services.map(({ accroche, title, description, icon: Icon, image, link, gridClass, featured, points, price, imageClass }) => (
               <article
                 key={title}
                 className={`
@@ -165,8 +167,7 @@ export default function ServicesPreview() {
                       alt=""
                       aria-hidden="true"
                       onError={(e) => (e.currentTarget.style.display = "none")}
-                      className="pointer-events-none absolute inset-0 h-full w-full object-contain object-right transition-transform duration-500 group-hover:scale-105"
-                    />
+className={`pointer-events-none absolute h-full mt-2 w-[75%] object-contain object-right pr-4 transition-transform duration-500 group-hover:scale-105 ${imageClass ?? "inset-0 w-[100%]"}`}                    />
 
                     <div className="service-card__content card-content-mobile relative z-10 flex h-full max-w-[60%] flex-col justify-center p-4 lg:p-5">
                       <p className="text-sm text-[#E9C46A]">{accroche}</p>
