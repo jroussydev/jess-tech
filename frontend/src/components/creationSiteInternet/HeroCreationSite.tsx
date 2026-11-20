@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 
 import { Link } from "react-router";
+import { prixSites } from "../../data/tarifs";
 
 const creationHighlights = [
   {
@@ -14,7 +15,7 @@ const creationHighlights = [
     icon: LayoutTemplate,
   },
   {
-    title: "À partir de 490 €",
+    title: `À partir de ${prixSites.Lite.normal}`,
     description:
       "Des formules avec un tarif défini dès le départ.",
     icon: BadgeEuro,

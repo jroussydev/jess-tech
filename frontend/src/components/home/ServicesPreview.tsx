@@ -1,6 +1,7 @@
 import { Check, LifeBuoy, Monitor, PenTool, Wrench, type LucideIcon } from "lucide-react";
 import { Link } from "react-router";
 import AnimatedCardBorder from "../decorations/AnimatedCardBorder";
+import { prixSites } from "../../data/tarifs";
 
 type Service = {
   accroche: string;     // ← la question « problème client »
@@ -28,7 +29,7 @@ const services: Service[] = [
     gridClass: "row-span-2 lg:min-h-[520px]",
     featured: true,
     points: ["Design sur mesure", "Adapté au mobile", "Référencement de base"],
-    price: "À partir de 490 €",
+    price: `À partir de ${prixSites.Lite.normal}`,
   },
   {
     accroche: "Votre site a vieilli ?",
