@@ -4,6 +4,7 @@ import {
   Database,
   Binary,
 } from "lucide-react";
+import { prixSurMesure } from "../../data/tarifs";
 
 const criteres = [
   {
@@ -62,9 +63,9 @@ export default function TarifDeveloppement() {
           </h2>
 
           <p>
-            Deux projets sur mesure peuvent être très différents.
-            Le tarif est donc défini une fois le besoin suffisamment clair
-            pour estimer le travail à réaliser.
+            Deux projets sur mesure peuvent être très différents. Le prix de
+            départ correspond à une page simple ; le tarif final est établi
+            une fois le besoin suffisamment clair pour estimer le travail.
           </p>
         </div>
 
@@ -88,12 +89,13 @@ export default function TarifDeveloppement() {
             </span>
 
             <p className="!mt-5 text-3xl font-bold !text-white sm:text-4xl">
-              Sur devis
+              {prixSurMesure}
             </p>
 
             <p className="!mt-4 text-slate-300">
-              Le périmètre et le tarif sont définis après avoir compris
-              précisément ce que le projet doit permettre de faire.
+              Ce prix correspond à une page sur mesure simple. Le tarif final
+              dépend de ce que le projet doit permettre de faire, et il est
+              précisé dans un devis détaillé avant de commencer.
             </p>
           </div>
 

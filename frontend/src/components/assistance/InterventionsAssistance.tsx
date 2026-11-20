@@ -10,62 +10,63 @@ import {
   ShieldCheck,
   Info,
 } from "lucide-react";
+import { tauxHoraire, prixAssistance } from "../../data/tarifs";
 
 const interventions = [
   {
     title: "Installation d’un ordinateur",
     description:
       "Mise en service de votre ordinateur et premiers réglages pour qu’il soit prêt à être utilisé.",
-    price: "À partir de 49 €",
+    price: prixAssistance.ordinateur,
     icon: Laptop,
   },
   {
     title: "Installation de logiciels",
     description:
       "Installation et configuration des logiciels dont vous avez besoin.",
-    price: "À partir de 29 €",
+    price: prixAssistance.logiciels,
     icon: Settings,
   },
   {
     title: "Nettoyage et optimisation",
     description:
       "Vérification et nettoyage d’un ordinateur devenu lent, encombré ou moins agréable à utiliser.",
-    price: "À partir de 49 €",
+    price: prixAssistance.nettoyage,
     icon: HardDrive,
   },
   {
     title: "Sauvegarde de données",
     description:
       "Mise en place ou réalisation d’une sauvegarde de vos fichiers selon vos besoins et le matériel disponible.",
-    price: "À partir de 79 €",
+    price: prixAssistance.sauvegarde,
     icon: DatabaseBackup,
   },
   {
     title: "Récupération de données",
     description:
       "Recherche des possibilités de récupération lorsque des fichiers ne sont plus accessibles.",
-    price: "25 € / heure",
+    price: prixAssistance.recuperation,
     icon: FileSearch,
   },
   {
     title: "Configuration réseau",
     description:
       "Aide à la configuration de votre réseau ou des équipements qui doivent s’y connecter.",
-    price: "À partir de 79 €",
+    price: prixAssistance.reseau,
     icon: Network,
   },
   {
     title: "Installation d’une imprimante",
     description:
       "Installation, connexion et configuration de votre imprimante sur les appareils concernés.",
-    price: "À partir de 29 €",
+    price: prixAssistance.imprimante,
     icon: Printer,
   },
   {
     title: "Formation informatique",
     description:
       "Un accompagnement adapté à votre niveau pour apprendre à utiliser un ordinateur, un logiciel ou un outil numérique.",
-    price: "25 € / heure",
+    price: tauxHoraire,
     icon: GraduationCap,
   },
 ];

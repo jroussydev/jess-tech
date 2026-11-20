@@ -5,11 +5,15 @@ import {
   ShieldCheck,
   Zap,
 } from "lucide-react";
+import {
+  banquesHeures,
+  conditionsMaintenance,
+  prixMaintenance,
+} from "../../data/tarifs";
 
 const formules = [
   {
     name: "Essentielle",
-    price: "49 €",
     icon: ShieldCheck,
     description:
       "Pour assurer l’entretien courant du site et disposer d’un suivi régulier.",
@@ -23,7 +27,6 @@ const formules = [
   },
   {
     name: "Sérénité",
-    price: "95 €",
     icon: HeartHandshake,
     description:
       "Pour aller au-delà de l’entretien courant et bénéficier d’une prise en charge plus complète.",
@@ -37,7 +40,6 @@ const formules = [
   },
   {
     name: "Prioritaire",
-    price: "159 €",
     icon: Zap,
     description:
       "Pour les activités qui dépendent davantage de leur site et souhaitent un niveau de priorité supérieur.",
@@ -51,20 +53,6 @@ const formules = [
   },
 ];
 
-const banques = [
-  {
-    duration: "2 heures",
-    price: "85 €",
-  },
-  {
-    duration: "5 heures",
-    price: "199 €",
-  },
-  {
-    duration: "10 heures",
-    price: "379 €",
-  },
-];
 
 export default function FormulesMaintenance() {
   return (
@@ -170,7 +158,7 @@ export default function FormulesMaintenance() {
             "
           >
             {formules.map(
-              ({ name, price, icon: Icon, description, includes, note }) => (
+              ({ name, icon: Icon, description, includes, note }) => (
                 <article
                   key={name}
                   className="
@@ -212,7 +200,7 @@ export default function FormulesMaintenance() {
         sm:text-xl
       "
     >
-      {price}
+      {prixMaintenance[name]}
     </span>
 
     <span className="text-sm text-slate-400">
@@ -268,6 +256,11 @@ export default function FormulesMaintenance() {
           </div>
         </div>
 
+        {/* Conditions */}
+        <p className="relative z-10 mt-6 text-center font-semibold text-slate-200">
+          {conditionsMaintenance}.
+        </p>
+
         {/* =====================================================
             BANQUES D'HEURES
         ====================================================== */}
@@ -315,7 +308,7 @@ export default function FormulesMaintenance() {
               sm:grid-cols-3
             "
           >
-            {banques.map(({ duration, price }) => (
+            {banquesHeures.map(({ duration, price }) => (
               <article
                 key={duration}
                 className="

@@ -4,6 +4,7 @@ import {
   Wrench,
   Check,
 } from "lucide-react";
+import {  prixAudit } from "../../data/tarifs";
 
 export default function TarifDiagnostic() {
   return (
@@ -24,9 +25,9 @@ export default function TarifDiagnostic() {
           </p>
 
           <h2>
-            Le diagnostic technique à partir de{" "}
+            Le diagnostic technique à{" "}
             <span className="text-gradient-blue">
-              99 €
+              {prixAudit}
             </span>
           </h2>
 
@@ -63,12 +64,12 @@ export default function TarifDiagnostic() {
             </div>
 
             <p className="!mt-5 text-3xl font-bold !text-white sm:text-4xl">
-              À partir de 99 €
+              {prixAudit}
             </p>
 
             <p className="!mt-4 text-slate-300">
-              Le périmètre est défini selon le problème rencontré et les
-              vérifications nécessaires.
+              Un prix fixe, déduit une fois d’une création de site ou d’une
+              maintenance si vous la commandez dans les 2 mois.
             </p>
           </div>
 

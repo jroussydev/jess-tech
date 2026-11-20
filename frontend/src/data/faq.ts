@@ -2,6 +2,7 @@ export type FaqItem = {
   question: string;
   reponse: string;
 };
+import { prixAudit } from "./tarifs";
 
 /* =========================================================
    CRÉATION DE SITE INTERNET
@@ -263,7 +264,7 @@ export const faqDiagnostic: FaqItem[] = [
   {
     question: "Combien coûte un diagnostic technique ?",
     reponse:
-      "Le diagnostic technique est proposé à partir de 99 €. Le périmètre exact est défini selon le problème à examiner.",
+      `Le diagnostic technique coûte ${prixAudit}. Le périmètre exact est défini selon le problème à examiner.`,
   },
   {
     question: "Que se passe-t-il une fois le problème identifié ?",

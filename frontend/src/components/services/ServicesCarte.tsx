@@ -8,6 +8,7 @@ type ServicesCarteProps = {
   prix: string;
   link: string;
   icon: LucideIcon;
+  prixFondateur?: string; // ← optionnel : seulement pour la création de site
 };
 
 export default function ServicesCarte({
@@ -15,6 +16,7 @@ export default function ServicesCarte({
   description,
   prestations,
   prix,
+  prixFondateur,
   link,
   icon: Icon,
 }: ServicesCarteProps) {
@@ -85,9 +87,17 @@ export default function ServicesCarte({
 
       {/* Prix + lien */}
       <div className="mt-auto flex items-center justify-between gap-3 pt-6">
-        <span className="badge badge-primary shrink-0">
-          {prix}
-        </span>
+                <div className="flex flex-col gap-1">
+          <span className="badge badge-primary shrink-0">
+            {prix}
+          </span>
+
+          {prixFondateur && (
+            <span className="text-sm text-[#E9C46A]">
+              {prixFondateur}
+            </span>
+          )}
+        </div>
 
         <Link
           to={link}

@@ -67,3 +67,19 @@ export const autresPrestations = [
   { name: "Refonte de site", price: "Sur devis" },
   { name: "Développement sur mesure", price: prixSurMesure },
 ];
+
+/* ---------- Assistance informatique ---------- */
+
+export const fraisDeplacement =
+  "Déplacement gratuit jusqu'à 10 km de Beaurieux, 15 € de 10 à 25 km";
+
+export const prixAssistance = {
+  ordinateur: "À partir de 70 €",
+  logiciels: "À partir de 45 €",
+  nettoyage: "À partir de 70 €",
+  sauvegarde: "À partir de 90 €",
+  recuperation: "À partir de 205 €",
+  reseau: "À partir de 90 €",
+  imprimante: "À partir de 45 €",
+  formation: tauxHoraire,
+};

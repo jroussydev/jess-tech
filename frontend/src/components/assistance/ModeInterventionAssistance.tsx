@@ -4,6 +4,7 @@ import {
   MonitorSmartphone,
 } from "lucide-react";
 import { Link } from "react-router";
+import { fraisDeplacement, tauxHoraire } from "../../data/tarifs";
 
 const modes = [
   {
@@ -11,7 +12,7 @@ const modes = [
     title: "Quand je peux vous aider sans me déplacer",
     description:
       "Pour certains réglages, dépannages ou besoins d’accompagnement, l’intervention peut être réalisée directement à distance.",
-    price: "25 € / heure",
+    price: tauxHoraire,
     icon: MonitorSmartphone,
   },
   {
@@ -19,7 +20,8 @@ const modes = [
     title: "Quand il faut intervenir directement sur place",
     description:
       "Pour une installation, un équipement à manipuler ou un problème qui nécessite d’être devant le matériel, je peux me déplacer selon votre localisation.",
-    price: "25 € / heure",
+    price: tauxHoraire,
+    note: fraisDeplacement,
     icon: House,
   },
 ];
@@ -69,7 +71,7 @@ export default function ModeInterventionAssistance() {
           "
         >
           {modes.map(
-            ({ label, title, description, price, icon: Icon }, index) => (
+            ({ label, title, description, price, note, icon: Icon }, index) => (
               <article
                 key={title}
                 className={`
@@ -112,6 +114,12 @@ export default function ModeInterventionAssistance() {
                 <p className="!mt-5 font-bold !text-white">
                   {price}
                 </p>
+
+                {note && (
+                  <p className="!mt-1 text-sm text-slate-400">
+                    {note}
+                  </p>
+                )}
               </article>
             ),
           )}

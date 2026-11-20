@@ -6,6 +6,14 @@ import {
   RefreshCw,
   Wrench,
 } from "lucide-react";
+import {
+  offreActive,
+  prixSites,
+  prixMaintenance,
+  prixAudit,
+  prixSurMesure,
+  tauxHoraire,
+} from "../../data/tarifs";
 
 import ServicesCarte from "./ServicesCarte";
 
@@ -21,7 +29,10 @@ export default function ServicesListe() {
         "Formulaires de contact",
         "Référencement technique de base",
       ],
-      prix: "À partir de 490 €",
+      prix: `À partir de ${prixSites.Lite.normal}`,
+      prixFondateur: offreActive
+        ? `Offre fondateur : dès ${prixSites.Lite.fondateur}`
+        : undefined,
       link: "/services/creation-site-internet",
       icon: Monitor,
     },
@@ -49,7 +60,7 @@ export default function ServicesListe() {
         "Espace privé ou portail client",
         "Outil métier, intranet ou extranet",
       ],
-      prix: "À partir de 799 €",
+      prix: prixSurMesure,
       link: "/services/developpement-sur-mesure",
       icon: CodeXml,
     },
@@ -63,7 +74,7 @@ export default function ServicesListe() {
         "Corrections de bugs",
         "Restauration après incident",
       ],
-      prix: "À partir de 49 €/mois",
+      prix: `À partir de ${prixMaintenance.Essentielle}/mois`,
       link: "/services/maintenance-site-web",
       icon: Wrench,
     },
@@ -77,7 +88,7 @@ export default function ServicesListe() {
         "Vérification sécurité et performances",
         "Rapport et recommandations",
       ],
-      prix: "À partir de 99 €",
+      prix: prixAudit,
       link: "/services/diagnostic-technique",
       icon: Activity,
     },
@@ -91,7 +102,7 @@ export default function ServicesListe() {
         "Messagerie professionnelle",
         "Configuration et prise en main",
       ],
-      prix: "À partir de 49 €",
+      prix: tauxHoraire,
       link: "/services/assistance-technique",
       icon: LifeBuoy,
     },
