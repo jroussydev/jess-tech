@@ -1,5 +1,6 @@
 import { Link } from "react-router"
 import Logo from "./Logo";
+import VagueSection from "./decorations/VagueSection";
 import { PenTool, Monitor, Wrench, LifeBuoy, BookOpen, Handshake, StarCheck, UserRound, Mail, PhoneCall, MapPinned } from "lucide-react";
 import {
   FaFacebook,
@@ -10,7 +11,10 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="bg-[#020617] border-t border-slate-800 text-slate-300">
+    <footer className="relative z-20 bg-[#020617] border-t border-slate-800 text-slate-300">
+      {/* Vague du header, à cheval sur le bord haut, collée à droite */}
+      <VagueSection cote="droite" position="haut" />
+
       {/* Bloc principal */}
       <div className="mx-auto max-w-[1500px] px-4 py-10 sm:px-6 lg:px-8">
         {/* Colonnes */}
