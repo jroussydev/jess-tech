@@ -1,6 +1,7 @@
 import { FaqDiagnostic, HeroDiagnostic, ParcoursDiagnostic, PreparationDiagnostic, ProblemesDiagnostic, ResultatDiagnostic, TarifDiagnostic } from "../../components/diagnostic";
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 
 export function meta() {
@@ -17,13 +18,25 @@ export default function DiagnosticTechnique() {
     <>
       <HeroDiagnostic />
       <ProblemesDiagnostic />
-      <PreparationDiagnostic />
-      <ParcoursDiagnostic />
-      <ResultatDiagnostic />
-      <TarifDiagnostic />
-      <FaqDiagnostic />
+      <AvecVague cote="droite">
+        <PreparationDiagnostic />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <ParcoursDiagnostic />
+      </AvecVague>
+      <AvecVague cote="droite">
+        <ResultatDiagnostic />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <TarifDiagnostic />
+      </AvecVague>
+      <AvecVague cote="droite">
+        <FaqDiagnostic />
+      </AvecVague>
 
-      <GlobalCTA variant="services" />
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="services" />
+      </AvecVague>
     </>
   );
 }

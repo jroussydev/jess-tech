@@ -17,6 +17,8 @@ import { createMeta } from "../../seo/createMeta";
 
 import ClientOnly from "../../components/ClientOnly";
 import MapPlaceholder from "../../components/localisation/MapPlaceholder";
+import VagueHero from "../../components/decorations/VagueHero";
+import AvecVague from "../../components/decorations/AvecVague";
 
 const CityMap = lazy(() => import("../../components/localisation/CityMap"));
 
@@ -156,29 +158,8 @@ const CityPage = () => {
     </div>
   </div>
 
-  {/* Vague basse */}
-  <img
-  src="/decorations/vagues/19.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    right-5
-    -bottom-20
-    z-30
-    hidden
-    h-auto
-    origin-right
-      scale-x-[1.2]
-    object-contain
-
-    lg:block
-    lg:w-[48%]
-    xl:w-[52%]
-    2xl:w-[85%]
-  "
-/>
+  {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+  <VagueHero />
 </section>
 
       {/* =====================================================================
@@ -300,6 +281,7 @@ const CityPage = () => {
     PRESTATIONS
 ===================================================================== */}
 
+<AvecVague cote="droite">
 <section className="section-dark section-fade-dark-soft section-spacing">
   <div className="site-container">
     <div
@@ -399,11 +381,13 @@ const CityPage = () => {
     </div>
   </div>
 </section>
+</AvecVague>
 
       {/* =====================================================================
     FAÇON DE TRAVAILLER + TARIFS
 ===================================================================== */}
 
+<AvecVague cote="gauche">
 <section className="section-light section-fade-light-soft section-spacing">
   <div className="site-container">
     <div
@@ -495,11 +479,13 @@ const CityPage = () => {
     </div>
   </div>
 </section>
+</AvecVague>
 
       {/* =====================================================================
     CARTE ET COMMUNES VOISINES
 ===================================================================== */}
 
+<AvecVague cote="droite">
 <section
   className="
     section-dark
@@ -633,10 +619,12 @@ const CityPage = () => {
 )}
   </div>
 </section>
+</AvecVague>
       {/* =====================================================================
     FAQ LOCALE
 ===================================================================== */}
 
+<AvecVague cote="gauche">
 <section
   className="
     section-light
@@ -726,6 +714,7 @@ const CityPage = () => {
 
   </div>
 </section>
+</AvecVague>
 
 
 

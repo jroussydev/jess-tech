@@ -1,5 +1,6 @@
 import { MapPin } from "lucide-react";
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 const HeroLocalisation = () => {
   return (
@@ -139,13 +140,8 @@ const HeroLocalisation = () => {
           
         </div>
       </div>
-        {/* Vague basse */}
-        <img
-          src="/decorations/vagues/09.png"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave"
-        />
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
     </section>
   );
 };

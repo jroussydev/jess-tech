@@ -4,6 +4,7 @@ import {
   HandHelping,
 } from "lucide-react";
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 const points = [
   {
@@ -147,14 +148,8 @@ export default function HeroAssistance() {
         </div>
       </div>
 
-      {/* Vague */}
-
-      <img
-        src="/decorations/vagues/09.png"
-        alt=""
-        className="hero__wave"
-        aria-hidden="true"
-      />
+      {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+      <VagueHero />
 
     </section>
   );

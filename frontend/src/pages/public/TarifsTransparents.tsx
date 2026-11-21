@@ -6,6 +6,7 @@ import TarifsSites from "../../components/tarifs/TarifsSites";
 import TarifsMaintenance from "../../components/tarifs/TarifsMaintenance";
 import TarifsAutres from "../../components/tarifs/TarifsAutres";
 import TarifsInclus from "../../components/tarifs/TarifsInclus";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -21,10 +22,18 @@ export default function TarifsTransparents() {
         <>
             <HeroTarifs />
             <TarifsSites />
-            <TarifsMaintenance />
-            <TarifsAutres />
-            <TarifsInclus />
-            <FaqTarifs />
+            <AvecVague cote="droite">
+              <TarifsMaintenance />
+            </AvecVague>
+            <AvecVague cote="gauche">
+              <TarifsAutres />
+            </AvecVague>
+            <AvecVague cote="droite">
+              <TarifsInclus />
+            </AvecVague>
+            <AvecVague cote="gauche">
+              <FaqTarifs />
+            </AvecVague>
             <GlobalCTA variant="tarifs" />
                   
         </>

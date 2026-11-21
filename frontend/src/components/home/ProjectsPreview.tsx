@@ -135,26 +135,6 @@ export default function ProjectsPreview() {
         </div>
       </div>
 
-      {/* Décoration */}
-<img
-  src="/decorations/vagues/13.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    right-0
-    bottom-0
-    w-32
-    opacity-70
-    sm:w-40
-    md:w-48
-    lg:w-56
-    xl:w-64
-    xl:opacity-100
-    2xl:w-80
-  "
-/>
     </section>
   );
 }

@@ -3,6 +3,7 @@ import {
   Coffee,
   MapPinned,
 } from "lucide-react";
+import VagueHero from "../decorations/VagueHero";
 
 
 
@@ -213,29 +214,8 @@ export default function AboutHero() {
       {/* =====================================================
           VAGUE BASSE
       ====================================================== */}
-{/* Décoration droite */}
-<img
-  src="/decorations/vagues/19.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    right-5
-    -bottom-20
-    z-30
-    hidden
-    h-auto
-    origin-right
-      scale-x-[1.2]
-    object-contain
-
-    lg:block
-    lg:w-[48%]
-    xl:w-[52%]
-    2xl:w-[85%]
-  "
-/>
+{/* Vague décorative (commune à toutes les pages pour l’instant) */}
+<VagueHero />
     </section>
   );
 }

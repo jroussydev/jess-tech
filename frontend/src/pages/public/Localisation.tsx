@@ -8,6 +8,7 @@ import {
   ZonesDesservies,
 } from "../../components/localisation";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -23,10 +24,18 @@ const Localisation = () => {
     <main>
         <HeroLocalisation />
         <CarteZoneLocale />
-        <ZonesDesservies />
-        <ModesIntervention />
-        <FaqLocalisation />
-        <GlobalCTA variant="localisation" />
+        <AvecVague cote="droite">
+          <ZonesDesservies />
+        </AvecVague>
+        <AvecVague cote="gauche">
+          <ModesIntervention />
+        </AvecVague>
+        <AvecVague cote="droite">
+          <FaqLocalisation />
+        </AvecVague>
+        <AvecVague cote="gauche">
+          <GlobalCTA variant="localisation" />
+        </AvecVague>
     </main>
   );
 };

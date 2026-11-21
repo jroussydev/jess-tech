@@ -6,6 +6,7 @@ import ServicesPourquoi from "../../components/services/ServicesPourquoi";
 import GlobalCTA from "../../components/GlobalCTA";
 
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -21,10 +22,18 @@ export default function Services() {
     <main className="relative overflow-hidden">
       <ServicesHero />
       <ServicesChoisir />
-      <ServicesListe />
-      <ServicesDeroulementProjet />
-      <ServicesPourquoi />
-      <GlobalCTA variant="services" />
+      <AvecVague cote="droite">
+        <ServicesListe />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <ServicesDeroulementProjet />
+      </AvecVague>
+      <AvecVague cote="droite">
+        <ServicesPourquoi />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="services" />
+      </AvecVague>
     </main>
   );
 }

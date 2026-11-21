@@ -1,7 +1,11 @@
 import { Check } from "lucide-react";
 import { offreFondateur } from "../../data/tarifs";
 
-export default function CompteurPlaces() {
+type CompteurPlacesProps = {
+  texteClassName?: string; // couleur du texte selon le fond
+};
+
+export default function CompteurPlaces({ texteClassName = "" }: CompteurPlacesProps) {
   const { placesTotal, placesRestantes } = offreFondateur;
   const placesPrises = placesTotal - placesRestantes;
 
@@ -24,7 +28,7 @@ export default function CompteurPlaces() {
         })}
       </div>
 
-      <p className="!mt-3 font-semibold text-white">
+      <p className={`!mt-3 font-semibold ${texteClassName}`}>
         {placesRestantes === 1
           ? "Dernière place disponible"
           : `Plus que ${placesRestantes} places sur ${placesTotal}`}

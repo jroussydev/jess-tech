@@ -6,6 +6,7 @@ import ProjectsPreview from "../../components/home/ProjectsPreview"
 import PortfolioPreview from "../../components/home/PortfolioPreview"
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -21,8 +22,12 @@ export default function Home() {
         <main>
             <Hero />
             <ServicesPreview />
-            <ProjectsPreview />
-            <PortfolioPreview />
+            <AvecVague cote="droite">
+              <ProjectsPreview />
+            </AvecVague>
+            <AvecVague cote="gauche">
+              <PortfolioPreview />
+            </AvecVague>
             <GlobalCTA variant="home" />
 
 

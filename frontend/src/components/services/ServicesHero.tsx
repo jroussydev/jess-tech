@@ -1,41 +1,13 @@
 
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 export default function ServicesHero() {
   return (
     <section className="hero">
 
-<img
-  src="/decorations/vagues/01.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    left-0
-    z-30
-    max-w-none
-    object-fill
-    origin-left
-
-    -bottom-13
-    h-50
-    w-[140%]
-    scale-x-[1.05]
-
-    sm:h-60
-    sm:w-[130%]
-
-    md:h-80
-    md:w-[120%]
-
-    lg:bottom-60
-    lg:h-174
-    lg:w-full
-    lg:scale-x-[1.18]
-    lg:translate-y-1/2
-  "
-/>
+{/* Vague décorative (commune à toutes les pages pour l’instant) */}
+<VagueHero />
       <div className="hero__container">
         <div className="hero__layout">
           <div className="hero__content">

@@ -7,6 +7,7 @@ import TypeSiteCreation from "../../components/creationSiteInternet/TypeSiteCrea
 import GlobalCTA from "../../components/GlobalCTA";
 
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -22,11 +23,21 @@ export default function CreationSiteInternet() {
     <main className="relative overflow-hidden">
 <HeroCreationSite/>
 <TypeSiteCreation/>
-<FormulesCreationSite/>
-<PossibilitesCreationSite/>
-<PreparationCreationSite/>
-<FaqCreationSite/>
-<GlobalCTA variant="services" />
+<AvecVague cote="droite">
+  <FormulesCreationSite/>
+</AvecVague>
+<AvecVague cote="gauche">
+  <PossibilitesCreationSite/>
+</AvecVague>
+<AvecVague cote="droite">
+  <PreparationCreationSite/>
+</AvecVague>
+<AvecVague cote="gauche">
+  <FaqCreationSite/>
+</AvecVague>
+<AvecVague cote="droite">
+  <GlobalCTA variant="services" />
+</AvecVague>
     </main>
   )
 }

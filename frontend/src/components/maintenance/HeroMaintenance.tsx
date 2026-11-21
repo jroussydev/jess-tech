@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 const maintenanceHighlights = [
   {
@@ -169,12 +170,8 @@ export default function HeroMaintenance() {
             VAGUE BASSE
         ====================================================== */}
 
-        <img
-          src="/decorations/vagues/09.png"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave"
-        />
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
       </div>
     </section>
   );

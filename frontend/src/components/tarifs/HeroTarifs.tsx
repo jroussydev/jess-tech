@@ -1,5 +1,6 @@
 import { ArrowRight, BadgeCheck, Eye, Handshake } from "lucide-react";
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 const engagements = [
   {
@@ -121,38 +122,8 @@ export default function HeroTarifs() {
         </div>
       </div>
 
-        {/* Vague basse */}
-        <img
-  src="/decorations/vagues/01.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    left-0
-    z-30
-    max-w-none
-    object-fill
-    origin-left
-
-    -bottom-13
-    h-50
-    w-[140%]
-    scale-x-[1.05]
-
-    sm:h-60
-    sm:w-[130%]
-
-    md:h-40
-    md:w-[120%]
-
-    lg:bottom-40
-    lg:h-124
-    lg:w-full
-    lg:scale-x-[1.18]
-    lg:translate-y-1/2
-  "
-/>
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
 
     </section>
   );

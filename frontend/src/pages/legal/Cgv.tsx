@@ -9,6 +9,7 @@ import {
   Mail,
 } from "lucide-react";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -398,6 +399,7 @@ return (
     </section>
 
     {/* Contenu */}
+    <AvecVague cote="droite">
     <section className="bg-white py-16">
       <div className="mx-auto max-w-6xl px-6">
         <div className="space-y-10">
@@ -433,6 +435,7 @@ return (
         </div>
       </div>
     </section>
+    </AvecVague>
   </main>
 );
 

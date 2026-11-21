@@ -6,6 +6,7 @@ import {
 
 import { Link } from "react-router";
 import { prixSites } from "../../data/tarifs";
+import VagueHero from "../decorations/VagueHero";
 
 const creationHighlights = [
   {
@@ -166,12 +167,8 @@ export default function HeroCreationSite() {
             VAGUE BASSE
         ====================================================== */}
 
-        <img
-          src="/decorations/vagues/09.png"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave"
-        />
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
       </div>
     </section>
   );

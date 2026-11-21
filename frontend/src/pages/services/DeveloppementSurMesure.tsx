@@ -1,6 +1,7 @@
 import { FaqDeveloppement, FonctionnementDeveloppement, HeroDeveloppementSurMesure, PossibilitesDeveloppement, PreparationDeveloppement, TarifDeveloppement } from "../../components/developpementSurMesure";
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -19,15 +20,25 @@ export default function DeveloppementSurMesure() {
 
       <PossibilitesDeveloppement />
 
-      <PreparationDeveloppement />
+      <AvecVague cote="droite">
+        <PreparationDeveloppement />
+      </AvecVague>
 
-      <FonctionnementDeveloppement />
+      <AvecVague cote="gauche">
+        <FonctionnementDeveloppement />
+      </AvecVague>
 
-      <TarifDeveloppement />
+      <AvecVague cote="droite">
+        <TarifDeveloppement />
+      </AvecVague>
 
-      <FaqDeveloppement />
+      <AvecVague cote="gauche">
+        <FaqDeveloppement />
+      </AvecVague>
 
-      <GlobalCTA variant="services" />
+      <AvecVague cote="droite">
+        <GlobalCTA variant="services" />
+      </AvecVague>
     </main>
   );
 }

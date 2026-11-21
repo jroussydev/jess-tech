@@ -1,5 +1,6 @@
 import { Headset, MessageCircle, Shield } from "lucide-react";
 import { Link } from "react-router";
+import VagueHero from "../decorations/VagueHero";
 
 const qualities = [
   {
@@ -140,13 +141,8 @@ export default function Hero() {
           </div>
         </div>
 
-        {/* Vague basse */}
-        <img
-          src="/decorations/vagues/vague_longue_dore_hero.webp"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave"
-        />
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
       </div>
     </section>
   );

@@ -18,7 +18,7 @@ const details: Record<string, { icon: LucideIcon; link: string }> = {
 
 export default function TarifsAutres() {
   return (
-    <section className="section-light section-fade-soft-bottom section-spacing">
+    <section className="section-light section-spacing">
       <div className="site-container relative z-10">
         <div className="section-intro max-w-3xl">
           <p className="section-label">Autres prestations</p>

@@ -1,6 +1,7 @@
 import { FaqAssistance, HeroAssistance, InterventionsAssistance, ModeInterventionAssistance, PreparationAssistance } from "../../components/assistance";
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 
 export function meta() {
@@ -17,11 +18,19 @@ export default function AssistanceTechnique() {
     <>
       <HeroAssistance />
       <InterventionsAssistance />
-      <ModeInterventionAssistance />
-      <PreparationAssistance />
-      <FaqAssistance />
+      <AvecVague cote="droite">
+        <ModeInterventionAssistance />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <PreparationAssistance />
+      </AvecVague>
+      <AvecVague cote="droite">
+        <FaqAssistance />
+      </AvecVague>
 
-      <GlobalCTA variant="services" />
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="services" />
+      </AvecVague>
     </>
   );
 }

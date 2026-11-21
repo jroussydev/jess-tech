@@ -1,4 +1,5 @@
 import { offreFondateur } from "../../data/tarifs";
+import CompteurPlaces from "./CompteurPlaces";
 
 export default function PassFondateur() {
   const { placesTotal, placesRestantes } = offreFondateur;
@@ -20,6 +21,11 @@ export default function PassFondateur() {
       <p className="!mt-2 text-slate-300">
         Votre site pourrait être ma prochaine réalisation.
       </p>
+
+      {/* Places restantes */}
+      <div className="mt-6">
+        <CompteurPlaces texteClassName="text-white" />
+      </div>
 
       <div className="mt-6 border-t border-dashed border-[#E9C46A]/60 pt-3 text-sm text-[#E9C46A]">
         Réservé à mes {placesTotal} premiers clients

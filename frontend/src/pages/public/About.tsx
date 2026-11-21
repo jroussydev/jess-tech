@@ -7,6 +7,7 @@ import {
 } from "../../components/about";
 import GlobalCTA from "../../components/GlobalCTA";
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -22,10 +23,18 @@ const About = () => {
     <>
       <AboutHero />
       <AboutValues />
-      <AboutStory />
-      <AboutWorkflow />
-      <AboutTechnologies />
-      <GlobalCTA variant="about" />
+      <AvecVague cote="droite">
+        <AboutStory />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <AboutWorkflow />
+      </AvecVague>
+      <AvecVague cote="droite">
+        <AboutTechnologies />
+      </AvecVague>
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="about" />
+      </AvecVague>
     </>
   );
 };

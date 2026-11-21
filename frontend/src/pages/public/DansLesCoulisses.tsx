@@ -7,6 +7,8 @@ import {
   ProjectList,
 } from "../../components/projects";
 import { createMeta } from "../../seo/createMeta";
+import VagueHero from "../../components/decorations/VagueHero";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -54,38 +56,8 @@ export default function DansLesCoulisses() {
           </div>
         </div>
 
-        {/* Vague basse */}
-        <img
-  src="/decorations/vagues/01.png"
-  alt=""
-  aria-hidden="true"
-  className="
-    pointer-events-none
-    absolute
-    left-0
-    z-30
-    max-w-none
-    object-fill
-    origin-left
-
-    -bottom-13
-    h-50
-    w-[140%]
-    scale-x-[1.05]
-
-    sm:h-60
-    sm:w-[130%]
-
-    md:h-40
-    md:w-[120%]
-
-    lg:bottom-40
-    lg:h-124
-    lg:w-full
-    lg:scale-x-[1.18]
-    lg:translate-y-1/2
-  "
-/>
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
       </section>
 
       {/* =====================================================
@@ -129,6 +101,7 @@ export default function DansLesCoulisses() {
       {/* =====================================================
           PROJETS
       ====================================================== */}
+      <AvecVague cote="droite">
       <section className="section-dark section-fade-dark-soft section-spacing section-fade-dark-bottom">
         <div className="site-container">
           <div className="section-intro mb-10 max-w-4xl md:mb-12">
@@ -166,11 +139,14 @@ export default function DansLesCoulisses() {
           </div>
         </div>
       </section>
+      </AvecVague>
 
       {/* =====================================================
           CTA
       ====================================================== */}
-      <GlobalCTA variant="coulisses" />
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="coulisses" />
+      </AvecVague>
     </main>
   );
 }

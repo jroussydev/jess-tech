@@ -2,8 +2,10 @@ import { Link } from "react-router";
 import { createMeta } from "../../seo/createMeta";
 import { offreActive, offreFondateur, prixSites } from "../../data/tarifs";
 import PassFondateur from "../../components/fondateur/PassFondateur";
-import CompteurPlaces from "../../components/fondateur/CompteurPlaces";
 import GlobalCTA from "../../components/GlobalCTA";
+import VagueHero from "../../components/decorations/VagueHero";
+import ApercuProjetsDemo from "../../components/projects/ApercuProjetsDemo";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -34,44 +36,38 @@ export default function Realisations() {
             </p>
           </div>
         </div>
-{/* Vague dorée (même que le hero d'accueil) */}
-        <img
-          src="/decorations/vagues/vague_longue_dore_hero.webp"
-          alt=""
-          aria-hidden="true"
-          className="hero__wave"
-        />
+
+        {/* Vague décorative (commune à toutes les pages pour l’instant) */}
+        <VagueHero />
       </section>
 
       {/* Offre fondateur */}
       {offreActive && (
-        <section id="offre-fondateur" className="section-dark section-spacing !pt-25">
+        <section id="offre-fondateur" className="section-light section-fade-hero section-spacing !pt-25">
           <div className="site-container grid items-center gap-10 lg:grid-cols-2">
             <PassFondateur />
 
             <div>
-              <p className="section-label">Offre fondateur</p>
-              <h2 className="text-white">
-                Et si votre site était le{" "}
-                <span className="text-gradient-gold">premier</span> ?
-              </h2>
+              <div className="section-intro">
+                <p className="section-label">Offre fondateur</p>
+                <h2>
+                  Et si votre site était le{" "}
+                  <span className="text-gradient-blue">premier</span> ?
+                </h2>
 
-              <p className="text-slate-300">
-                Pour mes {offreFondateur.placesTotal} premiers clients, les
-                formules sont à prix réduit (dès {prixSites.Lite.fondateur}),
-                avec {offreFondateur.bonus}. En échange : un témoignage, un
-                avis Google et l’accord pour présenter votre site ici.
-              </p>
-
-              <div className="mt-6">
-                <CompteurPlaces />
+                <p className="text-slate-600">
+                  Pour mes {offreFondateur.placesTotal} premiers clients, les
+                  formules sont à prix réduit (dès {prixSites.Lite.fondateur}),
+                  avec {offreFondateur.bonus}. En échange : un témoignage, un
+                  avis Google et l’accord pour présenter votre site ici.
+                </p>
               </div>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Link to="/contact" className="btn-primary btn-gold">
                   Réserver ma place
                 </Link>
-                <Link to="/tarifs#prix" className="btn-secondary">
+                <Link to="/tarifs#prix" className="btn-primary">
                   Voir les formules
                 </Link>
               </div>
@@ -80,7 +76,14 @@ export default function Realisations() {
         </section>
       )}
 
-      <GlobalCTA variant="tarifs" />
+      {/* Projets de démonstration (aperçu court) */}
+      <AvecVague cote="droite">
+        <ApercuProjetsDemo />
+      </AvecVague>
+
+      <AvecVague cote="gauche">
+        <GlobalCTA variant="tarifs" />
+      </AvecVague>
     </main>
   );
 }

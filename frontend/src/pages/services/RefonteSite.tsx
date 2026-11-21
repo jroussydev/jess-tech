@@ -9,6 +9,7 @@ import ProblemesRefonte from "../../components/refonte/ProblemesRefonte";
 import TarifRefonte from "../../components/refonte/TarifRefonte";
 
 import { createMeta } from "../../seo/createMeta";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -26,19 +27,29 @@ export default function RefonteSite() {
 
       <ProblemesRefonte />
 
-      <NiveauRefonte />
+      <AvecVague cote="droite">
+        <NiveauRefonte />
+      </AvecVague>
 
 
 
-      <TarifRefonte />
+      <AvecVague cote="gauche">
+        <TarifRefonte />
+      </AvecVague>
 
      
 
-      <PreparationRefonte />
+      <AvecVague cote="droite">
+        <PreparationRefonte />
+      </AvecVague>
 
-      <FaqRefonte />
+      <AvecVague cote="gauche">
+        <FaqRefonte />
+      </AvecVague>
 
-      <GlobalCTA variant="services" />
+      <AvecVague cote="droite">
+        <GlobalCTA variant="services" />
+      </AvecVague>
     </main>
   );
 }

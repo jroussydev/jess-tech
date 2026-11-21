@@ -28,6 +28,8 @@ import {
 } from "react-icons/fa6";
 import AnimatedCardBorder from "../../components/decorations/AnimatedCardBorder";
 import { createMeta } from "../../seo/createMeta";
+import VagueHero from "../../components/decorations/VagueHero";
+import AvecVague from "../../components/decorations/AvecVague";
 
 export function meta() {
   return createMeta({
@@ -431,13 +433,8 @@ useEffect(() => {
   />
 </div>
 
-{/* Vague basse */}
-<img
-  src="/decorations/vagues/09.png"
-  alt=""
-  aria-hidden="true"
-  className="hero__wave z-30"
-/>
+{/* Vague décorative (commune à toutes les pages pour l’instant) */}
+<VagueHero />
 
 </section>
 
@@ -970,6 +967,7 @@ useEffect(() => {
 </section>
 
       {/* Section 3 — Et ensuite ? */}
+<AvecVague cote="droite">
 <section
   ref={stepsSectionRef}
   className="section-dark section-fade-dark-soft section-spacing section-mask"
@@ -1140,8 +1138,10 @@ useEffect(() => {
 
   </div>
 </section>
+</AvecVague>
 
       {/* Section 4 — Autres moyens de contact */}
+<AvecVague cote="gauche">
 <section className="section-light section-fade-light-soft section-spacing">
   <div className="site-container">
 
@@ -1263,6 +1263,7 @@ useEffect(() => {
 </div>
   </div>
 </section>
+</AvecVague>
     </main>
   );
 }
