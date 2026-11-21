@@ -6,19 +6,20 @@ import StatusBadge from "./StatusBadge";
 
 type ProjectPreviewProps = {
   project: InternalProject;
+  isActive?: boolean;
 };
 
-export default function ProjectPreview({ project }: ProjectPreviewProps) {
+export default function ProjectPreview({ project, isActive = false }: ProjectPreviewProps) {
   const hasImages = project.gallery.length > 0;
 
   const hasVideo = Boolean(project.video);
 
   return (
     <article
-  className="
+  className={`
     card-dark
     card-dark-opaque
-    card-glow
+    ${isActive ? "card-glow-gold" : "card-glow"}
     group
     relative
     grid
@@ -27,7 +28,7 @@ export default function ProjectPreview({ project }: ProjectPreviewProps) {
     overflow-hidden
     rounded-3xl
     p-0!
-  "
+  `}
 >
   {/* Décoration des cartes */}
 <img

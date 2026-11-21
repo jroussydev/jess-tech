@@ -1,7 +1,11 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { X } from "lucide-react";
+import type { ProjectListHandle } from "../../components/projects/ProjectList";
+import { internalProjects } from "../../data/internalProjects";
+import type { InternalProject } from "../../types/project";
 
 import GlobalCTA from "../../components/GlobalCTA";
-import { internalProjects } from "../../data/internalProjects";
+
 import {
   ProjectDetails,
   ProjectList,
@@ -20,10 +24,13 @@ export function meta() {
 }
 
 export default function DansLesCoulisses() {
-  const [selectedProject, setSelectedProject] = useState(
-    internalProjects[0],
-  );
+const [selectedProject, setSelectedProject] = useState<InternalProject | null>(null);const isOpen = selectedProject !== null;
+const listRef = useRef<ProjectListHandle>(null);
 
+function handleClose() {
+  listRef.current?.capturePositions(); // on note où sont les cartes
+  setSelectedProject(null);            // puis on referme
+}
   return (
     <main className="relative overflow-hidden">
 
@@ -125,19 +132,61 @@ export default function DansLesCoulisses() {
             Desktop xl :
             35 % liste / 65 % détails.
           */}
-          <div className="grid min-w-0 items-start gap-8 xl:grid-cols-[35%_65%] mb-20">
-            <div className="min-w-0">
-              <ProjectList
-                projects={internalProjects}
-                onSelectProject={setSelectedProject}
-              />
-            </div>
+          <div
+  className={`grid min-w-0 items-start gap-8 mb-20 ${
+    isOpen ? "xl:grid-cols-[35%_65%]" : ""
+  }`}
+>
+  <div className="min-w-0">
+    <ProjectList
+      projects={internalProjects}
+      onSelectProject={setSelectedProject}
+      selectedProject={selectedProject}
+    />
+  </div>
 
-            <div className="min-w-0">
-              <ProjectDetails project={selectedProject} />
-            </div>
-          </div>
-        </div>
+{isOpen && (
+  <div
+    key={selectedProject.id}
+    className="relative min-w-0 project-details-enter"
+  >
+    <button
+      type="button"
+      onClick={handleClose}
+      aria-label="Fermer le descriptif du projet"
+      className="
+  group/close
+  absolute z-20 flex items-center justify-center overflow-hidden
+  text-white
+  border border-white/20 border-b-0
+  bg-[#0D5BFF]/25 backdrop-blur-md
+  shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_0_20px_rgba(13,91,255,0.35)]
+  transition-colors duration-300
+  hover:bg-[#0D5BFF]/45
+  focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2E7BFF]
+
+  left-1/2 top-0 h-7 w-14 -translate-x-1/2 -translate-y-full
+  rounded-t-full
+"
+    >
+      {/* Reflet façon miroir */}
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-br from-white/35 via-white/5 to-transparent"
+      />
+
+      <X
+        size={16}
+        strokeWidth={2.5}
+        className="relative transition-transform duration-300 group-hover/close:rotate-90"
+      />
+    </button>
+
+    <ProjectDetails project={selectedProject} />
+  </div>
+)}
+  </div>
+</div>
       </section>
       </AvecVague>
 

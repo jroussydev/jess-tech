@@ -1764,8 +1764,31 @@
     black 38%
   );
 }
- 
- 
+
+/* ----------------------------------------------------------
+   7.5 Page DansLesCoulisses - Effet Flip pour les cartes projets
+---------------------------------------------------------- */
+
+@keyframes project-details-enter {
+  from {
+    opacity: 0;
+    transform: translateX(24px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.project-details-enter {
+  animation: project-details-enter 0.5s ease-out 0.25s backwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-details-enter {
+    animation: none;
+  }
+} 
  
 /* ==========================================================
    8. ARCHIVES — code désactivé
