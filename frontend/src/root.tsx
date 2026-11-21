@@ -42,7 +42,7 @@ export function Layout({ children }: { children: ReactNode }) {
 
 export default function Root() {
   return (
-    <div className="min-h-screen bg-[#020817] text-white">
+    <div className="min-h-screen overflow-x-clip bg-[#020817] text-white">
       <BarreOffreFondateur />
       <Header />
       <Outlet />

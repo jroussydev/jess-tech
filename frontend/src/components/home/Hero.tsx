@@ -69,11 +69,18 @@ export default function Hero() {
 
             {/* Description */}
             <p className="hero__description text-slate-300">
-              Développeur web freelance basé dans l'Aisne : j&apos;accompagne particuliers, artisans,
-              associations et petites entreprises dans la{" "}
+              Développeur web freelance{" "}
+              <Link
+                to="/localisation"
+                className="font-semibold text-sky-400 transition-colors duration-300 hover:text-sky-300"
+              >
+                basé dans l&apos;Aisne
+              </Link>{" "}
+              : j&apos;accompagne particuliers, artisans, associations et petites
+              entreprises dans la{" "}
               <Link
                 to="/services/creation-site-internet"
-                className="color-link font-semibold transition-colors duration-300 hover:text-blue-300"
+                className="font-semibold text-sky-400 transition-colors duration-300 hover:text-sky-300"
               >
                 création de sites web
               </Link>{" "}
