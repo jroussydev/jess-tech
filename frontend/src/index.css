@@ -368,6 +368,10 @@
         rgba(245, 247, 252, 0) 40px
       ),
       #020817;
+    /* Bouche le fin trait (arrondi de pixel) entre la section claire
+       au-dessus et cette section sombre. Une ombre ne prend aucune
+       place : rien ne se décale. */
+    box-shadow: 0 -2px 0 #F5F7FC;
   }
  
   /* ---------- Section claire : fondu sombre en haut ---------- */
@@ -430,22 +434,6 @@
       ),
  
       #020817;
-  }
-
-  /* ---------- Raccord sans couture entre sections ----------
-     Sur mobile/tablette, les hauteurs « à virgule » (typo fluide)
-     laissent parfois un fin trait sombre entre deux sections.
-     Une ombre nette de 3 px, de la couleur de départ du fondu,
-     déborde au-dessus de la section et bouche ce trait.
-     Rien ne bouge : une ombre ne prend pas de place. */
-
-  .section-fade-hero,
-  .section-fade-light-soft {
-    box-shadow: 0 -3px 0 #020817;
-  }
-
-  .section-fade-dark-soft {
-    box-shadow: 0 -3px 0 #F5F7FC;
   }
 }
  
@@ -1157,7 +1145,9 @@
       w-50
       md:h-56
       md:w-64
-      lg:hidden;
+      lg:h-[25rem]
+      lg:w-[32rem]
+      xl:hidden;
  
     filter:
       drop-shadow(-2px 2px 4px rgba(13, 178, 255, 0.75))
@@ -1182,7 +1172,7 @@
     object-position: 35% center;
   }
  
-  /* ---------- Visuel desktop (≥ 1024px) ---------- */
+  /* ---------- Visuel desktop (≥ 1280px ; en dessous, iPad compris : visuel mobile) ---------- */
  
   .hero__visual {
     position: absolute;
@@ -1195,7 +1185,7 @@
     display: none;
   }
  
-  @media (min-width: 1024px) {
+  @media (min-width: 1280px) {
     .hero__visual {
       display: block;
     }
