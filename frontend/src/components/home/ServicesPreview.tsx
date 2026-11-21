@@ -71,14 +71,18 @@ export default function ServicesPreview() {
               2. les 4 cartes
               3. paragraphes 3 et 4 + boutons
             Mobile et tablette : les 3 blocs l'un sous l'autre.
-            Ordinateur (1280 px et plus) : blocs 1 et 3 à gauche (1 en haut, 3 en bas),
-            cartes à droite sur toute la hauteur. */}
-        <div className="grid gap-8 pt-[65px] xl:grid-cols-[400px_minmax(0,1fr)] xl:grid-rows-[auto_1fr] xl:gap-x-12 xl:gap-y-4">
+            Ordinateur (1280 px et plus) : cartes à droite sur toute la hauteur ;
+            à gauche, titre en haut, boutons en bas, et les 4 paragraphes au
+            milieu avec le même espace au-dessus et en dessous (les 2 lignes
+            « 1fr » de la grille se partagent l'espace libre à parts égales). */}
+        <div className="grid gap-8 pt-[65px] xl:grid-cols-[400px_minmax(0,1fr)] xl:grid-rows-[auto_1fr_auto_auto_1fr_auto] xl:gap-x-12 xl:gap-y-0">
           {/* Bloc 1 : titre + paragraphes 1 et 2 */}
-          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-1">
-            <p className="section-label !mt-0">Services</p>
-            <h2>Ce que je peux faire pour vous</h2>
-            <div className="mt-4 space-y-4">
+          <div className="section-intro max-w-none xl:contents">
+            <div className="xl:col-start-1 xl:row-start-1">
+              <p className="section-label !mt-0">Services</p>
+              <h2>Ce que je peux faire pour vous</h2>
+            </div>
+            <div className="mt-4 space-y-4 xl:col-start-1 xl:row-start-3 xl:mt-0">
               <p>
                 Je vous présente les différents services que je propose. Mon but : concrétiser vos projets !
               </p>
@@ -95,7 +99,7 @@ export default function ServicesPreview() {
               grid-cols-1
               sm:grid-cols-2
               xl:col-start-2
-              xl:row-span-2
+              xl:row-span-6
               xl:row-start-1
               xl:grid-rows-[1fr_1fr_auto]
               gap-3
@@ -175,11 +179,9 @@ export default function ServicesPreview() {
             ))}
           </div>
 
-          {/* Bloc 3 : paragraphes 3 et 4 + boutons.
-              Ordinateur : les paragraphes suivent directement le bloc 1,
-              les boutons restent calés en bas (alignés sur les cartes). */}
-          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-2 xl:flex xl:flex-col">
-            <div className="space-y-4">
+          {/* Bloc 3 : paragraphes 3 et 4 + boutons */}
+          <div className="section-intro max-w-none xl:contents">
+            <div className="space-y-4 xl:col-start-1 xl:row-start-4 xl:mt-4">
               <p>
                 Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps.
               </p>
@@ -187,7 +189,7 @@ export default function ServicesPreview() {
                 N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
               </p>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3 xl:mt-auto xl:pt-6">
+            <div className="mt-6 flex flex-wrap gap-3 xl:col-start-1 xl:row-start-6 xl:mt-0">
               <Link to="/contact" className="btn-primary btn-gold">
                 Écrivez-moi
               </Link>
