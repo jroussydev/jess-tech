@@ -97,7 +97,23 @@
 ---------------------------------------------------------- */
  
 @layer base {
- 
+
+  /* ---------- Échelle typographique fluide ----------
+     clamp(MIN, IDÉAL, MAX) : la taille suit la largeur de l'écran (vw)
+     sans jamais descendre sous MIN ni dépasser MAX.
+     Repères : mobile 375 px · tablette 820 px · ordinateur 1440 px */
+
+  :root {
+    --fs-hero:  clamp(1.35rem, 0.6rem + 2.8vw, 3.25rem);   /* ~22 → 33 → 52 px */
+    --fs-h1:    clamp(1.5rem,  0.9rem + 2.4vw, 3rem);      /* 24 → 34 → 48 px */
+    --fs-h2:    clamp(1.25rem, 0.95rem + 1.2vw, 1.875rem); /* 20 → 25 → 30 px */
+    --fs-h3:    clamp(1rem,    0.9rem + 0.45vw, 1.25rem);  /* 16 → 18 → 20 px */
+    --fs-p:     clamp(0.875rem, 0.8rem + 0.35vw, 1.125rem);/* 14 → 16 → 18 px */
+    --fs-label: clamp(0.8rem,  0.75rem + 0.25vw, 1rem);    /* 13 → 14 → 16 px */
+    --fs-card-title: clamp(0.75rem, 0.6rem + 0.6vw, 1.125rem); /* 12 → 15 → 18 px */
+    --fs-card-text:  clamp(0.7rem,  0.6rem + 0.4vw, 1rem);     /* 11 → 13 → 16 px */
+  }
+
   /* ---------- Police des titres ---------- */
  
   h1,
@@ -112,42 +128,31 @@
   /* ---------- Tailles des titres ---------- */
  
   h1 {
+    font-size: var(--fs-h1);
     @apply
-      text-2xl
       font-black
-      leading-tight
-      md:text-4xl
-      lg:text-5xl;
+      leading-tight;
   }
  
   h2 {
+    font-size: var(--fs-h2);
     @apply
-      text-xl
       font-black
-      leading-tight
-      md:text-2xl
-      lg:text-3xl;
+      leading-tight;
   }
  
   h3 {
+    font-size: var(--fs-h3);
     @apply
-      text-base
       font-bold
-      leading-snug
-      md:text-lg
-      lg:text-xl;
+      leading-snug;
   }
  
   /* ---------- Paragraphes ---------- */
  
   p {
-    @apply
-      text-sm
-      leading-6
-      md:text-base
-      md:leading-7
-      lg:text-lg
-      lg:leading-8;
+    font-size: var(--fs-p);
+    line-height: 1.75;
   }
  
   /* ---------- Police des éléments interactifs ---------- */
@@ -286,12 +291,11 @@
     @apply
       mt-10
       mb-3
-      text-sm
       font-semibold
       uppercase
       tracking-widest
-      text-sky-500
-      md:text-base;
+      text-sky-500;
+    font-size: var(--fs-label);
   }
  
   .section-intro > p:not(.section-label) {
@@ -1017,13 +1021,10 @@
   /* ---------- Contenu texte ---------- */
  
   .hero__title {
+    font-size: var(--fs-hero);
     @apply
       max-w-[72%]
-      text-xl
-      sm:max-w-4xl
-      sm:text-2xl
-      md:text-4xl
-      lg:text-5xl;
+      sm:max-w-4xl;
   }
  
   .hero__description {
@@ -1107,12 +1108,8 @@
  
   /* Titre plus compact uniquement sur mobile */
   .hero__card-title {
-    @apply
-      text-xs
-      leading-tight
-      sm:text-sm
-      md:text-base
-      lg:text-lg;
+    font-size: var(--fs-card-title);
+    @apply leading-tight;
   }
  
   /* Description centrée uniquement sur mobile */
@@ -1120,13 +1117,10 @@
     @apply
       mt-1
       text-center
-      text-[11px]
-      leading-4
+      leading-snug
       sm:mt-2
-      sm:text-left
-      sm:text-xs
-      md:text-sm
-      lg:text-base;
+      sm:text-left;
+    font-size: var(--fs-card-text);
   }
  
   /* ---------- Visuel mobile / tablette ---------- */
