@@ -1023,8 +1023,10 @@
   .hero__title {
     font-size: var(--fs-hero);
     @apply
-      max-w-[72%]
-      sm:max-w-4xl;
+      max-w-full
+      sm:max-w-4xl
+      md:max-w-[55%]
+      xl:max-w-4xl;
   }
  
   .hero__description {
@@ -1032,7 +1034,9 @@
       mt-4
       max-w-full
       sm:mt-5
-      sm:max-w-2xl;
+      sm:max-w-2xl
+      md:max-w-[55%]
+      xl:max-w-2xl;
   }
  
   /* ---------- Boutons d'action ---------- */

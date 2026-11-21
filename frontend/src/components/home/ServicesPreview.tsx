@@ -26,7 +26,7 @@ const services: Service[] = [
     icon: Monitor,
     image: "/services/deco-sites-vitrines.webp",
     link: "/services/creation-site-internet",
-    gridClass: "row-span-2 lg:min-h-[520px]",
+    gridClass: "row-span-2 lg:min-h-[460px]",
     featured: true,
     points: ["Design sur mesure", "Adapté au mobile", "Référencement de base"],
     price: `À partir de ${prixSites.Lite.normal}`,
@@ -66,28 +66,39 @@ export default function ServicesPreview() {
   return (
     <section className="section-light section-fade-hero section-spacing">
       <div className="site-container">
-        <div className="grid gap-10 lg:grid-cols-[400px_minmax(0,1fr)] lg:items-center xl:gap-12">
-          {/* Introduction */}
-          <div className="section-intro max-w-xl">
-            <p className="section-label">Services</p>
+        <div className="grid gap-10 pt-[65px] lg:grid-cols-[400px_minmax(0,1fr)] lg:items-stretch xl:gap-12">
+          {/* Introduction : calée sur la hauteur du bloc de cartes
+              (titre en haut, textes au milieu, boutons en bas) */}
+          <div className="section-intro flex max-w-xl flex-col lg:justify-between">
+            <div>
+              <p className="section-label !mt-0">Services</p>
+              <h2>Ce que je peux faire pour vous</h2>
+            </div>
 
-            <h2>Ce que je peux faire pour vous</h2>
+            {/* Paragraphes : une ligne d'espace entre chacun */}
+            <div className="mt-4 space-y-4 lg:mt-0">
+              <p>
+                Je vous présente les différents services que je propose. Mon but : concrétiser vos projets !
+              </p>
+              <p>
+                Un nouveau site internet, un bug ou une mise à jour à gérer, une refonte complète ou partielle de votre site : dans tous les cas, je reste à votre disposition et je donne le meilleur de moi-même.
+              </p>
+              <p>
+                Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps.
+              </p>
+              <p>
+                N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
+              </p>
+            </div>
 
-            <p>
-              Je vous présente les différents services que je propose. Mon but : concrétiser vos projets !
-            </p>
-            <p>
-              Un nouveau site internet, un bug ou une mise à jour à gérer, une refonte complète ou partielle de votre site : dans tous les cas, je reste à votre disposition et je donne le meilleur de moi-même.
-            </p>
-            <p>
-              Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps. N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
-            </p>
-            <Link to="/contact" className="btn-primary btn-gold mt-6">
-              Écrivez-moi
-            </Link>
-            <Link to="/services" className="btn-primary mt-6 ml-3">
-              Voir tous les services →
-            </Link>
+            <div className="mt-6 flex flex-wrap gap-3 lg:mt-0">
+              <Link to="/contact" className="btn-primary btn-gold">
+                Écrivez-moi
+              </Link>
+              <Link to="/services" className="btn-primary">
+                Voir tous les services →
+              </Link>
+            </div>
           </div>
 
           {/* Cartes */}
@@ -95,14 +106,13 @@ export default function ServicesPreview() {
   className="
     grid
     grid-cols-2
+    grid-rows-[1fr_1fr_auto]
     gap-3
     md:gap-4
-    lg:translate-y-6
     lg:gap-5
-    xl:translate-y-7
   "
 >
-                        {services.map(({ accroche, title, description, icon: Icon, image, link, gridClass, featured, points, price, imageClass }) => (
+            {services.map(({ accroche, title, description, image, link, gridClass, featured, points, price, imageClass }) => (
               <article
                 key={title}
                 className={`
@@ -118,70 +128,57 @@ export default function ServicesPreview() {
               >
                 <AnimatedCardBorder />
 
-                {featured ? (
-                  /* ===== Grande carte : grille 2 colonnes × 4 lignes ===== */
-                  <div className="relative z-10 grid h-full grid-cols-2 grid-rows-[auto_auto_1fr_auto] gap-x-6 gap-y-4 p-5 lg:p-6">
-                    {/* Ligne 1 : titre à gauche, accroche à droite */}
-                    <div className="flex items-center gap-3">
-                      <Icon className="h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7" aria-hidden="true" />
-                      <h3 className="text-white">{title}</h3>
-                    </div>
-                    <p className="self-center text-right text-sm text-[#E9C46A]">{accroche}</p>
+                {/* Dessin : toujours calé en bas à droite */}
+                <img
+                  src={image}
+                  alt=""
+                  aria-hidden="true"
+                  onError={(e) => (e.currentTarget.style.display = "none")}
+                  className={
+                    featured
+                      ? "pointer-events-none absolute right-5 bottom-5 h-[55%] w-auto max-w-none origin-bottom-right transition-transform duration-500 group-hover:scale-105"
+                      : `pointer-events-none absolute h-full object-contain object-right-bottom p-3 transition-transform duration-500 group-hover:scale-105 ${imageClass ?? "inset-0 w-full"}`
+                  }
+                />
 
-                    {/* Ligne 2 : description sur toute la largeur */}
-                    <p className="col-span-2 text-justify text-slate-300 hyphens-auto">{description}</p>
+                {/* Contenu : même structure pour toutes les cartes */}
+                <div className="relative z-10 flex h-full flex-col p-4 lg:p-5">
+                  {/* En-tête : titre à gauche, accroche tout à droite (passe dessous si besoin) */}
+                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+                    <h3 className="!m-0 text-white">{title}</h3>
+                    <p className="!m-0 text-sm text-[#E9C46A]">{accroche}</p>
+                  </div>
 
-                    {/* Ligne 3 : points à gauche */}
-                    <ul className="self-center space-y-2 text-slate-300">
-                      {points?.map((point) => (
+                  {/* Description */}
+                  <p className={`!mt-3 text-slate-300 ${featured ? "" : "max-w-[60%]"}`}>
+                    {description}
+                  </p>
+
+                  {/* Points clés (grande carte), juste sous la description */}
+                  {points && (
+                    <ul className="mt-4 space-y-2 text-slate-300">
+                      {points.map((point) => (
                         <li key={point} className="flex items-center gap-2">
                           <Check className="h-4 w-4 shrink-0 text-[#E9C46A]" aria-hidden="true" />
                           {point}
                         </li>
                       ))}
                     </ul>
+                  )}
 
-                    {/* Lignes 3 et 4 à droite : case du dessin (2 cases fusionnées) */}
-                    <div className="relative row-span-2">
-                      <img
-                        src={image}
-                        alt=""
-                        aria-hidden="true"
-                        onError={(e) => (e.currentTarget.style.display = "none")}
-                        className="pointer-events-none absolute right-0 bottom-0 h-full w-auto max-w-none origin-bottom-right transition-transform duration-500 group-hover:scale-105"
-                      />
-                    </div>
-
-                    {/* Ligne 4 : prix + lien regroupés à gauche */}
-                    <div className="self-end">
-                      <p className="text-lg text-white">{price}</p>
-                      <Link to={link} className="color-link mt-1 inline-block">
-                        Voir l'offre →
-                      </Link>
-                    </div>
+                  {/* Action en bas de la carte (toute la carte est cliquable) */}
+                  <div className="mt-auto pt-4">
+                    {price && <p className="!m-0 text-lg text-white">{price}</p>}
+                    <Link
+                      to={link}
+                      className={`mt-1 inline-block text-sm font-semibold after:absolute after:inset-0 ${
+                        featured ? "text-[#E9C46A]" : "text-sky-400"
+                      }`}
+                    >
+                      {featured ? "Voir l'offre →" : "Découvrir →"}
+                    </Link>
                   </div>
-                ) : (
-                  /* ===== Petites cartes : dessin en fond, texte à gauche ===== */
-                  <>
-                    <img
-                      src={image}
-                      alt=""
-                      aria-hidden="true"
-                      onError={(e) => (e.currentTarget.style.display = "none")}
-className={`pointer-events-none absolute h-full mt-2 w-[75%] object-contain object-right pr-4 transition-transform duration-500 group-hover:scale-105 ${imageClass ?? "inset-0 w-[100%]"}`}                    />
-
-                    <div className="service-card__content card-content-mobile relative z-10 flex h-full max-w-[60%] flex-col justify-center p-4 lg:p-5">
-                      <p className="text-sm text-[#E9C46A]">{accroche}</p>
-
-                      <div className="service-card__heading mt-1 flex items-center gap-3">
-                        <Icon className="service-card__icon h-6 w-6 shrink-0 text-sky-500 lg:h-7 lg:w-7" aria-hidden="true" />
-                        <h3 className="service-card__title text-white">{title}</h3>
-                      </div>
-
-                      <p className="service-card__description mt-2 text-slate-300">{description}</p>
-                    </div>
-                  </>
-                )}
+                </div>
               </article>
             ))}
           </div>
