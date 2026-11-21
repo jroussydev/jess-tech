@@ -26,7 +26,7 @@ const services: Service[] = [
     icon: Monitor,
     image: "/services/deco-sites-vitrines.webp",
     link: "/services/creation-site-internet",
-    gridClass: "sm:row-span-2 lg:min-h-[460px]",
+    gridClass: "xl:row-span-2 xl:min-h-[460px]",
     featured: true,
     points: ["Design sur mesure", "Adapté au mobile", "Référencement de base"],
     price: `À partir de ${prixSites.Lite.normal}`,
@@ -57,8 +57,8 @@ const services: Service[] = [
     icon: LifeBuoy,
     image: "/services/deco-assistance-technique.webp",
     link: "/services/assistance-technique",
-    gridClass: "min-h-56 sm:min-h-45 sm:col-span-2",
-    imageClass: "bottom-0 right-0 h-[75%] w-[60%] sm:inset-y-0 sm:h-full sm:w-[65%]",
+    gridClass: "min-h-56 xl:min-h-45 xl:col-span-2",
+    imageClass: "bottom-0 right-0 h-[75%] w-[60%] xl:inset-y-0 xl:h-full xl:w-[65%]",
   },
 ];
 
@@ -66,53 +66,43 @@ export default function ServicesPreview() {
   return (
     <section className="section-light section-fade-hero section-spacing">
       <div className="site-container">
-        <div className="grid gap-10 pt-[65px] lg:grid-cols-[400px_minmax(0,1fr)] lg:items-stretch xl:gap-12">
-          {/* Introduction : calée sur la hauteur du bloc de cartes
-              (titre en haut, textes au milieu, boutons en bas) */}
-          <div className="section-intro flex max-w-xl flex-col lg:justify-between">
-            <div>
-              <p className="section-label !mt-0">Services</p>
-              <h2>Ce que je peux faire pour vous</h2>
-            </div>
-
-            {/* Paragraphes : une ligne d'espace entre chacun */}
-            <div className="mt-4 space-y-4 lg:mt-0">
+        {/* 3 blocs, dans cet ordre :
+              1. titre + paragraphes 1 et 2
+              2. les 4 cartes
+              3. paragraphes 3 et 4 + boutons
+            Mobile et tablette : les 3 blocs l'un sous l'autre.
+            Ordinateur (1280 px et plus) : blocs 1 et 3 à gauche (1 en haut, 3 en bas),
+            cartes à droite sur toute la hauteur. */}
+        <div className="grid gap-8 pt-[65px] xl:grid-cols-[400px_minmax(0,1fr)] xl:grid-rows-[auto_1fr] xl:gap-x-12">
+          {/* Bloc 1 : titre + paragraphes 1 et 2 */}
+          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-1">
+            <p className="section-label !mt-0">Services</p>
+            <h2>Ce que je peux faire pour vous</h2>
+            <div className="mt-4 space-y-4">
               <p>
                 Je vous présente les différents services que je propose. Mon but : concrétiser vos projets !
               </p>
               <p>
                 Un nouveau site internet, un bug ou une mise à jour à gérer, une refonte complète ou partielle de votre site : dans tous les cas, je reste à votre disposition et je donne le meilleur de moi-même.
               </p>
-              <p>
-                Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps.
-              </p>
-              <p>
-                N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
-              </p>
-            </div>
-
-            <div className="mt-6 flex flex-wrap gap-3 lg:mt-0">
-              <Link to="/contact" className="btn-primary btn-gold">
-                Écrivez-moi
-              </Link>
-              <Link to="/services" className="btn-primary">
-                Voir tous les services →
-              </Link>
             </div>
           </div>
 
-          {/* Cartes */}
-<div
-  className="
-    grid
-    grid-cols-1
-    sm:grid-cols-2
-    sm:grid-rows-[1fr_1fr_auto]
-    gap-3
-    md:gap-4
-    lg:gap-5
-  "
->
+          {/* Bloc 2 : les 4 cartes */}
+          <div
+            className="
+              grid
+              grid-cols-1
+              sm:grid-cols-2
+              xl:col-start-2
+              xl:row-span-2
+              xl:row-start-1
+              xl:grid-rows-[1fr_1fr_auto]
+              gap-3
+              md:gap-4
+              lg:gap-5
+            "
+          >
             {services.map(({ accroche, title, description, image, link, gridClass, featured, points, price, imageClass }) => (
               <article
                 key={title}
@@ -144,7 +134,8 @@ export default function ServicesPreview() {
 
                 {/* Contenu : même structure pour toutes les cartes */}
                 <div className="relative z-10 flex h-full flex-col p-4 lg:p-5">
-                  {/* En-tête : accroche sous le titre sur mobile, tout à droite dès 640 px */}
+                  {/* En-tête : accroche sous le titre sur mobile, à droite du titre dès 640 px
+                      (repasse dessous si la place manque) */}
                   <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4">
                     <h3 className="!m-0 text-white">{title}</h3>
                     <p className="!m-0 text-sm text-[#E9C46A]">{accroche}</p>
@@ -182,6 +173,26 @@ export default function ServicesPreview() {
                 </div>
               </article>
             ))}
+          </div>
+
+          {/* Bloc 3 : paragraphes 3 et 4 + boutons (calé en bas sur ordinateur) */}
+          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-2 xl:self-end">
+            <div className="space-y-4">
+              <p>
+                Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps.
+              </p>
+              <p>
+                N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
+              </p>
+            </div>
+            <div className="mt-6 flex flex-wrap gap-3">
+              <Link to="/contact" className="btn-primary btn-gold">
+                Écrivez-moi
+              </Link>
+              <Link to="/services" className="btn-primary">
+                Voir tous les services →
+              </Link>
+            </div>
           </div>
         </div>
       </div>
