@@ -26,7 +26,7 @@ const services: Service[] = [
     icon: Monitor,
     image: "/services/deco-sites-vitrines.webp",
     link: "/services/creation-site-internet",
-    gridClass: "row-span-2 lg:min-h-[460px]",
+    gridClass: "sm:row-span-2 lg:min-h-[460px]",
     featured: true,
     points: ["Design sur mesure", "Adapté au mobile", "Référencement de base"],
     price: `À partir de ${prixSites.Lite.normal}`,
@@ -57,8 +57,8 @@ const services: Service[] = [
     icon: LifeBuoy,
     image: "/services/deco-assistance-technique.webp",
     link: "/services/assistance-technique",
-    gridClass: "col-span-2",
-    imageClass: "inset-y-0 right-0 w-[65%]",
+    gridClass: "min-h-56 sm:min-h-45 sm:col-span-2",
+    imageClass: "bottom-0 right-0 h-[75%] w-[60%] sm:inset-y-0 sm:h-full sm:w-[65%]",
   },
 ];
 
@@ -105,8 +105,9 @@ export default function ServicesPreview() {
 <div
   className="
     grid
-    grid-cols-2
-    grid-rows-[1fr_1fr_auto]
+    grid-cols-1
+    sm:grid-cols-2
+    sm:grid-rows-[1fr_1fr_auto]
     gap-3
     md:gap-4
     lg:gap-5
@@ -137,14 +138,14 @@ export default function ServicesPreview() {
                   className={
                     featured
                       ? "pointer-events-none absolute right-5 bottom-5 h-[55%] w-auto max-w-none origin-bottom-right transition-transform duration-500 group-hover:scale-105"
-                      : `pointer-events-none absolute h-full object-contain object-right-bottom p-3 transition-transform duration-500 group-hover:scale-105 ${imageClass ?? "inset-0 w-full"}`
+                      : `pointer-events-none absolute object-contain object-right-bottom p-3 transition-transform duration-500 group-hover:scale-105 ${imageClass ?? "inset-0 h-full w-full"}`
                   }
                 />
 
                 {/* Contenu : même structure pour toutes les cartes */}
                 <div className="relative z-10 flex h-full flex-col p-4 lg:p-5">
-                  {/* En-tête : titre à gauche, accroche tout à droite (passe dessous si besoin) */}
-                  <div className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1">
+                  {/* En-tête : accroche sous le titre sur mobile, tout à droite dès 640 px */}
+                  <div className="flex flex-col gap-1 sm:flex-row sm:flex-wrap sm:items-center sm:justify-between sm:gap-x-4">
                     <h3 className="!m-0 text-white">{title}</h3>
                     <p className="!m-0 text-sm text-[#E9C46A]">{accroche}</p>
                   </div>
@@ -156,7 +157,7 @@ export default function ServicesPreview() {
 
                   {/* Points clés (grande carte), juste sous la description */}
                   {points && (
-                    <ul className="mt-4 space-y-2 text-slate-300">
+                    <ul className="mt-4 space-y-2 text-[length:var(--fs-p)] text-slate-300">
                       {points.map((point) => (
                         <li key={point} className="flex items-center gap-2">
                           <Check className="h-4 w-4 shrink-0 text-[#E9C46A]" aria-hidden="true" />
