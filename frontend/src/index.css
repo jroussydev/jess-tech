@@ -431,6 +431,22 @@
  
       #020817;
   }
+
+  /* ---------- Raccord sans couture entre sections ----------
+     Sur mobile/tablette, les hauteurs « à virgule » (typo fluide)
+     laissent parfois un fin trait sombre entre deux sections.
+     Une ombre nette de 3 px, de la couleur de départ du fondu,
+     déborde au-dessus de la section et bouche ce trait.
+     Rien ne bouge : une ombre ne prend pas de place. */
+
+  .section-fade-hero,
+  .section-fade-light-soft {
+    box-shadow: 0 -3px 0 #020817;
+  }
+
+  .section-fade-dark-soft {
+    box-shadow: 0 -3px 0 #F5F7FC;
+  }
 }
  
  
