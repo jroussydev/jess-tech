@@ -73,7 +73,7 @@ export default function ServicesPreview() {
             Mobile et tablette : les 3 blocs l'un sous l'autre.
             Ordinateur (1280 px et plus) : blocs 1 et 3 à gauche (1 en haut, 3 en bas),
             cartes à droite sur toute la hauteur. */}
-        <div className="grid gap-8 pt-[65px] xl:grid-cols-[400px_minmax(0,1fr)] xl:grid-rows-[auto_1fr] xl:gap-x-12">
+        <div className="grid gap-8 pt-[65px] xl:grid-cols-[400px_minmax(0,1fr)] xl:grid-rows-[auto_1fr] xl:gap-x-12 xl:gap-y-4">
           {/* Bloc 1 : titre + paragraphes 1 et 2 */}
           <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-1">
             <p className="section-label !mt-0">Services</p>
@@ -175,8 +175,10 @@ export default function ServicesPreview() {
             ))}
           </div>
 
-          {/* Bloc 3 : paragraphes 3 et 4 + boutons (calé en bas sur ordinateur) */}
-          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-2 xl:self-end">
+          {/* Bloc 3 : paragraphes 3 et 4 + boutons.
+              Ordinateur : les paragraphes suivent directement le bloc 1,
+              les boutons restent calés en bas (alignés sur les cartes). */}
+          <div className="section-intro max-w-xl xl:col-start-1 xl:row-start-2 xl:flex xl:flex-col">
             <div className="space-y-4">
               <p>
                 Chaque service est pensé pour rester compréhensible par tous, utile et facile à maintenir dans le temps.
@@ -185,7 +187,7 @@ export default function ServicesPreview() {
                 N’hésitez pas à me contacter pour toute question, quelle qu’elle soit.
               </p>
             </div>
-            <div className="mt-6 flex flex-wrap gap-3">
+            <div className="mt-6 flex flex-wrap gap-3 xl:mt-auto xl:pt-6">
               <Link to="/contact" className="btn-primary btn-gold">
                 Écrivez-moi
               </Link>
